@@ -29,6 +29,8 @@ Add the dependency to your `pom.xml`:
 
 ### Initialize your dependencies
 ```kotlin
+import #TODO
+
 val channel = ManagedChannelBuilder.forAddress("api.wgtwo.com", 443).build()
 val credentials = BasicAuth("2c4kb1...", "vas7vb...")
 val blockingStub = VoicemailMediaServiceGrpc.newBlockingStub(channel).withCallCredentials(credentials)
