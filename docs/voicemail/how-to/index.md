@@ -48,10 +48,9 @@ Add the dependency to your `pom.xml`:
 ```kotlin
 import com.wgtwo.api.auth.Clients
 import com.wgtwo.api.common.OperatorToken
-import com.wgtwo.example.Secrets
 
-val channel = ManagedChannelBuilder.forAddress("api.wgtwo.com", 443).build()
-val credentials = BasicAuth("acb...", "xyz...")
+val channel = Clients.createChannel(Clients.Environment.PROD)
+val credentials = OperatorToken("acb...", "xyz...") // or UserToken("abc123...")
 val blockingStub = VoicemailMediaServiceGrpc.newBlockingStub(channel).withCallCredentials(credentials)
 ```
 
