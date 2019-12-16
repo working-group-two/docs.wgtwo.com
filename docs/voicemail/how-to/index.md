@@ -9,8 +9,8 @@ To list and play voicemails you will need to:
 
 ## Prerequisites
 
-### Token/Credentials
-* You will need [Credentials from Console](https://console.wgtwo.com/api-keys-redirect) to list voicemails for users on your platform.
+### Token/credentials
+* You will need [credentials from Console](https://console.wgtwo.com/api-keys-redirect) to list voicemails for users on your platform.
 * Or you will have to get a personal token for just your subscription, if your operator provides this.
 
 ### Msisdn on platform to target
