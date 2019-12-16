@@ -5,7 +5,7 @@
 To list and play voicemails you will need to:
 * [Get credentials from Console](https://console.wgtwo.com/api-keys-redirect)
 * Write code that does the work, targetting a specific phone number on the platform
-* Optional: Mark voicemails as read or delete it
+* Optional: Mark a voicemail as read or delete it
 
 ## Prerequisites
 
@@ -20,19 +20,38 @@ To list and play voicemails you will need to:
 
 Add the dependency to your `pom.xml`:
 ```xml
+<!-- Add jitpack repository -->
+//...
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+</project>
+
+
+<!-- Add dependency for voicemail-grpc and common -->
 <dependency>
-    <groupId>com.wgtwo.api</groupId>
-    <artifactId>TODO</artifactId>
-    <version>TODO</version>
+    <groupId>com.github.working-group-two.wgtwoapis</groupId>
+    <artifactId>voicemail-grpc</artifactId>
+    <version>master</version>
+</dependency>
+<dependency>
+    <groupId>com.github.working-group-two.wgtwoapis</groupId>
+    <artifactId>common</artifactId>
+    <version>master</version>
 </dependency>
 ```
 
 ### Initialize your dependencies
 ```kotlin
-import #TODO
+import com.wgtwo.api.auth.Clients
+import com.wgtwo.api.common.OperatorToken
+import com.wgtwo.example.Secrets
 
 val channel = ManagedChannelBuilder.forAddress("api.wgtwo.com", 443).build()
-val credentials = BasicAuth("2c4kb1...", "vas7vb...")
+val credentials = BasicAuth("acb...", "xyz...")
 val blockingStub = VoicemailMediaServiceGrpc.newBlockingStub(channel).withCallCredentials(credentials)
 ```
 
@@ -71,7 +90,7 @@ fun playVoicemail(voicemailId: String) {
         return
     }
 
-    val tempFile = createTempFile(directory = File("/tmp/"), prefix = "voicemail", suffix = ".mp3")
+    val tempFile = createTempFile(prefix = "voicemail", suffix = ".mp3")
     val outputStream = tempFile.outputStream()
     voicemail.voicemailFile.writeTo(outputStream)
     outputStream.close()
@@ -116,8 +135,8 @@ fun deleteVoicemail(voicemailId: String): Boolean {
 ```
 
 ## Resources
-* [link to wgtwo-kotlin example repo (doesn't exist yet)](https://github.com/omnicate/wgtwo-kotlin-code-snippets) [inspired by https://github.com/Nexmo/nexmo-java-code-snippets] TODO
-* [voicemail.proto API reference](https://github.com/omnicate/wgtwoapis/blob/master/wgtwo/voicemail/voicemail.proto)
+* [Example repo](https://github.com/working-group-two/wgtwo-kotlin-code-snippets/blob/master/src/main/kotlin/com/wgtwo/example/voicemail/VoicemailDemo.kt)
+* [voicemail.proto API reference](https://github.com/working-group-two/wgtwoapis/blob/master/wgtwo/voicemail/voicemail.proto)
 
 ## Concepts
 * [wikipedia.org/wiki/Voicemail](https://en.wikipedia.org/wiki/Voicemail)
