@@ -51,10 +51,9 @@ Setting the version to `master` means that Jitpack will build whatever is on the
 ```kotlin
 import com.wgtwo.api.auth.Clients
 import com.wgtwo.api.common.OperatorToken
-import com.wgtwo.example.Secrets
 
-val channel = ManagedChannelBuilder.forAddress("api.wgtwo.com", 443).build()
-val credentials = BasicAuth("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
+val channel = Clients.createChannel(Clients.Environment.PROD)
+val credentials = OperatorToken("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET") // or UserToken("YOUR_TOKEN")
 val blockingStub = VoicemailMediaServiceGrpc.newBlockingStub(channel).withCallCredentials(credentials)
 ```
 
