@@ -18,31 +18,34 @@ To list and play voicemails you will need to:
 
 ### Install dependencies
 
-Add the dependency to your `pom.xml`:
+To add the dependencies, first you need to add the [Jitpack](https://jitpack.io) repository:
 ```xml
-<!-- Add jitpack repository -->
-//...
-    <repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-    </repositories>
-</project>
-
-
-<!-- Add dependency for voicemail-grpc and common -->
-<dependency>
-    <groupId>com.github.working-group-two.wgtwoapis</groupId>
-    <artifactId>voicemail-grpc</artifactId>
-    <version>master</version>
-</dependency>
-<dependency>
-    <groupId>com.github.working-group-two.wgtwoapis</groupId>
-    <artifactId>common</artifactId>
-    <version>master</version>
-</dependency>
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
 ```
+
+Then you can add `voicemail-grpc` and `common`:
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>com.github.working-group-two.wgtwoapis</groupId>
+        <artifactId>voicemail-grpc</artifactId>
+        <version>master</version>
+    </dependency>
+    <dependency>
+        <groupId>com.github.working-group-two.wgtwoapis</groupId>
+        <artifactId>common</artifactId>
+        <version>master</version>
+    </dependency>
+</dependencies>
+```
+
+Setting the version to `master` means that Jitpack will build whatever is on the master branch when the dependency is resolved.
 
 ### Initialize your dependencies
 ```kotlin
@@ -50,7 +53,7 @@ import com.wgtwo.api.auth.Clients
 import com.wgtwo.api.common.OperatorToken
 
 val channel = Clients.createChannel(Clients.Environment.PROD)
-val credentials = OperatorToken("acb...", "xyz...") // or UserToken("abc123...")
+val credentials = OperatorToken("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET") // or UserToken("YOUR_TOKEN")
 val blockingStub = VoicemailMediaServiceGrpc.newBlockingStub(channel).withCallCredentials(credentials)
 ```
 
