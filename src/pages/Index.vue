@@ -6,7 +6,7 @@
 
     <h1>WGTWO API docs</h1>
 
-    <h2><a href="/voicemail/how-to/list-and-play-voicemails">Voicemail</a></h2>
+    <h2><g-link to="/voicemail/how-to/list-and-play-voicemails">Voicemail</g-link></h2>
 
   </Layout>
 </template>
