@@ -1,3 +1,5 @@
+const nodeExternals = require('webpack-node-externals')
+
 // This is where project configuration and plugin options are located. 
 // Learn more: https://gridsome.org/docs/config
 
@@ -5,25 +7,54 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'Gridsome',
+  siteName: 'WGTWO API docs',
+  siteUrl: 'https://docs.wgtwo.com',
+
+  chainWebpack(config, { isServer }) {
+    config.module.rules.delete('svg')
+    config.module.rule('svg')
+      .test(/\.svg$/)
+      .use('vue')
+      .loader('vue-loader')
+      .end()
+      .use('svg-to-vue-component')
+      .loader('svg-to-vue-component/loader')
+
+    if (isServer) {
+      config.externals(nodeExternals({
+        whitelist: [
+          /\.css$/,
+          /\?vue&type=style/,
+          /vue-instantsearch/,
+          /instantsearch.js/,
+          /typeface-league-spartan/
+        ]
+      }))
+    }
+  },
+
   templates: {
-    DocPage: '/:topic/:category/:title' // e.g. /voicemail/how-to/list-and-play-voicemails
   },
   plugins: [
     {
-      use: '@gridsome/source-filesystem',
+      use: '@gridsome/vue-remark',
       options: {
-        path: 'docs/**/*.md',
+        baseDir: './docs',
         typeName: 'DocPage',
+        template: './src/templates/DocPage.vue',
+        route: '/:topic/:type/:title', // e.g. /voicemail/how-to/List-and-play-voicemails
+        plugins: [
+          '@gridsome/remark-prismjs'
+        ],
         remark: {
-          // remark options
+          autolinkHeadings: {
+            content: {
+              type: 'text',
+              value: '#'
+            }
+          }
         }
       }
-    }
+    },
   ],
-  transformers: {
-    remark: {
-      // global remark options
-    }
-  }
 }
