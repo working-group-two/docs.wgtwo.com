@@ -2,7 +2,7 @@
   <div class="layout">
     <header class="header">
       <strong>
-        <g-link to="/">{{ $static.metadata.siteName }}</g-link>
+        <g-link exact to="/">{{ $static.metadata.siteName }}</g-link>
       </strong>
       <nav class="nav">
       </nav>

@@ -8,7 +8,8 @@ const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
   siteName: 'WGTWO API docs',
-  siteUrl: 'https://docs.wgtwo.com',
+  siteUrl: 'https://working-group-two.github.io',
+  pathPrefix: '/docs.wgtwo.com',
 
   chainWebpack(config, { isServer }) {
     config.module.rules.delete('svg')
