@@ -7,7 +7,7 @@
           <li v-for="item in topic.items" :key="item.id">
             <g-link v-if="item.externalLink === ''" :to="item.path">{{item.title}}</g-link>
             <span v-else>
-              <a :href="item.externalLink" target="_blank">{{item.title}}</a>↗️
+              <a :href="item.externalLink" target="_blank">{{item.title}} ↗️</a>
             </span>
           </li>
         </ul>
@@ -39,6 +39,12 @@
     <article>
       <slot />
     </article>
+    <p>
+      <a :href="editLink" target="_blank" class="github-edit-link">
+        <Github />
+        <span> Edit this page on GitHub</span>
+      </a>
+    </p>
     <nav class="docs-nav">
       <div class="docs-nav__previous">
         <g-link
@@ -91,10 +97,7 @@ export default {
       return this.$route.matched[0].path;
     },
     editLink() {
-      let path = this.currentPath;
-      if ((path.match(new RegExp("/", "g")) || []).length == 1)
-        path = path + "/README";
-      return `https://github.com/gridsome/gridsome.org/blob/master${path}.md`;
+      return `https://github.com/working-group-two/docs.wgtwo.com/blob/master/docs/${this.currentItem.fileInfo.path}`;
     },
     items() {
       return this.links.reduce(
@@ -108,6 +111,9 @@ export default {
           item.path.replace(/\/$/, "") === this.$route.path.replace(/\/$/, "")
         );
       });
+    },
+    currentItem() {
+      return this.items[this.currentIndex];
     },
     nextPage() {
       return this.items[this.currentIndex + 1];

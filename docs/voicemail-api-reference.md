@@ -7,5 +7,4 @@ title: API reference
 
 import Github from "~/assets/images/github-logo.svg";
 
-
-<h2><a :href="$frontmatter.externalLink" target="_blank"><Github /> {{ $frontmatter.title }}↗️</a></h2>
+<h2><a :href="$frontmatter.externalLink" target="_blank"><Github /> {{ $frontmatter.title }}</a></h2>

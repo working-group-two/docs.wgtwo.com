@@ -17,6 +17,7 @@ query ($id: ID!) {
       anchor
     }
   }
+
   allDocPage {
     edges {
       node {
@@ -25,6 +26,9 @@ query ($id: ID!) {
         externalLink
         path
         id
+        fileInfo {
+          path
+        }
       }
     }
   }
