@@ -12,8 +12,8 @@ A traditional SMS sent from one of your subscribers to another subscriber passes
 
 You probably want `OUTGOING` if:
 * The SMS should be as if it was sent from a subscriber's phone.
-* To think of it like you have a phone and want to use it, then you always want `OUTGOING`
+* You want it to work like having a phone and using it to send SMS.
 
 You probably want `INCOMING` if:
-* You want to send SMS to one of your subscribers, say from `Wotel`. The sender can be text based.
-* You're also interested in sending towards a phone without having one to send from.
+* You want to send SMS to one of your subscribers, from a text number like `Wotel`.
+* You're interested in sending towards a phone without having one to send from.
