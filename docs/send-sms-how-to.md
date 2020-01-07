@@ -92,7 +92,7 @@ fun Msisdn.toAddress(): Messagecore.Address = Messagecore.Address.newBuilder()
 
 ## Resources
 * [SendSmsDemo.kt](https://github.com/working-group-two/wgtwo-kotlin-code-snippets/blob/master/src/main/kotlin/com/wgtwo/example/sendsms/SendSmsDemo.kt)
-* [voicemail.proto API reference](https://github.com/working-group-two/wgtwoapis/blob/master/wgtwo/messaging/messagecore.proto)
+* [Messagecore API reference](https://github.com/working-group-two/wgtwoapis/blob/master/wgtwo/messaging/messagecore.proto)
 
 ## Concepts
 * [wikipedia.org/wiki/SMS](https://en.wikipedia.org/wiki/SMS)
