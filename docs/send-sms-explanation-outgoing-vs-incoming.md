@@ -6,7 +6,7 @@ type: explanation
 
 # SMS direction OUTGOING vs INCOMING
 
-You can send an SMS with a `Direction` both as `OUTGOING` or `INCOMING`.
+You can send an SMS with a `Direction` either as `OUTGOING` or `INCOMING`.
 
 A traditional SMS sent from one of your subscribers to another subscriber passes through the system two times. One time as `OUTGOING` and once as `INCOMING`. With the correct permissions it is possible to omit the outgoing SMS if you are sending to one of your subscribers. What to use depends on what kind of scenario you're facing.
 
