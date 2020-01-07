@@ -1,8 +1,8 @@
 ---
-externalLink: https://github.com/working-group-two/wgtwoapis/blob/master/wgtwo/voicemail/voicemail.proto
-topic: voicemail
+externalLink: https://github.com/working-group-two/wgtwoapis/blob/master/wgtwo/messaging/messagecore.proto
+topic: Send SMS
 type: api-reference
-title: Voicemail API reference
+title: Send SMS API reference
 ---
 
 import Github from "~/assets/images/github-logo.svg";

@@ -17,7 +17,6 @@ To list and play voicemails you will need to:
 
 ### Token/credentials
 * You will need [credentials from Console](https://console.wgtwo.com/api-keys-redirect) to list voicemails for users on your platform.
-* Or you will have to get a personal token for just your subscription, if your operator provides this.
 
 ### Msisdn on platform to target
 * The code assumes you know which phone number (msisdn) you wish to get voicemails from.
@@ -41,17 +40,15 @@ Then you can add `voicemail-grpc` and `common`:
     <dependency>
         <groupId>com.github.working-group-two.wgtwoapis</groupId>
         <artifactId>voicemail-grpc</artifactId>
-        <version>master</version>
+        <version>bc0f39d</version>
     </dependency>
     <dependency>
         <groupId>com.github.working-group-two.wgtwoapis</groupId>
         <artifactId>common</artifactId>
-        <version>master</version>
+        <version>bc0f39d</version>
     </dependency>
 </dependencies>
 ```
-
-Setting the version to `master` means that Jitpack will build whatever is on the master branch when the dependency is resolved.
 
 ### Initialize your dependencies
 ```kotlin
@@ -59,7 +56,7 @@ import com.wgtwo.api.auth.Clients
 import com.wgtwo.api.common.OperatorToken
 
 val channel = Clients.createChannel(Clients.Environment.PROD)
-val credentials = OperatorToken("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET") // or UserToken("YOUR_TOKEN")
+val credentials = OperatorToken("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 val blockingStub = VoicemailMediaServiceGrpc.newBlockingStub(channel).withCallCredentials(credentials)
 ```
 
@@ -143,7 +140,7 @@ fun deleteVoicemail(voicemailId: String): Boolean {
 ```
 
 ## Resources
-* [Example repo](https://github.com/working-group-two/wgtwo-kotlin-code-snippets/blob/master/src/main/kotlin/com/wgtwo/example/voicemail/VoicemailDemo.kt)
+* [VoicemailDemo.kt](https://github.com/working-group-two/wgtwo-kotlin-code-snippets/blob/master/src/main/kotlin/com/wgtwo/example/voicemail/VoicemailDemo.kt)
 * [voicemail.proto API reference](https://github.com/working-group-two/wgtwoapis/blob/master/wgtwo/voicemail/voicemail.proto)
 
 ## Concepts
