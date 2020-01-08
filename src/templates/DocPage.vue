@@ -26,6 +26,7 @@ query ($id: ID!) {
         externalLink
         path
         id
+        type
         fileInfo {
           path
         }
@@ -49,17 +50,17 @@ export default {
 
       const sortTopics = (a, b) => {
         const map = topicsEnumerated;
-        const unsortedVal = map.size;
-        let aVal = map.has(a.title) ? map.get(a.title) : unsortedVal;
-        let bVal = map.has(b.title) ? map.get(b.title) : unsortedVal;
+        const afterOthersValue = map.size.toString();
+        let aVal = map.has(a) ? map.get(a).toString() : afterOthersValue + a; // `+ a` and `+ b` are needed to order things the same each time
+        let bVal = map.has(b) ? map.get(b).toString() : afterOthersValue + b;
         return aVal-bVal;
       };
 
       const sortTypes = (a, b) => {
         const map = typesEnumerated;
-        const unsortedVal = map.size;
-        let aVal = map.has(a.type) ? map.get(a.type) : unsortedVal;
-        let bVal = map.has(b.type) ? map.get(b.type) : unsortedVal;
+        const afterOthersValue = map.size.toString();
+        let aVal = map.has(a.type) ? map.get(a.type).toString() : afterOthersValue + a.title; 
+        let bVal = map.has(b.type) ? map.get(b.type).toString() : afterOthersValue + b.title;
         return aVal-bVal;
       };
 
