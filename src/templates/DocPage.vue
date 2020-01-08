@@ -60,7 +60,7 @@ export default {
         const map = typesEnumerated;
         const afterOthersValue = map.size.toString();
         let aVal = map.has(a.type) ? map.get(a.type).toString() : afterOthersValue + a.title; 
-        let bVal = map.has(b.type) ? map.get(b.type.toString()) : afterOthersValue + b.title;
+        let bVal = map.has(b.type) ? map.get(b.type).toString() : afterOthersValue + b.title;
         return aVal-bVal;
       };
 
