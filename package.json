@@ -6,7 +6,8 @@
     "develop": "gridsome develop",
     "explore": "gridsome explore",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "test": "echo no tests yet"
   },
   "dependencies": {
     "gh-pages": "^2.1.1",
