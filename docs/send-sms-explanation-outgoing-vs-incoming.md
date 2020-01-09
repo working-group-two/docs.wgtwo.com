@@ -8,7 +8,10 @@ type: explanation
 
 You can send an SMS with a `Direction` either as `OUTGOING` or `INCOMING`.
 
-A traditional SMS sent from one of your subscribers to another subscriber passes through the system two times. One time as `OUTGOING` and once as `INCOMING`. With the correct permissions it is possible to omit the outgoing SMS if you are sending to one of your subscribers. What to use depends on what kind of scenario you're facing.
+A traditional SMS sent from one of your subscribers to another of your subscriber passes through the system two times; one time as `OUTGOING` and once as `INCOMING`. With the correct permissions it is possible to omit the outgoing SMS if you are sending to one of your subscribers. What to use depends on what kind of scenario you're facing.
+
+Outgoing means the message is going from one of your subscribers.
+Incoming means the message is going to one of your subscribers.
 
 You probably want `OUTGOING` if:
 * The SMS should be as if it was sent from a subscriber's phone.

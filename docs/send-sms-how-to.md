@@ -15,7 +15,7 @@ To send an SMS you will need to:
 ## Prerequisites
 
 ### Token/credentials
-* You will need [credentials from Console](https://console.wgtwo.com/api-keys-redirect) to list voicemails for users on your platform.
+* You will need [credentials from Console](https://console.wgtwo.com/api-keys-redirect) to send SMS to/for users on your platform.
 
 ### Install dependencies
 
