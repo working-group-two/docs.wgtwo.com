@@ -6,7 +6,7 @@
       </div>
       <footer>
         <aside class="editthispage">
-          <a :href="editLink" target="_blank" class="button">
+          <a :href="editLink" target="_blank" class="button editthispage__anchor">
             <Github class="editthispage__githublogo" />Edit this page on GitHub
           </a>
         </aside>
@@ -67,14 +67,6 @@
   </Layout>
 </template>
 
-<static-query>
-query {
-  metadata {
-    siteName
-  }
-}
-</static-query>
-
 <style scoped>
 .anchormenu__sub-menu {
   padding-left: 1rem;
@@ -99,6 +91,11 @@ query {
 
 .editthispage__githublogo {
   margin-right: .2rem;
+}
+
+.editthispage__anchor {
+  border: none;
+  color: hsla(0, 0%, 50%);
 }
 </style>
 

@@ -29,14 +29,6 @@
   </div>
 </template>
 
-<static-query>
-query {
-  metadata {
-    siteName
-  }
-}
-</static-query>
-
 <style scoped>
 .topnav {
   border-bottom: 1px solid hsla(0, 0%, 90%, 1);
