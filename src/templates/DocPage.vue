@@ -17,7 +17,11 @@ query ($id: ID!) {
       anchor
     }
   }
+}
+</page-query>
 
+<static-query>
+query {
   allDocPage {
     edges {
       node {
@@ -34,7 +38,7 @@ query ($id: ID!) {
     }
   }
 }
-</page-query>
+</static-query>
 
 <script>
 import ordering from "@/data/ordering.yaml";
@@ -42,7 +46,7 @@ import ordering from "@/data/ordering.yaml";
 export default {
   computed: {
     links() {
-      const docPages = this.$page.allDocPage.edges.map(edge => edge.node);
+      const docPages = this.$static.allDocPage.edges.map(edge => edge.node);
       const topics = new Set(docPages.map(d => d.topic));
       const types = new Set(docPages.map(d => d.type));
       const topicsEnumerated = new Map(ordering.topic.map((el, index) => [el, index]));
