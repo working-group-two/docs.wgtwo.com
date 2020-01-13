@@ -1,11 +1,9 @@
 <template>
   <div>
-    <b-navbar class="topnav" mobile-burger="false">
+    <b-navbar class="topnav" v-bind:mobile-burger="false">
       <template slot="brand">
-        <b-navbar-item>
-          <g-link exact to="/">
-            <WGTwo class="navbar__logo" />
-          </g-link>
+        <b-navbar-item tag="g-link" exact to="/">
+          <WGTwo class="navbar__logo" />
         </b-navbar-item>
       </template>
     </b-navbar>
