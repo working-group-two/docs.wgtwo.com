@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar class="topnav">
+    <b-navbar class="topnav" :mobile-burger="false">
       <template slot="brand">
         <b-navbar-item>
           <g-link exact to="/">
