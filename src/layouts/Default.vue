@@ -1,16 +1,31 @@
 <template>
-  <div class="layout">
-    <header class="header">
-      <strong>
-        <g-link exact to="/">{{ $static.metadata.siteName }}</g-link>
-      </strong>
-      <nav class="nav">
-      </nav>
-    </header>
-    <nav>
-      <slot name="leftnav"></slot>
-    </nav>
-    <slot/>
+  <div>
+    <b-navbar class="topnav">
+      <template slot="brand">
+        <b-navbar-item>
+          <g-link exact to="/">
+            <WGTwo class="navbar__logo" />
+          </g-link>
+        </b-navbar-item>
+      </template>
+    </b-navbar>
+
+    <main class="section">
+      <div class="columns">
+        <article class="column is-three-fifths">
+          <slot></slot>
+        </article>
+        <nav class="column articlenav">
+          <slot name="articlenav"></slot>
+        </nav>
+        <nav class="column docsnav">
+          <slot name="docsnav"></slot>
+        </nav>
+      </div>
+    </main>
+    <footer class="footer footernav">
+      <slot name="docsnav"></slot>
+    </footer>
   </div>
 </template>
 
@@ -22,30 +37,43 @@ query {
 }
 </static-query>
 
-<style>
-body {
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  margin:0;
-  padding:0;
-  line-height: 1.5;
+<style scoped>
+.topnav {
+  border-bottom: 1px solid hsla(0, 0%, 90%, 1);
 }
 
-.layout {
-  max-width: 760px;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
+.docsnav {
+  order: -1;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  height: 80px;
+.navbar__logo {
+  width: auto;
+  height: 30px;
 }
 
-.nav__link {
-  margin-left: 20px;
+@media screen and (max-width: 768px) {
+  .articlenav {
+    display: none;
+  }
+
+  .docsnav {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .footernav {
+    display: none;
+  }
 }
 </style>
+
+<script>
+import WGTwo from "~/assets/images/wgtwo-logo-square.svg";
+
+export default {
+  components: {
+    WGTwo
+  }
+};
+</script>
