@@ -57,7 +57,7 @@ export default {
         const afterOthersValue = map.size.toString();
         let aVal = map.has(a) ? map.get(a).toString() : afterOthersValue + a; // `+ a` and `+ b` are needed to order things the same each time
         let bVal = map.has(b) ? map.get(b).toString() : afterOthersValue + b;
-        return aVal-bVal;
+        return aVal < bVal ? -1 : 1;
       };
 
       const sortTypes = (a, b) => {
@@ -65,7 +65,7 @@ export default {
         const afterOthersValue = map.size.toString();
         let aVal = map.has(a.type) ? map.get(a.type).toString() : afterOthersValue + a.title; 
         let bVal = map.has(b.type) ? map.get(b.type).toString() : afterOthersValue + b.title;
-        return aVal-bVal;
+        return aVal < bVal ? -1 : 1;
       };
 
       return [...topics]
