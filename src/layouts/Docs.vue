@@ -15,7 +15,7 @@
             <g-link
               v-if="previousPage"
               exact
-              class="button button--small docs-nav__link"
+              class="button is-link is-inverted docs-nav__link"
               :to="previousPage.path"
             >&larr; {{ previousPage.title }}</g-link>
           </div>
@@ -23,7 +23,7 @@
             <g-link
               v-if="nextPage"
               exact
-              class="button button--small docs-nav__link"
+              class="button is-link is-inverted docs-nav__link"
               :to="nextPage.path"
             >{{ nextPage.title }} &rarr;</g-link>
           </div>
