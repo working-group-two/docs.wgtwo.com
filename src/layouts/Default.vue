@@ -21,7 +21,7 @@
         </nav>
       </div>
     </main>
-    <footer class="footer footernav">
+    <footer class="footer footernav" v-if="this.$slots.docsnav">
       <slot name="docsnav"></slot>
     </footer>
   </div>
