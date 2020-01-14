@@ -17,7 +17,11 @@ query ($id: ID!) {
       anchor
     }
   }
+}
+</page-query>
 
+<static-query>
+query {
   allDocPage {
     edges {
       node {
@@ -34,7 +38,7 @@ query ($id: ID!) {
     }
   }
 }
-</page-query>
+</static-query>
 
 <script>
 import ordering from "@/data/ordering.yaml";
@@ -42,7 +46,7 @@ import ordering from "@/data/ordering.yaml";
 export default {
   computed: {
     links() {
-      const docPages = this.$page.allDocPage.edges.map(edge => edge.node);
+      const docPages = this.$static.allDocPage.edges.map(edge => edge.node);
       const topics = new Set(docPages.map(d => d.topic));
       const types = new Set(docPages.map(d => d.type));
       const topicsEnumerated = new Map(ordering.topic.map((el, index) => [el, index]));
@@ -53,7 +57,7 @@ export default {
         const afterOthersValue = map.size.toString();
         let aVal = map.has(a) ? map.get(a).toString() : afterOthersValue + a; // `+ a` and `+ b` are needed to order things the same each time
         let bVal = map.has(b) ? map.get(b).toString() : afterOthersValue + b;
-        return aVal-bVal;
+        return aVal < bVal ? -1 : 1;
       };
 
       const sortTypes = (a, b) => {
@@ -61,7 +65,7 @@ export default {
         const afterOthersValue = map.size.toString();
         let aVal = map.has(a.type) ? map.get(a.type).toString() : afterOthersValue + a.title; 
         let bVal = map.has(b.type) ? map.get(b.type).toString() : afterOthersValue + b.title;
-        return aVal-bVal;
+        return aVal < bVal ? -1 : 1;
       };
 
       return [...topics]

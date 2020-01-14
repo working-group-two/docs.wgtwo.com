@@ -1,6 +1,36 @@
 <template>
   <Layout>
-    <template v-slot:leftnav>
+    <div>
+      <div class="content">
+        <slot />
+      </div>
+      <footer>
+        <aside class="editthispage">
+          <a :href="editLink" target="_blank" class="button editthispage__anchor">
+            <Github class="editthispage__githublogo" />Edit this page on GitHub
+          </a>
+        </aside>
+        <nav>
+          <div class="docs-nav__previous">
+            <g-link
+              v-if="previousPage"
+              exact
+              class="button is-link is-inverted docs-nav__link"
+              :to="previousPage.path"
+            >&larr; {{ previousPage.title }}</g-link>
+          </div>
+          <div class="docs-nav__next">
+            <g-link
+              v-if="nextPage"
+              exact
+              class="button is-link is-inverted docs-nav__link"
+              :to="nextPage.path"
+            >{{ nextPage.title }} &rarr;</g-link>
+          </div>
+        </nav>
+      </footer>
+    </div>
+    <template v-slot:docsnav>
       <div v-for="topic in links" :key="topic.title">
         <h3 style="text-transform: capitalize">{{topic.title}}</h3>
         <ul class="docs-nav__list">
@@ -13,71 +43,59 @@
         </ul>
       </div>
     </template>
-    <section>
-      <nav v-if="subtitles.length">
-        <h3>On this page</h3>
-        <ul class="menu-item anchormenu">
-          <li
-            class="anchormenu__item anchormenu__item-depth-2"
-            :key="h2.value"
-            v-for="h2 in subtitles"
-          >
-            <a class="anchormenu__link" :href="h2.anchor">{{ h2.value }}</a>
-            <ul v-if="h2.children" class="anchormenu__sub-menu">
-              <li
-                v-for="h3 in h2.children"
-                :key="h3.value"
-                class="anchormenu__item anchormenu__item-depth-3"
-              >
-                <a class="anchormenu__link" :href="h3.anchor">{{ h3.value }}</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </section>
-    <article>
-      <slot />
-    </article>
-    <p>
-      <a :href="editLink" target="_blank" class="github-edit-link">
-        <Github />
-        <span> Edit this page on GitHub</span>
-      </a>
-    </p>
-    <nav class="docs-nav">
-      <div class="docs-nav__previous">
-        <g-link
-          v-if="previousPage"
-          exact
-          class="button button--small docs-nav__link"
-          :to="previousPage.path"
-        >&larr; {{ previousPage.title }}</g-link>
-      </div>
-      <div class="docs-nav__next">
-        <g-link
-          v-if="nextPage"
-          exact
-          class="button button--small docs-nav__link"
-          :to="nextPage.path"
-        >{{ nextPage.title }} &rarr;</g-link>
-      </div>
-    </nav>
+    <template v-slot:articlenav v-if="subtitles.length">
+      <p>On this page</p>
+      <ul class="anchormenu">
+        <li
+          class="anchormenu__item anchormenu__item-depth-2"
+          :key="h2.value"
+          v-for="h2 in subtitles"
+        >
+          <a class="anchormenu__link" :href="h2.anchor">{{ h2.value }}</a>
+          <ul v-if="h2.children" class="anchormenu__sub-menu">
+            <li
+              v-for="h3 in h2.children"
+              :key="h3.value"
+              class="anchormenu__item anchormenu__item-depth-3"
+            >
+              <a class="anchormenu__link" :href="h3.anchor">{{ h3.value }}</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </template>
   </Layout>
 </template>
 
-<static-query>
-query {
-  metadata {
-    siteName
-  }
-}
-</static-query>
-
 <style scoped>
-ul {
-  list-style-type: none;
+.anchormenu__sub-menu {
   padding-left: 1rem;
+}
+
+.docs-nav__list {
+  padding-left: 1rem;
+}
+
+.editthispage {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.docs-nav__previous {
+  float: left;
+}
+
+.docs-nav__next {
+  float: right;
+}
+
+.editthispage__githublogo {
+  margin-right: .2rem;
+}
+
+.editthispage__anchor {
+  border: none;
+  color: hsla(0, 0%, 50%);
 }
 </style>
 
