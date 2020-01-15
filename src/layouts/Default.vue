@@ -27,13 +27,32 @@
   </div>
 </template>
 
+<style>
+:root {
+  --nav-sticky-top-position: 89px;
+}
+.active {
+  font-weight: bolder;
+}
+</style>
 <style scoped>
 .topnav {
   border-bottom: 1px solid hsla(0, 0%, 90%, 1);
+  position: sticky;
+  top: 0;
 }
 
 .docsnav {
   order: -1;
+  position: sticky;
+  top: var(--nav-sticky-top-position);
+  align-self: flex-start;
+}
+
+.articlenav {
+  position: sticky;
+  top: var(--nav-sticky-top-position);
+  align-self: flex-start;
 }
 
 .navbar__logo {
@@ -55,12 +74,6 @@
   .footernav {
     display: none;
   }
-}
-</style>
-
-<style>
-.active {
-  font-weight: bolder;
 }
 </style>
 
