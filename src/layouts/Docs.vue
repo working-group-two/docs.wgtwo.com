@@ -32,19 +32,19 @@
     </div>
     <template v-slot:docsnav>
       <div v-for="topic in links" :key="topic.title">
-        <h3 style="text-transform: capitalize">{{topic.title}}</h3>
+        <h3 style="text-transform: uppercase">{{topic.title}}</h3>
         <ul class="docs-nav__list">
           <li v-for="item in topic.items" :key="item.id">
             <g-link v-if="item.externalLink === ''" :to="item.path">{{item.title}}</g-link>
             <span v-else>
-              <a :href="item.externalLink" target="_blank">{{item.title}} ↗️</a>
+              <a :href="item.externalLink" target="_blank" v-bind:class="{ active: item.path === currentPath }">{{item.title}} ↗️</a>
             </span>
           </li>
         </ul>
       </div>
     </template>
     <template v-slot:articlenav v-if="subtitles.length">
-      <p>On this page</p>
+      <p>ON THIS PAGE</p>
       <ul class="anchormenu">
         <li
           class="anchormenu__item anchormenu__item-depth-2"
@@ -112,7 +112,7 @@ export default {
   },
   computed: {
     currentPath() {
-      return this.$route.matched[0].path;
+      return this.$route.matched[0].path + "/";
     },
     editLink() {
       return `https://github.com/working-group-two/docs.wgtwo.com/blob/master/docs/${this.currentItem.fileInfo.path}`;
