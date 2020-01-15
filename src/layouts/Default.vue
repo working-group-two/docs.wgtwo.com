@@ -13,15 +13,15 @@
         <article class="column is-three-fifths">
           <slot></slot>
         </article>
-        <nav class="column articlenav is-one-fifths">
+        <nav class="column articlenav is-one-fifths is-hidden-touch">
           <slot name="articlenav"></slot>
         </nav>
-        <nav class="column docsnav is-one-fifths">
+        <nav class="column docsnav is-one-fifths is-hidden-touch">
           <slot name="docsnav"></slot>
         </nav>
       </div>
     </main>
-    <footer class="footer footernav" v-if="this.$slots.docsnav">
+    <footer class="footer is-hidden-desktop" v-if="this.$slots.docsnav">
       <slot name="docsnav"></slot>
     </footer>
   </div>
@@ -42,6 +42,12 @@
   top: 0;
 }
 
+@media screen and (max-width: 769px) {
+  .topnav {
+    position: initial;
+  }
+}
+
 .docsnav {
   order: -1;
   position: sticky;
@@ -58,22 +64,6 @@
 .navbar__logo {
   width: auto;
   height: 30px;
-}
-
-@media screen and (max-width: 768px) {
-  .articlenav {
-    display: none;
-  }
-
-  .docsnav {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 769px) {
-  .footernav {
-    display: none;
-  }
 }
 </style>
 
