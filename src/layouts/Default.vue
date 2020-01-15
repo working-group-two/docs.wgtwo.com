@@ -58,6 +58,12 @@
 }
 </style>
 
+<style>
+.active {
+  font-weight: bolder;
+}
+</style>
+
 <script>
 import WGTwo from "~/assets/images/wgtwo-logo-square.svg";
 
