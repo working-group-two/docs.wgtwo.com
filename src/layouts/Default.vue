@@ -13,10 +13,10 @@
         <article class="column is-three-fifths">
           <slot></slot>
         </article>
-        <nav class="column articlenav">
+        <nav class="column articlenav is-one-fifths">
           <slot name="articlenav"></slot>
         </nav>
-        <nav class="column docsnav">
+        <nav class="column docsnav is-one-fifths">
           <slot name="docsnav"></slot>
         </nav>
       </div>
@@ -37,7 +37,7 @@
 </style>
 <style scoped>
 .topnav {
-  border-bottom: 1px solid hsla(0, 0%, 90%, 1);
+  border-bottom: 1px solid hsl(0, 0%, 90%);
   position: sticky;
   top: 0;
 }
@@ -78,7 +78,7 @@
 </style>
 
 <script>
-import WGTwo from "~/assets/images/wgtwo-logo-square.svg";
+import WGTwo from "~/assets/images/wgtwo-logo.svg";
 
 export default {
   components: {
