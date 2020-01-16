@@ -9,6 +9,7 @@
 </template>
 <script>
 import Github from "~/assets/images/github-logo.svg";
+import { get } from "axios";
 
 export default {
   components: {
@@ -33,9 +34,8 @@ export default {
   },
   methods: {
     fetchData: function() {
-      return fetch(this.rawLink)
-        .then(r => r.text())
-        .then(text => (this.content = text))
+      return get(this.rawLink, { responseType: 'text' })
+        .then(res => (this.content = res.data))
         .catch(e => {
           this.content = "Failed to load code, please use the link";
           this.failed = true;
