@@ -30,7 +30,8 @@ nav a.active {
 
 /* Fix prismjs vs bulma making some numbers very big:
 https://github.com/jgthms/bulma/issues/1708#issuecomment-382560341 */
-.content .tag, .content .number {
+.content .tag,
+.content .number {
   display: inline;
   padding: inherit;
   font-size: inherit;
@@ -42,6 +43,22 @@ https://github.com/jgthms/bulma/issues/1708#issuecomment-382560341 */
   white-space: inherit;
   background: inherit;
   margin: inherit;
+}
+
+.content h1 a {
+  display: none;
+}
+
+/* hack to make header links work with sticky nav in desktop mode */
+@media screen and (min-width: 1024px) {
+  #content h2,
+  #content h3,
+  #content h4,
+  #content h5,
+  #content h6 {
+    padding-top: 65px;
+    margin-top: -49px;
+  }
 }
 </style>
 <style scoped>

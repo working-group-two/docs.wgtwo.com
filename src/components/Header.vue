@@ -23,7 +23,7 @@ export default {
   top: 0;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 1023px) {
   .topnav {
     position: initial;
   }

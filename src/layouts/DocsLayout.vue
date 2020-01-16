@@ -1,7 +1,7 @@
 <template>
   <DefaultLayout>
     <div>
-      <div class="content">
+      <div class="content" id="content">
         <slot />
       </div>
       <footer>
