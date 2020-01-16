@@ -27,7 +27,6 @@ export default {
   },
   data() {
     return {
-      loading: true,
       content: "Loading...",
       failed: true
     };
@@ -41,7 +40,6 @@ export default {
           this.content = "Failed to load code, please use the link";
           this.failed = true;
         })
-        .finally((this.loading = false));
     }
   },
   computed: {
