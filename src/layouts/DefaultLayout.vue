@@ -1,13 +1,6 @@
 <template>
   <div>
-    <b-navbar class="topnav" v-bind:mobile-burger="false">
-      <template slot="brand">
-        <b-navbar-item tag="g-link" exact to="/">
-          <WGTwo class="navbar__logo" />
-        </b-navbar-item>
-      </template>
-    </b-navbar>
-
+    <Header></Header>
     <main class="section">
       <div class="columns">
         <article class="column is-three-fifths">
@@ -31,23 +24,27 @@
 :root {
   --nav-sticky-top-position: 89px;
 }
-.active {
+nav a.active {
   font-weight: bolder;
+}
+
+/* Fix prismjs vs bulma making some numbers very big:
+https://github.com/jgthms/bulma/issues/1708#issuecomment-382560341 */
+.content .tag, .content .number {
+  display: inline;
+  padding: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  text-align: inherit;
+  vertical-align: inherit;
+  border-radius: inherit;
+  font-weight: inherit;
+  white-space: inherit;
+  background: inherit;
+  margin: inherit;
 }
 </style>
 <style scoped>
-.topnav {
-  border-bottom: 1px solid hsl(0, 0%, 90%);
-  position: sticky;
-  top: 0;
-}
-
-@media screen and (max-width: 769px) {
-  .topnav {
-    position: initial;
-  }
-}
-
 .docsnav {
   order: -1;
   position: sticky;
@@ -60,19 +57,4 @@
   top: var(--nav-sticky-top-position);
   align-self: flex-start;
 }
-
-.navbar__logo {
-  width: auto;
-  height: 30px;
-}
 </style>
-
-<script>
-import WGTwo from "~/assets/images/wgtwo-logo.svg";
-
-export default {
-  components: {
-    WGTwo
-  }
-};
-</script>
