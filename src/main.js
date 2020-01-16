@@ -10,7 +10,7 @@ import DefaultLayout from '~/layouts/DefaultLayout.vue'
 import DocsLayout from '~/layouts/DocsLayout.vue'
 import Header from '~/components/Header.vue'
 import Buefy from 'buefy'
-import 'buefy/dist/buefy.css'
+import '~/assets/style/index.scss'
 import GithubCode from '~/components/GithubCode.vue'
 
 export default function (Vue, { router, head, isClient }) {
