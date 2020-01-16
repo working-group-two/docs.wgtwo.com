@@ -6,11 +6,11 @@ import 'prismjs/themes/prism-okaidia.css'
 import Prism from 'vue-prism-component'
 import 'prismjs/components/prism-protobuf'
 
-import DefaultLayout from '~/layouts/DefaultLayout.vue'
-import DocsLayout from '~/layouts/DocsLayout.vue'
-import Header from '~/components/Header.vue'
 import Buefy from 'buefy'
 import '~/assets/style/index.scss'
+import Header from '~/components/Header.vue'
+import DefaultLayout from '~/layouts/DefaultLayout.vue'
+import DocsLayout from '~/layouts/DocsLayout.vue'
 import GithubCode from '~/components/GithubCode.vue'
 
 export default function (Vue, { router, head, isClient }) {
