@@ -6,7 +6,7 @@
       </div>
       <footer>
         <aside class="editthispage">
-          <b-button :href="editLink" target="_blank">
+          <b-button tag="a" :href="editLink" target="_blank">
             <Github class="editthispage__githublogo" />Edit this page on GitHub
           </b-button>
         </aside>
