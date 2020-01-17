@@ -10,10 +10,15 @@
 <script>
 import Github from "~/assets/images/github-logo.svg";
 import { get } from "axios";
+import prism from 'prismjs'
+import 'prismjs/components/prism-protobuf'
+import 'prismjs/components/prism-kotlin'
+import Prism from 'vue-prism-component'
 
 export default {
   components: {
-    Github
+    Github,
+    Prism
   },
   created() {
     this.fetchData();

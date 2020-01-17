@@ -4,5 +4,6 @@ topic: Send SMS
 type: api-reference
 title: Send SMS API reference
 ---
+import GithubCode from '~/components/GithubCode.vue'
 
 <GithubCode :to="$frontmatter.externalLink" :title="$frontmatter.title" />
