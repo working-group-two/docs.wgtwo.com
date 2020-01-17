@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header></Header>
-    <main class="section">
+    <main class="section main">
       <div class="columns">
         <article class="column is-three-fifths">
           <slot></slot>
@@ -78,5 +78,10 @@ https://github.com/jgthms/bulma/issues/1708#issuecomment-382560341 */
   position: sticky;
   top: var(--nav-sticky-top-position);
   align-self: flex-start;
+}
+
+.main {
+  max-width: 1400px;
+  margin: 0 auto;
 }
 </style>
