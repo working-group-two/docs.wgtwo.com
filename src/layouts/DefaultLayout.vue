@@ -24,9 +24,6 @@
 :root {
   --nav-sticky-top-position: 89px;
 }
-nav a.active {
-  font-weight: bolder;
-}
 
 /* Fix prismjs vs bulma making some numbers very big:
 https://github.com/jgthms/bulma/issues/1708#issuecomment-382560341 */
@@ -67,6 +64,14 @@ https://github.com/jgthms/bulma/issues/1708#issuecomment-382560341 */
   position: sticky;
   top: var(--nav-sticky-top-position);
   align-self: flex-start;
+}
+
+.docsnav a.active {
+  font-weight: bolder;
+}
+
+.footer a.active {
+  font-weight: bolder;
 }
 
 .articlenav {
