@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       content: "Loading...",
-      failed: true
+      failed: false,
     };
   },
   methods: {
