@@ -13,3 +13,8 @@ Code-snippets repositories:
 
 ## Building
 `npm run build`
+
+## Workflow
+
+`npm run develop` will watch for changes and automatically refresh the site content.
+If you add a new markdown file or Vue component, you might have to restart the process.
