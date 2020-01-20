@@ -10,7 +10,7 @@ type: how-to
 
 To send an SMS you will need to:
 * [Get credentials from Console](https://console.wgtwo.com/api-keys-redirect)
-* Write code that that targets a sender, receiver, and with some content
+* Write code that targets a sender, receiver, and with some content
 
 ## Prerequisites
 
