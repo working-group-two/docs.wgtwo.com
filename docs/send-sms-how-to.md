@@ -36,12 +36,12 @@ Then you can add `messaging-grpc` and `common`:
     <dependency>
         <groupId>com.github.working-group-two.wgtwoapis</groupId>
         <artifactId>messaging-grpc</artifactId>
-        <version>bc0f39d</version>
+        <version>91f3d656e6d890829e28f0ee7788359450325828</version>
     </dependency>
     <dependency>
         <groupId>com.github.working-group-two.wgtwoapis</groupId>
         <artifactId>common</artifactId>
-        <version>bc0f39d</version>
+        <version>91f3d656e6d890829e28f0ee7788359450325828</version>
     </dependency>
 </dependencies>
 ```
