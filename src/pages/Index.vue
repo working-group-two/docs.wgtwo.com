@@ -17,6 +17,11 @@
                     <g-link to="/events/how-to/events/">Events</g-link>
                 </h2>
             </li>
+            <li>
+                <h2 class="title">
+                    <g-link to="/usertokens/how-to/manage-user-tokens/">Usertokens</g-link>
+                </h2>
+            </li>
         </ul>
     </DefaultLayout>
 </template>
