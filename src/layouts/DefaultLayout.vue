@@ -1,6 +1,12 @@
 <template>
   <div>
     <Header></Header>
+    <b-notification
+            type="is-danger"
+            aria-close-label="Close notification"
+            role="alert">
+            These APIs and corresponding docs are under development and may change without notice
+        </b-notification>
     <main class="section main">
       <div class="columns">
         <article class="column is-three-fifths">
