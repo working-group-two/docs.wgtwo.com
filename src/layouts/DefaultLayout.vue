@@ -86,7 +86,7 @@ https://github.com/jgthms/bulma/issues/1708#issuecomment-382560341 */
 }
 
 .main {
-  max-width: 1400px;
+  max-width: 1550px;
   margin: 0 auto;
 }
 </style>
