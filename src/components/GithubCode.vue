@@ -1,9 +1,9 @@
 <template>
   <div>
     <h1>{{ title }}</h1>
-    <Prism :language="language" :code="content" :class="{ 'fill-screen': !failed }"></Prism>
+    <Prism :language="language" :code="content" :class="{ 'fill-screen': fillScreen }"></Prism>
     <figcaption>
-      <a :href="to" target="_blank">{{ to }}</a>
+      <a class="github-link" :href="to" target="_blank">{{ to }}</a>
     </figcaption>
   </div>
 </template>
@@ -52,6 +52,9 @@ export default {
       return this.to
         .replace("//github.com/", "//raw.githubusercontent.com/")
         .replace("/blob/", "/");
+    },
+    fillScreen: function() {
+      return !this.failed && this.content === "Loading...";
     }
   }
 };
@@ -59,5 +62,8 @@ export default {
 <style>
 .fill-screen {
   min-height: 100vh;
+}
+.github-link {
+  word-wrap: break-word;
 }
 </style>
