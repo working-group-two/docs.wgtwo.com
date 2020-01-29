@@ -7,20 +7,17 @@
       role="alert"
     >These APIs and corresponding docs are under development and may change without notice</b-notification>
     <main class="section main">
-      <div class="columns is-hidden-touch">
+      <div class="columns">
         <article class="column is-three-fifths">
           <slot></slot>
         </article>
-        <nav class="column articlenav is-one-fifths">
+        <nav class="column articlenav is-one-fifths is-hidden-touch">
           <slot name="articlenav"></slot>
         </nav>
-        <nav class="column docsnav is-one-fifths">
+        <nav class="column docsnav is-one-fifths is-hidden-touch">
           <slot name="docsnav"></slot>
         </nav>
       </div>
-      <article class="is-hidden-desktop">
-        <slot></slot>
-      </article>
     </main>
     <footer class="footer is-hidden-desktop" v-if="this.$slots.docsnav">
       <slot name="docsnav"></slot>
