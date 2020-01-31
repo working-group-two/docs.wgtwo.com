@@ -15,4 +15,8 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('DefaultLayout', DefaultLayout) // Set DefaultLayout as a global component
   Vue.component('DocsLayout', DocsLayout)
   Vue.component('Header', Header)
+  head.link.push({
+    rel: 'stylesheet',
+    href: 'https://fonts.googleapis.com/css?family=Quicksand&display=swap'
+  })
 }
