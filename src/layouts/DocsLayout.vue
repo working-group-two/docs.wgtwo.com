@@ -32,7 +32,7 @@
       </footer>
     </div>
     <template v-slot:docsnav>
-      <div v-for="topic in links" :key="topic.title">
+      <div v-for="topic in links" :key="topic.title" class="docs-nav__container">
         <h3 class="is-uppercase">{{topic.title}}</h3>
         <ul class="docs-nav__list">
           <li v-for="item in topic.items" :key="item.id">
@@ -79,6 +79,10 @@
 
 .editthispage__githublogo {
   margin-right: 8px;
+}
+
+.docs-nav__container:not(:first-child) {
+  margin-top: 16px;
 }
 </style>
 
