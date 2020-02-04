@@ -1,5 +1,10 @@
 <template>
   <DefaultLayout>
+    <b-notification
+            type="is-danger"
+            aria-close-label="Close notification"
+            role="alert"
+    >These APIs and corresponding docs are under development and may change without notice</b-notification>
     <div>
       <div class="content" id="content">
         <slot />
