@@ -3,7 +3,7 @@
     <Header></Header>
     <main class="section main">
       <div class="columns">
-        <article class="column is-three-fifths">
+        <article class="column is-three-fifths article">
           <slot></slot>
         </article>
         <nav class="column articlenav is-one-fifths is-hidden-touch">
@@ -83,5 +83,12 @@ https://github.com/jgthms/bulma/issues/1708#issuecomment-382560341 */
 .main {
   max-width: 1550px;
   margin: 0 auto;
+}
+
+/* make it use all the width on tablet (`is-three-fifths` class is messing it up) */
+@media screen and (max-width: 1023px) {
+  .article {
+    width: 100%;
+  }
 }
 </style>
