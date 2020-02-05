@@ -2,14 +2,14 @@
     <DefaultLayout>
         <h1 class="title">Working Group Two API docs</h1>
         <div class="api-boxes">
-            <g-link to="/send-sms/how-to/send-sms/" class="api-box">
+            <g-link to="/sms/how-to/send-sms/" class="api-box">
                 <div class="api-icon-wrap">
                     <SmsIcon></SmsIcon>
                 </div>
-                <h2 class="title">Send SMS</h2>
+                <h2 class="title">Send & receive SMS</h2>
                 <p>
-                    Our Send SMS API enables you to send SMS messages from anyone to users
-                    on your platform, as well as from users on your platform to everyone.
+                    Send SMS to or from anyone on the platform.
+                    Receieve SMS coming in or going out of your platform.
                 </p>
             </g-link>
             <g-link to="/voicemail/how-to/list-and-play-voicemails/" class="api-box">

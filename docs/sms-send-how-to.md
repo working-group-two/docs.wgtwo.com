@@ -1,10 +1,10 @@
 ---
 title: Send SMS
-topic: Send SMS
+topic: SMS
 type: how-to
 ---
 
-# How to Send SMS
+# How to send SMS
 
 ## Overview
 
