@@ -8,7 +8,7 @@
                 </div>
                 <h2 class="title">Send & receive SMS</h2>
                 <p>
-                    Send SMS to or from anyone on the platform.
+                    Send SMS to or from anyone on your platform.
                     Receieve SMS coming in or going out of your platform.
                 </p>
             </g-link>
