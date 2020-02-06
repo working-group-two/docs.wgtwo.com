@@ -40,12 +40,12 @@ Then you can add `voicemail-grpc` and `common`:
     <dependency>
         <groupId>com.github.working-group-two.wgtwoapis</groupId>
         <artifactId>voicemail-grpc</artifactId>
-        <version>91f3d656e6d890829e28f0ee7788359450325828</version>
+        <version>b168d41</version>
     </dependency>
     <dependency>
         <groupId>com.github.working-group-two.wgtwoapis</groupId>
         <artifactId>common</artifactId>
-        <version>91f3d656e6d890829e28f0ee7788359450325828</version>
+        <version>b168d41</version>
     </dependency>
 </dependencies>
 ```
@@ -55,15 +55,17 @@ Then you can add `voicemail-grpc` and `common`:
 import com.wgtwo.api.auth.Clients
 import com.wgtwo.api.common.OperatorToken
 
-val channel = Clients.createChannel(Clients.Environment.PROD)
-val credentials = OperatorToken("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
+val channel: ManagedChannel = Clients.createChannel(Environment.PROD)
+val credentials = OperatorToken(Secrets.WGTWO_CLIENT_ID, Secrets.WGTWO_CLIENT_SECRET)
 val blockingStub = VoicemailMediaServiceGrpc.newBlockingStub(channel).withCallCredentials(credentials)
 ```
 
 ## List voicemails
 ```kotlin
 fun listVoicemails(msisdn: String): MutableList<Voicemail.VoicemailMetadata>? {
-    val voicemailMetadataRequest = Voicemail.GetAllVoicemailMetadataRequest.newBuilder().setMsisdn(msisdn).build()
+    val phoneNumberProto = PhoneNumberProto.PhoneNumber.newBuilder().setE164(msisdn)
+    val voicemailMetadataRequest =
+        VoicemailProto.GetAllVoicemailMetadataRequest.newBuilder().setTo(phoneNumberProto).build()
     val metadataResponse = try {
         blockingStub.getAllVoicemailMetadata(voicemailMetadataRequest)
     } catch (e: StatusRuntimeException) {
@@ -97,7 +99,11 @@ fun playVoicemail(voicemailId: String) {
 
     val tempFile = createTempFile(prefix = "voicemail", suffix = ".mp3")
     val outputStream = tempFile.outputStream()
-    voicemail.voicemailFile.writeTo(outputStream)
+    if (voicemail.bytesCase != BytesCase.WAV) {
+        println("Unexpected format for voicemail.")
+        return
+    }
+    voicemail.wav.writeTo(outputStream)
     outputStream.close()
 
     val audioInputStream = AudioSystem.getAudioInputStream(tempFile)
