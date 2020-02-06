@@ -80,6 +80,20 @@ interface SmsReceiver {
     fun onReceived(sms: Messagecore.Message)
 }
 
+// Your SMS observer that holds business logic
+object MySmsReceiver : SmsReceiver {
+
+    init {
+        // Add your object to the service to be notified of new SMS
+        ReceiveSmsService.smsReceivedObservers.add(this)
+    }
+
+    override fun onReceived(sms: Messagecore.Message) {
+        // do something with the sms
+    }
+}
+
+// Example service which handles receiving SMS and notifies all observers, like MySmsReceiver
 object ReceiveSmsService {
     private val logger = LoggerFactory.getLogger(javaClass)
     private val executor: ScheduledExecutorService = Executors.newSingleThreadScheduledExecutor()
@@ -92,17 +106,6 @@ object ReceiveSmsService {
         .withCallCredentials(Shared.credentials)
         .withWaitForReady()
 
-    /*
-    initialize ReceiveSmsService and then add your SmsReceiver observer to this set to be
-    notified when there are new sms received
-    ```
-        smsReceivedObservers.add(object : SmsReceiver {
-            override fun onReceived(sms: Messagecore.Message) {
-                // do something with the sms
-            }
-        })
-    ```
-    */
     val smsReceivedObservers = mutableSetOf<SmsReceiver>()
 
     init {
