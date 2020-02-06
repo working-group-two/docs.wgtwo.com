@@ -2,6 +2,7 @@
 title: Send SMS
 topic: SMS
 type: how-to
+typeOrder: 1
 ---
 
 # How to send SMS
