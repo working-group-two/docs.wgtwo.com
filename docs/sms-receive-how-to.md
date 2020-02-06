@@ -2,6 +2,7 @@
 title: Receive SMS
 topic: SMS
 type: how-to
+typeOrder: 2
 ---
 
 # How to receive SMS

@@ -31,6 +31,7 @@ query {
         path
         id
         type
+        typeOrder
         fileInfo {
           path
         }
@@ -63,8 +64,8 @@ export default {
       const sortTypes = (a, b) => {
         const map = typesEnumerated;
         const afterOthersValue = map.size.toString();
-        let aVal = map.has(a.type) ? map.get(a.type).toString() : afterOthersValue + a.title; 
-        let bVal = map.has(b.type) ? map.get(b.type).toString() : afterOthersValue + b.title;
+        let aVal = (map.has(a.type) ? map.get(a.type) : afterOthersValue) + `${a.typeOrder}` + a.title;
+        let bVal = (map.has(b.type) ? map.get(b.type) : afterOthersValue) + `${b.typeOrder}` + b.title;
         return aVal < bVal ? -1 : 1;
       };
 
