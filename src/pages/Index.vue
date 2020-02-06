@@ -9,7 +9,7 @@
                 <h2 class="title">Send & receive SMS</h2>
                 <p>
                     Send SMS to or from anyone on your platform.
-                    Receieve SMS coming in or going out of your platform.
+                    Receive SMS coming in or going out of your platform.
                 </p>
             </g-link>
             <g-link to="/voicemail/how-to/list-and-play-voicemails/" class="api-box">
