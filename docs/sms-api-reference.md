@@ -1,6 +1,6 @@
 ---
 externalLink: https://github.com/working-group-two/wgtwoapis/blob/master/wgtwo/messaging/messagecore.proto
-topic: Send SMS
+topic: SMS
 type: api-reference
 title: Send SMS API reference
 ---

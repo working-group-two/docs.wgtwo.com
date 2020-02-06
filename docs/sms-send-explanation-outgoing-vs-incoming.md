@@ -1,6 +1,6 @@
 ---
 title: SMS direction OUTGOING vs INCOMING
-topic: Send SMS
+topic: SMS
 type: explanation
 ---
 

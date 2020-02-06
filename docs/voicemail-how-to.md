@@ -10,7 +10,7 @@ type: how-to
 
 To list and play voicemails you will need to:
 * [Get credentials from Console](https://console.wgtwo.com/api-keys-redirect)
-* Write code that does the work, targetting a specific phone number on the platform
+* Write code that does the work, targetting a specific phone number on your platform
 * Optional: Mark a voicemail as read or delete it
 
 ## Prerequisites
