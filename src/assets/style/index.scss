@@ -17,3 +17,17 @@ $link-focus-border: $primary;
 @import "~buefy/src/scss/buefy";
 
 @import "scrollbar_fix";
+
+// Headings
+h1, .content h1,
+h2, .content h2,
+h3, .content h3,
+h4, .content h4,
+h5, .content h5 {
+  color: rgba(0, 0, 0, 0.75);
+  font-family: "Quicksand", sans-serif;
+}
+
+h1, .content h1 {
+  color: rgba(0, 0, 0, 0.67);
+}

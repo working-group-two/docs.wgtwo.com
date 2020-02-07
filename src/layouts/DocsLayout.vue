@@ -84,6 +84,13 @@
 .docs-nav__container:not(:first-child) {
   margin-top: 16px;
 }
+
+.docsnav h3,
+.articlenav h3 {
+  font-weight: 700;
+  font-family: "Quicksand", sans-serif;
+  font-size: 17px;
+}
 </style>
 
 <script>
