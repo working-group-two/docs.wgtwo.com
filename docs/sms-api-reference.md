@@ -2,7 +2,7 @@
 externalLink: https://github.com/working-group-two/wgtwoapis/blob/master/wgtwo/messaging/messagecore.proto
 topic: SMS
 type: api-reference
-title: Send SMS API reference
+title: SMS API reference
 ---
 import GithubCode from '~/components/GithubCode.vue'
 
