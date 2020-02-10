@@ -1,5 +1,5 @@
 ---
-title: SMS direction OUTGOING vs INCOMING
+title: OUTGOING vs INCOMING
 topic: sms
 type: explanation
 ---
