@@ -48,7 +48,7 @@
                 </div>
                 <h2 class="title">Subscription Profile</h2>
                 <p>
-                    Our Subscribption profile API lets you manage your subscribers's
+                    Our subscription profile API lets you manage your subscribers's
                     subscription profiles, such as allowing calls, sms, data roaming, etc.
                 </p>
             </g-link>
