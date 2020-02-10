@@ -18,8 +18,8 @@ To list and play voicemails you will need to:
 ### Token/credentials
 * You will need [credentials from Console](https://console.wgtwo.com/api-keys-redirect) to list voicemails for users on your platform.
 
-### Msisdn on platform to target
-* The code assumes you know which phone number (msisdn) you wish to get voicemails from.
+### Phone number on platform to target
+* The code assumes you know which phone number (e164) you wish to get voicemails from.
 
 ### Install dependencies
 
@@ -40,12 +40,12 @@ Then you can add `voicemail-grpc` and `common`:
     <dependency>
         <groupId>com.github.working-group-two.wgtwoapis</groupId>
         <artifactId>voicemail-grpc</artifactId>
-        <version>91f3d656e6d890829e28f0ee7788359450325828</version>
+        <version>b168d41</version>
     </dependency>
     <dependency>
         <groupId>com.github.working-group-two.wgtwoapis</groupId>
         <artifactId>common</artifactId>
-        <version>91f3d656e6d890829e28f0ee7788359450325828</version>
+        <version>b168d41</version>
     </dependency>
 </dependencies>
 ```
@@ -55,15 +55,17 @@ Then you can add `voicemail-grpc` and `common`:
 import com.wgtwo.api.auth.Clients
 import com.wgtwo.api.common.OperatorToken
 
-val channel = Clients.createChannel(Clients.Environment.PROD)
-val credentials = OperatorToken("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
+val channel: ManagedChannel = Clients.createChannel(Environment.PROD)
+val credentials = OperatorToken(Secrets.WGTWO_CLIENT_ID, Secrets.WGTWO_CLIENT_SECRET)
 val blockingStub = VoicemailMediaServiceGrpc.newBlockingStub(channel).withCallCredentials(credentials)
 ```
 
 ## List voicemails
 ```kotlin
-fun listVoicemails(msisdn: String): MutableList<Voicemail.VoicemailMetadata>? {
-    val voicemailMetadataRequest = Voicemail.GetAllVoicemailMetadataRequest.newBuilder().setMsisdn(msisdn).build()
+fun listVoicemails(e164: String): MutableList<Voicemail.VoicemailMetadata>? {
+    val phoneNumberProto = PhoneNumberProto.PhoneNumber.newBuilder().setE164(e164).build()
+    val voicemailMetadataRequest =
+        VoicemailProto.GetAllVoicemailMetadataRequest.newBuilder().setTo(phoneNumberProto).build()
     val metadataResponse = try {
         blockingStub.getAllVoicemailMetadata(voicemailMetadataRequest)
     } catch (e: StatusRuntimeException) {
@@ -71,13 +73,13 @@ fun listVoicemails(msisdn: String): MutableList<Voicemail.VoicemailMetadata>? {
         return null
     }
 
-    val voicemailList = metadataResponse.voicemailsMetadataList
+    val voicemailList = metadataResponse.metadataList
     if (voicemailList.isEmpty()) {
-        println("No voicemails for msisdn $msisdn")
+        println("No voicemails for e164 $e164")
     }
 
-    for (voicemailMetadata in voicemailList) {
-        println(voicemailMetadata)
+    for (metadata in voicemailList) {
+        println(metadata)
     }
     return voicemailList
 }
@@ -97,7 +99,13 @@ fun playVoicemail(voicemailId: String) {
 
     val tempFile = createTempFile(prefix = "voicemail", suffix = ".mp3")
     val outputStream = tempFile.outputStream()
-    voicemail.voicemailFile.writeTo(outputStream)
+    when (voicemail.bytesCase) {
+        BytesCase.WAV -> voicemail.wav.writeTo(outputStream)
+        BytesCase.BYTES_NOT_SET, null -> {
+            println("Error: no content found in the voicemail response.")
+            return
+        }
+    }
     outputStream.close()
 
     val audioInputStream = AudioSystem.getAudioInputStream(tempFile)
