@@ -1,6 +1,6 @@
 ---
 title: List applicable rights
-topic: Usertokens
+topic: usertokens
 type: how-to
 ---
 

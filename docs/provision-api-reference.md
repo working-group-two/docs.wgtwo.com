@@ -1,6 +1,6 @@
 ---
 externalLink: https://github.com/working-group-two/wgtwoapis/blob/master/openapi/api.yaml
-topic: Provision
+topic: provision
 type: api-reference
 title: Provision API reference
 ---

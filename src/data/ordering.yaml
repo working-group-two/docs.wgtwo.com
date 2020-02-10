@@ -1,6 +1,7 @@
 topic:
-    - Send SMS
-    - Voicemail
+    - sms
+    - voicemail
+    - events
 type:
     - overview
     - how-to

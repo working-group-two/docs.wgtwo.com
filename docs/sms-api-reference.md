@@ -1,6 +1,6 @@
 ---
 externalLink: https://github.com/working-group-two/wgtwoapis/blob/master/wgtwo/messaging/messagecore.proto
-topic: SMS
+topic: sms
 type: api-reference
 title: SMS API reference
 ---

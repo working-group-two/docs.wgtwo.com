@@ -1,6 +1,6 @@
 ---
 title: Send SMS
-topic: SMS
+topic: sms
 type: how-to
 typeOrder: 1
 ---

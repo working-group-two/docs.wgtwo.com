@@ -1,6 +1,6 @@
 ---
 title: Events
-topic: Events
+topic: events
 type: how-to
 ---
 

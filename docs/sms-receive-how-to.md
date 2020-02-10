@@ -1,6 +1,6 @@
 ---
 title: Receive SMS
-topic: SMS
+topic: sms
 type: how-to
 typeOrder: 2
 ---

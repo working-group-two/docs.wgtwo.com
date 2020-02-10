@@ -1,6 +1,6 @@
 ---
 title: Manage user tokens
-topic: Usertokens
+topic: usertokens
 type: how-to
 ---
 
