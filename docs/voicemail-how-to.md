@@ -18,8 +18,8 @@ To list and play voicemails you will need to:
 ### Token/credentials
 * You will need [credentials from Console](https://console.wgtwo.com/api-keys-redirect) to list voicemails for users on your platform.
 
-### Msisdn on platform to target
-* The code assumes you know which phone number (msisdn) you wish to get voicemails from.
+### Phone number on platform to target
+* The code assumes you know which phone number (e164) you wish to get voicemails from.
 
 ### Install dependencies
 
@@ -62,8 +62,8 @@ val blockingStub = VoicemailMediaServiceGrpc.newBlockingStub(channel).withCallCr
 
 ## List voicemails
 ```kotlin
-fun listVoicemails(msisdn: String): MutableList<Voicemail.VoicemailMetadata>? {
-    val phoneNumberProto = PhoneNumberProto.PhoneNumber.newBuilder().setE164(msisdn)
+fun listVoicemails(e164: String): MutableList<Voicemail.VoicemailMetadata>? {
+    val phoneNumberProto = PhoneNumberProto.PhoneNumber.newBuilder().setE164(e164)
     val voicemailMetadataRequest =
         VoicemailProto.GetAllVoicemailMetadataRequest.newBuilder().setTo(phoneNumberProto).build()
     val metadataResponse = try {
@@ -75,7 +75,7 @@ fun listVoicemails(msisdn: String): MutableList<Voicemail.VoicemailMetadata>? {
 
     val voicemailList = metadataResponse.voicemailsMetadataList
     if (voicemailList.isEmpty()) {
-        println("No voicemails for msisdn $msisdn")
+        println("No voicemails for e164 $e164")
     }
 
     for (voicemailMetadata in voicemailList) {
