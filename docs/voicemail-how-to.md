@@ -63,7 +63,7 @@ val blockingStub = VoicemailMediaServiceGrpc.newBlockingStub(channel).withCallCr
 ## List voicemails
 ```kotlin
 fun listVoicemails(e164: String): MutableList<Voicemail.VoicemailMetadata>? {
-    val phoneNumberProto = PhoneNumberProto.PhoneNumber.newBuilder().setE164(e164)
+    val phoneNumberProto = PhoneNumberProto.PhoneNumber.newBuilder().setE164(e164).build()
     val voicemailMetadataRequest =
         VoicemailProto.GetAllVoicemailMetadataRequest.newBuilder().setTo(phoneNumberProto).build()
     val metadataResponse = try {
