@@ -1,5 +1,5 @@
 <template>
-    <DefaultLayout>
+    <div class="landing-page">
         <h1 class="title">Working Group Two API docs</h1>
         <div class="api-boxes">
             <g-link to="/sms/how-to/send-sms/" class="api-box">
@@ -42,14 +42,25 @@
                     your users, so they can get access to program their own subscription.
                 </p>
             </g-link>
+            <g-link to="/provision/how-to/provision/" class="api-box">
+                <div class="api-icon-wrap">
+                    <SubscriptionProfileIcon></SubscriptionProfileIcon>
+                </div>
+                <h2 class="title">Subscription Profile</h2>
+                <p>
+                    Our Subscribption profile API lets you manage your subscribers's
+                    subscription profiles, such as allowing calls, sms, data roaming, etc.
+                </p>
+            </g-link>
         </div>
-    </DefaultLayout>
+    </div>
 </template>
 <script>
     import EventsIcon from "~/assets/images/events-icon.svg";
     import SmsIcon from "~/assets/images/sms-icon.svg";
     import UsertokensIcon from "~/assets/images/usertokens-icon.svg";
     import VocemailIcon from "~/assets/images/voicemail-icon.svg";
+    import SubscriptionProfileIcon from "~/assets/images/subscription-profile-icon.svg";
 
     export default {
         metaInfo: {
@@ -60,12 +71,20 @@
             EventsIcon,
             SmsIcon,
             UsertokensIcon,
-            VocemailIcon
+            VocemailIcon,
+            SubscriptionProfileIcon
         }
     }
 </script>
 
 <style scoped>
+
+    .landing-page {
+        max-width: 1200px;
+        margin: 64px auto 24px auto;
+        padding: 24px;
+    }
+
     h1.title {
         text-align: center;
     }
@@ -81,7 +100,7 @@
         margin-top: 96px;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: flex-start;
     }
 
     .api-box {
@@ -106,9 +125,11 @@
 
     @media screen and (min-width: 769px) {
         .api-box {
-            width: 45%;
+            width: 29%;
+            margin: 32px 2%;
             text-align: left;
         }
+
         .api-box .api-icon-wrap {
             width: 100px;
         }
