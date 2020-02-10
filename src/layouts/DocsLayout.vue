@@ -62,10 +62,6 @@
   padding-left: 16px;
 }
 
-.docs-nav__list {
-  padding-left: 16px;
-}
-
 .editthispage {
   margin-top: 24px;
   margin-bottom: 24px;
