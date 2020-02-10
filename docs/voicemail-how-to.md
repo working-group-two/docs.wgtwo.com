@@ -73,13 +73,13 @@ fun listVoicemails(e164: String): MutableList<Voicemail.VoicemailMetadata>? {
         return null
     }
 
-    val voicemailList = metadataResponse.voicemailsMetadataList
+    val voicemailList = metadataResponse.metadataList
     if (voicemailList.isEmpty()) {
         println("No voicemails for e164 $e164")
     }
 
-    for (voicemailMetadata in voicemailList) {
-        println(voicemailMetadata)
+    for (metadata in voicemailList) {
+        println(metadata)
     }
     return voicemailList
 }
