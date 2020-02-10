@@ -101,7 +101,10 @@ fun playVoicemail(voicemailId: String) {
     val outputStream = tempFile.outputStream()
     when (voicemail.bytesCase) {
         BytesCase.WAV -> voicemail.wav.writeTo(outputStream)
-        BytesCase.BYTES_NOT_SET, null -> println("No content found in the voicemail response.")
+        BytesCase.BYTES_NOT_SET, null -> {
+            println("Error: no content found in the voicemail response.")
+            return
+        }
     }
     outputStream.close()
 
