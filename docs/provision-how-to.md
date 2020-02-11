@@ -1,6 +1,6 @@
 ---
-title: Provision
-topic: provision
+title: Manage subscriptions 
+topic: subscription profile
 type: how-to
 ---
 
@@ -35,7 +35,7 @@ Then you can add the required dependency:
     <dependency>
         <groupId>com.github.working-group-two.wgtwoapis</groupId>
         <artifactId>rest</artifactId>
-        <version>0d39548d575bb2fa95625644b57c00fcf826732c</version>
+        <version>acbf554461c3b22dbf2184de983b74b1d331ee48</version>
     </dependency>
 </dependencies>
 ```
@@ -54,8 +54,7 @@ val apiClient = ApiClient().apply {
     // basePath = https://apigateway.dub.dev.wgtwo.com
 }
 
-val provisionApi = ProvisionApi(apiClient)
-val subscriptionApi = SubscriptionApi(apiClient)
+val subscriptionProfileApi = SubscriptionProfileApi(apiClient)
 ```
 
 ## Update service, e.g. enable data roaming
@@ -74,7 +73,7 @@ val request = UpdateSubscriptionRequest().apply {
         name = NameEnum.ROAMING_DATA
     }
 }
-provisionApi.updateService(request)
+subscriptionProfileApi.updateService(request)
 ```
 
 ## Update service, e.g. disable data roaming
@@ -93,13 +92,13 @@ val request = UpdateSubscriptionRequest().apply {
         name = NameEnum.ROAMING_DATA
     }
 }
-provisionApi.updateService(request)
+subscriptionProfileApi.updateService(request)
 ```
 
 ## Get information about subscriber, e.g. enabled services
 ```kotlin
 import com.wgtwo.api.rest.model.Subscription
 
-val subscription = subscriptionApi.getSubscription("47xxxxxxxx")
+val subscription = subscriptionProfileApi.getSubscription("47xxxxxxxx")
 println("My enabled services: ${subscription.services!!.keys}")
 ```

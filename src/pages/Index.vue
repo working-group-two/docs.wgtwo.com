@@ -42,7 +42,7 @@
                     your users, so they can get access to program their own subscription.
                 </p>
             </g-link>
-            <g-link to="/provision/how-to/provision/" class="api-box">
+            <g-link to="/subscription-profile/how-to/manage-subscriptions/" class="api-box">
                 <div class="api-icon-wrap">
                     <SubscriptionProfileIcon></SubscriptionProfileIcon>
                 </div>
