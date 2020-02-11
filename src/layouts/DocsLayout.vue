@@ -126,6 +126,25 @@ export default {
     previousPage() {
       return this.items[this.currentIndex - 1];
     }
+  },
+  mounted() {
+    let loaderId = setInterval(() => {
+      if (document.querySelector("#swagger-ui") !== null && typeof SwaggerUIBundle !== "undefined" ) {
+        clearInterval(loaderId);
+        SwaggerUIBundle({
+          "dom_id": "#swagger-ui",
+          url: document.querySelector("#swagger-ui").getAttribute("data-spec-url"),
+          deepLinking: true,
+          presets: [
+            SwaggerUIBundle.presets.apis,
+            SwaggerUIStandalonePreset
+          ],
+          plugins: [
+            SwaggerUIBundle.plugins.DownloadUrl
+          ],
+        });
+      }
+    }, 100);
   }
 };
 </script>

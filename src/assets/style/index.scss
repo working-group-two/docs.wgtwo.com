@@ -31,3 +31,13 @@ h5, .content h5 {
 h1, .content h1 {
   color: rgba(0, 0, 0, 0.67);
 }
+
+// Swagger UI fixes 
+#swagger-ui {
+  pre.version {
+    background: transparent;
+  }
+  .opblock-tag-section { // some other CSS we have interferes with this...
+    overflow: hidden;
+  }
+}

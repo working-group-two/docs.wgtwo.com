@@ -4,6 +4,5 @@ topic: provision
 type: api-reference
 title: Provision API reference
 ---
-import GithubCode from '~/components/GithubCode.vue'
 
-<GithubCode :to="$frontmatter.externalLink" :title="$frontmatter.title" />
+<div id="swagger-ui" data-spec-url="https://raw.githubusercontent.com/working-group-two/wgtwoapis/master/openapi/api.yaml"></div>
