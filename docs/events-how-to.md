@@ -63,6 +63,7 @@ val eventsClient: EventsServiceGrpc.EventsServiceStub = EventsServiceGrpc
 
 ## Listen for events
 ```kotlin
+import com.wgtwo.api.common.Environment
 import com.wgtwo.api.events.v0.EventsProto.*
 import com.wgtwo.api.events.v0.EventsProto.Event.EventCase
 import com.wgtwo.api.events.v0.EventsServiceGrpc
@@ -73,7 +74,7 @@ import io.grpc.stub.StreamObserver
 
 object EventsService {
 
-    val channel = Clients.createChannel(Clients.Environment.PROD)
+    val channel = Clients.createChannel(Environment.PROD)
     val credentials = OperatorToken("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
     val eventsClient: EventsServiceStub = EventsServiceGrpc
         .newStub(channel)
@@ -111,6 +112,49 @@ object EventsService {
 
 }
 ```
+
+## Manual acknowledge
+
+### Request
+```kotlin
+import com.google.protobuf.util.Durations
+import com.wgtwo.api.events.v0.EventsProto.EventType
+import com.wgtwo.api.events.v0.EventsProto.ManualAckConfig
+import com.wgtwo.api.events.v0.EventsProto.SubscribeEventsRequest
+
+val request: SubscribeEventsRequest = SubscribeEventsRequest.newBuilder().apply {
+        addType(EventType.VOICE_EVENT)
+        manualAck = ManualAckConfig.newBuilder().apply {
+            enable = true
+            timeout = Durations.fromSeconds(30)
+        }.build()
+    }.build()
+```
+
+### Invoke manual ack
+```kotlin
+import com.wgtwo.api.common.Environment
+import com.wgtwo.api.events.v0.EventsProto.AckRequest
+import com.wgtwo.api.events.v0.EventsProto.Event
+import com.wgtwo.api.events.v0.EventsServiceGrpc
+import com.wgtwo.api.util.auth.Clients
+import com.wgtwo.api.util.auth.OperatorToken
+
+val channel = Clients.createChannel(Environment.PROD)
+val credentials = OperatorToken("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
+val eventsClient = EventsServiceGrpc
+    .newBlockingStub(channel)
+    .withCallCredentials(credentials)
+
+val event: Event = (...)
+
+val request = AckRequest.newBuilder()
+    .setSequence(event.metadata.sequence)
+    .setInbox(event.metadata.ackInbox)
+    .build()
+eventsClient.ack(request)
+```
+
 
 ## Concepts
 * [Three types of stubs: asynchronous, blocking, and future](https://grpc.io/docs/reference/java/generated-code/)
