@@ -22,7 +22,7 @@
                     a user, or fetch the audio file for one particular Voicemail.
                 </p>
             </g-link>
-            <g-link to="/events/how-to/events/" class="api-box">
+            <g-link to="/events/how-to/listen-for-events/" class="api-box">
                 <div class="api-icon-wrap">
                     <EventsIcon></EventsIcon>
                 </div>

@@ -1,5 +1,5 @@
 ---
-title: Events
+title: Listen for events
 topic: events
 type: how-to
 ---
