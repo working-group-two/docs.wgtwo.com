@@ -75,7 +75,7 @@ If no start position is set, it will skip previous events.
 - `manual_ack` [Manual ack config](#manual-acks)
   - `enable` Enable manual ack (true/false)
   - `timeout` Timeout before resending unacknowledged message
-- `max_in_flight` [Max number of concurrent unacknowledged events](max-in-flight)
+- `max_in_flight` [Max number of concurrent unacknowledged events](#max-in-flight)
 
 
 ### Durable
@@ -99,7 +99,7 @@ This subscription identify itself by `client_id` + `durable_name`
 - `manual_ack` [Manual ack config](#manual-acks)
   - `enable` Enable manual ack (true/false)
   - `timeout` Timeout before resending unacknowledged message
-- `max_in_flight` [Max number of concurrent unacknowledged events](max-in-flight)
+- `max_in_flight` [Max number of concurrent unacknowledged events](#max-in-flight)
 
 ### Queue
 If two subscriptions share a queue name they are member of the same queue group.
@@ -126,7 +126,7 @@ If there are still some connected clients, it will ignore start position and sta
 - `manual_ack` [Manual ack config](#manual-acks)
   - `enable` Enable manual ack (true/false)
   - `timeout` Timeout before resending unacknowledged message
-- `max_in_flight` [Max number of concurrent unacknowledged events](max-in-flight)
+- `max_in_flight` [Max number of concurrent unacknowledged events](#max-in-flight)
 
 ### Queue/Durable
 A durable queue will keep state on the server even if all subscriptions member of the gueue group has
@@ -149,4 +149,4 @@ the previous position even if all clients are disconnected.
 - `manual_ack` [Manual ack config](#manual-acks)
   - `enable` Enable manual ack (true/false)
   - `timeout` Timeout before resending unacknowledged message
-- `max_in_flight` [Max number of concurrent unacknowledged events](max-in-flight)
+- `max_in_flight` [Max number of concurrent unacknowledged events](#max-in-flight)
