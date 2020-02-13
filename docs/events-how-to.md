@@ -76,7 +76,7 @@ object EventsService {
 
     val channel = Clients.createChannel(Environment.PROD)
     val credentials = OperatorToken("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
-    val eventsClient: EventsServiceStub = EventsServiceGrpc
+    val stub: EventsServiceStub = EventsServiceGrpc
         .newStub(channel)
         .withCallCredentials(credentials)
 
@@ -87,7 +87,7 @@ object EventsService {
         .build()
 
     init { // You probably want to put this in a function
-        eventsClient.subscribe(request, object : StreamObserver<SubscribeEventsResponse> {
+        stub.subscribe(request, object : StreamObserver<SubscribeEventsResponse> {
 
             override fun onNext(subscribeEventsResponse: SubscribeEventsResponse) {
                 subscribeEventsResponse.eventList.forEach { event ->
@@ -115,15 +115,17 @@ object EventsService {
 
 ## Manual acknowledge
 
-### Request
+### Enable manual acknowledgement in SubscribeEventsRequest
+Enable manual acknowledgement by setting `enable = true`.
+In addition we are setting timeout to 30 seconds.
+
 ```kotlin
 import com.google.protobuf.util.Durations
-import com.wgtwo.api.events.v0.EventsProto.EventType
 import com.wgtwo.api.events.v0.EventsProto.ManualAckConfig
 import com.wgtwo.api.events.v0.EventsProto.SubscribeEventsRequest
 
 val request: SubscribeEventsRequest = SubscribeEventsRequest.newBuilder().apply {
-        addType(EventType.VOICE_EVENT)
+        (...)
         manualAck = ManualAckConfig.newBuilder().apply {
             enable = true
             timeout = Durations.fromSeconds(30)
@@ -142,7 +144,7 @@ import com.wgtwo.api.util.auth.OperatorToken
 
 val channel = Clients.createChannel(Environment.PROD)
 val credentials = OperatorToken("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
-val eventsClient = EventsServiceGrpc
+val stub = EventsServiceGrpc
     .newBlockingStub(channel)
     .withCallCredentials(credentials)
 
