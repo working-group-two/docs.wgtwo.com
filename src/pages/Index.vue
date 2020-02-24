@@ -14,7 +14,7 @@
             </g-link>
             <g-link to="/voicemail/how-to/list-and-play-voicemails/" class="api-box">
                 <div class="api-icon-wrap">
-                    <VocemailIcon></VocemailIcon>
+                    <VoicemailIcon></VoicemailIcon>
                 </div>
                 <h2 class="title">Voicemail</h2>
                 <p>
@@ -52,6 +52,15 @@
                     subscription profiles, such as allowing calls, sms, data roaming, etc.
                 </p>
             </g-link>
+            <g-link to="/metrics/how-to/accessing-metrics/" class="api-box">
+                <div class="api-icon-wrap">
+                    <MetricsIcon></MetricsIcon>
+                </div>
+                <h2 class="title">Metrics</h2>
+                <p>
+                    Access relevant Prometheus / OpenMetrics time series directly from our systems
+                </p>
+            </g-link>
         </div>
     </div>
 </template>
@@ -59,8 +68,9 @@
     import EventsIcon from "~/assets/images/events-icon.svg";
     import SmsIcon from "~/assets/images/sms-icon.svg";
     import UsertokensIcon from "~/assets/images/usertokens-icon.svg";
-    import VocemailIcon from "~/assets/images/voicemail-icon.svg";
+    import VoicemailIcon from "~/assets/images/voicemail-icon.svg";
     import SubscriptionProfileIcon from "~/assets/images/subscription-profile-icon.svg";
+    import MetricsIcon from "~/assets/images/metrics-icon.svg";
 
     export default {
         metaInfo: {
@@ -71,8 +81,9 @@
             EventsIcon,
             SmsIcon,
             UsertokensIcon,
-            VocemailIcon,
-            SubscriptionProfileIcon
+            VoicemailIcon,
+            SubscriptionProfileIcon,
+            MetricsIcon
         }
     }
 </script>
