@@ -7,13 +7,16 @@ type: how-to
 # Accessing Metrics
 
 ## Overview
-Working Group Two exposes metrics to that can help operators getting some operational insight.
-This is exposed in the [Open Metrics text format](https://openmetrics.io/)  ([details](https://prometheus.io/docs/instrumenting/exposition_formats/#text-based-format)).
+Working Group Two exposes metrics to that can help operators getting some operational insight. This data is exposed using the [OpenMetrics text format](https://openmetrics.io/).
 
-We do support this by exposing a custom Prometheus instance, containing relevant time series.
-As we use Prometheus, metrics fetching is pull based.
+This text format is the same as exposed by Prometheus. In addition to being supported by Prometheus, many other systems
+has OpenMetrics integrations such as
+[Datadog](https://docs.datadoghq.com/integrations/openmetrics/)
+and [New Relic](https://docs.newrelic.com/docs/integrations/prometheus-integrations).
 
-Please reach out to clarify needs and setup of this instance.
+The HTTP endpoint we provide will give you the current state of all of your metrics. We do not provide any query API.
+
+Please reach out to clarify what metrics you would needs access to.
 
 ## Token/credentials
 * [Get credentials from Console](https://console.wgtwo.com/api-keys-redirect)
@@ -21,29 +24,25 @@ Please reach out to clarify needs and setup of this instance.
   Required right: `metrics.prometheus.read`
 
 ## Configuration
-Replace `{{id}}`, `{{client ID}}` and `{{client secret}}` with their actual values
+Replace `{{client ID}}` and `{{client secret}}` with their actual values
 
 |     Placeholder     | Description                              |
 |:--------------------|:---------------------------------------- |
-| `{{id}}`            | Identifier provided by Working Group Two |
 | `{{client ID}}`     | From credentials created in Console      |
 | `{{client secret}}` | From credentials created in Console      |
 
-**Base path: `https://api.wgtwo.com/metrics/v1/prometheus/{{id}}`**
+**Base path: `https://api.wgtwo.com/metrics/v1`**
 
-### Invoke health check to test credentials
+### Curl
 ```bash
-curl -u {{client ID}}:{{client secret}} https://api.wgtwo.com/metrics/v1/prometheus/{{id}}/-/healthy
+curl -u {{client ID}}:{{client secret}} https://api.wgtwo.com/metrics/v1
 ```
 
-### Configure Prometheus federation
-If you already run Prometheus or would like to control data retention, doing federation from our Prometheus can be a
-good choice.
-
-The below Prometheus config will scrape your custom Prometheus instance at Working Group Two every 30 seconds,
+### Prometheus
+The below Prometheus config will scrape the metric endpoint from Working Group Two every 30 seconds,
 fetching all available time series. Note that the configuration will contain secrets.
 
-See: [prometheus.io › Federation](https://prometheus.io/docs/prometheus/latest/federation/)
+See: [prometheus.io › Configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/)
 
 ```yaml
 global:
@@ -51,19 +50,15 @@ global:
   evaluation_interval: 30s
 
 scrape_configs:
-- job_name: 'federate'
+- job_name: 'wgtwo'
 
   honor_labels: true
-  metrics_path: '/metrics/v1/prometheus/{{id}}/federate'
+  metrics_path: '/metrics/v1'
 
   scheme: https
   basic_auth:
     username: '{{client ID}}'
     password: '{{client secret}}'
-
-  params:
-    'match[]':
-      - '{__name__=~".+"}'
 
   static_configs:
     - targets:
@@ -71,7 +66,7 @@ scrape_configs:
 ```
 
 #### Example: Run with Docker
-See: [prometheus.io › Using Docker](https://prometheus.io/docs/prometheus/latest/installation/#using-docker)
+> See: [prometheus.io › Using Docker](https://prometheus.io/docs/prometheus/latest/installation/#using-docker)
 
 ```bash
 docker run \
@@ -82,16 +77,15 @@ docker run \
 
 For testing that federation works as expected, you may run this with the above config.
 
-### Grafana
-Grafana has built-in support for Prometheus.
+#### Grafana
+> See: [grafana.com › Using Prometheus in Grafana](https://grafana.com/docs/grafana/latest/features/datasources/prometheus/)
 
-It is possible to point your Grafana to api.wgtwo.com directly, which might be a good solution if you do not already
-run Prometheus and want to get started quickly.
+As our metric API does not expose any query API, this cannot be accessed by Grafana directly. However, Grafana has
+built-in support for Prometheus.
 
-See: [grafana.com › Using Prometheus in Grafana](https://grafana.com/docs/grafana/latest/features/datasources/prometheus/)
 
 
 ## Links
 * [openmetrics.io](https://openmetrics.io/)
-* [prometheus.io › Exposition Formats](https://prometheus.io/docs/instrumenting/exposition_formats/#text-based-format)
+* [prometheus.io](https://prometheus.io/) › [Exposition Formats](https://prometheus.io/docs/instrumenting/exposition_formats/#text-based-format)
 

@@ -58,7 +58,7 @@
                 </div>
                 <h2 class="title">Metrics</h2>
                 <p>
-                    Our Metrics API lets you access relevant Prometheus / OpenMetrics
+                    Our Metrics API lets you access relevant OpenMetrics
                     time series directly from our systems, so you can see what's up.
                 </p>
             </g-link>
