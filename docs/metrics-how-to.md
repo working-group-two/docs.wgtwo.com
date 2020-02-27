@@ -69,10 +69,7 @@ scrape_configs:
 > See: [prometheus.io › Using Docker](https://prometheus.io/docs/prometheus/latest/installation/#using-docker)
 
 ```bash
-docker run \
-    -p 9090:9090 \
-    -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml \
-    prom/prometheus
+docker run -p 9090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
 ```
 
 For testing that federation works as expected, you may run this with the above config.
