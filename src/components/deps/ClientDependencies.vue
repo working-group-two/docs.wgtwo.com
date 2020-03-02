@@ -50,6 +50,12 @@
                             <artifactId>auth-grpc</artifactId>
                             <version>${apiVersion}</version>
                         </dependency>`.trim().replace(/^                /gm, ""),
+                    "protobuf-java-util": `
+                        <dependency>
+                            <groupId>com.google.protobuf</groupId>
+                            <artifactId>protobuf-java-util</artifactId>
+                            <version>3.11.4</version>
+                        </dependency>`.trim().replace(/^                /gm, ""),
                 }
             };
         },
