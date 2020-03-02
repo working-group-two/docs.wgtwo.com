@@ -18,16 +18,7 @@ To manage user tokens, you will need to:
 * You will need [credentials from Console](https://console.wgtwo.com/api-keys-redirect).
 
 ### Install dependencies
-
-To add the dependencies, first you need to add the [Jitpack](https://jitpack.io) repository:
-```xml
-<repositories>
-    <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
-    </repository>
-</repositories>
-```
+<JitpackDependency />
 
 Then you can add `event-grpc` and `common`:
 

@@ -17,16 +17,7 @@ To update services for your subscribers, you will need to:
 * You will need [credentials from Console](https://console.wgtwo.com/api-keys-redirect) for `subscription.read` and/or `subscription.write`.
 
 ### Install dependencies
-
-To add the dependencies, first you need to add the [Jitpack](https://jitpack.io) repository:
-```xml
-<repositories>
-    <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
-    </repository>
-</repositories>
-```
+<JitpackDependency />
 
 Then you can add the required dependency:
 

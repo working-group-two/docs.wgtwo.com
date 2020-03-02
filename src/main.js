@@ -9,12 +9,16 @@ import 'prismjs/themes/prism-okaidia.css'
 import Header from '~/components/Header.vue'
 import DefaultLayout from '~/layouts/DefaultLayout.vue'
 import DocsLayout from '~/layouts/DocsLayout.vue'
+import GithubCode from '~/components/GithubCode.vue'
+import JitpackDependency from '~/components/deps/JitpackDependency.vue'
 
 export default function (Vue, { router, head, isClient }) {
   Vue.use(Buefy)
   Vue.component('DefaultLayout', DefaultLayout) // Set DefaultLayout as a global component
   Vue.component('DocsLayout', DocsLayout)
   Vue.component('Header', Header)
+  Vue.component('GithubCode', GithubCode)
+  Vue.component('JitpackDependency', JitpackDependency)
   head.link.push({
     rel: 'stylesheet',
     href: 'https://fonts.googleapis.com/css?family=Quicksand&display=swap'

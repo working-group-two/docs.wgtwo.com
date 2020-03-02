@@ -22,16 +22,7 @@ To list and play voicemails you will need to:
 * The code assumes you know which phone number (e164) you wish to get voicemails from.
 
 ### Install dependencies
-
-To add the dependencies, first you need to add the [Jitpack](https://jitpack.io) repository:
-```xml
-<repositories>
-    <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
-    </repository>
-</repositories>
-```
+<JitpackDependency />
 
 Then you can add `voicemail-grpc` and `common`:
 
@@ -40,7 +31,7 @@ Then you can add `voicemail-grpc` and `common`:
     <dependency>
         <groupId>com.github.working-group-two.wgtwoapis</groupId>
         <artifactId>voicemail-grpc</artifactId>
-        <version>b168d41</version>
+        <version>{{$static.metadata.apiVersion}}</version>
     </dependency>
     <dependency>
         <groupId>com.github.working-group-two.wgtwoapis</groupId>

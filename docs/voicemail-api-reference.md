@@ -4,6 +4,5 @@ topic: voicemail
 type: api-reference
 title: Voicemail API reference
 ---
-import GithubCode from '~/components/GithubCode.vue'
 
 <GithubCode :to="$frontmatter.externalLink" :title="$frontmatter.title" />

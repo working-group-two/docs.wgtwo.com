@@ -4,6 +4,5 @@ topic: events
 type: api-reference
 title: Events API reference
 ---
-import GithubCode from '~/components/GithubCode.vue'
 
 <GithubCode :to="$frontmatter.externalLink" :title="$frontmatter.title" />

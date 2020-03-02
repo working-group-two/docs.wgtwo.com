@@ -20,16 +20,7 @@ To receive an SMS you will need to:
 * You will need [credentials from Console](https://console.wgtwo.com/api-keys-redirect) to send SMS to/for users on your platform.
 
 ### Install dependencies
-
-To add the dependencies, first you need to add the [Jitpack](https://jitpack.io) repository:
-```xml
-<repositories>
-    <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
-    </repository>
-</repositories>
-```
+<JitpackDependency />
 
 Then you can add `messaging-grpc` and `common`:
 

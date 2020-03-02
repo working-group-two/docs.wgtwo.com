@@ -19,16 +19,7 @@ To listen for events, you will need to:
   You will only receive an event if your token has the appropriate right.
 
 ### Install dependencies
-
-To add the dependencies, first you need to add the [Jitpack](https://jitpack.io) repository:
-```xml
-<repositories>
-    <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
-    </repository>
-</repositories>
-```
+<JitpackDependency />
 
 Then you can add `event-grpc` and `common`:
 
