@@ -1,0 +1,61 @@
+<template>
+    <div>
+        <Prism language="xml" :code="`<dependencies>\n${clients.map(it => '    ' + dependencies[it]).join('\n')}\n</depenencies>`"></Prism>
+    </div>
+</template>
+<script>
+    import 'prismjs/components/prism-protobuf'
+    import 'prismjs/components/prism-kotlin'
+    import Prism from 'vue-prism-component'
+
+    let apiVersion = "8128dd1"; // UPDATE THIS WHEN YOU RELEASE A NEW VERSION (!)
+
+    export default {
+        data() {
+            return {
+                dependencies: {
+                    "messaging-grpc": `
+                        <dependency>
+                            <groupId>com.github.working-group-two.wgtwoapis</groupId>
+                            <artifactId>messaging-grpc</artifactId>
+                            <version>${apiVersion}</version>
+                        </dependency>`.trim().replace(/^                /gm, ""),
+                    "common": `
+                        <dependency>
+                            <groupId>com.github.working-group-two.wgtwoapis</groupId>
+                            <artifactId>common</artifactId>
+                            <version>${apiVersion}</version>
+                        </dependency>`.trim().replace(/^                /gm, ""),
+                    "events-grpc": `
+                        <dependency>
+                            <groupId>com.github.working-group-two.wgtwoapis</groupId>
+                            <artifactId>event-grpc</artifactId>
+                            <version>${apiVersion}</version>
+                        </dependency>`.trim().replace(/^                /gm, ""),
+                    "rest": `
+                        <dependency>
+                            <groupId>com.github.working-group-two.wgtwoapis</groupId>
+                            <artifactId>rest</artifactId>
+                            <version>${apiVersion}</version>
+                        </dependency>`.trim().replace(/^                /gm, ""),
+                    "voicemail-grpc": `
+                        <dependency>
+                            <groupId>com.github.working-group-two.wgtwoapis</groupId>
+                            <artifactId>voicemail-grpc</artifactId>
+                            <version>${apiVersion}</version>
+                        </dependency>`.trim().replace(/^                /gm, ""),
+                    "auth-grpc": `
+                        <dependency>
+                            <groupId>com.github.working-group-two.wgtwoapis</groupId>
+                            <artifactId>auth-grpc</artifactId>
+                            <version>${apiVersion}</version>
+                        </dependency>`.trim().replace(/^                /gm, ""),
+                }
+            };
+        },
+        components: {
+            Prism
+        },
+        props: ["clients"],
+    };
+</script>

@@ -21,15 +21,7 @@ To update services for your subscribers, you will need to:
 
 Then you can add the required dependency:
 
-```xml
-<dependencies>
-    <dependency>
-        <groupId>com.github.working-group-two.wgtwoapis</groupId>
-        <artifactId>rest</artifactId>
-        <version>acbf554461c3b22dbf2184de983b74b1d331ee48</version>
-    </dependency>
-</dependencies>
-```
+<ClientDependencies :clients="['rest']"/>
 
 ### Initialize your dependencies
 ```kotlin

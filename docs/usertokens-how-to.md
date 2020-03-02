@@ -22,20 +22,7 @@ To manage user tokens, you will need to:
 
 Then you can add `event-grpc` and `common`:
 
-```xml
-<dependencies>
-    <dependency>
-        <groupId>com.github.working-group-two.wgtwoapis</groupId>
-        <artifactId>auth-grpc</artifactId>
-        <version>91f3d656e6d890829e28f0ee7788359450325828</version>
-    </dependency>
-    <dependency>
-        <groupId>com.github.working-group-two.wgtwoapis</groupId>
-        <artifactId>common</artifactId>
-        <version>91f3d656e6d890829e28f0ee7788359450325828</version>
-    </dependency>
-</dependencies>
-```
+<ClientDependencies :clients="['auth-grpc', 'common']"/>
 
 ### Initialize your dependencies
 ```kotlin

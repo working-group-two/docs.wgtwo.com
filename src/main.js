@@ -11,6 +11,7 @@ import DefaultLayout from '~/layouts/DefaultLayout.vue'
 import DocsLayout from '~/layouts/DocsLayout.vue'
 import GithubCode from '~/components/GithubCode.vue'
 import JitpackDependency from '~/components/deps/JitpackDependency.vue'
+import ClientDependencies from "./components/deps/ClientDependencies";
 
 export default function (Vue, { router, head, isClient }) {
   Vue.use(Buefy)
@@ -19,6 +20,7 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('Header', Header)
   Vue.component('GithubCode', GithubCode)
   Vue.component('JitpackDependency', JitpackDependency)
+  Vue.component('ClientDependencies', ClientDependencies)
   head.link.push({
     rel: 'stylesheet',
     href: 'https://fonts.googleapis.com/css?family=Quicksand&display=swap'

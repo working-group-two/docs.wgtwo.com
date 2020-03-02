@@ -26,20 +26,7 @@ To list and play voicemails you will need to:
 
 Then you can add `voicemail-grpc` and `common`:
 
-```xml
-<dependencies>
-    <dependency>
-        <groupId>com.github.working-group-two.wgtwoapis</groupId>
-        <artifactId>voicemail-grpc</artifactId>
-        <version>{{$static.metadata.apiVersion}}</version>
-    </dependency>
-    <dependency>
-        <groupId>com.github.working-group-two.wgtwoapis</groupId>
-        <artifactId>common</artifactId>
-        <version>b168d41</version>
-    </dependency>
-</dependencies>
-```
+<ClientDependencies :clients="['voicemail-grpc', 'common']"/>
 
 ### Initialize your dependencies
 ```kotlin

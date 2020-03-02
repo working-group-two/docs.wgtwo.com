@@ -8,16 +8,17 @@
     import 'prismjs/components/prism-protobuf'
     import 'prismjs/components/prism-kotlin'
     import Prism from 'vue-prism-component'
+
     export default {
         data() {
             return {
-                code:
-`<repositories>
-    <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
-    </repository>
-</repositories>`,
+                code: `
+                    <repositories>
+                        <repository>
+                            <id>jitpack.io</id>
+                            <url>https://jitpack.io</url>
+                        </repository>
+                    </repositories>`.trim().replace(/^                /gm, ""),
             };
         },
         components: {
