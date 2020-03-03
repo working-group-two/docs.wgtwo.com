@@ -2,24 +2,13 @@
     <div class="landing-page">
         <h1 class="title">Working Group Two API docs</h1>
         <div class="api-boxes">
-            <g-link to="/sms/how-to/send-sms/" class="api-box">
+            <g-link to="/introduction/explanation/introduction/" class="api-box">
                 <div class="api-icon-wrap">
-                    <SmsIcon></SmsIcon>
+                    <IntroIcon></IntroIcon>
                 </div>
-                <h2 class="title">Send & receive SMS</h2>
+                <h2 class="title">About our APIs</h2>
                 <p>
-                    Send SMS to or from anyone on your platform.
-                    Receive SMS coming in or going out of your platform.
-                </p>
-            </g-link>
-            <g-link to="/voicemail/how-to/list-and-play-voicemails/" class="api-box">
-                <div class="api-icon-wrap">
-                    <VoicemailIcon></VoicemailIcon>
-                </div>
-                <h2 class="title">Voicemail</h2>
-                <p>
-                    Our Voicemail API enables you to fetch a list of all voicemails for
-                    a user, or fetch the audio file for one particular Voicemail.
+                    Introduction to our APIs
                 </p>
             </g-link>
             <g-link to="/events/how-to/listen-for-events/" class="api-box">
@@ -32,14 +21,24 @@
                     the network. Voice events, Voicemail events, Roaming events, etc.
                 </p>
             </g-link>
-            <g-link to="/usertokens/how-to/manage-user-tokens/" class="api-box">
+            <g-link to="/metrics/how-to/accessing-metrics/" class="api-box">
                 <div class="api-icon-wrap">
-                    <UsertokensIcon></UsertokensIcon>
+                    <MetricsIcon></MetricsIcon>
                 </div>
-                <h2 class="title">User tokens</h2>
+                <h2 class="title">Metrics</h2>
                 <p>
-                    Our Events User token API lets you create API tokens on behalf of
-                    your users, so they can get access to program their own subscription.
+                    Our Metrics API lets you access relevant OpenMetrics
+                    time series directly from our systems, so you can see what's up.
+                </p>
+            </g-link>
+            <g-link to="/sms/how-to/send-sms/" class="api-box">
+                <div class="api-icon-wrap">
+                    <SmsIcon></SmsIcon>
+                </div>
+                <h2 class="title">Send & receive SMS</h2>
+                <p>
+                    Send SMS to or from anyone on your platform.
+                    Receive SMS coming in or going out of your platform.
                 </p>
             </g-link>
             <g-link to="/subscription-profile/how-to/manage-subscriptions/" class="api-box">
@@ -52,20 +51,31 @@
                     subscription profiles, such as allowing calls, sms, data roaming, etc.
                 </p>
             </g-link>
-            <g-link to="/metrics/how-to/accessing-metrics/" class="api-box">
+            <g-link to="/usertokens/how-to/manage-user-tokens/" class="api-box">
                 <div class="api-icon-wrap">
-                    <MetricsIcon></MetricsIcon>
+                    <UsertokensIcon></UsertokensIcon>
                 </div>
-                <h2 class="title">Metrics</h2>
+                <h2 class="title">User tokens</h2>
                 <p>
-                    Our Metrics API lets you access relevant OpenMetrics
-                    time series directly from our systems, so you can see what's up.
+                    Our Events User token API lets you create API tokens on behalf of
+                    your users, so they can get access to program their own subscription.
+                </p>
+            </g-link>
+            <g-link to="/voicemail/how-to/list-and-play-voicemails/" class="api-box">
+                <div class="api-icon-wrap">
+                    <VoicemailIcon></VoicemailIcon>
+                </div>
+                <h2 class="title">Voicemail</h2>
+                <p>
+                    Our Voicemail API enables you to fetch a list of all voicemails for
+                    a user, or fetch the audio file for one particular Voicemail.
                 </p>
             </g-link>
         </div>
     </div>
 </template>
 <script>
+    import IntroIcon from "~/assets/images/wgtwo-logo.svg";
     import EventsIcon from "~/assets/images/events-icon.svg";
     import SmsIcon from "~/assets/images/sms-icon.svg";
     import UsertokensIcon from "~/assets/images/usertokens-icon.svg";
@@ -79,6 +89,7 @@
             titleTemplate: null
         },
         components: {
+            IntroIcon,
             EventsIcon,
             SmsIcon,
             UsertokensIcon,

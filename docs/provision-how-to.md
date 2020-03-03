@@ -9,6 +9,10 @@ codeGetSubscriptionInfo: https://github.com/working-group-two/docs.wgtwo.com/blo
 
 # How to provision services for subscribers
 
+## Overview
+
+This API allows to enable and disable capabilities for a subscription and get subscription information.
+
 ## Token/credentials
 * [Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
 

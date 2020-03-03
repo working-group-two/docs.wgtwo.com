@@ -12,7 +12,7 @@ code: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/s
 
 The SMS API allows you to listen to all sent and received messages.
 
-All messages must be acknowledged.
+All messages must be acknowledged after they are received, as they otherwise will be resent.
 
 ## Token/credentials
 * [Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)

@@ -8,6 +8,10 @@ code: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/s
 
 # How to send SMS
 
+## Overview
+
+This API allows you to send SMSes. 
+
 ## Token/credentials
 * [Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
 

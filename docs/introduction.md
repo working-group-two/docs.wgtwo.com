@@ -8,8 +8,13 @@ type: explanation
 Our APIs are hosted at https://api.wgtwo.com
 
 ## Resources
-- proto files: https://github.com/working-group-two/wgtwoapis
-- Sample command line app written in Kotlin: https://github.com/working-group-two/wgtwo-kotlin-code-snippets
+
+|           |                                                                    |
+|-----------|--------------------------------------------------------------------|
+| protobufs | [github.com/working-group-two/wgtwoapis › wgtwo](https://github.com/working-group-two/wgtwoapis/tree/master/wgtwo) |
+| OpenAPI   | [github.com/working-group-two/wgtwoapis › openapi](https://github.com/working-group-two/wgtwoapis/tree/master/openapi) |
+
+Sample CLI  app written in Kotlin: [wgtwo-kotlin-code-snippets](https://github.com/working-group-two/wgtwo-kotlin-code-snippets)
 
 ## Credentials
 API keys are managed via [https://console.wgtwo.com](https://console.wgtwo.com/api-keys-redirect)

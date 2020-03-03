@@ -10,24 +10,6 @@ private val channel = Clients.createChannel(Environment.PROD)
 private val credentials = OperatorToken(System.getenv("CLIENT_ID"), System.getenv("CLIENT_SECRET"))
 private val stub = EventsServiceGrpc.newStub(channel).withCallCredentials(credentials)
 
-fun acknowledge(event: EventsProto.Event) {
-    val request = EventsProto.AckRequest.newBuilder()
-        .setSequence(event.metadata.sequence)
-        .setInbox(event.metadata.ackInbox)
-        .build()
-    stub.ack(request, object : StreamObserver<EventsProto.AckResponse> {
-        override fun onNext(response: EventsProto.AckResponse) {
-            println("Event successfully acknowledged")
-        }
-
-        override fun onError(throwable: Throwable) {
-            println("Error acknowledging event: ${throwable.message}")
-        }
-
-        override fun onCompleted() {}
-    })
-}
-
 fun main() {
     val request = EventsProto.SubscribeEventsRequest.newBuilder()
         .addType(EventsProto.EventType.VOICE_EVENT)
@@ -57,4 +39,22 @@ fun main() {
     })
     // Wait for stream to close
     try { Thread.currentThread().join() } catch (e: InterruptedException) {}
+}
+
+fun acknowledge(event: EventsProto.Event) {
+    val request = EventsProto.AckRequest.newBuilder()
+        .setSequence(event.metadata.sequence)
+        .setInbox(event.metadata.ackInbox)
+        .build()
+    stub.ack(request, object : StreamObserver<EventsProto.AckResponse> {
+        override fun onNext(response: EventsProto.AckResponse) {
+            println("Event successfully acknowledged")
+        }
+
+        override fun onError(throwable: Throwable) {
+            println("Error acknowledging event: ${throwable.message}")
+        }
+
+        override fun onCompleted() {}
+    })
 }

@@ -9,28 +9,6 @@ private val channel = Clients.createChannel(Environment.PROD)
 private val credentials = OperatorToken(System.getenv("CLIENT_ID"), System.getenv("CLIENT_SECRET"))
 private val stub = MessageCoreGrpc.newStub(channel).withCallCredentials(credentials)
 
-fun acknowledge(messageId: Long) {
-    val request = Messagecore.AckMessageRequest.newBuilder()
-        .setAckStatus(
-            Messagecore.ReceiveStatus.newBuilder()
-                .setMessageId(messageId)
-                .setStatus(Messagecore.ReceiveAttemptStatus.RECEIVE_OK)
-                .build()
-        )
-        .build()
-    stub.ackMessage(request, object : StreamObserver<Messagecore.AckMessageResponse> {
-        override fun onNext(response: Messagecore.AckMessageResponse) {
-            println("SMS successfully acknowledged")
-        }
-
-        override fun onError(throwable: Throwable) {
-            println("Error acknowledging SMS: ${throwable.message}")
-        }
-
-        override fun onCompleted() {}
-    })
-}
-
 fun main() {
     val request = Messagecore.ReceiveMessagesRequest.getDefaultInstance()
     stub.receiveMessages(request, object : StreamObserver<Messagecore.MessageBox> {
@@ -51,4 +29,26 @@ fun main() {
     })
     // Wait for stream to close
     try { Thread.currentThread().join() } catch (e: InterruptedException) {}
+}
+
+fun acknowledge(messageId: Long) {
+    val request = Messagecore.AckMessageRequest.newBuilder()
+        .setAckStatus(
+            Messagecore.ReceiveStatus.newBuilder()
+                .setMessageId(messageId)
+                .setStatus(Messagecore.ReceiveAttemptStatus.RECEIVE_OK)
+                .build()
+        )
+        .build()
+    stub.ackMessage(request, object : StreamObserver<Messagecore.AckMessageResponse> {
+        override fun onNext(response: Messagecore.AckMessageResponse) {
+            println("SMS successfully acknowledged")
+        }
+
+        override fun onError(throwable: Throwable) {
+            println("Error acknowledging SMS: ${throwable.message}")
+        }
+
+        override fun onCompleted() {}
+    })
 }

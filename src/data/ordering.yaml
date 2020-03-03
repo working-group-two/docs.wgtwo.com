@@ -1,7 +1,11 @@
 topic:
-    - sms
-    - voicemail
+    - introduction
     - events
+    - metrics
+    - sms
+    - subscription profile
+    - usertokens
+    - voicemail
 type:
     - overview
     - how-to
