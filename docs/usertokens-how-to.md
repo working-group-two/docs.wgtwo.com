@@ -2,6 +2,10 @@
 title: Manage user tokens
 topic: usertokens
 type: how-to
+codeCreate: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/usertokens/src/main/kotlin/CreateUserToken.kt
+codeList: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/usertokens/src/main/kotlin/ListUserToken.kt
+codeGet: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/usertokens/src/main/kotlin/GetUserToken.kt
+codeRevoke: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/usertokens/src/main/kotlin/RevokeUserToken.kt
 ---
 
 # Manage user tokens
@@ -20,24 +24,9 @@ To manage user tokens, you will need to:
 ### Install dependencies
 <JitpackDependency />
 
-Then you can add `event-grpc` and `common`:
+Then you can add `auth-grpc` and `utils-grpc`:
 
-<ClientDependencies :clients="['auth-grpc', 'common']"/>
-
-### Initialize your dependencies
-```kotlin
-import com.wgtwo.api.auth.v0.RightServiceGrpc
-import com.wgtwo.api.auth.v0.RightServiceGrpc.RightServiceBlockingStub
-import com.wgtwo.api.util.auth.Clients
-import com.wgtwo.api.util.auth.OperatorToken
-
-val channel = Clients.createChannel(Clients.Environment.PROD)
-val credentials = OperatorToken("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
-
-val userTokenStub: UserTokenServiceBlockingStub = UserTokenServiceGrpc
-    .newBlockingStub(channel)
-    .withCallCredentials(credentials)
-```
+<ClientDependencies :clients="['auth-grpc', 'utils-grpc']"/>
 
 ## Create new user token
 A user token may consist of multiple phone numbers, rights and tags.
@@ -46,72 +35,16 @@ Rights does accept using `*` as wildcard, which will match any suffix.
 
 For a list of applicable rights, see [List applicable rights](../list-applicable-rights/).
 
-```kotlin
-import com.wgtwo.api.auth.v0.UserTokensProto.CreateUserTokenRequest
-import com.wgtwo.api.auth.v0.UserTokensProto.CreateUserTokenResponse
-import com.wgtwo.api.common.v0.PhoneNumberProto.PhoneNumber
-
-fun create() {
-    val phoneNumber = PhoneNumber.newBuilder().apply {
-        e164 = "+4799990000"
-    }.build()
-
-    val request = CreateUserTokenRequest.newBuilder().apply {
-        humanName = "My Raspberry PI project"
-        correlationId = "my-unique-id"
-        addPhoneNumbers(phoneNumber)
-        addRights("voicemail.*")
-        putTags("createdBy", "My name")
-    }.build()
-
-    val response: CreateUserTokenResponse = userTokenStub.create(request)
-    println("The generated token is: ${response.userToken}")
-}
-```
+<GithubCode :to="$frontmatter.codeCreate" />
 
 ## List user tokens for phone number
-```kotlin
-import com.wgtwo.api.auth.v0.UserTokensProto.ListUserTokenRequest
-import com.wgtwo.api.auth.v0.UserTokensProto.UserTokenMetadata
-import com.wgtwo.api.common.v0.PhoneNumberProto.PhoneNumber
-
-fun list() {
-    val phoneNumber = PhoneNumber.newBuilder().apply {
-        e164 = "+4799990000"
-    }.build()
-    val request = ListUserTokenRequest.newBuilder()
-        .setPhoneNumber(phoneNumber)
-        .build()
-    val response = userTokenStub.list(request)
-    val userTokens: List<UserTokenMetadata> = response.userTokenMetadataList
-}
-```
+<GithubCode :to="$frontmatter.codeList" />
 
 ## Get user token
-```kotlin
-import com.wgtwo.api.auth.v0.UserTokensProto.GetUserTokenRequest
-import com.wgtwo.api.auth.v0.UserTokensProto.UserTokenMetadata
-
-fun get() {
-    val request = GetUserTokenRequest.newBuilder()
-        .setCorrelationId("my-unique-id")
-        .build()
-    val response = userTokenStub.get(request)
-    val userToken: UserTokenMetadata = response.userTokenMetadata
-}
-```
+<GithubCode :to="$frontmatter.codeGet" />
 
 ## Revoke user token
-```kotlin
-import com.wgtwo.api.auth.v0.UserTokensProto.RevokeUserTokenRequest
-
-fun revoke() {
-    val request = RevokeUserTokenRequest.newBuilder()
-        .setCorrelationId("my-unique-id")
-        .build()
-    userTokenStub.revoke(request)
-}
-```
+<GithubCode :to="$frontmatter.codeRevoke" />
 
 ## Concepts
 * [Three types of stubs: asynchronous, blocking, and future](https://grpc.io/docs/reference/java/generated-code/)

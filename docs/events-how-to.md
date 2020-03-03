@@ -2,8 +2,8 @@
 title: Listen for events
 topic: events
 type: how-to
-externalLinkEvents: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/events/src/main/kotlin/com/wgtwo/examples/events/GetEvents.kt
-externalLinkEventsManualAcks: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/events/src/main/kotlin/com/wgtwo/examples/events/GetEventsManualAck.kt
+codeEvents: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/events/src/main/kotlin/GetEvents.kt
+codeEventsManualAcks: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/events/src/main/kotlin/GetEventsManualAck.kt
 ---
 
 # How to listen for Events
@@ -23,12 +23,12 @@ To listen for events, you will need to:
 ### Install dependencies
 <JitpackDependency />
 
-Then you can add `event-grpc` and `common`: 
+Then you can add `event-grpc` and `utils-grpc`: 
 
-<ClientDependencies :clients="['events-grpc', 'common']"/>
+<ClientDependencies :clients="['events-grpc', 'utils-grpc']"/>
 
 ## Listen for events
-<GithubCode :to="$frontmatter.externalLinkEvents" />
+<GithubCode :to="$frontmatter.codeEvents" />
 
 ## Manual acknowledge
 In the below example we enable manual acknowledgement, and setting a custom ack timeout.
@@ -36,7 +36,7 @@ In the below example we enable manual acknowledgement, and setting a custom ack 
 Include Google's Protocol Buffers utility library for support of Google's Well-Known Types:
 <ClientDependencies :clients="['protobuf-java-util']"/>
 
-<GithubCode :to="$frontmatter.externalLinkEventsManualAcks" />
+<GithubCode :to="$frontmatter.codeEventsManualAcks" />
 
 ## Concepts
 * [Three types of stubs: asynchronous, blocking, and future](https://grpc.io/docs/reference/java/generated-code/)

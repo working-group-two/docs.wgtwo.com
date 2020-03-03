@@ -32,11 +32,6 @@
             <artifactId>utils-grpc</artifactId>
             <version>${wgtwo-apis.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.github.working-group-two.wgtwoapis</groupId>
-            <artifactId>phonenumber-utils</artifactId>
-            <version>${wgtwo-apis.version}</version>
-        </dependency>
     </dependencies>
 
 </project>

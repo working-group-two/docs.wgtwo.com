@@ -2,6 +2,10 @@
 title: List and play voicemails
 topic: voicemail
 type: how-to
+codeList: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/ListVoicemail.kt
+codeDelete: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/DeleteVoicemail.kt
+codeMarkAsRead: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/MarkVoicemailAsRead.kt
+codePlay: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/PlayVoicemail.kt
 ---
 
 # List and play voicemails
@@ -24,106 +28,21 @@ To list and play voicemails you will need to:
 ### Install dependencies
 <JitpackDependency />
 
-Then you can add `voicemail-grpc` and `common`:
+Then you can add `voicemail-grpc` and `utils-grpc`:
 
-<ClientDependencies :clients="['voicemail-grpc', 'common']"/>
-
-### Initialize your dependencies
-```kotlin
-import com.wgtwo.api.auth.Clients
-import com.wgtwo.api.common.OperatorToken
-
-val channel: ManagedChannel = Clients.createChannel(Environment.PROD)
-val credentials = OperatorToken(Secrets.WGTWO_CLIENT_ID, Secrets.WGTWO_CLIENT_SECRET)
-val blockingStub = VoicemailMediaServiceGrpc.newBlockingStub(channel).withCallCredentials(credentials)
-```
+<ClientDependencies :clients="['voicemail-grpc', 'utils-grpc']"/>
 
 ## List voicemails
-```kotlin
-fun listVoicemails(e164: String): MutableList<Voicemail.VoicemailMetadata>? {
-    val phoneNumberProto = PhoneNumberProto.PhoneNumber.newBuilder().setE164(e164).build()
-    val voicemailMetadataRequest =
-        VoicemailProto.GetAllVoicemailMetadataRequest.newBuilder().setTo(phoneNumberProto).build()
-    val metadataResponse = try {
-        blockingStub.getAllVoicemailMetadata(voicemailMetadataRequest)
-    } catch (e: StatusRuntimeException) {
-        println(e)
-        return null
-    }
-
-    val voicemailList = metadataResponse.metadataList
-    if (voicemailList.isEmpty()) {
-        println("No voicemails for e164 $e164")
-    }
-
-    for (metadata in voicemailList) {
-        println(metadata)
-    }
-    return voicemailList
-}
-```
+<GithubCode :to="$frontmatter.codeList" />
 
 ## Play voicemail
-```kotlin
-fun playVoicemail(voicemailId: String) {
-    val voicemailRequest = Voicemail.GetVoicemailRequest.newBuilder().setVoicemailId(voicemailId).build()
-
-    val voicemail = try {
-        blockingStub.getVoicemail(voicemailRequest)
-    } catch (e: StatusRuntimeException) {
-        println(e)
-        return
-    }
-
-    val tempFile = createTempFile(prefix = "voicemail", suffix = ".mp3")
-    val outputStream = tempFile.outputStream()
-    when (voicemail.bytesCase) {
-        BytesCase.WAV -> voicemail.wav.writeTo(outputStream)
-        BytesCase.BYTES_NOT_SET, null -> {
-            println("Error: no content found in the voicemail response.")
-            return
-        }
-    }
-    outputStream.close()
-
-    val audioInputStream = AudioSystem.getAudioInputStream(tempFile)
-    val clip = AudioSystem.getClip()
-    clip.open(audioInputStream)
-    println("Playing voicemail: $voicemailId")
-    clip.start()
-    Thread.sleep(clip.microsecondLength / 1000)
-}
-```
+<GithubCode :to="$frontmatter.codePlay" />
 
 ## Mark voicemail as read
-```kotlin
-fun markVoicemailAsRead(voicemailId: String): Boolean {
-    val readRequest = Voicemail.MarkVoicemailAsReadRequest.newBuilder().setVoicemailId(voicemailId).build()
-
-    return try {
-        blockingStub.markVoicemailAsRead(readRequest)
-        true
-    } catch (e: StatusRuntimeException) {
-        println(e)
-        false
-    }
-}
-```
+<GithubCode :to="$frontmatter.codeMarkAsRead" />
 
 ## Delete voicemail
-```kotlin
-fun deleteVoicemail(voicemailId: String): Boolean {
-    val deleteRequest = Voicemail.DeleteVoicemailRequest.newBuilder().setVoicemailId(voicemailId).build()
-
-    return try {
-        blockingStub.deleteVoicemail(deleteRequest)
-        true
-    } catch (e: StatusRuntimeException) {
-        println(e)
-        false
-    }
-}
-```
+<GithubCode :to="$frontmatter.codeDelete" />
 
 ## Resources
 * [VoicemailDemo.kt](https://github.com/working-group-two/wgtwo-kotlin-code-snippets/blob/master/src/main/kotlin/com/wgtwo/example/voicemail/VoicemailDemo.kt)

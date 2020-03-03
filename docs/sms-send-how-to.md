@@ -3,6 +3,7 @@ title: Send SMS
 topic: sms
 type: how-to
 typeOrder: 1
+code: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/sms/src/main/kotlin/SendSms.kt
 ---
 
 # How to send SMS
@@ -21,53 +22,12 @@ To send an SMS you will need to:
 ### Install dependencies
 <JitpackDependency />
 
-Then you can add `messaging-grpc` and `common`:
+Then you can add `messaging-grpc` and `utils-grpc`:
 
-<ClientDependencies :clients="['messaging-grpc', 'common']"/>
-
-### Initialize your dependencies
-```kotlin
-import com.wgtwo.api.auth.Clients
-import com.wgtwo.api.common.OperatorToken
-
-val channel = Clients.createChannel(Clients.Environment.PROD)
-val credentials = OperatorToken("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
-val blockingStub = MessageCoreGrpc.newBlockingStub(channel).withCallCredentials(credentials)
-```
+<ClientDependencies :clients="['messaging-grpc', 'utils-grpc']"/>
 
 ## Send SMS
-```kotlin
-typealias Msisdn = String
-
-fun sendSms(
-    from: Msisdn,
-    to: Msisdn,
-    content: String,
-    direction: Messagecore.Direction = Messagecore.Direction.OUTGOING // `OUTGOING` for sending from a subscriber
-                                                                      // `INCOMING` to send directly to a subscriber, without anyone actually sending the SMS
-) {
-    val message = Messagecore.TextMessage.newBuilder()
-        .setFromAddress(from.toAddress())
-        .setToAddress(to.toAddress())
-        .setBody(content)
-        .setDirection(direction)
-        .build()
-
-    val sendResult = blockingStub.sendTextMessage(message)
-    val status = sendResult.status
-    if (status == Messagecore.SendAttemptStatus.SEND_OK) {
-        println("Successfully sent message to $to, from $from")
-    } else {
-        println("Failed to send message to $to, from $from. Got status: $status. Description: ${sendResult.description}")
-    }
-}
-
-// Helper method to convert a Msisdn to an Address
-fun Msisdn.toAddress(): Messagecore.Address = Messagecore.Address.newBuilder()
-    .setNumber(this)
-    .setType(Messagecore.Address.Type.INTERNATIONAL_NUMBER)
-    .build()
-```
+<GithubCode :to="$frontmatter.code" />
 
 ## Resources
 * [SendSmsDemo.kt](https://github.com/working-group-two/wgtwo-kotlin-code-snippets/blob/master/src/main/kotlin/com/wgtwo/example/sendsms/SendSmsDemo.kt)

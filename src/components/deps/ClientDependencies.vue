@@ -20,12 +20,6 @@
                             <artifactId>messaging-grpc</artifactId>
                             <version>${apiVersion}</version>
                         </dependency>`.trim().replace(/^                /gm, ""),
-                    "common": `
-                        <dependency>
-                            <groupId>com.github.working-group-two.wgtwoapis</groupId>
-                            <artifactId>common</artifactId>
-                            <version>${apiVersion}</version>
-                        </dependency>`.trim().replace(/^                /gm, ""),
                     "events-grpc": `
                         <dependency>
                             <groupId>com.github.working-group-two.wgtwoapis</groupId>
@@ -48,6 +42,12 @@
                         <dependency>
                             <groupId>com.github.working-group-two.wgtwoapis</groupId>
                             <artifactId>auth-grpc</artifactId>
+                            <version>${apiVersion}</version>
+                        </dependency>`.trim().replace(/^                /gm, ""),
+                    "utils-grpc": `
+                        <dependency>
+                            <groupId>com.github.working-group-two.wgtwoapis</groupId>
+                            <artifactId>utils-grpc</artifactId>
                             <version>${apiVersion}</version>
                         </dependency>`.trim().replace(/^                /gm, ""),
                     "protobuf-java-util": `

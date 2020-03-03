@@ -2,6 +2,9 @@
 title: Manage subscriptions 
 topic: subscription profile
 type: how-to
+codeEnableRoamingData: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/provision/src/main/kotlin/EnableRoamingData.kt
+codeDisableRoamingData: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/provision/src/main/kotlin/DisableRoamingData.kt
+codeGetSubscriptionInfo: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/provision/src/main/kotlin/GetSubscriptionInfo.kt
 ---
 
 # How to provision services for subscribers
@@ -23,65 +26,11 @@ Then you can add the required dependency:
 
 <ClientDependencies :clients="['rest']"/>
 
-### Initialize your dependencies
-```kotlin
-import com.wgtwo.api.rest.ApiClient
-import com.wgtwo.api.rest.handler.ProvisionApi
-import com.wgtwo.api.rest.handler.SubscriptionApi
-
-val apiClient = ApiClient().apply {
-    setUsername("CLIENT_ID")
-    setPassword("CLIENT_SECRET")
-
-    // basePath can be specified for test purposes, defaults to https://api.wgtwo.com
-    // basePath = https://apigateway.dub.dev.wgtwo.com
-}
-
-val subscriptionProfileApi = SubscriptionProfileApi(apiClient)
-```
-
 ## Update service, e.g. enable data roaming
-```kotlin
-import com.wgtwo.api.rest.model.UpdateSubscriptionRequest
-import com.wgtwo.api.rest.model.UpdateSubscriptionRequestService
-import com.wgtwo.api.rest.model.UpdateSubscriptionRequestService.ActionEnum
-import com.wgtwo.api.rest.model.UpdateSubscriptionRequestService.NameEnum
-
-val request = UpdateSubscriptionRequest().apply {
-    bssid = "IDENTIFIER PROVIDED BY WORKING GROUP TWO"
-    msisdn = "47xxxxxxxx"
-    userid = "my user ID"
-    service = UpdateSubscriptionRequestService().apply { 
-        action = ActionEnum.ADD
-        name = NameEnum.ROAMING_DATA
-    }
-}
-subscriptionProfileApi.updateService(request)
-```
+<GithubCode :to="$frontmatter.codeEnableRoamingData" />
 
 ## Update service, e.g. disable data roaming
-```kotlin
-import com.wgtwo.api.rest.model.UpdateSubscriptionRequest
-import com.wgtwo.api.rest.model.UpdateSubscriptionRequestService
-import com.wgtwo.api.rest.model.UpdateSubscriptionRequestService.ActionEnum
-import com.wgtwo.api.rest.model.UpdateSubscriptionRequestService.NameEnum
-
-val request = UpdateSubscriptionRequest().apply {
-    bssid = "IDENTIFIER PROVIDED BY WORKING GROUP TWO"
-    msisdn = "47xxxxxxxx"
-    userid = "my user ID"
-    service = UpdateSubscriptionRequestService().apply { 
-        action = ActionEnum.REMOVE
-        name = NameEnum.ROAMING_DATA
-    }
-}
-subscriptionProfileApi.updateService(request)
-```
+<GithubCode :to="$frontmatter.codeDisableRoamingData" />
 
 ## Get information about subscriber, e.g. enabled services
-```kotlin
-import com.wgtwo.api.rest.model.Subscription
-
-val subscription = subscriptionProfileApi.getSubscription("47xxxxxxxx")
-println("My enabled services: ${subscription.services!!.keys}")
-```
+<GithubCode :to="$frontmatter.codeGetSubscriptionInfo" />
