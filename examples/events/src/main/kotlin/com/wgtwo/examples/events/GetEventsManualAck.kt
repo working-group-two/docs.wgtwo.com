@@ -21,12 +21,10 @@ fun acknowledge(event: EventsProto.Event) {
         }
 
         override fun onError(throwable: Throwable) {
-            println("Error acknowledging event")
+            println("Error acknowledging event: ${throwable.message}")
         }
 
-        override fun onCompleted() {
-            println("On completed called")
-        }
+        override fun onCompleted() {}
     })
 }
 

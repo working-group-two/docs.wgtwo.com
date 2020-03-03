@@ -23,6 +23,7 @@
         <module>rights</module>
         <module>usertokens</module>
         <module>voicemail</module>
+        <module>sms</module>
     </modules>
 
     <dependencies>
