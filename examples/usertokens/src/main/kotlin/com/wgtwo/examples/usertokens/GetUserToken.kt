@@ -1,5 +1,3 @@
-package com.wgtwo.examples.usertokens
-
 import com.wgtwo.api.auth.v0.UserTokenServiceGrpc
 import com.wgtwo.api.auth.v0.UserTokensProto
 import com.wgtwo.api.common.Environment

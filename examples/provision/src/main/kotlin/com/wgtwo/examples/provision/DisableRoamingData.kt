@@ -1,5 +1,3 @@
-package com.wgtwo.examples.provision
-
 import com.wgtwo.api.rest.ApiClient
 import com.wgtwo.api.rest.handler.SubscriptionProfileApi
 import com.wgtwo.api.rest.model.UpdateSubscriptionRequest

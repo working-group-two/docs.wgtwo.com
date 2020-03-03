@@ -1,5 +1,3 @@
-package com.wgtwo.examples.events
-
 import com.wgtwo.api.common.Environment
 import com.wgtwo.api.events.v0.EventsProto
 import com.wgtwo.api.events.v0.EventsServiceGrpc

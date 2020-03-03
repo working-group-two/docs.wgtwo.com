@@ -1,5 +1,3 @@
-package com.wgtwo.examples.rights
-
 import com.wgtwo.api.auth.v0.RightServiceGrpc
 import com.wgtwo.api.auth.v0.RightsProto
 import com.wgtwo.api.common.Environment

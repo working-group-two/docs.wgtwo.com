@@ -12,15 +12,9 @@ private val stub = UserTokenServiceGrpc.newBlockingStub(channel).withCallCredent
 private fun String.toPhoneNumberProto() = PhoneNumbers.toPhoneNumberProto(PhoneNumbers.of(this))
 
 fun main() {
-    val request = UserTokensProto.CreateUserTokenRequest.newBuilder()
-        .setHumanName("My hobby project")
-        .setCorrelationId("my-unique-id")
-        .addPhoneNumbers("+47 xxx xx xxx".toPhoneNumberProto())
-        .addRights("voicemail.*")
-        .putTags("createdBy", "Alice")
-        .putTags("location", "My Raspberry PI")
+    val request = UserTokensProto.ListUserTokenRequest.newBuilder()
+        .setPhoneNumber("+47 xxx xx xxx".toPhoneNumberProto())
         .build()
-
-    val response: UserTokensProto.CreateUserTokenResponse = stub.create(request)
-    println("This actual token is only displayed once: ${response.userToken}")
+    val response: UserTokensProto.ListUserTokenResponse = stub.list(request)
+    println("User token metadata list: ${response.userTokenMetadataList}")
 }
