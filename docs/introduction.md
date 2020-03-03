@@ -5,10 +5,14 @@ type: explanation
 ---
 
 # Working Group Two APIs
+Our APIs are hosted at https://api.wgtwo.com
+
+## Resources
+- proto files: https://github.com/working-group-two/wgtwoapis
+- Sample command line app written in Kotlin: https://github.com/working-group-two/wgtwo-kotlin-code-snippets
 
 ## Credentials
 API keys are managed via [https://console.wgtwo.com](https://console.wgtwo.com/api-keys-redirect)
-
 
 ## Dependency
 Working Group Two's public API can be found at https://github.com/working-group-two/wgtwoapis
