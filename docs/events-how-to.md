@@ -33,8 +33,8 @@ Then you can add `event-grpc` and `common`:
 ## Manual acknowledge
 In the below example we enable manual acknowledgement, and setting a custom ack timeout.
 
-Include Google's Protocol Buffers utility library for setting timeout of type `google.protobuf.Duration`:
-<ClientDependencies :clients="['events-grpc', 'common', 'protobuf-java-util']"/>
+Include Google's Protocol Buffers utility library for support of Google's Well-Known Types:
+<ClientDependencies :clients="['protobuf-java-util']"/>
 
 <GithubCode :to="$frontmatter.externalLinkEventsManualAcks" />
 
