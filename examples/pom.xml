@@ -20,6 +20,8 @@
     <modules>
         <module>events</module>
         <module>provision</module>
+        <module>rights</module>
+        <module>usertokens</module>
     </modules>
 
     <dependencies>
