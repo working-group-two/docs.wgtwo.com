@@ -10,15 +10,14 @@ code: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/s
 
 ## Overview
 
-To receive an SMS you will need to:
-* [Get credentials from Console](https://console.wgtwo.com/api-keys-redirect)
-* Write code that starts listening for incoming SMS
-* Ack each received SMS
+The SMS API allows you to listen to all sent and received messages.
 
-## Prerequisites
+All messages must be acknowledged.
 
-### Token/credentials
-* You will need [credentials from Console](https://console.wgtwo.com/api-keys-redirect) to send SMS to/for users on your platform.
+## Token/credentials
+* [Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
+
+  Required right: `sms.receive.to_subscriber`, `sms.receive.from_subscriber`
 
 ### Install dependencies
 <JitpackDependency />

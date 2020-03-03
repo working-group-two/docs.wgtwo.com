@@ -19,7 +19,7 @@ The HTTP endpoint we provide will give you the current state of all of your metr
 Please reach out to clarify what metrics you would need access to.
 
 ## Token/credentials
-* [Get credentials from Console](https://console.wgtwo.com/api-keys-redirect)
+* [Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
 
   Required right: `metrics.prometheus.read`
 

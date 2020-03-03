@@ -8,16 +8,10 @@ codeCheckExpansion: https://github.com/working-group-two/docs.wgtwo.com/blob/mas
 
 # List applicable rights
 
-## Overview
+## Token/credentials
+* [Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
 
-To manage user tokens, you will need to:
-* [Get credentials from Console](https://console.wgtwo.com/api-keys-redirect)
-* Write client code for creating and managing user tokens
-
-## Prerequisites
-
-### Token/credentials
-* You will need [credentials from Console](https://console.wgtwo.com/api-keys-redirect).
+  Required right: `id.user.token.create`
 
 ### Install dependencies
 <JitpackDependency />

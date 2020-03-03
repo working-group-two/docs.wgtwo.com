@@ -8,16 +8,10 @@ code: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/s
 
 # How to send SMS
 
-## Overview
+## Token/credentials
+* [Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
 
-To send an SMS you will need to:
-* [Get credentials from Console](https://console.wgtwo.com/api-keys-redirect)
-* Write code that targets a sender, receiver, and with some content
-
-## Prerequisites
-
-### Token/credentials
-* You will need [credentials from Console](https://console.wgtwo.com/api-keys-redirect) to send SMS to/for users on your platform.
+  Required right: `sms.send.to_subscriber`, `sms.send.from_subscriber`
 
 ### Install dependencies
 <JitpackDependency />

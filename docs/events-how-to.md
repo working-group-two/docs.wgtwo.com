@@ -8,17 +8,18 @@ codeEventsManualAcks: https://github.com/working-group-two/docs.wgtwo.com/blob/m
 
 # How to listen for Events
 
-## Overview
+## Token/credentials
+* [Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
 
-To listen for events, you will need to:
-* [Get credentials from Console](https://console.wgtwo.com/api-keys-redirect)
-* Write client code that connects to our message broker
-
-## Prerequisites
-
-### Token/credentials
-* You will need [credentials from Console](https://console.wgtwo.com/api-keys-redirect) for the type of event you're interested in.
-  You will only receive an event if your token has the appropriate right.
+  Required rights: `events.*.subscribe`
+  
+  | Event type            | Required right                 |
+  |-----------------------|--------------------------------|
+  | VOICE_EVENT           | `events.voice.subscribe`       |
+  | VOICEMAIL_EVENT       | `events.voicemail.subscribe`   |
+  | LOCATION_UPDATE_EVENT | `events.location.subscribe`    |
+  | ROAMING_EVENT         | `events.roaming.subscribe`     |
+  | TOKEN_AUDIT_EVENT     | `events.audit.token.subscribe` |
 
 ### Install dependencies
 <JitpackDependency />

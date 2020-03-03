@@ -11,16 +11,14 @@ codePlay: https://github.com/working-group-two/docs.wgtwo.com/blob/master/exampl
 # List and play voicemails
 
 ## Overview
+This API allows managing voicemail, including getting the actual content.
 
-To list and play voicemails you will need to:
-* [Get credentials from Console](https://console.wgtwo.com/api-keys-redirect)
-* Write code that does the work, targetting a specific phone number on your platform
-* Optional: Mark a voicemail as read or delete it
+The Event API will allow you to subscribe on voicemail events, which can be used to notify users about new voicemails.
 
-## Prerequisites
+## Token/credentials
+* [Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
 
-### Token/credentials
-* You will need [credentials from Console](https://console.wgtwo.com/api-keys-redirect) to list voicemails for users on your platform.
+  Required right: `voicemail.get`, `voicemail.update`, `voicemail.delete`
 
 ### Phone number on platform to target
 * The code assumes you know which phone number (e164) you wish to get voicemails from.

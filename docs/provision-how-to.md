@@ -9,15 +9,10 @@ codeGetSubscriptionInfo: https://github.com/working-group-two/docs.wgtwo.com/blo
 
 # How to provision services for subscribers
 
-## Overview
+## Token/credentials
+* [Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
 
-To update services for your subscribers, you will need to:
-* [Get credentials from Console](https://console.wgtwo.com/api-keys-redirect)
-
-## Prerequisites
-
-### Token/credentials
-* You will need [credentials from Console](https://console.wgtwo.com/api-keys-redirect) for `subscription.read` and/or `subscription.write`.
+  Required right: `subscription.read`, `subscription.write`
 
 ### Install dependencies
 <JitpackDependency />
