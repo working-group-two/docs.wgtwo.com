@@ -11,15 +11,15 @@ codeEventsManualAcks: https://github.com/working-group-two/docs.wgtwo.com/blob/m
 ## Token/credentials
 * [Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
 
-  Required rights: `events.*.subscribe`
-  
-  | Event type            | Required right                 |
-  |-----------------------|--------------------------------|
-  | VOICE_EVENT           | `events.voice.subscribe`       |
-  | VOICEMAIL_EVENT       | `events.voicemail.subscribe`   |
-  | LOCATION_UPDATE_EVENT | `events.location.subscribe`    |
-  | ROAMING_EVENT         | `events.roaming.subscribe`     |
-  | TOKEN_AUDIT_EVENT     | `events.audit.token.subscribe` |
+Required rights: `events.*.subscribe`
+
+| Event type            | Required right                 |
+|-----------------------|--------------------------------|
+| VOICE_EVENT           | `events.voice.subscribe`       |
+| VOICEMAIL_EVENT       | `events.voicemail.subscribe`   |
+| LOCATION_UPDATE_EVENT | `events.location.subscribe`    |
+| ROAMING_EVENT         | `events.roaming.subscribe`     |
+| TOKEN_AUDIT_EVENT     | `events.audit.token.subscribe` |
 
 ### Install dependencies
 <JitpackDependency />
