@@ -50,6 +50,12 @@
                             <artifactId>utils-grpc</artifactId>
                             <version>${apiVersion}</version>
                         </dependency>`.trim().replace(/^                /gm, ""),
+                    "phonenumber-utils": `
+                        <dependency>
+                            <groupId>com.github.working-group-two.wgtwoapis</groupId>
+                            <artifactId>phonenumber-utils</artifactId>
+                            <version>${apiVersion}</version>
+                        </dependency>`.trim().replace(/^                /gm, ""),
                     "protobuf-java-util": `
                         <dependency>
                             <groupId>com.google.protobuf</groupId>
