@@ -19,6 +19,7 @@
 
     <modules>
         <module>events</module>
+        <module>provision</module>
     </modules>
 
     <dependencies>

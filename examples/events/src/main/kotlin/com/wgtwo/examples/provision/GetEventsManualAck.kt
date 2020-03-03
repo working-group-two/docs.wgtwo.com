@@ -1,3 +1,5 @@
+package com.wgtwo.examples.provision
+
 import com.wgtwo.api.common.Environment
 import com.wgtwo.api.events.v0.EventsProto
 import com.wgtwo.api.events.v0.EventsServiceGrpc
@@ -7,7 +9,7 @@ import io.grpc.stub.StreamObserver
 import com.google.protobuf.util.Durations
 
 private val channel = Clients.createChannel(Environment.PROD)
-private val credentials = OperatorToken("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
+private val credentials = OperatorToken(System.getenv("CLIENT_ID"), System.getenv("CLIENT_SECRET"))
 private val stub = EventsServiceGrpc.newStub(channel).withCallCredentials(credentials)
 
 fun acknowledge(event: EventsProto.Event) {
@@ -57,4 +59,6 @@ fun main() {
             println("Connection closed by the server")
         }
     })
+    // Wait for stream to close
+    try { Thread.currentThread().join() } catch (e: InterruptedException) {}
 }
