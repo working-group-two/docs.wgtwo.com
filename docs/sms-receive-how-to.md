@@ -21,6 +21,13 @@ All messages must be acknowledged after they are received, as they otherwise wil
 - `sms.receive.to_subscriber`
 - `sms.receive.from_subscriber`
 
+##### Environment variables expected in example code:
+
+| Environment variable | Value                      |
+|----------------------|----------------------------|
+| CLIENT_ID            | Client ID from Console     |
+| CLIENT_SECRET        | Client secret from Console |
+
 ## grpcurl
 
 Listen to SMSes. Note that acknowledgment is not covered by this, so messages will be resent.

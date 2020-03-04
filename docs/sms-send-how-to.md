@@ -19,6 +19,13 @@ This API allows you to send SMSes.
 - `sms.send.to_subscriber`
 - `sms.send.from_subscriber`
 
+##### Environment variables expected in example code:
+
+| Environment variable | Value                      |
+|----------------------|----------------------------|
+| CLIENT_ID            | Client ID from Console     |
+| CLIENT_SECRET        | Client secret from Console |
+
 ## grpcurl
 
 Send SMS from international number to international number.
@@ -59,7 +66,7 @@ Then you can add `messaging-grpc` and `utils-grpc`:
 
 <ClientDependencies :clients="['messaging-grpc', 'utils-grpc']"/>
 
-## Send SMS
+### Send SMS
 <GithubCode :to="$frontmatter.code" />
 
 ## Resources
