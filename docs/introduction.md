@@ -32,6 +32,28 @@ We do use [Google's Well-Known Types](https://developers.google.com/protocol-buf
 They may be managed using the following dependency:
 <ClientDependencies :clients="['protobuf-java-util']"/>
 
+#### Examples
+
+##### Create a Duration protobuf message
+```kotlin
+val timeout: com.google.protobuf.Duration = Durations.fromSeconds(15)
+```
+
+##### Extension methods for converting to and from java.time
+```kotlin
+import com.google.protobuf.Timestamp
+import com.google.protobuf.util.Durations
+import com.google.protobuf.util.Timestamps
+import java.time.Duration
+import java.time.Instant
+
+fun com.google.protobuf.Duration.toJavaDuration() = Duration.ofNanos(Durations.toNanos(this))
+fun Duration.toProtobufDuration() = Durations.fromNanos(this.toNanos())
+
+fun Instant.toProtoTimeStamp(): Timestamp = Timestamps.fromMillis(this.toEpochMilli())
+fun Timestamp.toInstant(): Instant = Instant.ofEpochMilli(Timestamps.toMillis(this))
+```
+
 ### Phone Numbers
 All APIs using `wgtwo.common.v0.PhoneNumber` expects a phone number formatted as E.164 with a leading plus sign.
 
