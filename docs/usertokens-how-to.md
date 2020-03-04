@@ -68,13 +68,7 @@ grpcurl \
   -H "Authorization: Basic ${OPERATOR_TOKEN}"\
   -import-path . \
   -proto wgtwo/auth/v0/usertokens.proto \
-  -d '
-  {
-    "phoneNumber": {
-      "e164": "+47xxxxxxxx"
-    }
-  }
-  ' \
+  -d '{ "phoneNumber": { "e164": "+47xxxxxxxx" } }' \
   api.wgtwo.com:443 \
   wgtwo.auth.v0.UserTokenService.List
 ```
@@ -85,11 +79,7 @@ grpcurl \
   -H "Authorization: Basic ${OPERATOR_TOKEN}"\
   -import-path . \
   -proto wgtwo/auth/v0/usertokens.proto \
-  -d '
-  {
-    "correlationId": "my-unique-id"
-  }
-  ' \
+  -d '{ "correlationId": "my-unique-id" }' \
   api.wgtwo.com:443 \
   wgtwo.auth.v0.UserTokenService.Get
 ```
@@ -100,11 +90,7 @@ grpcurl \
   -H "Authorization: Basic ${OPERATOR_TOKEN}"\
   -import-path . \
   -proto wgtwo/auth/v0/usertokens.proto \
-  -d '
-  {
-    "correlationId": "my-unique-id"
-  }
-  ' \
+  -d '{ "correlationId": "my-unique-id" }' \
   api.wgtwo.com:443 \
   wgtwo.auth.v0.UserTokenService.Revoke
 ```

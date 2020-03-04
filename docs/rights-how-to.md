@@ -19,6 +19,13 @@ generation user tokens.
 ##### Required rights
 - `id.user.token.create`
 
+##### Environment variables expected in example code:
+
+| Environment variable | Value                      |
+|----------------------|----------------------------|
+| CLIENT_ID            | Client ID from Console     |
+| CLIENT_SECRET        | Client secret from Console |
+
 ## grpcurl
 
 ### Initial setup

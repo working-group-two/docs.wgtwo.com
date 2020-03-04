@@ -16,12 +16,83 @@ This API allows managing voicemail, including getting the actual content.
 The Event API will allow you to subscribe on voicemail events, which can be used to notify users about new voicemails.
 
 ## Token/credentials
-* [Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
+[Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
 
-  Required right: `voicemail.get`, `voicemail.update`, `voicemail.delete`
+##### Required rights
+- `voicemail.get`
+- `voicemail.update`
+- `voicemail.delete`
+
+##### Environment variables expected in example code:
+
+| Environment variable | Value                      |
+|----------------------|----------------------------|
+| CLIENT_ID            | Client ID from Console     |
+| CLIENT_SECRET        | Client secret from Console |
 
 ### Phone number on platform to target
 * The code assumes you know which phone number (e164) you wish to get voicemails from.
+
+## grpcurl
+### Initial setup
+
+```shell script
+git clone --depth 1 https://github.com/working-group-two/wgtwoapis.git
+cd wgtwoapis
+export OPERATOR_TOKEN=$(echo -n ${CLIENT_ID}:${CLIENT_SECRET} | base64 -w0)
+```
+
+### List voicemails
+```shell script
+grpcurl \
+  -H "Authorization: Basic ${OPERATOR_TOKEN}"\
+  -import-path . \
+  -proto wgtwo/voicemail/v0/voicemail.proto \
+  -d '{ "to": { "e164": "+47xxxxxxxx" } }' \
+  api.wgtwo.com:443 \
+  wgtwo.voicemail.v0.VoicemailMediaService.getAllVoicemailMetadata
+```
+
+### Play voicemail
+This will download and play a voicemail. If using MacOS, you should be able to use `afplay` or equivalent. 
+
+```shell script
+grpcurl \
+  -H "Authorization: Basic ${OPERATOR_TOKEN}"\
+  -import-path . \
+  -proto wgtwo/voicemail/v0/voicemail.proto \
+  -d '{ "voicemail_id": "my-voicemail-id" }' \
+  api.wgtwo.com:443 \
+  wgtwo.voicemail.v0.VoicemailMediaService.getVoicemail \
+  | jq -r .wav \
+  | base64 -d \
+  | tee voicemail.wav \
+  | aplay # Linux
+```
+
+### Mark voicemail as read
+```shell script
+grpcurl \
+  -H "Authorization: Basic ${OPERATOR_TOKEN}"\
+  -import-path . \
+  -proto wgtwo/voicemail/v0/voicemail.proto \
+  -d '{ "voicemail_id": "my-voicemail-id" }' \
+  api.wgtwo.com:443 \
+  wgtwo.voicemail.v0.VoicemailMediaService.markVoicemailAsRead
+```
+
+### Delete voicemail
+```shell script
+grpcurl \
+  -H "Authorization: Basic ${OPERATOR_TOKEN}"\
+  -import-path . \
+  -proto wgtwo/voicemail/v0/voicemail.proto \
+  -d '{ "voicemail_id": "my-voicemail-id" }' \
+  api.wgtwo.com:443 \
+  wgtwo.voicemail.v0.VoicemailMediaService.deleteVoicemail
+```
+
+## Java / Kotlin
 
 ### Install dependencies
 <JitpackDependency />
@@ -30,16 +101,16 @@ Then you can add `voicemail-grpc` and `utils-grpc`:
 
 <ClientDependencies :clients="['voicemail-grpc', 'utils-grpc']"/>
 
-## List voicemails
+### List voicemails
 <GithubCode :to="$frontmatter.codeList" />
 
-## Play voicemail
+### Play voicemail
 <GithubCode :to="$frontmatter.codePlay" />
 
-## Mark voicemail as read
+### Mark voicemail as read
 <GithubCode :to="$frontmatter.codeMarkAsRead" />
 
-## Delete voicemail
+### Delete voicemail
 <GithubCode :to="$frontmatter.codeDelete" />
 
 ## Resources
