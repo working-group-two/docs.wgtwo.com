@@ -41,3 +41,9 @@ h1, .content h1 {
     overflow: hidden;
   }
 }
+
+h1 a, h2 a, h3 a, h4 a, h5 a { // hashtags in titles
+  color: #777;
+  font-weight: 400;
+  margin-right: 4px;
+}

@@ -53,7 +53,7 @@ https://github.com/jgthms/bulma/issues/1708#issuecomment-382560341 */
   #content h4,
   #content h5,
   #content h6 {
-    padding-top: 65px;
+    padding-top: 85px;
     margin-top: -49px;
   }
 }
