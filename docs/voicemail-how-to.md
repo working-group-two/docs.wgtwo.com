@@ -99,7 +99,7 @@ grpcurl \
 
 Then you can add `voicemail-grpc` and `utils-grpc`:
 
-<ClientDependencies :clients="['voicemail-grpc', 'utils-grpc']"/>
+<ClientDependencies :clients="['voicemail-grpc', 'phonenumber-utils', 'utils-grpc']"/>
 
 ### List voicemails
 <GithubCode :to="$frontmatter.codeList" />
