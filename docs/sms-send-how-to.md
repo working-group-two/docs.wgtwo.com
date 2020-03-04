@@ -13,9 +13,44 @@ code: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/s
 This API allows you to send SMSes. 
 
 ## Token/credentials
-* [Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
+[Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
 
-  Required right: `sms.send.to_subscriber`, `sms.send.from_subscriber`
+##### Required rights
+- `sms.send.to_subscriber`
+- `sms.send.from_subscriber`
+
+## grpcurl
+
+Send SMS from international number to international number.
+
+```shell script
+git clone --depth 1 https://github.com/working-group-two/wgtwoapis.git
+cd wgtwoapis
+export OPERATOR_TOKEN=$(echo -n ${CLIENT_ID}:${CLIENT_SECRET} | base64 -w0)
+
+grpcurl \
+  -H "Authorization: Basic ${OPERATOR_TOKEN}"\
+  -import-path . \
+  -proto wgtwo/messaging/messagecore.proto \
+  -d '
+  {
+    "body": "My SMS content",
+    "fromAddress": {
+      "type": "INTERNATIONAL_NUMBER",
+      "number": "47xxxxxxxx"
+    },
+    "toAddress": {
+      "type": "INTERNATIONAL_NUMBER",
+      "number": "47xxxxxxxx"
+    },
+    "direction": "OUTGOING"
+  }
+  ' \
+  api.wgtwo.com:443 \
+  messaging.MessageCore.SendTextMessage
+```
+
+## Java / Kotlin
 
 ### Install dependencies
 <JitpackDependency />
