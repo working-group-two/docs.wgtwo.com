@@ -2,6 +2,7 @@
 title: Accessing Metrics
 topic: metrics
 type: how-to
+prometheusConfig: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/metrics/prometheus.yml
 ---
 
 # Accessing Metrics
@@ -19,12 +20,12 @@ The HTTP endpoint we provide will give you the current state of all of your metr
 Please reach out to clarify what metrics you would need access to.
 
 ## Token/credentials
-* [Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
+[Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
 
-  Required right: `metrics.prometheus.read`
+##### Required rights
+- `metrics.read`
 
-## Configuration
-Replace `{{client ID}}` and `{{client secret}}` with their actual values
+##### Placeholders used in samples:
 
 |     Placeholder     | Description                              |
 |:--------------------|:---------------------------------------- |
@@ -44,35 +45,22 @@ fetching all available time series. Note that the configuration will contain sec
 
 See: [prometheus.io › Configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/)
 
-```yaml
-global:
-  scrape_interval:     30s
-  evaluation_interval: 30s
-
-scrape_configs:
-- job_name: 'wgtwo'
-
-  honor_labels: true
-  metrics_path: '/metrics/v1'
-
-  scheme: https
-  basic_auth:
-    username: '{{client ID}}'
-    password: '{{client secret}}'
-
-  static_configs:
-    - targets:
-      - 'api.wgtwo.com:443'
-```
+<GithubCode :to="$frontmatter.prometheusConfig" />
 
 #### Example: Run with Docker
 > See: [prometheus.io › Using Docker](https://prometheus.io/docs/prometheus/latest/installation/#using-docker)
 
-```bash
-docker run -p 9090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
-```
+If you run the below commands, you should have Prometheus running successfully.
 
-For testing that federation works as expected, you may run this with the above config.
+```bash
+wget https://raw.githubusercontent.com/working-group-two/docs.wgtwo.com/master/examples/metrics/prometheus.yml
+
+// Replace placeholders
+sed -i "s/{{client ID}}/your client ID/" prometheus.yml
+sed -i "s/{{client secret}}/your client secret/" prometheus.yml
+
+docker run -p 9090:9090 -v prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
+```
 
 #### Grafana
 > See: [grafana.com › Using Prometheus in Grafana](https://grafana.com/docs/grafana/latest/features/datasources/prometheus/)
