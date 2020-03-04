@@ -6,9 +6,10 @@
                 <div class="api-icon-wrap">
                     <IntroIcon></IntroIcon>
                 </div>
-                <h2 class="title">About our APIs</h2>
+                <h2 class="title">Getting started</h2>
                 <p>
-                    Introduction to our APIs
+                    Learn about how our APIs are structured, how to get credentials, what
+                    useful optional dependencies you could include, etc.
                 </p>
             </g-link>
             <g-link to="/events/how-to/listen-for-events/" class="api-box">
@@ -75,7 +76,7 @@
     </div>
 </template>
 <script>
-    import IntroIcon from "~/assets/images/wgtwo-logo.svg";
+    import IntroIcon from "~/assets/images/introduction-icon.svg";
     import EventsIcon from "~/assets/images/events-icon.svg";
     import SmsIcon from "~/assets/images/sms-icon.svg";
     import UsertokensIcon from "~/assets/images/usertokens-icon.svg";
