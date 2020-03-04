@@ -16,9 +16,11 @@ The examples will start a subscription to voice and voicemail events, which incl
 new voicemail received.
 
 ## Token/credentials
-* [Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
+[Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
 
-Required rights: `events.*.subscribe`
+##### Required rights
+
+`events.*.subscribe`
 
 | Event type            | Required right                 |
 |-----------------------|--------------------------------|
@@ -28,6 +30,36 @@ Required rights: `events.*.subscribe`
 | ROAMING_EVENT         | `events.roaming.subscribe`     |
 | TOKEN_AUDIT_EVENT     | `events.audit.token.subscribe` |
 
+##### Environment variables expected in example code:
+
+| Environment variable | Value                      |
+|----------------------|----------------------------|
+| CLIENT_ID            | Client ID from Console     |
+| CLIENT_SECRET        | Client secret from Console |
+
+## grpcurl
+
+Setup streaming of events, without manual acknowledgment:
+```shell script
+git clone --depth 1 https://github.com/working-group-two/wgtwoapis.git
+cd wgtwoapis
+export OPERATOR_TOKEN=$(echo -n ${CLIENT_ID}:${CLIENT_SECRET} | base64 -w0)
+
+grpcurl \
+  -H "Authorization: Basic ${OPERATOR_TOKEN}"\
+  -import-path . \
+  -proto wgtwo/events/v0/events.proto \
+  -d '
+  {
+    "type": ["VOICE_EVENT"]
+  }
+  ' \
+  api.wgtwo.com:443 \
+  wgtwo.events.v0.EventsService.Subscribe
+```
+
+## Java / Kotlin
+
 ### Install dependencies
 <JitpackDependency />
 
@@ -35,10 +67,10 @@ Then you can add `event-grpc` and `utils-grpc`:
 
 <ClientDependencies :clients="['events-grpc', 'utils-grpc']"/>
 
-## Listen for events
+### Listen for events
 <GithubCode :to="$frontmatter.codeEvents" />
 
-## Manual acknowledge
+### Manual acknowledge
 In the below example we enable manual acknowledgement, and setting a custom ack timeout.
 
 Include Google's Protocol Buffers utility library for support of Google's Well-Known Types:
