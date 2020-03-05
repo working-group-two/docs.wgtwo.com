@@ -97,9 +97,9 @@ grpcurl \
 ### Install dependencies
 <JitpackDependency />
 
-Then you can add `voicemail-grpc`, `phonenumber-utils`, `utils-grpc`:
+Then you can add `voicemail-grpc`, `utils-grpc`:
 
-<ClientDependencies :clients="['voicemail-grpc', 'phonenumber-utils', 'utils-grpc']"/>
+<ClientDependencies :clients="['voicemail-grpc', 'utils-grpc']"/>
 
 ### List voicemails
 <GithubCode :to="$frontmatter.codeList" />
