@@ -31,6 +31,7 @@
         },
         methods: {
             updateConfig() {
+                if (typeof window === `undefined`) return;
                 sessionStorage.setItem("CLIENT_ID", this.clientId);
                 sessionStorage.setItem("CLIENT_SECRET", this.clientSecret);
                 if (sessionStorage.getItem("CLIENT_ID") && sessionStorage.getItem("CLIENT_SECRET")) {
@@ -42,6 +43,7 @@
             }
         },
         created() {
+            if (typeof window === `undefined`) return;
             if (sessionStorage.getItem("CLIENT_ID")) {
                 this.clientId = sessionStorage.getItem("CLIENT_ID");
             }
