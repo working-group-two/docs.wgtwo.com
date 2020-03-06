@@ -14,7 +14,6 @@ import JitpackDependency from '~/components/deps/JitpackDependency.vue'
 import ClientDependencies from "./components/deps/ClientDependencies"
 import DemoConfigurer from '~/components/DemoConfigurer.vue'
 
-
 export default function (Vue, { router, head, isClient }) {
   Vue.use(Buefy)
   Vue.component('DefaultLayout', DefaultLayout) // Set DefaultLayout as a global component
@@ -23,6 +22,7 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('GithubCode', GithubCode)
   Vue.component('JitpackDependency', JitpackDependency)
   Vue.component('ClientDependencies', ClientDependencies)
+  Vue.component('DemoConfigurer', DemoConfigurer)
   head.link.push({
     rel: 'stylesheet',
     href: 'https://fonts.googleapis.com/css?family=Quicksand&display=swap'
