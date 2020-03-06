@@ -66,4 +66,13 @@ export default {
 .github-link {
   word-wrap: break-word;
 }
+.token.OPERATOR_TOKEN,
+.token.CLIENT_ID,
+.token.CLIENT_SECRET {
+  border: 1px dashed#ffffff99;
+  padding: 2px 4px;
+  border-radius: 5px;
+  margin: 0 2px;
+  background: black;
+}
 </style>

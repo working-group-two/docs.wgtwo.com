@@ -1,5 +1,5 @@
 ---
-title: Manage subscriptions 
+title: Manage subscriptions
 topic: subscription profile
 type: how-to
 codeEnableRoamingData: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/provision/src/main/kotlin/EnableRoamingData.kt
@@ -12,20 +12,10 @@ codeGetSubscriptionInfo: https://github.com/working-group-two/docs.wgtwo.com/blo
 ## Overview
 
 This API allows to enable and disable capabilities for a subscription and get subscription information.
+In order to access this API, your credentials need to have the `subscription.read` and `subscription.write` rights.
+You can configure your credentials in [Console](https://console.wgtwo.com/api-keys-redirect).
 
-## Token/credentials
-[Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
-
-##### Required rights
-- `subscription.read`
-- `subscription.write`
-
-##### Environment variables expected in example code:
-
-| Environment variable | Value                      |
-|----------------------|----------------------------|
-| CLIENT_ID            | Client ID from Console     |
-| CLIENT_SECRET        | Client secret from Console |
+<DemoConfigurer />
 
 ## curl
 

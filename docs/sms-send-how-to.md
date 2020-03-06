@@ -10,31 +10,16 @@ code: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/s
 
 ## Overview
 
-This API allows you to send SMSes. 
+This example shows how you can send SMSes. In order to send SMSes your credentials need to have the
+`sms.send.to_subscriber` and `sms.send.from_subscriber` rights. You can configure your credentials in [Console](https://console.wgtwo.com/api-keys-redirect).
 
-## Token/credentials
-[Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
-
-##### Required rights
-- `sms.send.to_subscriber`
-- `sms.send.from_subscriber`
-
-##### Environment variables expected in example code:
-
-| Environment variable | Value                      |
-|----------------------|----------------------------|
-| CLIENT_ID            | Client ID from Console     |
-| CLIENT_SECRET        | Client secret from Console |
+<DemoConfigurer />
 
 ## grpcurl
 
 Send SMS from international number to international number.
 
 ```shell script
-git clone --depth 1 https://github.com/working-group-two/wgtwoapis.git
-cd wgtwoapis
-export OPERATOR_TOKEN=$(echo -n ${CLIENT_ID}:${CLIENT_SECRET} | base64 -w0)
-
 grpcurl \
   -H "Authorization: Basic ${OPERATOR_TOKEN}"\
   -import-path . \
