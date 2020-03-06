@@ -11,36 +11,17 @@ codePlay: https://github.com/working-group-two/docs.wgtwo.com/blob/master/exampl
 # List and play voicemails
 
 ## Overview
-This API allows managing voicemail, including getting the actual content.
+This API allows managing voicemail, including getting the actual content. In order to access this API,
+your credentials need to have the `voicemail.get`, `voicemail.update`, and `voicemail.delete` rights.
+You can configure your credentials in [Console](https://console.wgtwo.com/api-keys-redirect).
 
 The Event API will allow you to subscribe on voicemail events, which can be used to notify users about new voicemails.
 
-## Token/credentials
-[Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
+<DemoConfigurer />
 
-##### Required rights
-- `voicemail.get`
-- `voicemail.update`
-- `voicemail.delete`
-
-##### Environment variables expected in example code:
-
-| Environment variable | Value                      |
-|----------------------|----------------------------|
-| CLIENT_ID            | Client ID from Console     |
-| CLIENT_SECRET        | Client secret from Console |
-
-### Phone number on platform to target
-* The code assumes you know which phone number (e164) you wish to get voicemails from.
+In the code below, replace "+47xxxxxxxx" with the phone number (e164) you wish to get voicemails from.
 
 ## grpcurl
-### Initial setup
-
-```shell script
-git clone --depth 1 https://github.com/working-group-two/wgtwoapis.git
-cd wgtwoapis
-export OPERATOR_TOKEN=$(echo -n ${CLIENT_ID}:${CLIENT_SECRET} | base64 -w0)
-```
 
 ### List voicemails
 ```shell script
@@ -54,7 +35,7 @@ grpcurl \
 ```
 
 ### Play voicemail
-This will download and play a voicemail. If using MacOS, you should be able to use `afplay` or equivalent. 
+This will download and play a voicemail. If using MacOS, you should be able to use `afplay` or equivalent.
 
 ```shell script
 grpcurl \

@@ -11,22 +11,12 @@ code: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/s
 ## Overview
 
 The SMS API allows you to listen to all sent and received messages.
+In order to access this API, your credentials need to have the `sms.receive.to_subscriber` and `sms.receive.from_subscriber` rights.
+You can configure your credentials in [Console](https://console.wgtwo.com/api-keys-redirect).
 
 All messages must be acknowledged after they are received, as they otherwise will be resent.
 
-## Token/credentials
-[Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
-
-##### Required rights
-- `sms.receive.to_subscriber`
-- `sms.receive.from_subscriber`
-
-##### Environment variables expected in example code:
-
-| Environment variable | Value                      |
-|----------------------|----------------------------|
-| CLIENT_ID            | Client ID from Console     |
-| CLIENT_SECRET        | Client secret from Console |
+<DemoConfigurer />
 
 ## grpcurl
 
@@ -35,10 +25,6 @@ Listen to SMSes. Note that acknowledgment is not covered by this, so messages wi
 This will give you fragmented SMSes, so content is not human readable.
 
 ```shell script
-git clone --depth 1 https://github.com/working-group-two/wgtwoapis.git
-cd wgtwoapis
-export OPERATOR_TOKEN=$(echo -n ${CLIENT_ID}:${CLIENT_SECRET} | base64 -w0)
-
 grpcurl \
   -H "Authorization: Basic ${OPERATOR_TOKEN}"\
   -import-path . \

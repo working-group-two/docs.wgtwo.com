@@ -32,7 +32,7 @@ h1, .content h1 {
   color: rgba(0, 0, 0, 0.67);
 }
 
-// Swagger UI fixes 
+// Swagger UI fixes
 #swagger-ui {
   pre.version {
     background: transparent;
@@ -46,4 +46,9 @@ h1 a, h2 a, h3 a, h4 a, h5 a { // hashtags in titles
   color: #777;
   font-weight: 400;
   margin-right: 4px;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  font-size: 15px;
 }

@@ -14,29 +14,12 @@ codeRevoke: https://github.com/working-group-two/docs.wgtwo.com/blob/master/exam
 
 This API allows to create user tokens, which can enable accessing our APIs in the context of a user. This can either be
 a token that is given directly to the end-user or used by the operator on behalf of their user.
+In order to access this API, your credentials need to have the `id.user.token.create` right.
+You can configure your credentials in [Console](https://console.wgtwo.com/api-keys-redirect).
 
-## Token/credentials
-[Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
-
-##### Required rights
-- `id.user.token.create`
-
-##### Environment variables expected in example code:
-
-| Environment variable | Value                      |
-|----------------------|----------------------------|
-| CLIENT_ID            | Client ID from Console     |
-| CLIENT_SECRET        | Client secret from Console |
+<DemoConfigurer />
 
 ## grpcurl
-
-### Initial setup
-
-```shell script
-git clone --depth 1 https://github.com/working-group-two/wgtwoapis.git
-cd wgtwoapis
-export OPERATOR_TOKEN=$(echo -n ${CLIENT_ID}:${CLIENT_SECRET} | base64 -w0)
-```
 
 ### Create new user token
 ```shell script
