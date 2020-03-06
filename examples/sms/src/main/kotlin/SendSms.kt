@@ -5,7 +5,7 @@ import io.omnicate.messaging.protobuf.MessageCoreGrpc
 import io.omnicate.messaging.protobuf.Messagecore
 
 private val channel = Clients.createChannel(Environment.PROD)
-private val credentials = OperatorToken(System.getenv("CLIENT_ID"), System.getenv("CLIENT_SECRET"))
+private val credentials = OperatorToken("CLIENT_ID", "CLIENT_SECRET")
 private val stub = MessageCoreGrpc.newBlockingStub(channel).withCallCredentials(credentials)
 
 fun main() {

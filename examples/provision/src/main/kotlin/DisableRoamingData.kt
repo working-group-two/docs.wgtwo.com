@@ -6,8 +6,8 @@ import com.wgtwo.api.rest.model.UpdateSubscriptionRequestService.ActionEnum
 import com.wgtwo.api.rest.model.UpdateSubscriptionRequestService.NameEnum
 
 private val apiClient = ApiClient().apply {
-    setUsername(System.getenv("CLIENT_ID"))
-    setPassword(System.getenv("CLIENT_SECRET"))
+    setUsername("CLIENT_ID")
+    setPassword("CLIENT_SECRET")
 }
 private val subscriptionProfileApi = SubscriptionProfileApi(apiClient)
 

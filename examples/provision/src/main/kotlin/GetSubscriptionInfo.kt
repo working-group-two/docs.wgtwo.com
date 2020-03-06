@@ -2,8 +2,8 @@ import com.wgtwo.api.rest.ApiClient
 import com.wgtwo.api.rest.handler.SubscriptionProfileApi
 
 private val apiClient = ApiClient().apply {
-    setUsername(System.getenv("CLIENT_ID"))
-    setPassword(System.getenv("CLIENT_SECRET"))
+    setUsername("CLIENT_ID")
+    setPassword("CLIENT_SECRET")
 }
 private val subscriptionProfileApi = SubscriptionProfileApi(apiClient)
 

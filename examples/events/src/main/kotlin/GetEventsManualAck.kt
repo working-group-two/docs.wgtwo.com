@@ -7,7 +7,7 @@ import io.grpc.stub.StreamObserver
 import com.google.protobuf.util.Durations
 
 private val channel = Clients.createChannel(Environment.PROD)
-private val credentials = OperatorToken(System.getenv("CLIENT_ID"), System.getenv("CLIENT_SECRET"))
+private val credentials = OperatorToken("CLIENT_ID", "CLIENT_SECRET")
 private val stub = EventsServiceGrpc.newStub(channel).withCallCredentials(credentials)
 
 fun main() {
