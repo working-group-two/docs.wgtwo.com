@@ -15,12 +15,7 @@ The event API allows you to subscribe to a variety of different events generated
 The examples will start a subscription to voice and voicemail events, which includes call initiated, call ended and
 new voicemail received.
 
-## Token/credentials
-[Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
-
 ##### Required rights
-
-`events.*.subscribe`
 
 | Event type            | Required right                 |
 |-----------------------|--------------------------------|
@@ -30,21 +25,14 @@ new voicemail received.
 | ROAMING_EVENT         | `events.roaming.subscribe`     |
 | TOKEN_AUDIT_EVENT     | `events.audit.token.subscribe` |
 
-##### Environment variables expected in example code:
+Your rights can be configured in [Console](https://console.wgtwo.com/api-keys-redirect)
 
-| Environment variable | Value                      |
-|----------------------|----------------------------|
-| CLIENT_ID            | Client ID from Console     |
-| CLIENT_SECRET        | Client secret from Console |
+<DemoConfigurer />
 
 ## grpcurl
 
 Setup streaming of events, without manual acknowledgment:
 ```shell script
-git clone --depth 1 https://github.com/working-group-two/wgtwoapis.git
-cd wgtwoapis
-export OPERATOR_TOKEN=$(echo -n ${CLIENT_ID}:${CLIENT_SECRET} | base64 -w0)
-
 grpcurl \
   -H "Authorization: Basic ${OPERATOR_TOKEN}"\
   -import-path . \
@@ -63,7 +51,7 @@ grpcurl \
 ### Install dependencies
 <JitpackDependency />
 
-Then you can add `event-grpc` and `utils-grpc`: 
+Then you can add `event-grpc` and `utils-grpc`:
 
 <ClientDependencies :clients="['events-grpc', 'utils-grpc']"/>
 

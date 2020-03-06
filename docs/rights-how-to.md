@@ -11,30 +11,12 @@ codeCheckExpansion: https://github.com/working-group-two/docs.wgtwo.com/blob/mas
 ## Overview
 
 This API allows you to list which rights a user token can be assigned, which can be used when making a system for
-generation user tokens.
+generation user tokens. In order to access this API, your credentials need to have the `id.user.token.create` right.
+You can configure your credentials in [Console](https://console.wgtwo.com/api-keys-redirect).
 
-## Token/credentials
-[Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
-
-##### Required rights
-- `id.user.token.create`
-
-##### Environment variables expected in example code:
-
-| Environment variable | Value                      |
-|----------------------|----------------------------|
-| CLIENT_ID            | Client ID from Console     |
-| CLIENT_SECRET        | Client secret from Console |
+<DemoConfigurer />
 
 ## grpcurl
-
-### Initial setup
-
-```shell script
-git clone --depth 1 https://github.com/working-group-two/wgtwoapis.git
-cd wgtwoapis
-export OPERATOR_TOKEN=$(echo -n ${CLIENT_ID}:${CLIENT_SECRET} | base64 -w0)
-```
 
 ### List all applicable rights
 ```shell script

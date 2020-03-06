@@ -3,15 +3,17 @@
 
 
 import Buefy from 'buefy'
-import '~/assets/style/index.scss'
 import 'prismjs/themes/prism-okaidia.css'
+import '~/assets/style/index.scss'
 
 import Header from '~/components/Header.vue'
 import DefaultLayout from '~/layouts/DefaultLayout.vue'
 import DocsLayout from '~/layouts/DocsLayout.vue'
 import GithubCode from '~/components/GithubCode.vue'
 import JitpackDependency from '~/components/deps/JitpackDependency.vue'
-import ClientDependencies from "./components/deps/ClientDependencies";
+import ClientDependencies from "~/components/deps/ClientDependencies";
+import DemoConfigurer from  '~/components/DemoConfigurer.vue'
+import CodeExamplesCredentialsInjector from './code-examples-credentials-injector.js'
 
 export default function (Vue, { router, head, isClient }) {
   Vue.use(Buefy)
@@ -21,6 +23,7 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('GithubCode', GithubCode)
   Vue.component('JitpackDependency', JitpackDependency)
   Vue.component('ClientDependencies', ClientDependencies)
+  Vue.component('DemoConfigurer', DemoConfigurer)
   head.link.push({
     rel: 'stylesheet',
     href: 'https://fonts.googleapis.com/css?family=Quicksand&display=swap'
@@ -36,3 +39,5 @@ export default function (Vue, { router, head, isClient }) {
     src: 'https://cdn.jsdelivr.net/npm/swagger-ui-dist@3.25.0/swagger-ui-standalone-preset.js'
   })
 }
+
+CodeExamplesCredentialsInjector();
