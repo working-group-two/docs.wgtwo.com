@@ -3,16 +3,16 @@ global:
   evaluation_interval: 30s
 
 scrape_configs:
-  - job_name: 'wgtwo'
+  - job_name: wgtwo
 
     honor_labels: true
-    metrics_path: '/metrics/v1'
+    metrics_path: /metrics/v1
 
     scheme: https
     basic_auth:
-      username: '{{client ID}}'
-      password: '{{client secret}}'
+      username: "CLIENT_ID"
+      password: "CLIENT_SECRET"
 
     static_configs:
       - targets:
-          - 'api.wgtwo.com:443'
+          - "api.wgtwo.com:443"

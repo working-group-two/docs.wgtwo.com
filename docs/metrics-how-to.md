@@ -19,24 +19,16 @@ The HTTP endpoint we provide will give you the current state of all of your metr
 
 Please reach out to clarify what metrics you would need access to.
 
-## Token/credentials
-[Create credentials in Console](https://console.wgtwo.com/api-keys-redirect)
-
-##### Required rights
-- `metrics.read`
-
-##### Placeholders used in samples:
-
-|     Placeholder     | Description                              |
-|:--------------------|:---------------------------------------- |
-| `{{client ID}}`     | From credentials created in Console      |
-| `{{client secret}}` | From credentials created in Console      |
+In order to access this API, your credentials need to have the `metrics.read` right.
+You can configure your credentials in [Console](https://console.wgtwo.com/api-keys-redirect).
 
 **Base path: `https://api.wgtwo.com/metrics/v1`**
 
+<DemoConfigurer />
+
 ### Curl
 ```bash
-curl -u {{client ID}}:{{client secret}} https://api.wgtwo.com/metrics/v1
+curl -u "CLIENT_ID":"CLIENT_SECRET" https://api.wgtwo.com/metrics/v1
 ```
 
 ### Prometheus
@@ -53,11 +45,7 @@ See: [prometheus.io › Configuration](https://prometheus.io/docs/prometheus/lat
 If you run the below commands, you should have Prometheus running successfully.
 
 ```bash
-wget https://raw.githubusercontent.com/working-group-two/docs.wgtwo.com/master/examples/metrics/prometheus.yml
-
-// Replace placeholders
-sed -i "s/{{client ID}}/your client ID/" prometheus.yml
-sed -i "s/{{client secret}}/your client secret/" prometheus.yml
+# Store sample configuration to prometheus.yml, including actual credentials
 
 docker run -p 9090:9090 -v prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
 ```
