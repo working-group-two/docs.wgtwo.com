@@ -12,8 +12,7 @@ import DocsLayout from '~/layouts/DocsLayout.vue'
 import GithubCode from '~/components/GithubCode.vue'
 import JitpackDependency from '~/components/deps/JitpackDependency.vue'
 import ClientDependencies from "~/components/deps/ClientDependencies";
-import DemoConfigurer from  '~/components/DemoConfigurer.vue'
-import CodeExamplesCredentialsInjector from './code-examples-credentials-injector.js'
+import DemoConfigurer from '~/components/DemoConfigurer.vue'
 
 export default function (Vue, { router, head, isClient }) {
   Vue.use(Buefy)
@@ -39,5 +38,3 @@ export default function (Vue, { router, head, isClient }) {
     src: 'https://cdn.jsdelivr.net/npm/swagger-ui-dist@3.25.0/swagger-ui-standalone-preset.js'
   })
 }
-
-CodeExamplesCredentialsInjector();

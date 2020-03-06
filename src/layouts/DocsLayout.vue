@@ -91,6 +91,7 @@
 
 <script>
 import Github from "~/assets/images/github-logo.svg";
+import CodeExamplesCredentialsInjector from "~/code-examples-credentials-injector.js";
 
 export default {
   components: {
@@ -145,6 +146,7 @@ export default {
         });
       }
     }, 100);
+    CodeExamplesCredentialsInjector();
   }
 };
 </script>
