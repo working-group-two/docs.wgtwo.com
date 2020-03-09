@@ -28,7 +28,7 @@ You can configure your credentials in [Console](https://console.wgtwo.com/api-ke
 
 ### Curl
 ```shell script
-curl -u "CLIENT_ID":"CLIENT_SECRET" https://api.wgtwo.com/metrics/v1
+curl -s -u CLIENT_ID:CLIENT_SECRET https://api.wgtwo.com/metrics/v1
 ```
 
 ### Prometheus

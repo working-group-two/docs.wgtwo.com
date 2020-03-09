@@ -21,9 +21,7 @@ You can configure your credentials in [Console](https://console.wgtwo.com/api-ke
 
 ### Get information about subscriber
 ```shell script
-curl -s \
-  -u ${CLIENT_ID}:${CLIENT_SECRET} \
-  https://api.wgtwo.com/subscription/v1/msisdn/47xxxxxxxx
+curl -s -u ${CLIENT_ID}:${CLIENT_SECRET} https://api.wgtwo.com/subscription/v1/msisdn/47xxxxxxxx
 ```
 
 ### Update service, e.g. enable data roaming
