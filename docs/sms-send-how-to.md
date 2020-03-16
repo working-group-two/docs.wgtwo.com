@@ -3,19 +3,21 @@ title: Send SMS
 topic: sms
 type: how-to
 typeOrder: 1
-code: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/sms/src/main/kotlin/SendSms.kt
+code: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/sms/src/main/kotlin/SendTextSms.kt
 ---
 
 # How to send SMS
 
 ## Overview
 
-This example shows how you can send SMSes. In order to send SMSes your credentials need to have the
+This example shows how you can send text and binary SMSes. In order to send SMSes your credentials need to have the
 `sms.send.to_subscriber` and `sms.send.from_subscriber` rights. You can configure your credentials in [Console](https://console.wgtwo.com/api-keys-redirect).
 
 <DemoConfigurer />
 
 ## grpcurl
+
+### Send text SMS
 
 Send SMS from international number to international number.
 
@@ -42,6 +44,11 @@ grpcurl \
   messaging.MessageCore.SendTextMessage
 ```
 
+### Send binary SMS
+
+Unfortunately, `grpcurl` only allows to send JSON formatted strings, so it can't be used to send binary SMS.
+Please have a look at the code example for Java / Kotlin below.
+
 ## Java / Kotlin
 
 ### Install dependencies
@@ -51,11 +58,13 @@ Then you can add `messaging-grpc` and `utils-grpc`:
 
 <ClientDependencies :clients="['messaging-grpc', 'utils-grpc']"/>
 
-### Send SMS
+### Send text SMS
 <GithubCode :to="$frontmatter.code" />
 
+### Send binary SMS
+<GithubCode :to="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/sms/src/main/kotlin/SendBinarySms.kt" />
+
 ## Resources
-* [SendSmsDemo.kt](https://github.com/working-group-two/wgtwo-kotlin-code-snippets/blob/master/src/main/kotlin/com/wgtwo/example/sendsms/SendSmsDemo.kt)
 * [Messagecore API reference](https://github.com/working-group-two/wgtwoapis/blob/master/wgtwo/messaging/messagecore.proto)
 
 ## Concepts
