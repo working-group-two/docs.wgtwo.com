@@ -1,5 +1,5 @@
 ---
-title: Receive text SMS
+title: Receive SMS
 topic: sms
 type: how-to
 typeOrder: 2
