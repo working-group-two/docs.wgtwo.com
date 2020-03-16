@@ -10,7 +10,7 @@ code: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/s
 
 ## Overview
 
-This example shows how you can send text SMSes. In order to send SMSes your credentials need to have the
+This example shows how you can send text and binary SMSes. In order to send SMSes your credentials need to have the
 `sms.send.to_subscriber` and `sms.send.from_subscriber` rights. You can configure your credentials in [Console](https://console.wgtwo.com/api-keys-redirect).
 
 <DemoConfigurer />
@@ -44,9 +44,10 @@ grpcurl \
   messaging.MessageCore.SendTextMessage
 ```
 
-### Send binary messages
+### Send binary SMS
 
 Unfortunately, `grpcurl` only allows to send JSON formatted strings, so it can't be used to send binary SMS.
+Please have a look at the code example for Java / Kotlin below.
 
 ## Java / Kotlin
 
@@ -64,7 +65,6 @@ Then you can add `messaging-grpc` and `utils-grpc`:
 <GithubCode :to="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/sms/src/main/kotlin/SendBinarySms.kt" />
 
 ## Resources
-* [SendSmsDemo.kt](https://github.com/working-group-two/wgtwo-kotlin-code-snippets/blob/master/src/main/kotlin/com/wgtwo/example/sendsms/SendSmsDemo.kt)
 * [Messagecore API reference](https://github.com/working-group-two/wgtwoapis/blob/master/wgtwo/messaging/messagecore.proto)
 
 ## Concepts
