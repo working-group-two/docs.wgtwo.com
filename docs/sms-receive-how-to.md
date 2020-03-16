@@ -6,7 +6,7 @@ typeOrder: 2
 code: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/sms/src/main/kotlin/ReceiveTextSms.kt
 ---
 
-# How to receive text SMS
+# How to receive SMS
 
 ## Overview
 
@@ -20,7 +20,8 @@ All messages must be acknowledged after they are received, as they otherwise wil
 
 ## grpcurl
 
-Listen to SMSes.
+## Receive text SMS
+Listen to text SMSes.
 
 Note: this command does not acknowledge SMS, so messages will be resent after some time.
 
