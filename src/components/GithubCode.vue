@@ -3,7 +3,7 @@
     <h1>{{ title }}</h1>
     <Prism :language="language" :code="content" :class="{ 'fill-screen': fillScreen }"></Prism>
     <figcaption>
-      <a class="github-link" :href="to" target="_blank">{{ to }}</a>
+      <a class="github-link" :href="fileUrl" target="_blank">{{ fileUrl }}</a>
     </figcaption>
   </div>
 </template>
@@ -24,7 +24,7 @@ export default {
     this.fetchData();
   },
   props: {
-    to: String,
+    fileUrl: String,
     title: String,
     language: {
       type: String,
@@ -49,7 +49,7 @@ export default {
   },
   computed: {
     rawLink: function() {
-      return this.to
+      return this.fileUrl
         .replace("//github.com/", "//raw.githubusercontent.com/")
         .replace("/blob/", "/");
     },

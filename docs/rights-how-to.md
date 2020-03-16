@@ -2,8 +2,6 @@
 title: List applicable rights
 topic: usertokens
 type: how-to
-codeList: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/rights/src/main/kotlin/ListRights.kt
-codeCheckExpansion: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/rights/src/main/kotlin/CheckExpansion.kt
 ---
 
 # List applicable rights
@@ -57,12 +55,12 @@ Then you can add `auth-grpc` and `utils-grpc`:
 ### List all applicable rights
 Returns a list of all applicable rights
 
-<GithubCode :to="$frontmatter.codeList" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/rights/src/main/kotlin/ListRights.kt" />
 
 ### Check what a right will be expanded to
 Returns a list of all the rights the given rights will be expanded to.
 
-<GithubCode :to="$frontmatter.codeCheckExpansion" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/rights/src/main/kotlin/CheckExpansion.kt" />
 
 ## Concepts
 * [Three types of stubs: asynchronous, blocking, and future](https://grpc.io/docs/reference/java/generated-code/)

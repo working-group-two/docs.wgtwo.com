@@ -2,10 +2,6 @@
 title: Manage user tokens
 topic: usertokens
 type: how-to
-codeCreate: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/usertokens/src/main/kotlin/CreateUserToken.kt
-codeList: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/usertokens/src/main/kotlin/ListUserToken.kt
-codeGet: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/usertokens/src/main/kotlin/GetUserToken.kt
-codeRevoke: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/usertokens/src/main/kotlin/RevokeUserToken.kt
 ---
 
 # Manage user tokens
@@ -94,16 +90,16 @@ Rights does accept using `*` as wildcard, which will match any suffix.
 
 For a list of applicable rights, see [List applicable rights](../list-applicable-rights/).
 
-<GithubCode :to="$frontmatter.codeCreate" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/usertokens/src/main/kotlin/CreateUserToken.kt" />
 
 ### List user tokens for phone number
-<GithubCode :to="$frontmatter.codeList" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/usertokens/src/main/kotlin/ListUserToken.kt" />
 
 ### Get user token
-<GithubCode :to="$frontmatter.codeGet" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/usertokens/src/main/kotlin/GetUserToken.kt" />
 
 ### Revoke user token
-<GithubCode :to="$frontmatter.codeRevoke" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/usertokens/src/main/kotlin/RevokeUserToken.kt" />
 
 ## Concepts
 * [Three types of stubs: asynchronous, blocking, and future](https://grpc.io/docs/reference/java/generated-code/)

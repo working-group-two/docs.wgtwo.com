@@ -58,10 +58,10 @@ Then you can add `messaging-grpc` and `utils-grpc`:
 <ClientDependencies :clients="['messaging-grpc', 'utils-grpc']"/>
 
 ### Send text SMS
-<GithubCode to="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/sms/src/main/kotlin/SendTextSms.kt" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/sms/src/main/kotlin/SendTextSms.kt" />
 
 ### Send binary SMS
-<GithubCode to="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/sms/src/main/kotlin/SendBinarySms.kt" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/sms/src/main/kotlin/SendBinarySms.kt" />
 
 ## Resources
 * [Messagecore API reference](https://github.com/working-group-two/wgtwoapis/blob/master/wgtwo/messaging/messagecore.proto)

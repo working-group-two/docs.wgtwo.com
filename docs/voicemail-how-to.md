@@ -2,10 +2,6 @@
 title: List and play voicemails
 topic: voicemail
 type: how-to
-codeList: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/ListVoicemail.kt
-codeDelete: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/DeleteVoicemail.kt
-codeMarkAsRead: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/MarkVoicemailAsRead.kt
-codePlay: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/PlayVoicemail.kt
 ---
 
 # List and play voicemails
@@ -83,16 +79,16 @@ Then you can add `voicemail-grpc`, `utils-grpc`:
 <ClientDependencies :clients="['voicemail-grpc', 'utils-grpc']"/>
 
 ### List voicemails
-<GithubCode :to="$frontmatter.codeList" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/ListVoicemail.kt" />
 
 ### Play voicemail
-<GithubCode :to="$frontmatter.codePlay" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/PlayVoicemail.kt" />
 
 ### Mark voicemail as read
-<GithubCode :to="$frontmatter.codeMarkAsRead" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/MarkVoicemailAsRead.kt" />
 
 ### Delete voicemail
-<GithubCode :to="$frontmatter.codeDelete" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/DeleteVoicemail.kt" />
 
 ## Resources
 * [VoicemailDemo.kt](https://github.com/working-group-two/wgtwo-kotlin-code-snippets/blob/master/src/main/kotlin/com/wgtwo/example/voicemail/VoicemailDemo.kt)

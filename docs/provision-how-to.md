@@ -2,9 +2,6 @@
 title: Manage subscriptions
 topic: subscription profile
 type: how-to
-codeEnableRoamingData: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/provision/src/main/kotlin/EnableRoamingData.kt
-codeDisableRoamingData: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/provision/src/main/kotlin/DisableRoamingData.kt
-codeGetSubscriptionInfo: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/provision/src/main/kotlin/GetSubscriptionInfo.kt
 ---
 
 # How to provision services for subscribers
@@ -72,10 +69,10 @@ Then you can add the required dependency:
 <ClientDependencies :clients="['rest']"/>
 
 ### Get information about subscriber, e.g. enabled services
-<GithubCode :to="$frontmatter.codeGetSubscriptionInfo" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/provision/src/main/kotlin/GetSubscriptionInfo.kt" />
 
 ### Update service, e.g. enable data roaming
-<GithubCode :to="$frontmatter.codeEnableRoamingData" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/provision/src/main/kotlin/EnableRoamingData.kt" />
 
 ### Update service, e.g. disable data roaming
-<GithubCode :to="$frontmatter.codeDisableRoamingData" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/provision/src/main/kotlin/DisableRoamingData.kt" />
