@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.version>1.3.61</kotlin.version>
         <kotlin.code.style>official</kotlin.code.style>
-        <wgtwo-apis.version>8128dd160e4fe4cb15e72e22746a2644aafa84a3</wgtwo-apis.version>
+        <wgtwo-apis.version>6caa22c</wgtwo-apis.version>
     </properties>
 
     <modules>

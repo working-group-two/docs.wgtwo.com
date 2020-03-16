@@ -10,17 +10,17 @@ private val credentials = OperatorToken("CLIENT_ID", "CLIENT_SECRET")
 private val stub = MessageCoreGrpc.newStub(channel).withCallCredentials(credentials)
 
 fun main() {
-    val request = Messagecore.ReceiveMessagesRequest.getDefaultInstance()
-    stub.receiveMessages(request, object : StreamObserver<Messagecore.MessageBox> {
-        override fun onNext(messageBox: Messagecore.MessageBox) {
-            messageBox.messagesList.forEach { message ->
+    val request = Messagecore.ReceiveTextMessagesRequest.getDefaultInstance()
+    stub.receiveTextMessages(request, object : StreamObserver<Messagecore.TextMessageBox> {
+        override fun onNext(textMessageBox: Messagecore.TextMessageBox) {
+            textMessageBox.textMessagesList.forEach { message ->
                 println("Got message: ${message.fromAddress.number} -> ${message.toAddress.number}")
                 acknowledge(message.messageId)
             }
         }
 
         override fun onError(throwable: Throwable) {
-            println("Error sending SMS: ${throwable.message}")
+            println("Error receiving SMS: ${throwable.message}")
         }
 
         override fun onCompleted() {
