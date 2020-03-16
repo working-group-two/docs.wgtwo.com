@@ -1,12 +1,12 @@
 ---
-title: Receive SMS
+title: Receive text SMS
 topic: sms
 type: how-to
 typeOrder: 2
-code: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/sms/src/main/kotlin/ReceiveSms.kt
+code: https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/sms/src/main/kotlin/ReceiveTextSms.kt
 ---
 
-# How to receive SMS
+# How to receive text SMS
 
 ## Overview
 
@@ -20,9 +20,9 @@ All messages must be acknowledged after they are received, as they otherwise wil
 
 ## grpcurl
 
-Listen to SMSes. Note that acknowledgment is not covered by this, so messages will be resent.
+Listen to SMSes.
 
-This will give you fragmented SMSes, so content is not human readable.
+Note: this command does not acknowledge SMS, so messages will be resent after some time.
 
 ```shell script
 grpcurl \
@@ -30,7 +30,7 @@ grpcurl \
   -import-path . \
   -proto wgtwo/messaging/messagecore.proto \
   api.wgtwo.com:443 \
-  messaging.MessageCore.ReceiveMessages
+  messaging.MessageCore.ReceiveTextMessages
 ```
 
 ## Java / Kotlin
@@ -42,11 +42,10 @@ Then you can add `messaging-grpc` and `utils-grpc`:
 
 <ClientDependencies :clients="['messaging-grpc', 'utils-grpc']"/>
 
-## Receive SMS
+## Receive text SMS
 <GithubCode :to="$frontmatter.code" />
 
 ## Resources
-* [ReceiveSmsServiceExample.kt](https://github.com/working-group-two/wgtwo-kotlin-code-snippets/blob/master/src/main/kotlin/com/wgtwo/example/receivesms/ReceiveSmsServiceExample.kt)
 * [Messagecore API reference](https://github.com/working-group-two/wgtwoapis/blob/master/wgtwo/messaging/messagecore.proto)
 
 ## Concepts
