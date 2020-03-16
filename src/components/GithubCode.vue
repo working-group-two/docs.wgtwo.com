@@ -3,7 +3,7 @@
     <h1>{{ title }}</h1>
     <Prism :language="language" :code="content" :class="{ 'fill-screen': fillScreen }"></Prism>
     <figcaption>
-      <a class="github-link" :href="fileUrl" target="_blank">{{ fileUrl }}</a>
+      <a class="github-link" :href="fileUrl" target="_blank">{{ shortFileUrl }}</a>
     </figcaption>
   </div>
 </template>
@@ -53,6 +53,9 @@ export default {
         .replace("//github.com/", "//raw.githubusercontent.com/")
         .replace("/blob/", "/");
     },
+    shortFileUrl: function() {
+      return "https://github.com/working-group-two/examples/" + this.fileUrl.substring(this.fileUrl.lastIndexOf('/') + 1);
+    },
     fillScreen: function() {
       return !this.failed && this.content === "Loading...";
     }
@@ -65,6 +68,13 @@ export default {
 }
 .github-link {
   word-wrap: break-word;
+  font-size: 90%;
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+pre + figcaption .github-link {
+  margin-top: -8px;
 }
 .token.OPERATOR_TOKEN,
 .token.CLIENT_ID,
