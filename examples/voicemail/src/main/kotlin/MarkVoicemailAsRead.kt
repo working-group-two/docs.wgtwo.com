@@ -1,6 +1,6 @@
 import com.wgtwo.api.common.Environment
-import com.wgtwo.api.messaging.v0.VoicemailMediaServiceGrpc
-import com.wgtwo.api.messaging.v0.VoicemailProto
+import com.wgtwo.api.voicemail.v0.VoicemailMediaServiceGrpc
+import com.wgtwo.api.voicemail.v0.VoicemailProto
 import com.wgtwo.api.util.auth.Clients
 import com.wgtwo.api.util.auth.OperatorToken
 

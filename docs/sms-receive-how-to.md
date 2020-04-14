@@ -1,15 +1,15 @@
 ---
-title: Receive SMS
+title: Receive text SMS
 topic: sms
 type: how-to
 typeOrder: 2
 ---
 
-# How to receive SMS
+# How to receive text SMS
 
 ## Overview
 
-The SMS API allows you to listen to all sent and received messages.
+The SMS API allows you to listen to all sent and received text messages.
 In order to access this API, your credentials need to have the `sms.receive.to_subscriber` and `sms.receive.from_subscriber` rights.
 You can configure your credentials in [Console](https://console.wgtwo.com/api-keys-redirect).
 
@@ -28,9 +28,9 @@ Note: this command does not acknowledge SMS, so messages will be resent after so
 grpcurl \
   -H "Authorization: Basic ${OPERATOR_TOKEN}"\
   -import-path . \
-  -proto wgtwo/messaging/messagecore.proto \
+  -proto wgtwo/sms/v0/sms.proto \
   api.wgtwo.com:443 \
-  messaging.MessageCore.ReceiveTextMessages
+  wgtwo.sms.v0.SmsService/ReceiveText
 ```
 
 ## Java / Kotlin
@@ -38,15 +38,15 @@ grpcurl \
 ### Install dependencies
 <JitpackDependency />
 
-Then you can add `messaging-grpc` and `utils-grpc`:
+Then you can add `sms-grpc` and `utils-grpc`:
 
-<ClientDependencies :clients="['messaging-grpc', 'utils-grpc']"/>
+<ClientDependencies :clients="['sms-grpc', 'utils-grpc']"/>
 
 ## Receive text SMS example
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/sms/src/main/kotlin/ReceiveTextSms.kt" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/sms/src/main/kotlin/ReceiveText.kt" />
 
 ## Resources
-* [Messagecore API reference](https://github.com/working-group-two/wgtwoapis/blob/master/wgtwo/messaging/messagecore.proto)
+* [Messagecore API reference](https://github.com/working-group-two/wgtwoapis/blob/master/wgtwo/sms/v0/sms.proto)
 
 ## Concepts
 * [wikipedia.org/wiki/SMS](https://en.wikipedia.org/wiki/SMS)
