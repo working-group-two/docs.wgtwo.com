@@ -24,7 +24,7 @@
     <dependencies>
         <dependency>
             <groupId>com.github.working-group-two.wgtwoapis</groupId>
-            <artifactId>messaging-grpc</artifactId>
+            <artifactId>sms-grpc</artifactId>
             <version>${wgtwo-apis.version}</version>
         </dependency>
         <dependency>
