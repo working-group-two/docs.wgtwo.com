@@ -27,7 +27,7 @@ grpcurl \
   -proto wgtwo/voicemail/v0/voicemail.proto \
   -d '{ "to": { "e164": "+47xxxxxxxx" } }' \
   api.wgtwo.com:443 \
-  wgtwo.voicemail.v0.VoicemailMediaService.getAllVoicemailMetadata
+  wgtwo.voicemail.v0.VoicemailMediaService.GetAllVoicemailMetadata
 ```
 
 ### Play voicemail
@@ -40,7 +40,7 @@ grpcurl \
   -proto wgtwo/voicemail/v0/voicemail.proto \
   -d '{ "voicemail_id": "my-voicemail-id" }' \
   api.wgtwo.com:443 \
-  wgtwo.voicemail.v0.VoicemailMediaService.getVoicemail \
+  wgtwo.voicemail.v0.VoicemailMediaService.GetVoicemail \
   | jq -r .wav \
   | base64 -d \
   | tee voicemail.wav \
@@ -55,7 +55,7 @@ grpcurl \
   -proto wgtwo/voicemail/v0/voicemail.proto \
   -d '{ "voicemail_id": "my-voicemail-id" }' \
   api.wgtwo.com:443 \
-  wgtwo.voicemail.v0.VoicemailMediaService.markVoicemailAsRead
+  wgtwo.voicemail.v0.VoicemailMediaService.MarkVoicemailAsRead
 ```
 
 ### Delete voicemail
@@ -66,7 +66,7 @@ grpcurl \
   -proto wgtwo/voicemail/v0/voicemail.proto \
   -d '{ "voicemail_id": "my-voicemail-id" }' \
   api.wgtwo.com:443 \
-  wgtwo.voicemail.v0.VoicemailMediaService.deleteVoicemail
+  wgtwo.voicemail.v0.VoicemailMediaService.DeleteVoicemail
 ```
 
 ## Java / Kotlin
