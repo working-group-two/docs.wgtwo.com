@@ -8,7 +8,7 @@
     import 'prismjs/components/prism-kotlin'
     import Prism from 'vue-prism-component'
 
-    let apiVersion = "8128dd1"; // UPDATE THIS WHEN YOU RELEASE A NEW VERSION (!)
+    let apiVersion = "cca7093"; // UPDATE THIS WHEN YOU RELEASE A NEW VERSION (!)
 
     export default {
         data() {
