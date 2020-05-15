@@ -52,3 +52,7 @@ code[class*="language-"],
 pre[class*="language-"] {
   font-size: 15px;
 }
+
+:root {
+  --primary: #{$primary};
+}
