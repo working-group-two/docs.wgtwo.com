@@ -1,7 +1,7 @@
 # WGTWO API docs
 
 ## Contributing
-Check out [CONTRIBUTING.md](CONTRIBUTING.md) and add your content [docs/](docs/)
+Check out [CONTRIBUTING.md](CONTRIBUTING.md) and add your content to [docs/](docs/)
 
 ## Examples of usage
 Code-snippets repositories:
