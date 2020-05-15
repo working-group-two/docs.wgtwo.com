@@ -2,17 +2,15 @@
   <div>
     <Header></Header>
     <main class="section main">
-      <div class="columns">
-        <article class="column is-three-fifths article">
-          <slot></slot>
-        </article>
-        <nav class="column articlenav is-one-fifths is-hidden-touch">
-          <slot name="articlenav"></slot>
-        </nav>
-        <nav class="column docsnav is-one-fifths is-hidden-touch">
-          <slot name="docsnav"></slot>
-        </nav>
-      </div>
+      <article class="article">
+        <slot></slot>
+      </article>
+      <nav class="articlenav is-hidden-touch">
+        <slot name="articlenav"></slot>
+      </nav>
+      <nav class="docsnav is-hidden-touch">
+        <slot name="docsnav"></slot>
+      </nav>
     </main>
     <footer class="footer is-hidden-desktop" v-if="this.$slots.docsnav">
       <slot name="docsnav"></slot>
@@ -22,7 +20,7 @@
 
 <style>
 :root {
-  --nav-sticky-top-position: 89px;
+  --nav-sticky-top-position: 101px;
 }
 
 /* Fix prismjs vs bulma making some numbers very big:
@@ -59,11 +57,46 @@ https://github.com/jgthms/bulma/issues/1708#issuecomment-382560341 */
 }
 </style>
 <style scoped>
+.article {
+  width: 700px;
+}
+
+/* make it use all the width on tablet */
+@media screen and (max-width: 1023px) {
+  .article {
+    width: 100%;
+  }
+}
+
 .docsnav {
   order: -1;
-  position: sticky;
+}
+
+.docsnav,
+.articlenav {
+  width: 200px;
+  padding: 0 16px;
+  margin: 0 16px;
   top: var(--nav-sticky-top-position);
   align-self: flex-start;
+  position: sticky;
+  height: calc(100vh + var(--nav-sticky-top-position) * -1 - 12px);
+  overflow: auto;
+}
+
+.articlenav::-webkit-scrollbar,
+.docsnav::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  position: fixed;
+  right: 0;
+}
+
+.articlenav::-webkit-scrollbar-thumb,
+.docsnav::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  -webkit-transition: background-color 2s;
+  transition: background-color 2s;
 }
 
 .docsnav a.active {
@@ -74,21 +107,10 @@ https://github.com/jgthms/bulma/issues/1708#issuecomment-382560341 */
   font-weight: bolder;
 }
 
-.articlenav {
-  position: sticky;
-  top: var(--nav-sticky-top-position);
-  align-self: flex-start;
-}
-
 .main {
-  max-width: 1550px;
+  display: flex;
+  max-width: 1400px;
   margin: 0 auto;
-}
-
-/* make it use all the width on tablet (`is-three-fifths` class is messing it up) */
-@media screen and (max-width: 1023px) {
-  .article {
-    width: 100%;
-  }
+  justify-content: space-evenly;
 }
 </style>
