@@ -84,21 +84,6 @@ https://github.com/jgthms/bulma/issues/1708#issuecomment-382560341 */
   overflow: auto;
 }
 
-.articlenav::-webkit-scrollbar,
-.docsnav::-webkit-scrollbar {
-  width: 3px;
-  height: 3px;
-  position: fixed;
-  right: 0;
-}
-
-.articlenav::-webkit-scrollbar-thumb,
-.docsnav::-webkit-scrollbar-thumb {
-  background-color: var(--primary);
-  -webkit-transition: background-color 2s;
-  transition: background-color 2s;
-}
-
 .docsnav a.active {
   font-weight: bolder;
 }
