@@ -88,6 +88,7 @@
     import IntroIcon from "~/assets/images/introduction-icon.svg";
     import EventsIcon from "~/assets/images/events-icon.svg";
     import SmsIcon from "~/assets/images/sms-icon.svg";
+    import MmsIcon from "~/assets/images/mms-icon.svg";
     import UsertokensIcon from "~/assets/images/usertokens-icon.svg";
     import VoicemailIcon from "~/assets/images/voicemail-icon.svg";
     import SubscriptionProfileIcon from "~/assets/images/subscription-profile-icon.svg";
@@ -102,6 +103,7 @@
             IntroIcon,
             EventsIcon,
             SmsIcon,
+            MmsIcon,
             UsertokensIcon,
             VoicemailIcon,
             SubscriptionProfileIcon,
