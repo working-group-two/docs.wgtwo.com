@@ -42,6 +42,15 @@
                     Receive SMS coming in or going out of your platform.
                 </p>
             </g-link>
+            <g-link to="/mms/how-to/send-mms/" class="api-box">
+                <div class="api-icon-wrap">
+                    <MmsIcon></MmsIcon>
+                </div>
+                <h2 class="title">Send MMS</h2>
+                <p>
+                    Send MMS to or from anyone on your platform.
+                </p>
+            </g-link>
             <g-link to="/subscription-profile/how-to/manage-subscriptions/" class="api-box">
                 <div class="api-icon-wrap">
                     <SubscriptionProfileIcon></SubscriptionProfileIcon>
@@ -79,6 +88,7 @@
     import IntroIcon from "~/assets/images/introduction-icon.svg";
     import EventsIcon from "~/assets/images/events-icon.svg";
     import SmsIcon from "~/assets/images/sms-icon.svg";
+    import MmsIcon from "~/assets/images/mms-icon.svg";
     import UsertokensIcon from "~/assets/images/usertokens-icon.svg";
     import VoicemailIcon from "~/assets/images/voicemail-icon.svg";
     import SubscriptionProfileIcon from "~/assets/images/subscription-profile-icon.svg";
@@ -93,6 +103,7 @@
             IntroIcon,
             EventsIcon,
             SmsIcon,
+            MmsIcon,
             UsertokensIcon,
             VoicemailIcon,
             SubscriptionProfileIcon,
