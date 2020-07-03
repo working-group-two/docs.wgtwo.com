@@ -42,7 +42,7 @@
                     Receive SMS coming in or going out of your platform.
                 </p>
             </g-link>
-            <g-link to="/sms/how-to/send-mms/" class="api-box">
+            <g-link to="/mms/how-to/send-mms/" class="api-box">
                 <div class="api-icon-wrap">
                     <MmsIcon></MmsIcon>
                 </div>
