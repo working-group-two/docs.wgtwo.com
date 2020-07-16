@@ -2,7 +2,7 @@
     <div class="landing-page">
         <h1 class="title">Working Group Two API docs</h1>
         <div class="api-boxes">
-            <g-link to="/introduction/explanation/introduction/" class="api-box">
+            <g-link to="/introduction/overview/introduction/" class="api-box">
                 <div class="api-icon-wrap">
                     <IntroIcon></IntroIcon>
                 </div>

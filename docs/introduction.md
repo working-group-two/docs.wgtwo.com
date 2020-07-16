@@ -1,7 +1,7 @@
 ---
 title: Introduction
 topic: introduction
-type: explanation
+type: overview
 ---
 
 # Working Group Two APIs
