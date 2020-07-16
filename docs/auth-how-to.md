@@ -56,6 +56,10 @@ Authorization: Bearer {access token}
 The token and revoke endpoints are protected using basic auth, where client ID must be provided as the username and 
 client secret as the password.
 
+#### Grant types supported
+- Authorization Code
+- Client Credentials
+
 #### Scopes
 The required scopes for each service is described in their documentation.
 
