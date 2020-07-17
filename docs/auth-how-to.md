@@ -19,7 +19,7 @@ We do support a few different authorization schemes for our APIs for different u
 
 ### Operator tokens
 #### Usage
-https://api.wgtwo.com expects the operator credentials as basic auth credential in the HTTP Authorization headers,
+https://api.wgtwo.com expects the operator credentials as a basic auth credential in the HTTP Authorization headers,
 where client ID must be provided as username and client secret as the password:
 ```
 Authorization: Basic {base64 of client ID:client secret}
@@ -28,7 +28,7 @@ Authorization: Basic {base64 of client ID:client secret}
 
 ### User tokens
 #### Usage
-https://api.wgtwo.com expects the user token as Bearer credential in the HTTP Authorization headers:
+https://api.wgtwo.com expects the user token as a Bearer credential in the HTTP Authorization headers:
 ```
 Authorization: Bearer {usertoken}
 ```
@@ -63,19 +63,21 @@ client secret as the password.
 #### Scopes
 The required scopes for each service is described in their documentation.
 
-In addition to those, we have some common scopes for the OAuth 2.0
+In addition to those, we have some common scopes for our OAuth 2.0 flows
 
 | Scope          | Description                                                                                 |
 | -------------- | ------------------------------------------------------------------------------------------- |
-| openid         | If included, the the token endpoint will include a ID token (signed JWT)                    |
+| openid         | If included, the token endpoint will include a ID token (signed JWT) in its response        |
 | offline_access | If included, the token endpoint will will include a refresh token                           |
 | phone          | If included, the ID token and the user info endpoint will include the subjects phone number |
 
 #### Subject identifier
-We use pairwise Subject Identifiers, which will calculate  unique subject value for each Sector Identifier.
+We use pairwise Subject Identifiers, which will calculate unique subject values for each Sector Identifier.
 That is, two clients will not be able to correlate end-user activity without the consent of the user.
 
-Note that many of our APIs does include phone numbers, so the phone scope will be required for most services.
+Note that many of our APIs does include phone numbers, which will provide an ID of the user. The phone scope will
+therefore be required for most services, but does require user consent.
+
 
 #### JSON Web Key Set
 > **JWKS endpoint:** &nbsp; https://id.wgtwo.com/.well-known/jwks.json
