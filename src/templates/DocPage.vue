@@ -35,6 +35,7 @@ query {
         fileInfo {
           path
         }
+        roles
       }
     }
   }

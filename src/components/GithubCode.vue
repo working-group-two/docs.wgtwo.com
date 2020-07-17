@@ -13,6 +13,7 @@ import { get } from "axios";
 import prism from 'prismjs'
 import 'prismjs/components/prism-protobuf'
 import 'prismjs/components/prism-kotlin'
+import 'prismjs/components/prism-bash'
 import Prism from 'vue-prism-component'
 
 export default {
@@ -78,7 +79,9 @@ pre + figcaption .github-link {
 }
 .token.OPERATOR_TOKEN,
 .token.CLIENT_ID,
-.token.CLIENT_SECRET {
+.token.CLIENT_SECRET,
+.token.ACCESS_TOKEN,
+.token.USER_TOKEN {
   border: 1px dashed#ffffff99;
   padding: 2px 4px;
   border-radius: 5px;

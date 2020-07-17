@@ -2,6 +2,7 @@
 title: List and play voicemails
 topic: voicemail
 type: how-to
+roles: thirdpartydev, opeartor, subscriber
 ---
 
 # List and play voicemails
@@ -9,7 +10,6 @@ type: how-to
 ## Overview
 This API allows managing voicemail, including getting the actual content. In order to access this API,
 your credentials need to have the `voicemail.get`, `voicemail.update`, and `voicemail.delete` rights.
-You can configure your credentials in [Console](https://console.wgtwo.com/api-keys-redirect).
 
 The Event API will allow you to subscribe on voicemail events, which can be used to notify users about new voicemails.
 
@@ -79,7 +79,7 @@ Then you can add `voicemail-grpc`, `utils-grpc`:
 <ClientDependencies :clients="['voicemail-grpc', 'utils-grpc']"/>
 
 ### List voicemails
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/ListVoicemail.kt" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/ListVoicemail.kt" language="kotlin" />
 
 ### Play voicemail
 <GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/PlayVoicemail.kt" />

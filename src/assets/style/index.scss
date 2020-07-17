@@ -6,11 +6,26 @@
 // Set your colors
 $primary: #009DA5;
 $primary-invert: findColorInvert($primary);
+$info: hotpink;
+$info-invert: findColorInvert($info);
 
 // Links
 $link: $primary;
 $link-invert: $primary-invert;
 $link-focus-border: $primary;
+
+$colors: (
+  "white": ($white, $black),
+  "black": ($black, $white),
+  "light": ($light, $light-invert),
+  "dark": ($dark, $dark-invert),
+  "primary": ($primary, $primary-invert),
+  "info": ($info, $info-invert),
+  "success": ($success, $success-invert),
+  "warning": ($warning, $warning-invert),
+  "danger": ($danger, $danger-invert),
+);
+
 
 // Import Bulma and Buefy styles
 @import "~bulma";
@@ -55,4 +70,5 @@ pre[class*="language-"] {
 
 :root {
   --primary: #{$primary};
+  --info: #{$info};
 }

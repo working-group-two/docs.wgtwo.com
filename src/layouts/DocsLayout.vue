@@ -1,5 +1,16 @@
 <template>
   <DefaultLayout>
+    <b-modal :active.sync="isRoleModalActive"
+              has-modal-card
+              trap-focus
+              :destroy-on-hide="false"
+              aria-role="dialog"
+              aria-modal
+              scroll="keep"
+              >
+        <role-selection></role-selection>
+    </b-modal>
+    <button class="button is-info role-selection-button" @click="isRoleModalActive = true">All docs</button>
     <b-notification
             type="is-danger"
             aria-close-label="Close notification"
@@ -36,7 +47,7 @@
         <h3 class="is-uppercase">{{topic.title}}</h3>
         <ul class="docs-nav__list">
           <li v-for="item in topic.items" :key="item.id">
-            <g-link :to="item.path">{{item.title}}</g-link>
+            <g-link :to="item.path" :class="{'has-text-grey': item.roles}">{{item.title}}</g-link>
           </li>
         </ul>
       </div>
@@ -87,20 +98,34 @@
   font-family: "Quicksand", sans-serif;
   font-size: 17px;
 }
+
+.role-selection-button {
+  position: fixed;
+  bottom: 0;
+  right: 40px;
+  border-radius: 4px 4px 0 0;
+  z-index: 1;
+}
 </style>
 
 <script>
 import Github from "~/assets/images/github-logo.svg";
 import CodeExamplesCredentialsInjector from "~/code-examples-credentials-injector.js";
+import RoleSelection from "~/components/RoleSelection.vue";
 
 export default {
   components: {
-    Github
+    Github,
+    RoleSelection,
   },
   props: {
     subtitles: { type: Array, default: () => [] },
     links: { type: Array, default: () => [] }
   },
+  data: () => ({
+      isRoleModalActive: false,
+      role: null,
+  }),
   computed: {
     editLink() {
       return `https://github.com/working-group-two/docs.wgtwo.com/blob/master/docs/${this.currentItem.fileInfo.path}`;
