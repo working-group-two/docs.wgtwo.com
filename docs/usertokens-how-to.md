@@ -13,7 +13,7 @@ a token that is given directly to the end-user or used by the operator on behalf
 In order to access this API, your credentials need to have the `id.user.token.create` right.
 You can configure your credentials in [Console](https://console.wgtwo.com/api-keys-redirect).
 
-<DemoConfigurer />
+<slot name="auth" />
 
 ## grpcurl
 

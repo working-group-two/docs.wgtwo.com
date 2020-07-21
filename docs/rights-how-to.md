@@ -12,7 +12,7 @@ This API allows you to list which rights a user token can be assigned, which can
 generation user tokens. In order to access this API, your credentials need to have the `id.user.token.create` right.
 You can configure your credentials in [Console](https://console.wgtwo.com/api-keys-redirect).
 
-<DemoConfigurer />
+<slot name="auth" />
 
 ## grpcurl
 

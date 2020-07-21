@@ -15,7 +15,7 @@ You can configure your credentials in [Console](https://console.wgtwo.com/api-ke
 
 All messages must be acknowledged after they are received, as they otherwise will be resent.
 
-<DemoConfigurer />
+<slot name="auth" />
 
 ## grpcurl
 

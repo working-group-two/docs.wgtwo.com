@@ -25,7 +25,7 @@ new voicemail received.
 
 Your rights can be configured in [Console](https://console.wgtwo.com/api-keys-redirect)
 
-<DemoConfigurer />
+<slot name="auth" />
 
 ## grpcurl
 

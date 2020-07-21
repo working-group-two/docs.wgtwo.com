@@ -12,7 +12,7 @@ typeOrder: 1
 This example shows how you can send MMS. In order to send MMSes your credentials need to have the
 `mms.send.to_subscriber` and `mms.send.from_subscriber` rights. You can configure your credentials in [Console](https://console.wgtwo.com/api-keys-redirect).
 
-<DemoConfigurer />
+<slot name="auth" />
 
 ## grpcurl
 

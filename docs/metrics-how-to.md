@@ -23,7 +23,7 @@ You can configure your credentials in [Console](https://console.wgtwo.com/api-ke
 
 **Base path: `https://api.wgtwo.com/metrics/v1`**
 
-<DemoConfigurer />
+<slot name="auth" />
 
 ### Curl
 ```shell script
