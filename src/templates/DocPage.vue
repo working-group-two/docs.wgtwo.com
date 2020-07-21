@@ -1,7 +1,7 @@
 <template>
   <DocsLayout :subtitles="subtitles" :links="links">
     <CustomiseAuthContent :value="{...auth, operatorToken}">
-      <VueRemarkContent fagballs="FAGBALLS">
+      <VueRemarkContent>
         <template v-slot:auth>
           <DemoConfigurer v-model="auth" /> 
         </template>
@@ -80,7 +80,6 @@ export default {
   },
   methods: {
     updateConfig() {
-      // console.log(`Updating config: ${JSON.stringify(this.auth)}`);
       sessionStorage.setItem("CLIENT_ID", this.auth.clientId);
       sessionStorage.setItem("CLIENT_SECRET", this.auth.clientSecret);
       sessionStorage.setItem("ACCESS_TOKEN", this.auth.accessToken);
@@ -107,8 +106,6 @@ export default {
       return this.roleByIndex[this.activeRoleTab];
     },
     operatorToken() {
-      // if (typeof window === `undefined`) return;
-      console.log("computing");
       return this.auth.clientId && this.auth.clientSecret
         ? btoa(this.auth.clientId + ":" + this.auth.clientSecret)
         : "";

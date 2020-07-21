@@ -5,59 +5,10 @@ import { EventBus } from '~/event-bus.js';
 
 export default {
   render(createElement) {
-    // return createElement("h1", this.value.accessToken);
-    const self = this;
-    // console.log(this);
-    console.log(self.value);
-    return createElement(
-      "div",
-      {
-        props: {
-          fagballs: "FAGBALLS"
-        },
-        on: {
-          change: function(event) {
-            console.log("got event");
-            console.log("Forcing update");
-            self.$forceUpdate();
-          }
-        }
-      },
-      [
-        createElement(EventMaker, {
-          on: {
-            codefetched: function(event) {
-              console.log("got event from EventMaker");
-              console.log("Forcing update");
-              self.$forceUpdate();
-            }
-          }
-        }),
-        createElement("pre", JSON.stringify(this.value, null, 2)),
-        createElement(
-          "div",
-          {
-            props: {
-              fagballs: "FAGBALLS"
-            },
-            on: {
-              change: function(event) {
-                console.log("got event");
-                console.log("Forcing update");
-                self.$forceUpdate();
-              }
-            }
-          },
-          this.$slots.default
-        )
-      ]
-    );
-    // return createElement('div', this.$slots.default);
+    return createElement('div', this.$slots.default);
   },
   props: ["value"],
   updated() {
-    console.log(this.value.accessToken);
-    console.log("Updated called");
     if (this.value.activeRoleTab === 0) {
       this.updateBearerOrUserToken("bearer");
     } else if (this.value.activeRoleTab === 1) {
@@ -83,9 +34,6 @@ export default {
     } else if (this.value.activeRoleTab === 2) {
       this.updateBearerOrUserToken("user");
     }
-    setTimeout(() => {
-      // this.$forceUpdate();
-    }, 100);
   },
   methods: {
     updateBearerOrUserToken(type) {
@@ -123,22 +71,8 @@ export default {
     }
   },
   mounted() {
-    EventBus.$on('codefetched', _ => {
+    EventBus.$on('codefetched', () => {
       this.$forceUpdate();
-    });
-    return;
-    const self = this;
-    const observer = new MutationObserver(() => {
-      console.log("got change");
-      this.$forceUpdate();
-    });
-    observer.observe(self.$el, {
-      attributes: true,
-      characterData: true,
-      childList: true,
-      subtree: true,
-      attributeOldValue: true,
-      characterDataOldValue: true
     });
   }
 };

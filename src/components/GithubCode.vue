@@ -27,7 +27,6 @@ export default {
     CustomiseAuthContent,
   },
   created() {
-    console.log(this);
     this.fetchData();
   },
   props: {
@@ -53,14 +52,7 @@ export default {
       return get(this.rawLink, { responseType: 'text' })
         .then(res => {
           this.content = res.data;
-          console.log("Emitting event in GithubCode");
           EventBus.$emit('codefetched');
-          // this.$emit("codefetched");
-          // let vm = this.$parent
-          // while(vm) {
-          //     vm.$emit('codefetched')
-          //     vm = vm.$parent
-          // }
         }).catch(e => {
           this.content = "Failed to load code, please use the link";
           this.failed = true;

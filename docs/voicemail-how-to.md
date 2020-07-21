@@ -7,7 +7,6 @@ roles:
   - opeartor
   - subscriber
 ---
-<!-- {{ fagballs }} -->
 # List and play voicemails
 
 ## Overview
