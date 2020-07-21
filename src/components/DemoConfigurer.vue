@@ -10,31 +10,31 @@
             API is not available for operator role.
         </b-notification>
         <div class="demo-config">
-            <b-tabs v-model="activeTab">
-                <b-tab-item label="Third party dev">
+            <b-tabs v-model="value.activeRoleTab">
+                <b-tab-item label="Third party dev" :key="0">
                     <p>
                         Enter your <g-link to="/we-need-to-create-this-article-on-how-to-use-oauth">access_token</g-link>, and it will be injected into the code examples below.
                     </p>
                     <b-field label="access_token" label-position="inside">
-                        <b-input v-model="accessToken" placeholder="ex: c2FkZmtsc2FkamZsa2phc2Rsa2ZqYXNkZ"></b-input>
+                        <b-input v-model="value.accessToken" placeholder="ex: c2FkZmtsc2FkamZsa2phc2Rsa2ZqYXNkZ"></b-input>
                     </b-field>
                 </b-tab-item>
 
-                <b-tab-item label="Operator">
+                <b-tab-item label="Operator" :key="1">
                     <p>
                         Enter your Client ID and Secret from <a href="https://console.wgtwo.com/api-keys-redirect">Console</a> here, and they will be injected into the code examples below.
                     </p>
                     <div class="half-flex">
-                        <b-field label="Client ID" label-position="inside">
-                            <b-input v-model="clientId" placeholder="ex: c2FkZmtsc2FkamZsa2phc2Rsa2ZqYXNkZ"></b-input>
+                        <b-field label="Client ID" label-position="inside" >
+                            <b-input v-model="value.clientId" placeholder="ex: c2FkZmtsc2FkamZsa2phc2Rsa2ZqYXNkZ"></b-input>
                         </b-field>
-                        <b-field label="Client Secret" label-position="inside">
-                            <b-input v-model="clientSecret" placeholder="ex: czEyNGRma2xzMTI0YWRqZmxrajEyNGFzZGxrMTI0MTI0Zmphc2Rm"></b-input>
+                        <b-field label="Client Secret" label-position="inside" >
+                            <b-input v-model="value.clientSecret" placeholder="ex: czEyNGRma2xzMTI0YWRqZmxrajEyNGFzZGxrMTI0MTI0Zmphc2Rm"></b-input>
                         </b-field>
                     </div>
                 </b-tab-item>
 
-                <b-tab-item label="Subscriber" :visible="true">
+                <b-tab-item label="Subscriber" :visible="true" :key="2">
                     <b-notification
                         type="is-danger"
                         aria-close-label="Close notification"
@@ -46,8 +46,8 @@
                     <p>
                         Enter your <g-link to="/usertokens/how-to/manage-user-tokens/">user token</g-link>, and it will be injected into the code examples below.
                     </p>
-                    <b-field label="User token" label-position="inside">
-                        <b-input v-model="userToken" placeholder="ex: wg2:c2FkZmtsc2FkamZsa2phc2Rsa2ZqYXNkZ"></b-input>
+                    <b-field label="User token" label-position="inside" >
+                        <b-input v-model="value.userToken" placeholder="ex: wg2:c2FkZmtsc2FkamZsa2phc2Rsa2ZqYXNkZ"></b-input>
                     </b-field>
                 </b-tab-item>
             </b-tabs>
@@ -56,71 +56,10 @@
     </div>
 </template>
 <script>
-    export default {
-        data: () => ({
-            clientId: "",
-            clientSecret: "",
-            accessToken: "",
-            userToken: "",
-            activeTab: 0,
-            roleByIndex: ["THIRD_PARTY_DEV", "OPERATOR", "SUBSCRIBER"],
-        }),
-        watch: {
-            clientId: function () {
-                this.updateConfig();
-            },
-            clientSecret: function () {
-                this.updateConfig();
-            },
-            accessToken: function () {
-                this.updateConfig();
-            },
-            userToken: function () {
-                this.updateConfig();
-            },
-            activeTab: function () {
-                this.updateAuthInSnippets();
-            },
-        },
-        methods: {
-            updateConfig() {
-                if (typeof window === `undefined`) return;
-                sessionStorage.setItem("CLIENT_ID", this.clientId);
-                sessionStorage.setItem("CLIENT_SECRET", this.clientSecret);
-                if (sessionStorage.getItem("CLIENT_ID") && sessionStorage.getItem("CLIENT_SECRET")) {
-                    sessionStorage.setItem("OPERATOR_TOKEN", btoa(this.clientId + ":" + this.clientSecret));
-                } else {
-                    sessionStorage.setItem("OPERATOR_TOKEN", "");
-                }
-                sessionStorage.setItem("ACCESS_TOKEN", this.accessToken);
-                sessionStorage.setItem("USER_TOKEN", this.userToken);
-            },
-            updateAuthInSnippets() {
-                window.selectedRoleSnippet = this.selectedRoleSnippet;
-            }
-        },
-        computed: {
-            selectedRoleSnippet() {
-                return this.roleByIndex[this.activeTab];
-            },
-        },
-        created() {
-            if (typeof window === `undefined`) return;
-            if (sessionStorage.getItem("CLIENT_ID")) {
-                this.clientId = sessionStorage.getItem("CLIENT_ID");
-            }
-            if (sessionStorage.getItem("CLIENT_SECRET")) {
-                this.clientSecret = sessionStorage.getItem("CLIENT_SECRET");
-            }
-            if (sessionStorage.getItem("ACCESS_TOKEN")) {
-                this.clientSecret = sessionStorage.getItem("ACCESS_TOKEN");
-            }
-            if (sessionStorage.getItem("USER_TOKEN")) {
-                this.clientSecret = sessionStorage.getItem("USER_TOKEN");
-            }
-            this.updateAuthInSnippets();
-        }
-    };
+import AuthPropsMixin from "~/components/mixins/AuthPropsMixin.vue"
+export default {
+    props: ["value"],
+}
 </script>
 <style scoped>
     h3:before {

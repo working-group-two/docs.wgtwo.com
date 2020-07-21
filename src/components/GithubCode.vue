@@ -1,7 +1,9 @@
 <template>
   <div>
     <h1>{{ title }}</h1>
-    <Prism :language="language" :code="content" :class="{ 'fill-screen': fillScreen }"></Prism>
+    <!-- <CustomiseAuthContent :value="auth"> -->
+      <Prism :language="language" :code="content" :class="{ 'fill-screen': fillScreen }"></Prism>
+    <!-- </CustomiseAuthContent> -->
     <figcaption>
       <a class="github-link" :href="fileUrl" target="_blank">{{ shortFileUrl }}</a>
     </figcaption>
@@ -15,11 +17,13 @@ import 'prismjs/components/prism-protobuf'
 import 'prismjs/components/prism-kotlin'
 import 'prismjs/components/prism-bash'
 import Prism from 'vue-prism-component'
+import CustomiseAuthContent from "~/components/CustomiseAuthContent";
 
 export default {
   components: {
     Github,
-    Prism
+    Prism,
+    CustomiseAuthContent,
   },
   created() {
     this.fetchData();
@@ -30,7 +34,8 @@ export default {
     language: {
       type: String,
       default: "protobuf"
-    }
+    },
+    auth: Object,
   },
   data() {
     return {
@@ -76,16 +81,5 @@ export default {
 }
 pre + figcaption .github-link {
   margin-top: -8px;
-}
-.token.OPERATOR_TOKEN,
-.token.CLIENT_ID,
-.token.CLIENT_SECRET,
-.token.ACCESS_TOKEN,
-.token.USER_TOKEN {
-  border: 1px dashed#ffffff99;
-  padding: 2px 4px;
-  border-radius: 5px;
-  margin: 0 2px;
-  background: black;
 }
 </style>

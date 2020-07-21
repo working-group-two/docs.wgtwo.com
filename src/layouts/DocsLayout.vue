@@ -171,7 +171,7 @@ export default {
         });
       }
     }, 100);
-    CodeExamplesCredentialsInjector();
+    // CodeExamplesCredentialsInjector();
   }
 };
 </script>

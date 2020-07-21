@@ -29,7 +29,7 @@ Then you can add `mms-grpc` and `utils-grpc`:
 <ClientDependencies :clients="['mms-grpc', 'utils-grpc']"/>
 
 ### Send Audio MMS
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/mms/src/main/kotlin/SendAudioToSubscriber.kt" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/mms/src/main/kotlin/SendAudioToSubscriber.kt" language="kotlin" />
 
 ## Resources
 * [MMS API reference](https://github.com/working-group-two/wgtwoapis/blob/master/wgtwo/mms/v0/mms.proto)

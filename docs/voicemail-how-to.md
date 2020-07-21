@@ -12,8 +12,16 @@ This API allows managing voicemail, including getting the actual content. In ord
 your credentials need to have the `voicemail.get`, `voicemail.update`, and `voicemail.delete` rights.
 
 The Event API will allow you to subscribe on voicemail events, which can be used to notify users about new voicemails.
-
-<DemoConfigurer />
+<!-- 
+<DemoConfigurer
+  :clientId="clientId"
+  :clientSecret="clientSecret"
+  :accessToken="accessToken"
+  :userToken="userToken"
+  :activeRoleTab="activeRoleTab"
+  :roleByIndex="roleByIndex"
+  :operatorToken="operatorToken"
+  /> -->
 
 In the code below, replace "+47xxxxxxxx" with the phone number (e164) you wish to get voicemails from.
 
@@ -79,16 +87,16 @@ Then you can add `voicemail-grpc`, `utils-grpc`:
 <ClientDependencies :clients="['voicemail-grpc', 'utils-grpc']"/>
 
 ### List voicemails
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/ListVoicemail.kt" language="kotlin" />
+<!-- <GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/ListVoicemail.kt" language="kotlin" :auth="auth" /> -->
 
-### Play voicemail
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/PlayVoicemail.kt" />
+<!-- ### Play voicemail
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/PlayVoicemail.kt" language="kotlin" :auth="auth" />
 
 ### Mark voicemail as read
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/MarkVoicemailAsRead.kt" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/MarkVoicemailAsRead.kt" language="kotlin" :auth="auth" />
 
 ### Delete voicemail
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/DeleteVoicemail.kt" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/DeleteVoicemail.kt" language="kotlin" :auth="auth" /> -->
 
 ## Resources
 * [VoicemailDemo.kt](https://github.com/working-group-two/wgtwo-kotlin-code-snippets/blob/master/src/main/kotlin/com/wgtwo/example/voicemail/VoicemailDemo.kt)

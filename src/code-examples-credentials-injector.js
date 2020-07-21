@@ -98,15 +98,6 @@ export default function () {
             return sessionStorage.getItem("USER_TOKEN") || "USER_TOKEN";
         } else if (role === "OPERATOR") {
             return sessionStorage.getItem("USER_TOKEN") || "USER_TOKEN";
-            el.textContent = el.textContent
-                .replace("import com.wgtwo.api.util.auth.UserToken", "import com.wgtwo.api.util.auth.OperatorToken")
-                .replace("import com.wgtwo.api.util.auth.BearerToken", "import com.wgtwo.api.util.auth.OperatorToken")
-                .replace(/UserToken\(.*\)/g, 'OperatorToken("CLIENT_ID", "CLIENT_SECRET")')
-                .replace(/BearerToken\(.*\)/g, 'OperatorToken("CLIENT_ID", "CLIENT_SECRET")')
-                .replace(/OperatorToken\(.*\)/g, 'OperatorToken("CLIENT_ID", "CLIENT_SECRET")')
-                .replace(/"Authorization: Basic .*"/g, `"Authorization: Basic \$\{OPERATOR_TOKEN\}"`)
-                .replace(/"Authorization: Bearer .*"/g, `"Authorization: Basic \$\{OPERATOR_TOKEN\}"`);
-            Prism.highlightElement(el);
         }
     }
 
