@@ -1,5 +1,7 @@
 <script>
 // import AuthPropsMixin from "~/components/mixins/AuthPropsMixin.vue";
+import EventMaker from "~/components/EventMaker.vue";
+import { EventBus } from '~/event-bus.js';
 
 export default {
   render(createElement) {
@@ -7,18 +9,49 @@ export default {
     const self = this;
     // console.log(this);
     console.log(self.value);
-    return createElement("div", [
-      createElement("pre", JSON.stringify(this.value, null, 2)),
-      createElement(
-        "div",
-        {
-          props: {
-            fagballs: self.value
-          }
+    return createElement(
+      "div",
+      {
+        props: {
+          fagballs: "FAGBALLS"
         },
-        this.$slots.default
-      )
-    ]);
+        on: {
+          change: function(event) {
+            console.log("got event");
+            console.log("Forcing update");
+            self.$forceUpdate();
+          }
+        }
+      },
+      [
+        createElement(EventMaker, {
+          on: {
+            codefetched: function(event) {
+              console.log("got event from EventMaker");
+              console.log("Forcing update");
+              self.$forceUpdate();
+            }
+          }
+        }),
+        createElement("pre", JSON.stringify(this.value, null, 2)),
+        createElement(
+          "div",
+          {
+            props: {
+              fagballs: "FAGBALLS"
+            },
+            on: {
+              change: function(event) {
+                console.log("got event");
+                console.log("Forcing update");
+                self.$forceUpdate();
+              }
+            }
+          },
+          this.$slots.default
+        )
+      ]
+    );
     // return createElement('div', this.$slots.default);
   },
   props: ["value"],
@@ -50,6 +83,9 @@ export default {
     } else if (this.value.activeRoleTab === 2) {
       this.updateBearerOrUserToken("user");
     }
+    setTimeout(() => {
+      // this.$forceUpdate();
+    }, 100);
   },
   methods: {
     updateBearerOrUserToken(type) {
@@ -84,7 +120,26 @@ export default {
           element.innerText = newText;
         }
       });
-    },
+    }
+  },
+  mounted() {
+    EventBus.$on('codefetched', _ => {
+      this.$forceUpdate();
+    });
+    return;
+    const self = this;
+    const observer = new MutationObserver(() => {
+      console.log("got change");
+      this.$forceUpdate();
+    });
+    observer.observe(self.$el, {
+      attributes: true,
+      characterData: true,
+      childList: true,
+      subtree: true,
+      attributeOldValue: true,
+      characterDataOldValue: true
+    });
   }
 };
 </script>

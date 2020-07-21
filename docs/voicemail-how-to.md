@@ -2,9 +2,12 @@
 title: List and play voicemails
 topic: voicemail
 type: how-to
-roles: thirdpartydev, opeartor, subscriber
+roles:
+  - thirdpartydev
+  - opeartor
+  - subscriber
 ---
-
+<!-- {{ fagballs }} -->
 # List and play voicemails
 
 ## Overview
@@ -14,17 +17,6 @@ your credentials need to have the `voicemail.get`, `voicemail.update`, and `voic
 The Event API will allow you to subscribe on voicemail events, which can be used to notify users about new voicemails.
 
 <slot name="auth" />
-
-<!-- 
-<DemoConfigurer
-  :clientId="clientId"
-  :clientSecret="clientSecret"
-  :accessToken="accessToken"
-  :userToken="userToken"
-  :activeRoleTab="activeRoleTab"
-  :roleByIndex="roleByIndex"
-  :operatorToken="operatorToken"
-  /> -->
 
 In the code below, replace "+47xxxxxxxx" with the phone number (e164) you wish to get voicemails from.
 
@@ -90,7 +82,7 @@ Then you can add `voicemail-grpc`, `utils-grpc`:
 <ClientDependencies :clients="['voicemail-grpc', 'utils-grpc']"/>
 
 ### List voicemails
-<!-- <GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/ListVoicemail.kt" language="kotlin" :auth="auth" /> -->
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/ListVoicemail.kt" language="kotlin" />
 
 <!-- ### Play voicemail
 <GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/PlayVoicemail.kt" language="kotlin" :auth="auth" />

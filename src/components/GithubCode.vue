@@ -18,6 +18,7 @@ import 'prismjs/components/prism-kotlin'
 import 'prismjs/components/prism-bash'
 import Prism from 'vue-prism-component'
 import CustomiseAuthContent from "~/components/CustomiseAuthContent";
+import { EventBus } from '~/event-bus.js';
 
 export default {
   components: {
@@ -26,6 +27,7 @@ export default {
     CustomiseAuthContent,
   },
   created() {
+    console.log(this);
     this.fetchData();
   },
   props: {
@@ -35,10 +37,10 @@ export default {
       type: String,
       default: "protobuf"
     },
-    auth: {
-      type: Object,
-      required: true,
-    }
+    // auth: {
+    //   type: Object,
+    //   required: true,
+    // }
   },
   data() {
     return {
@@ -49,8 +51,17 @@ export default {
   methods: {
     fetchData: function() {
       return get(this.rawLink, { responseType: 'text' })
-        .then(res => (this.content = res.data))
-        .catch(e => {
+        .then(res => {
+          this.content = res.data;
+          console.log("Emitting event in GithubCode");
+          EventBus.$emit('codefetched');
+          // this.$emit("codefetched");
+          // let vm = this.$parent
+          // while(vm) {
+          //     vm.$emit('codefetched')
+          //     vm = vm.$parent
+          // }
+        }).catch(e => {
           this.content = "Failed to load code, please use the link";
           this.failed = true;
         })

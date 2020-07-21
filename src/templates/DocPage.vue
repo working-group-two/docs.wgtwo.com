@@ -1,9 +1,9 @@
 <template>
   <DocsLayout :subtitles="subtitles" :links="links">
     <CustomiseAuthContent :value="{...auth, operatorToken}">
-      <VueRemarkContent>
+      <VueRemarkContent fagballs="FAGBALLS">
         <template v-slot:auth>
-          <DemoConfigurer v-model="auth" />
+          <DemoConfigurer v-model="auth" /> 
         </template>
       </VueRemarkContent>
     </CustomiseAuthContent>
@@ -56,7 +56,7 @@ import DemoConfigurer from "~/components/DemoConfigurer";
 export default {
   components: {
     CustomiseAuthContent,
-    DemoConfigurer,
+    DemoConfigurer
   },
   data() {
     return {
