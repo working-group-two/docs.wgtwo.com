@@ -12,6 +12,9 @@ This API allows managing voicemail, including getting the actual content. In ord
 your credentials need to have the `voicemail.get`, `voicemail.update`, and `voicemail.delete` rights.
 
 The Event API will allow you to subscribe on voicemail events, which can be used to notify users about new voicemails.
+
+<slot name="auth" />
+
 <!-- 
 <DemoConfigurer
   :clientId="clientId"

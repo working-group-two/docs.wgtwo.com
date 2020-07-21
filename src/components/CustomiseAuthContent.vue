@@ -13,7 +13,7 @@ export default {
         "div",
         {
           props: {
-            auth: self.value
+            fagballs: self.value
           }
         },
         this.$slots.default

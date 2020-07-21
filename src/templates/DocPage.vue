@@ -1,8 +1,11 @@
 <template>
   <DocsLayout :subtitles="subtitles" :links="links">
-    <DemoConfigurer v-model="auth" />
     <CustomiseAuthContent :value="{...auth, operatorToken}">
-      <VueRemarkContent />
+      <VueRemarkContent>
+        <template v-slot:auth>
+          <DemoConfigurer v-model="auth" />
+        </template>
+      </VueRemarkContent>
     </CustomiseAuthContent>
   </DocsLayout>
 </template>
