@@ -110,7 +110,6 @@
 
 <script>
 import Github from "~/assets/images/github-logo.svg";
-import CodeExamplesCredentialsInjector from "~/code-examples-credentials-injector.js";
 import RoleSelection from "~/components/RoleSelection.vue";
 
 export default {
@@ -171,7 +170,6 @@ export default {
         });
       }
     }, 100);
-    // CodeExamplesCredentialsInjector();
   }
 };
 </script>

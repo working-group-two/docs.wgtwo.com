@@ -56,7 +56,6 @@
     </div>
 </template>
 <script>
-import AuthPropsMixin from "~/components/mixins/AuthPropsMixin.vue"
 export default {
     props: ["value"],
 }

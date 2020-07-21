@@ -36,10 +36,6 @@ export default {
       type: String,
       default: "protobuf"
     },
-    // auth: {
-    //   type: Object,
-    //   required: true,
-    // }
   },
   data() {
     return {

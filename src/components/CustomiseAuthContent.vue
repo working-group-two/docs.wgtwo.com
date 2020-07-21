@@ -1,5 +1,4 @@
 <script>
-// import AuthPropsMixin from "~/components/mixins/AuthPropsMixin.vue";
 import EventMaker from "~/components/EventMaker.vue";
 import { EventBus } from '~/event-bus.js';
 
