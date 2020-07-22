@@ -99,6 +99,7 @@ export default {
     },
     role(newRole) {
       this.setActiveTabBasedOnSelectedRole(newRole);
+      localStorage.setItem("ROLE", this.role);
     },
     availableRoles() {
       this.setActiveTabBasedOnSelectedRole(this.role);
@@ -110,10 +111,9 @@ export default {
       sessionStorage.setItem("CLIENT_SECRET", this.auth.clientSecret);
       sessionStorage.setItem("ACCESS_TOKEN", this.auth.accessToken);
       sessionStorage.setItem("USER_TOKEN", this.auth.userToken);
-      localStorage.setItem("ROLE", this.role);
     },
     setActiveTabBasedOnSelectedRole(role) {
-      if (role === "") {
+      if (role === "" && this.availableRoles.has(this.getCurrentRoleFromActiveTab)) {
         return;
       }
       if (this.availableRoles.has(role)) {
@@ -164,7 +164,7 @@ export default {
       const rolesForDoc = this.$page.doc.roles;
       return rolesForDoc.length > 0 ? new Set(rolesForDoc) : new Set(["OPERATOR"]);
     },
-    selectedRoleSnippet() {
+    getCurrentRoleFromActiveTab() {
       return this.auth.roleByIndex[this.auth.activeRoleTab];
     },
     roleButtonText() {
