@@ -161,7 +161,7 @@ export default {
   computed: {
     availableRoles() {
       const rolesForDoc = this.$page.doc.roles;
-      return rolesForDoc.length > 0 ? new Set(rolesForDoc) : new Set(this.auth.roleByIndex);
+      return rolesForDoc.length > 0 ? new Set(rolesForDoc) : new Set(["OPERATOR"]);
     },
     selectedRoleSnippet() {
       return this.auth.roleByIndex[this.auth.activeRoleTab];
