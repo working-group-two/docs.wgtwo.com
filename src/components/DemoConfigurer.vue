@@ -14,7 +14,7 @@
             <b-tabs v-model="value.activeRoleTab">
                 <b-tab-item label="Third party developer" :visible="availableRoles.has('THIRD_PARTY_DEVELOPER')" :key="0">
                     <p>
-                        Enter your <g-link to="/we-need-to-create-this-article-on-how-to-use-oauth">access_token</g-link>, and it will be injected into the code examples below.
+                        Enter your <g-link to="/introduction/how-to/authorization/">access_token</g-link>, and it will be injected into the code examples below.
                     </p>
                     <b-field label="access_token" label-position="inside">
                         <b-input v-model="value.accessToken" placeholder="ex: c2FkZmtsc2FkamZsa2phc2Rsa2ZqYXNkZ"></b-input>
@@ -46,7 +46,7 @@
                         Subscriber based tokens is not officially supported yet, and may not work.
                     </b-notification>
                     <p>
-                        Enter your <g-link to="/usertokens/how-to/manage-user-tokens/">user token</g-link>, and it will be injected into the code examples below.
+                        Enter your <g-link to="/introduction/how-to/authorization/">user token</g-link>, and it will be injected into the code examples below.
                     </p>
                     <b-field label="User token" label-position="inside" >
                         <b-input v-model="value.userToken" placeholder="ex: wg2:c2FkZmtsc2FkamZsa2phc2Rsa2ZqYXNkZ"></b-input>
