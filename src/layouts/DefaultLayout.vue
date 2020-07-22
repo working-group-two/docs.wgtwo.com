@@ -75,7 +75,7 @@ https://github.com/jgthms/bulma/issues/1708#issuecomment-382560341 */
 .docsnav,
 .articlenav {
   width: 200px;
-  padding: 0 16px;
+  padding: 0 16px 40px 16px;
   margin: 0 16px;
   top: var(--nav-sticky-top-position);
   align-self: flex-start;
