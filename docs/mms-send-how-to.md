@@ -3,6 +3,10 @@ title: Send MMS
 topic: mms
 type: how-to
 typeOrder: 1
+roles:
+  - THIRD_PARTY_DEVELOPER
+  - OPERATOR
+  - SUBSCRIBER
 ---
 
 # How to send MMS
@@ -10,7 +14,7 @@ typeOrder: 1
 ## Overview
 
 This example shows how you can send MMS. In order to send MMSes your credentials need to have the
-`mms.send.to_subscriber` and `mms.send.from_subscriber` rights. You can configure your credentials in [Console](https://console.wgtwo.com/api-keys-redirect).
+`mms.send.to_subscriber` and `mms.send.from_subscriber` rights.
 
 <slot name="auth" />
 

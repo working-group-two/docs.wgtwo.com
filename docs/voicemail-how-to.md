@@ -3,7 +3,7 @@ title: List and play voicemails
 topic: voicemail
 type: how-to
 roles:
-  # - THIRD_PARTY_DEVELOPER
+  - THIRD_PARTY_DEVELOPER
   - OPERATOR
   - SUBSCRIBER
 ---
