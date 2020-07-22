@@ -76,7 +76,7 @@ export default {
     fixClassAndText(block, equalsText, newText) {
       block.querySelectorAll(".token").forEach(element => {
         if (element.innerText === equalsText) {
-          element.classList.add("TOKEN");
+          element.classList.add("your-value-here");
           element.innerText = newText;
         }
       });
@@ -90,11 +90,12 @@ export default {
 };
 </script>
 <style>
-.token.TOKEN {
+.token.your-value-here {
   border: 1px dashed#ffffff99;
   padding: 2px 4px;
   border-radius: 5px;
   margin: 0 2px;
-  background: black;
+  background: #0D0208;
+  color: #00FF41;
 }
 </style>

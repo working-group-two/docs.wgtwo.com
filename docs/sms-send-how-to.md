@@ -10,7 +10,7 @@ typeOrder: 1
 ## Overview
 
 This example shows how you can send text and binary SMSes. In order to send SMSes your credentials need to have the
-`sms.send.to_subscriber` and `sms.send.from_subscriber` rights. You can configure your credentials in [Console](https://console.wgtwo.com/api-keys-redirect).
+`sms.send.to_subscriber` and `sms.send.from_subscriber` rights.
 
 <slot name="auth" />
 

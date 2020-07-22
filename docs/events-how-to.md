@@ -23,8 +23,6 @@ new voicemail received.
 | ROAMING_EVENT         | `events.roaming.subscribe`     |
 | TOKEN_AUDIT_EVENT     | `events.audit.token.subscribe` |
 
-Your rights can be configured in [Console](https://console.wgtwo.com/api-keys-redirect)
-
 <slot name="auth" />
 
 ## grpcurl

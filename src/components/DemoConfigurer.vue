@@ -24,6 +24,7 @@
                 <b-tab-item label="Operator" :visible="availableRoles.has('OPERATOR')" :key="1">
                     <p>
                         Enter your Client ID and Secret from <a href="https://console.wgtwo.com/api-keys-redirect">Console</a> here, and they will be injected into the code examples below.
+                        Remember to set the appropriate rights for the client.
                     </p>
                     <div class="half-flex">
                         <b-field label="Client ID" label-position="inside" >

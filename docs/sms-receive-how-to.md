@@ -11,7 +11,6 @@ typeOrder: 2
 
 The SMS API allows you to listen to all sent and received text messages.
 In order to access this API, your credentials need to have the `sms.receive.to_subscriber` and `sms.receive.from_subscriber` rights.
-You can configure your credentials in [Console](https://console.wgtwo.com/api-keys-redirect).
 
 All messages must be acknowledged after they are received, as they otherwise will be resent.
 
