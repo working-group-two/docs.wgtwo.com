@@ -77,11 +77,6 @@ export default {
             return this.roleNames[this.role];
         }
     },
-    created() {
-        console.log(this.availableRoles);
-        console.log(this.role);
-
-    },
 }
 </script>
 <style scoped>

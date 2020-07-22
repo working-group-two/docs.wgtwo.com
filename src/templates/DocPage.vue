@@ -86,8 +86,9 @@ export default {
         activeRoleTab: 0,
         roleByIndex: ["THIRD_PARTY_DEVELOPER", "OPERATOR", "SUBSCRIBER"]
       },
-      isRoleModalActive: true,
+      isRoleModalActive: false,
       role: "",
+      hasRoleChoiceBeenGiven: false,
     }
   },
   watch: {
@@ -99,11 +100,14 @@ export default {
     },
     role(newRole) {
       this.setActiveTabBasedOnSelectedRole(newRole);
-      localStorage.setItem("ROLE", this.role);
+      localStorage.setItem("ROLE", newRole);
     },
     availableRoles() {
       this.setActiveTabBasedOnSelectedRole(this.role);
-    }
+    },
+    isRoleModalActive() {
+      localStorage.setItem("HAS_ROLE_CHOICE_BEEN_GIVEN", true);
+    },
   },
   methods: {
     updateConfig() {
@@ -144,7 +148,11 @@ export default {
     },
   },
   created() {
+    if (localStorage.getItem("HAS_ROLE_CHOICE_BEEN_GIVEN") && localStorage.getItem("ROLE")) {
+      this.role = localStorage.getItem("ROLE");
+    }
     this.selectFirstAvailableRole();
+
     if (typeof window === `undefined`) return;
     if (sessionStorage.getItem("CLIENT_ID")) {
       this.auth.clientId = sessionStorage.getItem("CLIENT_ID");
@@ -158,6 +166,13 @@ export default {
     if (sessionStorage.getItem("USER_TOKEN")) {
       this.auth.userToken = sessionStorage.getItem("USER_TOKEN");
     }
+  },
+  mounted() {
+    setTimeout(() => {
+      if (!localStorage.getItem("HAS_ROLE_CHOICE_BEEN_GIVEN") && !this.isRoleModalActive && this.role === "") {
+        this.isRoleModalActive = true;
+      }
+    }, 6000);
   },
   computed: {
     availableRoles() {

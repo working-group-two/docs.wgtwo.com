@@ -12,17 +12,19 @@
 - [x] Make changing the role visible in the fixed button
 - [x] Make the operator tab the default if no data on the article is available
 - [x] Make the default snippet the selected role
-- [ ] Make the role not available warning show conditionally
-- [ ] Make the modal open after 6 seconds if no choice has been made
-- [ ] Make changing the role persistent
-- [ ] Add roles to articles and propagate that to the relevant vue classes (if missing assume the article is for operators)
-- [ ] Grey out menu links based on the same logic as the not-available-warning
-- [ ] We also need to exactly which tabs to show or not
+- [x] Make the role not available warning show conditionally
+- [x] Make changing the role persistent
+- [x] Make the modal open after 6 seconds if no choice has been made
+- [x] Add roles to articles and propagate that to the relevant vue classes (if missing assume the article is for operators)
+- [x] Grey out menu links based on the same logic as the not-available-warning
+- [x] We also need to exactly which tabs to show or not
     availableRolesSet = {
         THIRD_PARTY_DEVELOPER
     }
-- [ ] Update all docs with their correct roles, from Rights.kt
+- [x] Update all docs with their correct roles, from Rights.kt
 - [ ] Make one auth/secrets object and one role object
+- [ ] Provide demo (with voiceover)
+- [ ] Clean up code
 
 
 ## Contributing
