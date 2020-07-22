@@ -97,17 +97,11 @@ export default {
       },
       deep: true,
     },
-    role: function (newRole, oldRole) {
-      console.log(`newRole=${newRole}`);
-      console.log(`oldRole=${oldRole}`);
-      if (newRole === "") {
-        return;
-      }
-      if (this.availableForRole(newRole)) {
-        this.auth.activeRoleTab = this.auth.roleByIndex.indexOf(newRole);
-        return;
-      }
-      this.selectFirstAvailableRole();
+    role(newRole) {
+      this.setActiveTabBasedOnSelectedRole(newRole);
+    },
+    availableRoles() {
+      this.setActiveTabBasedOnSelectedRole(this.role);
     }
   },
   methods: {
@@ -118,8 +112,15 @@ export default {
       sessionStorage.setItem("USER_TOKEN", this.auth.userToken);
       localStorage.setItem("ROLE", this.role);
     },
-    availableForRole(role) {
-      return role === "" || this.availableRoles.has(role);
+    setActiveTabBasedOnSelectedRole(role) {
+      if (role === "") {
+        return;
+      }
+      if (this.availableRoles.has(role)) {
+        this.auth.activeRoleTab = this.auth.roleByIndex.indexOf(role);
+        return;
+      }
+      this.selectFirstAvailableRole();
     },
     availableForRole(docRoles, role) {
       return role === "" // show-all-docs-"role"
