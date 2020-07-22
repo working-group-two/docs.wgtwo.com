@@ -11,7 +11,13 @@ export default {
       this.updateBearerOrUserToken("bearer");
     } else if (this.value.activeRoleTab === 1) {
       this.$el.querySelectorAll("pre > code").forEach(el => {
-        el.textContent = el.textContent
+        if (el.textContent === "Loading...") {
+          return;
+        }
+        if (!el.hasAttribute("data-original-code")) {
+          el.setAttribute("data-original-code", el.textContent);
+        }
+        el.textContent = el.getAttribute("data-original-code")
           .replace(
             /import com.wgtwo.api.util.auth.(OperatorToken|UserToken|BearerToken)/g,
             `import com.wgtwo.api.util.auth.OperatorToken`
@@ -23,6 +29,8 @@ export default {
           .replace(
             /"Authorization: (Basic|Bearer) .*"/g,
             '"Authorization: Basic ${OPERATOR_TOKEN}"'
+          ).replace(
+
           );
         Prism.highlightElement(el);
         this.fixClassAndText(el, "${OPERATOR_TOKEN}", this.value.operatorToken);
@@ -38,7 +46,13 @@ export default {
       const isBearer = type === "bearer";
       const tokenImport = isBearer ? "BearerToken" : "UserToken";
       this.$el.querySelectorAll("pre > code").forEach(el => {
-        el.textContent = el.textContent
+        if (el.textContent === "Loading...") {
+          return;
+        }
+        if (!el.hasAttribute("data-original-code")) {
+          el.setAttribute("data-original-code", el.textContent);
+        }
+        el.textContent = el.getAttribute("data-original-code")
           .replace(
             /import com.wgtwo.api.util.auth.(OperatorToken|UserToken|BearerToken)/g,
             `import com.wgtwo.api.util.auth.${tokenImport}`

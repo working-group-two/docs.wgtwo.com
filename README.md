@@ -22,9 +22,12 @@
         THIRD_PARTY_DEVELOPER
     }
 - [x] Update all docs with their correct roles, from Rights.kt
+- [x] Fix `curl -s -u CLIENT_ID:CLIENT_SECRET` not updating bug
+- [ ] Remove references to Console outside DemoConfigurer
 - [ ] Make one auth/secrets object and one role object
 - [ ] Provide demo (with voiceover)
 - [ ] Clean up code
+
 
 
 ## Contributing
