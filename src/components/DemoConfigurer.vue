@@ -6,12 +6,13 @@
             aria-close-label="Close notification"
             role="alert"
             :closable="false"
+            v-if="role !== '' && !availableRoles.has(role)"
             >
-            API is not available for operator role.
+            API is not available for {{ roleName }}.
         </b-notification>
         <div class="demo-config">
             <b-tabs v-model="value.activeRoleTab">
-                <b-tab-item label="Third party dev" :key="0">
+                <b-tab-item label="Third party developer" :visible="availableRoles.has('THIRD_PARTY_DEVELOPER')" :key="0">
                     <p>
                         Enter your <g-link to="/we-need-to-create-this-article-on-how-to-use-oauth">access_token</g-link>, and it will be injected into the code examples below.
                     </p>
@@ -20,7 +21,7 @@
                     </b-field>
                 </b-tab-item>
 
-                <b-tab-item label="Operator" :key="1">
+                <b-tab-item label="Operator" :visible="availableRoles.has('OPERATOR')" :key="1">
                     <p>
                         Enter your Client ID and Secret from <a href="https://console.wgtwo.com/api-keys-redirect">Console</a> here, and they will be injected into the code examples below.
                     </p>
@@ -34,7 +35,7 @@
                     </div>
                 </b-tab-item>
 
-                <b-tab-item label="Subscriber" :visible="true" :key="2">
+                <b-tab-item label="Subscriber" :visible="availableRoles.has('SUBSCRIBER')" :key="2">
                     <b-notification
                         type="is-danger"
                         aria-close-label="Close notification"
@@ -57,7 +58,30 @@
 </template>
 <script>
 export default {
-    props: ["value"],
+    props: {
+        value: Object,
+        availableRoles: Set,
+        role: String,
+    },
+    data() {
+        return {
+            roleNames: {
+                "THIRD_PARTY_DEVELOPER": "Third party developer",
+                "OPERATOR": "Operator",
+                "Subscriber": "Subscriber",
+            }
+        }
+    },
+    computed: {
+        roleName() {
+            return this.roleNames[this.role];
+        }
+    },
+    created() {
+        console.log(this.availableRoles);
+        console.log(this.role);
+
+    },
 }
 </script>
 <style scoped>

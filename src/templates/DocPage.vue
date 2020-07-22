@@ -1,9 +1,24 @@
 <template>
-  <DocsLayout :subtitles="subtitles" :links="links">
+  <DocsLayout :subtitles="subtitles" :links="links" :role="role">
+    <b-modal
+      :active.sync="isRoleModalActive"
+      has-modal-card
+      trap-focus
+      :destroy-on-hide="false"
+      aria-role="dialog"
+      aria-modal
+      v-model="role"
+    >
+      <role-selection></role-selection>
+    </b-modal>
+    <button
+      class="button is-info role-selection-button"
+      @click="isRoleModalActive = true"
+    >{{ roleButtonText }}</button>
     <CustomiseAuthContent :value="{...auth, operatorToken}">
       <VueRemarkContent>
         <template v-slot:auth>
-          <DemoConfigurer v-model="auth" /> 
+          <DemoConfigurer v-model="auth" :availableRoles="availableRoles" :role="role" /> 
         </template>
       </VueRemarkContent>
     </CustomiseAuthContent>
@@ -22,6 +37,7 @@ query ($id: ID!) {
       value
       anchor
     }
+    roles
   }
 }
 </page-query>
@@ -52,11 +68,13 @@ query {
 import ordering from "@/data/ordering.yaml";
 import CustomiseAuthContent from "~/components/CustomiseAuthContent";
 import DemoConfigurer from "~/components/DemoConfigurer";
+import RoleSelection from "~/components/RoleSelection.vue";
 
 export default {
   components: {
     CustomiseAuthContent,
-    DemoConfigurer
+    DemoConfigurer,
+    RoleSelection,
   },
   data() {
     return {
@@ -66,8 +84,10 @@ export default {
         accessToken: "ACCESS_TOKEN",
         userToken: "USER_TOKEN",
         activeRoleTab: 0,
-        roleByIndex: ["THIRD_PARTY_DEV", "OPERATOR", "SUBSCRIBER"]
-      }
+        roleByIndex: ["THIRD_PARTY_DEVELOPER", "OPERATOR", "SUBSCRIBER"]
+      },
+      isRoleModalActive: true,
+      role: "",
     }
   },
   watch: {
@@ -77,6 +97,18 @@ export default {
       },
       deep: true,
     },
+    role: function (newRole, oldRole) {
+      console.log(`newRole=${newRole}`);
+      console.log(`oldRole=${oldRole}`);
+      if (newRole === "") {
+        return;
+      }
+      if (this.availableForRole(newRole)) {
+        this.auth.activeRoleTab = this.auth.roleByIndex.indexOf(newRole);
+        return;
+      }
+      this.selectFirstAvailableRole();
+    }
   },
   methods: {
     updateConfig() {
@@ -84,9 +116,34 @@ export default {
       sessionStorage.setItem("CLIENT_SECRET", this.auth.clientSecret);
       sessionStorage.setItem("ACCESS_TOKEN", this.auth.accessToken);
       sessionStorage.setItem("USER_TOKEN", this.auth.userToken);
+      localStorage.setItem("ROLE", this.role);
+    },
+    availableForRole(role) {
+      return role === "" || this.availableRoles.has(role);
+    },
+    availableForRole(docRoles, role) {
+      return role === "" // show-all-docs-"role"
+        || (docRoles.length === 0 && role === "OPERATOR") // roles not defined and role is operator assume the api is for that role
+        || docRoles.indexOf(role) !== -1;
+    },
+    selectFirstAvailableRole() {
+      if (this.availableRoles.has("THIRD_PARTY_DEVELOPER")) {
+        this.auth.activeRoleTab = this.auth.roleByIndex.indexOf("THIRD_PARTY_DEVELOPER");
+        return;
+      }
+      if (this.availableRoles.has("OPERATOR")) {
+        this.auth.activeRoleTab = this.auth.roleByIndex.indexOf("OPERATOR");
+        return;
+      }
+      if (this.availableRoles.has("SUBSCRIBER")) {
+        this.auth.activeRoleTab = this.auth.roleByIndex.indexOf("SUBSCRIBER");
+        return;
+      }
+      this.auth.activeRoleTab = this.auth.roleByIndex.indexOf("OPERATOR");
     },
   },
   created() {
+    this.selectFirstAvailableRole();
     if (typeof window === `undefined`) return;
     if (sessionStorage.getItem("CLIENT_ID")) {
       this.auth.clientId = sessionStorage.getItem("CLIENT_ID");
@@ -102,8 +159,23 @@ export default {
     }
   },
   computed: {
+    availableRoles() {
+      const rolesForDoc = this.$page.doc.roles;
+      return rolesForDoc.length > 0 ? new Set(rolesForDoc) : new Set(this.auth.roleByIndex);
+    },
     selectedRoleSnippet() {
-      return this.roleByIndex[this.activeRoleTab];
+      return this.auth.roleByIndex[this.auth.activeRoleTab];
+    },
+    roleButtonText() {
+      const role = this.role;
+      if (role === "THIRD_PARTY_DEVELOPER") {
+        return "Developer";
+      } else if (role === "OPERATOR") {
+        return "Operator";
+      } else if (role === "SUBSCRIBER") {
+        return "Subscriber";
+      }
+      return "Show all";
     },
     operatorToken() {
       return this.auth.clientId && this.auth.clientSecret
@@ -111,7 +183,8 @@ export default {
         : "";
     },
     links() {
-      const docPages = this.$static.allDocPage.edges.map(edge => edge.node);
+      const docPages = this.$static.allDocPage.edges.map(edge => edge.node)
+        .map(doc => ({...doc, availableForRole: this.availableForRole(doc.roles, this.role) }) );
       const topics = new Set(docPages.map(d => d.topic));
       const types = new Set(docPages.map(d => d.type));
       const topicsEnumerated = new Map(
@@ -180,3 +253,12 @@ export default {
   }
 };
 </script>
+<style>
+.role-selection-button {
+  position: fixed;
+  bottom: 0;
+  right: 40px;
+  border-radius: 4px 4px 0 0;
+  z-index: 1;
+}
+</style>

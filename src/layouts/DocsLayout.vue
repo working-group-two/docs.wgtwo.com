@@ -1,20 +1,9 @@
 <template>
   <DefaultLayout>
-    <b-modal :active.sync="isRoleModalActive"
-              has-modal-card
-              trap-focus
-              :destroy-on-hide="false"
-              aria-role="dialog"
-              aria-modal
-              scroll="keep"
-              >
-        <role-selection></role-selection>
-    </b-modal>
-    <button class="button is-info role-selection-button" @click="isRoleModalActive = true">All docs</button>
     <b-notification
-            type="is-danger"
-            aria-close-label="Close notification"
-            role="alert"
+      type="is-danger"
+      aria-close-label="Close notification"
+      role="alert"
     >These APIs and corresponding docs are under development and may change without notice</b-notification>
     <div>
       <div class="content" id="content">
@@ -47,7 +36,10 @@
         <h3 class="is-uppercase">{{topic.title}}</h3>
         <ul class="docs-nav__list">
           <li v-for="item in topic.items" :key="item.id">
-            <g-link :to="item.path" :class="{'has-text-grey': item.roles}">{{item.title}}</g-link>
+            <g-link
+              :to="item.path"
+              :class="{'has-text-grey': !item.availableForRole}"
+            >{{item.title}}</g-link>
           </li>
         </ul>
       </div>
@@ -98,33 +90,20 @@
   font-family: "Quicksand", sans-serif;
   font-size: 17px;
 }
-
-.role-selection-button {
-  position: fixed;
-  bottom: 0;
-  right: 40px;
-  border-radius: 4px 4px 0 0;
-  z-index: 1;
-}
 </style>
 
 <script>
 import Github from "~/assets/images/github-logo.svg";
-import RoleSelection from "~/components/RoleSelection.vue";
 
 export default {
   components: {
     Github,
-    RoleSelection,
   },
   props: {
     subtitles: { type: Array, default: () => [] },
-    links: { type: Array, default: () => [] }
+    links: { type: Array, default: () => [] },
+    role: { type: String },
   },
-  data: () => ({
-      isRoleModalActive: false,
-      role: null,
-  }),
   computed: {
     editLink() {
       return `https://github.com/working-group-two/docs.wgtwo.com/blob/master/docs/${this.currentItem.fileInfo.path}`;
@@ -154,19 +133,19 @@ export default {
   },
   mounted() {
     let loaderId = setInterval(() => {
-      if (document.querySelector("#swagger-ui") !== null && typeof SwaggerUIBundle !== "undefined" ) {
+      if (
+        document.querySelector("#swagger-ui") !== null &&
+        typeof SwaggerUIBundle !== "undefined"
+      ) {
         clearInterval(loaderId);
         SwaggerUIBundle({
-          "dom_id": "#swagger-ui",
-          url: document.querySelector("#swagger-ui").getAttribute("data-spec-url"),
+          dom_id: "#swagger-ui",
+          url: document
+            .querySelector("#swagger-ui")
+            .getAttribute("data-spec-url"),
           deepLinking: true,
-          presets: [
-            SwaggerUIBundle.presets.apis,
-            SwaggerUIStandalonePreset
-          ],
-          plugins: [
-            SwaggerUIBundle.plugins.DownloadUrl
-          ],
+          presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
+          plugins: [SwaggerUIBundle.plugins.DownloadUrl]
         });
       }
     }, 100);

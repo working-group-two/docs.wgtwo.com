@@ -3,9 +3,9 @@ title: List and play voicemails
 topic: voicemail
 type: how-to
 roles:
-  - thirdpartydev
-  - opeartor
-  - subscriber
+  # - THIRD_PARTY_DEVELOPER
+  - OPERATOR
+  - SUBSCRIBER
 ---
 # List and play voicemails
 
@@ -83,14 +83,14 @@ Then you can add `voicemail-grpc`, `utils-grpc`:
 ### List voicemails
 <GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/ListVoicemail.kt" language="kotlin" />
 
-<!-- ### Play voicemail
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/PlayVoicemail.kt" language="kotlin" :auth="auth" />
+### Play voicemail
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/PlayVoicemail.kt" language="kotlin" />
 
 ### Mark voicemail as read
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/MarkVoicemailAsRead.kt" language="kotlin" :auth="auth" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/MarkVoicemailAsRead.kt" language="kotlin" />
 
 ### Delete voicemail
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/DeleteVoicemail.kt" language="kotlin" :auth="auth" /> -->
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/DeleteVoicemail.kt" language="kotlin" />
 
 ## Resources
 * [VoicemailDemo.kt](https://github.com/working-group-two/wgtwo-kotlin-code-snippets/blob/master/src/main/kotlin/com/wgtwo/example/voicemail/VoicemailDemo.kt)
