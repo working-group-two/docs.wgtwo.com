@@ -18,7 +18,7 @@
     <CustomiseAuthContent :value="{...auth, operatorToken}">
       <VueRemarkContent>
         <template v-slot:auth>
-          <DemoConfigurer v-model="auth" :availableRoles="availableRoles" :role="role" /> 
+          <DemoConfigurer v-model="auth" :availableRoles="availableRoles" :role="role" />
         </template>
       </VueRemarkContent>
     </CustomiseAuthContent>
