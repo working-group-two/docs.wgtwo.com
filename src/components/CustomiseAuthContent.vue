@@ -29,8 +29,6 @@ export default {
           .replace(
             /"Authorization: (Basic|Bearer) .*"/g,
             '"Authorization: Basic ${OPERATOR_TOKEN}"'
-          ).replace(
-
           );
         Prism.highlightElement(el);
         this.fixClassAndText(el, "${OPERATOR_TOKEN}", this.value.operatorToken);
