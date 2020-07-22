@@ -1,9 +1,7 @@
 <template>
   <div>
     <h1>{{ title }}</h1>
-    <!-- <CustomiseAuthContent :value="auth"> -->
-      <Prism :language="language" :code="content" :class="{ 'fill-screen': fillScreen }"></Prism>
-    <!-- </CustomiseAuthContent> -->
+    <Prism :language="language" :code="content" :class="{ 'fill-screen': fillScreen }"></Prism>
     <figcaption>
       <a class="github-link" :href="fileUrl" target="_blank">{{ shortFileUrl }}</a>
     </figcaption>
