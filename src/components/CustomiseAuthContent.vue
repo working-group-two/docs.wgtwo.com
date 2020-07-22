@@ -1,5 +1,4 @@
 <script>
-import EventMaker from "~/components/EventMaker.vue";
 import { EventBus } from '~/event-bus.js';
 
 export default {
