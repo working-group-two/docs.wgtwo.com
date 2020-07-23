@@ -146,12 +146,12 @@ export default {
     },
   },
   created() {
+    if (typeof window === `undefined`) return;
     if (localStorage.getItem("HAS_ROLE_CHOICE_BEEN_GIVEN") && localStorage.getItem("ROLE")) {
       this.auth.role = localStorage.getItem("ROLE");
     }
     this.selectFirstAvailableRole();
 
-    if (typeof window === `undefined`) return;
     if (sessionStorage.getItem("CLIENT_ID")) {
       this.auth.clientId = sessionStorage.getItem("CLIENT_ID");
     }
@@ -192,6 +192,7 @@ export default {
       return "Show all";
     },
     operatorToken() {
+      if (typeof window === `undefined`) return;
       return this.auth.clientId && this.auth.clientSecret
         ? btoa(this.auth.clientId + ":" + this.auth.clientSecret)
         : "";
