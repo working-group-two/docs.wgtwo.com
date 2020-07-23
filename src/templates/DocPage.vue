@@ -15,7 +15,7 @@
       class="button is-snippet role-selection-button"
       @click="auth.isRoleModalActive = true"
     >{{ roleButtonText }}</button>
-    <CustomiseAuthContent :value="{...auth, operatorToken}">
+    <CustomiseAuthContent :value="{...auth, operatorToken, activeRole: getCurrentRoleFromActiveTab}">
       <VueRemarkContent>
         <template v-slot:auth>
           <DemoConfigurer v-model="auth" :availableRoles="availableRoles" />

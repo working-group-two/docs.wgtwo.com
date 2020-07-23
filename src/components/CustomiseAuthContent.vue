@@ -7,42 +7,24 @@ export default {
   },
   props: ["value"],
   updated() {
-    if (this.value.activeRoleTab === 0) {
-      this.updateBearerOrUserToken("bearer");
-    } else if (this.value.activeRoleTab === 1) {
-      this.$el.querySelectorAll("pre > code").forEach(el => {
-        if (el.textContent === "Loading...") {
-          return;
-        }
-        if (!el.hasAttribute("data-original-code")) {
-          el.setAttribute("data-original-code", el.textContent);
-        }
-        el.textContent = el.getAttribute("data-original-code")
-          .replace(
-            /import com.wgtwo.api.util.auth.(OperatorToken|UserToken|BearerToken)/g,
-            `import com.wgtwo.api.util.auth.OperatorToken`
-          )
-          .replace(
-            /(BearerToken|OperatorToken|UserToken)\(".*"\)/g,
-            'OperatorToken("${CLIENT_ID}", "${CLIENT_SECRET}")'
-          )
-          .replace(
-            /"Authorization: (Basic|Bearer) .*"/g,
-            '"Authorization: Basic ${OPERATOR_TOKEN}"'
-          );
-        Prism.highlightElement(el);
-        this.fixClassAndText(el, "${OPERATOR_TOKEN}", this.value.operatorToken);
-        this.fixClassAndText(el, "${CLIENT_ID}", this.value.clientId);
-        this.fixClassAndText(el, "${CLIENT_SECRET}", this.value.clientSecret);
-      });
-    } else if (this.value.activeRoleTab === 2) {
-      this.updateBearerOrUserToken("user");
-    }
+    this.updateTokens(this.value.activeRole);
   },
   methods: {
-    updateBearerOrUserToken(type) {
-      const isBearer = type === "bearer";
-      const tokenImport = isBearer ? "BearerToken" : "UserToken";
+    updateTokens(role) {
+      const isOperator = role === "OPERATOR";
+      const isThirdPartyDeveloper = role === "THIRD_PARTY_DEVELOPER";
+      const authorizationType = isOperator ? "Basic" : "Bearer";
+      const tokenImport = isOperator ? "OperatorToken" : (
+        role === "THIRD_PARTY_DEVELOPER" ? "BearerToken" : "UserToken"
+      );
+      const constructor = isOperator
+        ? 'OperatorToken("${CLIENT_ID}", "${CLIENT_SECRET}")'
+        : (
+          isThirdPartyDeveloper
+            ? 'BearerToken("${TOKEN}")'
+            : 'UserToken("${TOKEN}")'
+        );
+
       this.$el.querySelectorAll("pre > code").forEach(el => {
         if (el.textContent === "Loading...") {
           return;
@@ -57,24 +39,26 @@ export default {
           )
           .replace(
             /(BearerToken|OperatorToken|UserToken)\(".*"\)/g,
-            'BearerToken("${TOKEN}")'
+            constructor
           )
           .replace(
             /"Authorization: (Basic|Bearer) .*"/g,
-            '"Authorization: Bearer ${TOKEN}"'
+            '"Authorization: ' + authorizationType + ' ${TOKEN}"'
           );
         Prism.highlightElement(el);
-        this.fixClassAndText(
-          el,
-          "${TOKEN}",
-          type === "bearer" ? this.value.accessToken : this.value.userToken
-        );
+        if (isOperator) {
+          this.fixClassAndText(el, "${TOKEN}", this.value.operatorToken);
+          this.fixClassAndText(el, "${CLIENT_ID}", this.value.clientId);
+          this.fixClassAndText(el, "${CLIENT_SECRET}", this.value.clientSecret);
+        } else {
+          this.fixClassAndText(el, "${TOKEN}", isThirdPartyDeveloper ? this.value.accessToken : this.value.userToken);
+        }
       });
     },
     fixClassAndText(block, equalsText, newText) {
       block.querySelectorAll(".token").forEach(element => {
         if (element.innerText === equalsText) {
-          element.classList.add("your-value-here");
+          element.classList.add("your-token-here");
           element.innerText = newText;
         }
       });
@@ -88,7 +72,7 @@ export default {
 };
 </script>
 <style>
-.token.your-value-here {
+.token.your-token-here {
   border: 1px dashed#ffffff99;
   padding: 2px 4px;
   border-radius: 5px;
