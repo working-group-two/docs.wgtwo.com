@@ -6,7 +6,7 @@
             aria-close-label="Close notification"
             role="alert"
             :closable="false"
-            v-if="role !== '' && !availableRoles.has(role)"
+            v-if="value.role !== '' && !availableRoles.has(value.role)"
             >
             API is not available for {{ roleName }}.
         </b-notification>
@@ -62,7 +62,6 @@ export default {
     props: {
         value: Object,
         availableRoles: Set,
-        role: String,
     },
     data() {
         return {
@@ -75,7 +74,7 @@ export default {
     },
     computed: {
         roleName() {
-            return this.roleNames[this.role];
+            return this.roleNames[this.value.role];
         }
     },
 }

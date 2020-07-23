@@ -1,24 +1,24 @@
 <template>
   <DocsLayout :subtitles="subtitles" :links="links">
     <b-modal
-      :active.sync="isRoleModalActive"
+      :active.sync="auth.isRoleModalActive"
       has-modal-card
       trap-focus
       :destroy-on-hide="false"
       aria-role="dialog"
       aria-modal
-      v-model="role"
+      v-model="auth.role"
     >
       <role-selection></role-selection>
     </b-modal>
     <button
       class="button is-snippet role-selection-button"
-      @click="isRoleModalActive = true"
+      @click="auth.isRoleModalActive = true"
     >{{ roleButtonText }}</button>
     <CustomiseAuthContent :value="{...auth, operatorToken}">
       <VueRemarkContent>
         <template v-slot:auth>
-          <DemoConfigurer v-model="auth" :availableRoles="availableRoles" :role="role" />
+          <DemoConfigurer v-model="auth" :availableRoles="availableRoles" />
         </template>
       </VueRemarkContent>
     </CustomiseAuthContent>
@@ -84,33 +84,31 @@ export default {
         accessToken: "ACCESS_TOKEN",
         userToken: "USER_TOKEN",
         activeRoleTab: 0,
-        roleByIndex: ["THIRD_PARTY_DEVELOPER", "OPERATOR", "SUBSCRIBER"]
+        roleByIndex: ["THIRD_PARTY_DEVELOPER", "OPERATOR", "SUBSCRIBER"],
+        isRoleModalActive: false,
+        role: "",
+        hasRoleChoiceBeenGiven: false,
       },
-      isRoleModalActive: false,
-      role: "",
-      hasRoleChoiceBeenGiven: false,
     }
   },
   watch: {
     auth: {
-      handler(val) {
-        this.updateConfig();
+      handler() {
+        this.setActiveTabBasedOnSelectedRole(this.auth.role);
+        this.persistConfig();
       },
       deep: true,
     },
-    role(newRole) {
-      this.setActiveTabBasedOnSelectedRole(newRole);
-      localStorage.setItem("ROLE", newRole);
+    'auth.isRoleModalActive'() {
+      localStorage.setItem("HAS_ROLE_CHOICE_BEEN_GIVEN", true);
     },
     availableRoles() {
       this.setActiveTabBasedOnSelectedRole(this.role);
     },
-    isRoleModalActive() {
-      localStorage.setItem("HAS_ROLE_CHOICE_BEEN_GIVEN", true);
-    },
   },
   methods: {
-    updateConfig() {
+    persistConfig() {
+      localStorage.setItem("ROLE", this.auth.role);
       sessionStorage.setItem("CLIENT_ID", this.auth.clientId);
       sessionStorage.setItem("CLIENT_SECRET", this.auth.clientSecret);
       sessionStorage.setItem("ACCESS_TOKEN", this.auth.accessToken);
@@ -149,7 +147,7 @@ export default {
   },
   created() {
     if (localStorage.getItem("HAS_ROLE_CHOICE_BEEN_GIVEN") && localStorage.getItem("ROLE")) {
-      this.role = localStorage.getItem("ROLE");
+      this.auth.role = localStorage.getItem("ROLE");
     }
     this.selectFirstAvailableRole();
 
@@ -169,8 +167,8 @@ export default {
   },
   mounted() {
     setTimeout(() => {
-      if (!localStorage.getItem("HAS_ROLE_CHOICE_BEEN_GIVEN") && !this.isRoleModalActive && this.role === "") {
-        this.isRoleModalActive = true;
+      if (!localStorage.getItem("HAS_ROLE_CHOICE_BEEN_GIVEN") && !this.auth.isRoleModalActive && this.auth.role === "") {
+        this.auth.isRoleModalActive = true;
       }
     }, 6000);
   },
@@ -183,7 +181,7 @@ export default {
       return this.auth.roleByIndex[this.auth.activeRoleTab];
     },
     roleButtonText() {
-      const role = this.role;
+      const role = this.auth.role;
       if (role === "THIRD_PARTY_DEVELOPER") {
         return "Developer";
       } else if (role === "OPERATOR") {
@@ -200,7 +198,7 @@ export default {
     },
     links() {
       const docPages = this.$static.allDocPage.edges.map(edge => edge.node)
-        .map(doc => ({...doc, availableForRole: this.availableForRole(doc.roles, this.role) }) );
+        .map(doc => ({...doc, availableForRole: this.availableForRole(doc.roles, this.auth.role) }) );
       const topics = new Set(docPages.map(d => d.topic));
       const types = new Set(docPages.map(d => d.type));
       const topicsEnumerated = new Map(
