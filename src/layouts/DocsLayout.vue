@@ -102,7 +102,6 @@ export default {
   props: {
     subtitles: { type: Array, default: () => [] },
     links: { type: Array, default: () => [] },
-    role: { type: String },
   },
   computed: {
     editLink() {

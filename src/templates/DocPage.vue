@@ -1,5 +1,5 @@
 <template>
-  <DocsLayout :subtitles="subtitles" :links="links" :role="role">
+  <DocsLayout :subtitles="subtitles" :links="links">
     <b-modal
       :active.sync="isRoleModalActive"
       has-modal-card
