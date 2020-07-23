@@ -25,10 +25,6 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('DemoConfigurer', DemoConfigurer)
   head.link.push({
     rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css?family=Quicksand&display=swap'
-  })
-  head.link.push({
-    rel: 'stylesheet',
     href: 'https://cdn.jsdelivr.net/npm/swagger-ui-dist@3.25.0/swagger-ui.css'
   })
   head.script.push({

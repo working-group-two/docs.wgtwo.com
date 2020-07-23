@@ -85,7 +85,7 @@ export default {
         content: "";
         width: 16px;
         height: 16px;
-        background: var(--info);
+        background: var(--snippet);
         display: inline-block;
         border-radius: 8px;
         margin-right: 8px;

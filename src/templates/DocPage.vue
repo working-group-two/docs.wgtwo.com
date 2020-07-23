@@ -12,7 +12,7 @@
       <role-selection></role-selection>
     </b-modal>
     <button
-      class="button is-info role-selection-button"
+      class="button is-snippet role-selection-button"
       @click="isRoleModalActive = true"
     >{{ roleButtonText }}</button>
     <CustomiseAuthContent :value="{...auth, operatorToken}">
