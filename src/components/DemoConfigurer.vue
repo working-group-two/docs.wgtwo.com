@@ -69,7 +69,7 @@ export default {
             roleNames: {
                 "THIRD_PARTY_DEVELOPER": "Third party developer",
                 "OPERATOR": "Operator",
-                "Subscriber": "Subscriber",
+                "SUBSCRIBER": "Subscriber",
             }
         }
     },
