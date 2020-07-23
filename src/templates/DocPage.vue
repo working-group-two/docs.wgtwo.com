@@ -126,7 +126,7 @@ export default {
     },
     availableForRole(docRoles, role) {
       return role === "" // show-all-docs-"role"
-        || (docRoles.length === 0 && role === "OPERATOR") // roles not defined and role is operator assume the api is for that role
+        || (docRoles.length === 0 && role === "OPERATOR") // roles not defined and role is operator assume the doc is for that role
         || docRoles.indexOf(role) !== -1;
     },
     selectFirstAvailableRole() {
