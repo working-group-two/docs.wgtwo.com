@@ -17,7 +17,7 @@ export default {
       const tokenImport = isOperator ? "OperatorToken" : (
         role === "THIRD_PARTY_DEVELOPER" ? "BearerToken" : "UserToken"
       );
-      const constructor = isOperator
+      const constructorText = isOperator
         ? 'OperatorToken("${CLIENT_ID}", "${CLIENT_SECRET}")'
         : (
           isThirdPartyDeveloper
@@ -39,7 +39,7 @@ export default {
           )
           .replace(
             /(BearerToken|OperatorToken|UserToken)\(".*"\)/g,
-            constructor
+            constructorText
           )
           .replace(
             /"Authorization: (Basic|Bearer) .*"/g,
