@@ -191,7 +191,7 @@ export default {
       } else if (role === "SUBSCRIBER") {
         return "Subscriber";
       }
-      return "Show all";
+      return "Change role";
     },
     operatorToken() {
       if (typeof window === `undefined`) return;
