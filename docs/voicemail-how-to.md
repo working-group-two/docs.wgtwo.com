@@ -5,7 +5,6 @@ type: how-to
 roles:
   - THIRD_PARTY_DEVELOPER
   - OPERATOR
-  - SUBSCRIBER
 ---
 # List and play voicemails
 

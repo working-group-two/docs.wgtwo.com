@@ -6,7 +6,6 @@ typeOrder: 1
 roles:
   - THIRD_PARTY_DEVELOPER
   - OPERATOR
-  - SUBSCRIBER
 ---
 
 # How to send MMS
