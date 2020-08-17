@@ -94,10 +94,12 @@ export default {
   watch: {
     auth: {
       handler() {
-        this.setActiveTabBasedOnSelectedRole(this.auth.role);
         this.persistConfig();
       },
       deep: true,
+    },
+    'auth.role'() {
+        this.setActiveTabBasedOnSelectedRole(this.auth.role);
     },
     'auth.isRoleModalActive'() {
       localStorage.setItem("HAS_ROLE_CHOICE_BEEN_GIVEN", true);
