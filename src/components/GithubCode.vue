@@ -60,7 +60,7 @@ export default {
         .replace("/blob/", "/");
     },
     shortFileUrl: function() {
-      return "https://github.com/working-group-two/examples/" + this.fileUrl.substring(this.fileUrl.lastIndexOf('/') + 1);
+      return "https://github.com/working-group-two/.../" + this.fileUrl.substring(this.fileUrl.lastIndexOf('/') + 1);
     },
     fillScreen: function() {
       return !this.failed && this.content === "Loading...";
