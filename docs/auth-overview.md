@@ -2,6 +2,9 @@
 title: Authorization
 topic: auth
 type: overview
+roles:
+  - THIRD_PARTY_DEVELOPER
+  - OPERATOR
 ---
 
 # Authorization towards our APIs
