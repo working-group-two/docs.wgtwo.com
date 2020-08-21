@@ -25,6 +25,10 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('DemoConfigurer', DemoConfigurer)
   head.link.push({
     rel: 'stylesheet',
+    href: 'https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css'
+  })
+  head.link.push({
+    rel: 'stylesheet',
     href: 'https://cdn.jsdelivr.net/npm/swagger-ui-dist@3.25.0/swagger-ui.css'
   })
   head.script.push({
