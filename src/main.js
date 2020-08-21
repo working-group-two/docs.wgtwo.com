@@ -6,6 +6,8 @@ import Buefy from 'buefy'
 import 'prismjs/themes/prism-okaidia.css'
 import '~/assets/style/index.scss'
 
+import store from '~/store'
+
 import Header from '~/components/Header.vue'
 import DefaultLayout from '~/layouts/DefaultLayout.vue'
 import DocsLayout from '~/layouts/DocsLayout.vue'
@@ -14,8 +16,12 @@ import JitpackDependency from '~/components/deps/JitpackDependency.vue'
 import ClientDependencies from "./components/deps/ClientDependencies"
 import DemoConfigurer from '~/components/DemoConfigurer.vue'
 
-export default function (Vue, { router, head, isClient }) {
+export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.use(Buefy)
+  
+  appOptions.store = store
+  appOptions.beforeCreate = () => { store.dispatch('initialiseStore') }
+
   Vue.component('DefaultLayout', DefaultLayout) // Set DefaultLayout as a global component
   Vue.component('DocsLayout', DocsLayout)
   Vue.component('Header', Header)

@@ -6,6 +6,8 @@ roles:
   - THIRD_PARTY_DEVELOPER
   - OPERATOR
 ---
+import ListVoicemails from "@/components/howto/voicemail/ListVoicemails.vue";
+
 # List and play voicemails
 
 ## Overview
@@ -16,71 +18,8 @@ The Event API will allow you to subscribe on voicemail events, which can be used
 
 <slot name="auth" />
 
-In the code below, replace "+47xxxxxxxx" with the phone number (e164) you wish to get voicemails from.
-
-## grpcurl
-
 ### List voicemails
-```shell script
-grpcurl \
-  -H "Authorization: Basic ${OPERATOR_TOKEN}"\
-  -import-path . \
-  -proto wgtwo/voicemail/v0/voicemail.proto \
-  -d '{ "to": { "e164": "+47xxxxxxxx" } }' \
-  api.wgtwo.com:443 \
-  wgtwo.voicemail.v0.VoicemailMediaService.GetAllVoicemailMetadata
-```
-
-### Play voicemail
-This will download and play a voicemail. If using MacOS, you should be able to use `afplay` or equivalent.
-
-```shell script
-grpcurl \
-  -H "Authorization: Basic ${OPERATOR_TOKEN}"\
-  -import-path . \
-  -proto wgtwo/voicemail/v0/voicemail.proto \
-  -d '{ "voicemail_id": "my-voicemail-id" }' \
-  api.wgtwo.com:443 \
-  wgtwo.voicemail.v0.VoicemailMediaService.GetVoicemail \
-  | jq -r .wav \
-  | base64 -d \
-  | tee voicemail.wav \
-  | aplay # Linux
-```
-
-### Mark voicemail as read
-```shell script
-grpcurl \
-  -H "Authorization: Basic ${OPERATOR_TOKEN}"\
-  -import-path . \
-  -proto wgtwo/voicemail/v0/voicemail.proto \
-  -d '{ "voicemail_id": "my-voicemail-id" }' \
-  api.wgtwo.com:443 \
-  wgtwo.voicemail.v0.VoicemailMediaService.MarkVoicemailAsRead
-```
-
-### Delete voicemail
-```shell script
-grpcurl \
-  -H "Authorization: Basic ${OPERATOR_TOKEN}"\
-  -import-path . \
-  -proto wgtwo/voicemail/v0/voicemail.proto \
-  -d '{ "voicemail_id": "my-voicemail-id" }' \
-  api.wgtwo.com:443 \
-  wgtwo.voicemail.v0.VoicemailMediaService.DeleteVoicemail
-```
-
-## Java / Kotlin
-
-### Install dependencies
-<JitpackDependency />
-
-Then you can add `voicemail-grpc`, `utils-grpc`:
-
-<ClientDependencies :clients="['voicemail-grpc', 'utils-grpc']"/>
-
-### List voicemails
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/ListVoicemail.kt" language="kotlin" />
+<ListVoicemails />
 
 ### Play voicemail
 <GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/PlayVoicemail.kt" language="kotlin" />

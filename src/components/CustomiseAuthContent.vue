@@ -1,13 +1,13 @@
 <script>
 import { EventBus } from '~/event-bus.js';
+import { mapGetters, mapState } from 'vuex';
 
 export default {
   render(createElement) {
     return createElement('div', this.$slots.default);
   },
-  props: ["value"],
   updated() {
-    this.updateTokens(this.value.activeRole);
+    this.updateTokens(this.activeRole);
   },
   methods: {
     updateTokens(role) {
@@ -33,15 +33,15 @@ export default {
         Prism.highlightElement(el);
 
         el.querySelectorAll(".token").forEach(childElement => {
-          fixClassAndText(childElement, "${OPERATOR_TOKEN}", this.value.operatorToken);
-          fixClassAndText(childElement, "${CLIENT_ID}", this.value.clientId);
-          fixClassAndText(childElement, '"CLIENT_ID"', q(this.value.clientId));
-          fixClassAndText(childElement, "${CLIENT_SECRET}", this.value.clientSecret);
-          fixClassAndText(childElement, '"CLIENT_SECRET"', q(this.value.clientSecret));
-          fixClassAndText(childElement, "${ACCESS_TOKEN}", this.value.accessToken);
-          fixClassAndText(childElement, '"ACCESS_TOKEN"', q(this.value.accessToken));
-          fixClassAndText(childElement, "${USER_TOKEN}", this.value.userToken);
-          fixClassAndText(childElement, '"USER_TOKEN"', q(this.value.userToken));
+          fixClassAndText(childElement, "${OPERATOR_TOKEN}", this.operatorToken);
+          fixClassAndText(childElement, "${CLIENT_ID}", this.clientId);
+          fixClassAndText(childElement, '"CLIENT_ID"', q(this.clientId));
+          fixClassAndText(childElement, "${CLIENT_SECRET}", this.clientSecret);
+          fixClassAndText(childElement, '"CLIENT_SECRET"', q(this.clientSecret));
+          fixClassAndText(childElement, "${ACCESS_TOKEN}", this.accessToken);
+          fixClassAndText(childElement, '"ACCESS_TOKEN"', q(this.accessToken));
+          fixClassAndText(childElement, "${USER_TOKEN}", this.userToken);
+          fixClassAndText(childElement, '"USER_TOKEN"', q(this.userToken));
         });
       });
     },
@@ -50,6 +50,18 @@ export default {
     EventBus.$on('codefetched', () => {
       this.$forceUpdate();
     });
+  },
+  computed: {
+    ...mapGetters([
+      'operatorToken'
+    ]),
+    ...mapState({
+      clientId: state => state.auth.clientId,
+      clientSecret: state => state.auth.clientSecret,
+      accessToken: state => state.auth.accessToken,
+      userToken: state => state.auth.userToken,
+      activeRole: state => state.auth.activeRole,
+    }),
   }
 };
 </script>

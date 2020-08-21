@@ -21,7 +21,6 @@
 </template>
 <script>
 export default {
-  props: ["value"],
   methods: {
     choose(role) {
       this.$parent.$emit("input", role)

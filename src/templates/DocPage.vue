@@ -1,24 +1,24 @@
 <template>
   <DocsLayout :subtitles="subtitles" :links="links">
     <b-modal
-      :active.sync="auth.isRoleModalActive"
+      :active="isRoleModalActive"
       has-modal-card
       trap-focus
       :destroy-on-hide="false"
       aria-role="dialog"
       aria-modal
-      v-model="auth.role"
+      @input="updateRole($event); setRoleModalActive(false)"
     >
       <role-selection></role-selection>
     </b-modal>
     <button
       class="button is-snippet role-selection-button"
-      @click="auth.isRoleModalActive = true"
+      @click="setRoleModalActive(true)"
     >{{ roleButtonText }}</button>
-    <CustomiseAuthContent :value="{...auth, operatorToken, activeRole: getCurrentRoleFromActiveTab}">
+    <CustomiseAuthContent>
       <VueRemarkContent>
         <template v-slot:auth>
-          <DemoConfigurer v-model="auth" :availableRoles="availableRoles" />
+          <DemoConfigurer />
         </template>
       </VueRemarkContent>
     </CustomiseAuthContent>
@@ -65,6 +65,7 @@ query {
 </static-query>
 
 <script>
+import { mapGetters , mapState, mapMutations, mapActions } from 'vuex';
 import ordering from "@/data/ordering.yaml";
 import CustomiseAuthContent from "~/components/CustomiseAuthContent";
 import DemoConfigurer from "~/components/DemoConfigurer";
@@ -76,132 +77,47 @@ export default {
     DemoConfigurer,
     RoleSelection,
   },
-  data() {
-    return {
-      auth: {
-        clientId: "CLIENT_ID",
-        clientSecret: "CLIENT_SECRET",
-        accessToken: "ACCESS_TOKEN",
-        userToken: "USER_TOKEN",
-        activeRoleTab: 0,
-        roleByIndex: ["THIRD_PARTY_DEVELOPER", "OPERATOR", "SUBSCRIBER"],
-        isRoleModalActive: false,
-        role: "",
-        hasRoleChoiceBeenGiven: false,
-      },
-    }
-  },
   watch: {
-    auth: {
-      handler() {
-        this.persistConfig();
-      },
-      deep: true,
-    },
-    'auth.role'() {
-        this.setActiveTabBasedOnSelectedRole(this.auth.role);
-    },
-    'auth.isRoleModalActive'() {
-      localStorage.setItem("HAS_ROLE_CHOICE_BEEN_GIVEN", true);
-    },
-    availableRoles() {
-      this.setActiveTabBasedOnSelectedRole(this.role);
+    '$page.doc.roles'(newRoles) {
+      this.updateAvailableRoles(newRoles)
     },
   },
   methods: {
-    persistConfig() {
-      localStorage.setItem("ROLE", this.auth.role);
-      sessionStorage.setItem("CLIENT_ID", this.auth.clientId);
-      sessionStorage.setItem("CLIENT_SECRET", this.auth.clientSecret);
-      sessionStorage.setItem("ACCESS_TOKEN", this.auth.accessToken);
-      sessionStorage.setItem("USER_TOKEN", this.auth.userToken);
-    },
-    setActiveTabBasedOnSelectedRole(role) {
-      if (role === "" && this.availableRoles.has(this.getCurrentRoleFromActiveTab)) {
-        return;
-      }
-      if (this.availableRoles.has(role)) {
-        this.auth.activeRoleTab = this.auth.roleByIndex.indexOf(role);
-        return;
-      }
-      this.selectFirstAvailableRole();
-    },
-    availableForRole(docRoles, role) {
-      return role === "" // show-all-docs-"role"
-        || (docRoles.length === 0 && role === "OPERATOR") // roles not defined and role is operator assume the doc is for that role
-        || docRoles.indexOf(role) !== -1;
-    },
-    selectFirstAvailableRole() {
-      if (this.availableRoles.has("THIRD_PARTY_DEVELOPER")) {
-        this.auth.activeRoleTab = this.auth.roleByIndex.indexOf("THIRD_PARTY_DEVELOPER");
-        return;
-      }
-      if (this.availableRoles.has("OPERATOR")) {
-        this.auth.activeRoleTab = this.auth.roleByIndex.indexOf("OPERATOR");
-        return;
-      }
-      if (this.availableRoles.has("SUBSCRIBER")) {
-        this.auth.activeRoleTab = this.auth.roleByIndex.indexOf("SUBSCRIBER");
-        return;
-      }
-      this.auth.activeRoleTab = this.auth.roleByIndex.indexOf("OPERATOR");
-    },
-  },
-  created() {
-    if (typeof window === `undefined`) return;
-    if (localStorage.getItem("HAS_ROLE_CHOICE_BEEN_GIVEN") && localStorage.getItem("ROLE")) {
-      this.auth.role = localStorage.getItem("ROLE");
-    }
-    this.selectFirstAvailableRole();
-
-    if (sessionStorage.getItem("CLIENT_ID")) {
-      this.auth.clientId = sessionStorage.getItem("CLIENT_ID");
-    }
-    if (sessionStorage.getItem("CLIENT_SECRET")) {
-      this.auth.clientSecret = sessionStorage.getItem("CLIENT_SECRET");
-    }
-    if (sessionStorage.getItem("ACCESS_TOKEN")) {
-      this.auth.accessToken = sessionStorage.getItem("ACCESS_TOKEN");
-    }
-    if (sessionStorage.getItem("USER_TOKEN")) {
-      this.auth.userToken = sessionStorage.getItem("USER_TOKEN");
-    }
+    ...mapMutations([
+      'setRoleModalActive',
+    ]),
+    ...mapActions([
+      'updateRole',
+      'updateAvailableRoles',
+    ]),
   },
   mounted() {
     setTimeout(() => {
-      if (!localStorage.getItem("HAS_ROLE_CHOICE_BEEN_GIVEN") && !this.auth.isRoleModalActive && this.auth.role === "") {
-        this.auth.isRoleModalActive = true;
+      if (!this.hasRoleChoiceBeenGiven && !this.isRoleModalActive && this.role === "") {
+        this.setRoleModalActive(true);
       }
     }, 6000);
+    this.updateAvailableRoles(this.$page.doc.roles)
   },
   computed: {
-    availableRoles() {
-      const rolesForDoc = this.$page.doc.roles;
-      return rolesForDoc.length > 0 ? new Set(rolesForDoc) : new Set(["OPERATOR"]);
-    },
-    getCurrentRoleFromActiveTab() {
-      return this.auth.roleByIndex[this.auth.activeRoleTab];
-    },
-    roleButtonText() {
-      const role = this.auth.role;
-      if (role === "THIRD_PARTY_DEVELOPER") {
-        return "Developer";
-      } else if (role === "OPERATOR") {
-        return "Operator";
-      } else if (role === "SUBSCRIBER") {
-        return "Subscriber";
-      }
-      return "Change role";
-    },
-    operatorToken() {
-      if (typeof window === `undefined`) return;
-      return this.auth.clientId && this.auth.clientSecret
-        ? btoa(this.auth.clientId + ":" + this.auth.clientSecret)
-        : "";
-    },
+    ...mapGetters([
+      'roleButtonText',
+      'operatorToken',
+    ]),
+    ...mapState({
+      isRoleModalActive: state => state.auth.isRoleModalActive,
+      role: state => state.auth.role,
+      hasRoleChoiceBeenGiven: state => state.auth.hasRoleChoiceBeenGiven,
+    }),
     links() {
+      function availableForRole(docRoles, role) {
+        return role === "" // show-all-docs-"role"
+          || (docRoles.length === 0 && role === "OPERATOR") // roles not defined and role is operator assume the doc is for that role
+          || docRoles.indexOf(role) !== -1;
+      }
+
       const docPages = this.$static.allDocPage.edges.map(edge => edge.node)
-        .map(doc => ({...doc, availableForRole: this.availableForRole(doc.roles, this.auth.role) }) );
+        .map(doc => ({...doc, availableForRole: availableForRole(doc.roles, this.role) }) );
       const topics = new Set(docPages.map(d => d.topic));
       const types = new Set(docPages.map(d => d.type));
       const topicsEnumerated = new Map(
