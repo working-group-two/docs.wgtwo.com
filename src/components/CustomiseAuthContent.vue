@@ -11,19 +11,16 @@ export default {
   },
   methods: {
     updateTokens(role) {
-      const isOperator = role === "OPERATOR";
-      const isThirdPartyDeveloper = role === "THIRD_PARTY_DEVELOPER";
-      const authorizationType = isOperator ? "Basic" : "Bearer";
-      const tokenImport = isOperator ? "OperatorToken" : (
-        role === "THIRD_PARTY_DEVELOPER" ? "BearerToken" : "UserToken"
-      );
-      const constructorText = isOperator
-        ? 'OperatorToken("${CLIENT_ID}", "${CLIENT_SECRET}")'
-        : (
-          isThirdPartyDeveloper
-            ? 'BearerToken("${TOKEN}")'
-            : 'UserToken("${TOKEN}")'
-        );
+      function q(text) {
+        return '"' + text + '"';
+      }
+
+      function fixClassAndText(element, equalsText, newText) {
+        if (element.innerText === equalsText) {
+          element.classList.add("your-token-here");
+          element.innerText = newText;
+        }
+      }
 
       this.$el.querySelectorAll("pre > code").forEach(el => {
         if (el.textContent === "Loading...") {
@@ -32,37 +29,22 @@ export default {
         if (!el.hasAttribute("data-original-code")) {
           el.setAttribute("data-original-code", el.textContent);
         }
-        el.textContent = el.getAttribute("data-original-code")
-          .replace(
-            /import com.wgtwo.api.util.auth.(OperatorToken|UserToken|BearerToken)/g,
-            `import com.wgtwo.api.util.auth.${tokenImport}`
-          )
-          .replace(
-            /(BearerToken|OperatorToken|UserToken)\(".*"\)/g,
-            constructorText
-          )
-          .replace(
-            /"Authorization: (Basic|Bearer) .*"/g,
-            '"Authorization: ' + authorizationType + ' ${TOKEN}"'
-          );
+        el.textContent = el.getAttribute("data-original-code");
         Prism.highlightElement(el);
-        if (isOperator) {
-          this.fixClassAndText(el, "${TOKEN}", this.value.operatorToken);
-          this.fixClassAndText(el, "${CLIENT_ID}", this.value.clientId);
-          this.fixClassAndText(el, "${CLIENT_SECRET}", this.value.clientSecret);
-        } else {
-          this.fixClassAndText(el, "${TOKEN}", isThirdPartyDeveloper ? this.value.accessToken : this.value.userToken);
-        }
+
+        el.querySelectorAll(".token").forEach(childElement => {
+          fixClassAndText(childElement, "${OPERATOR_TOKEN}", this.value.operatorToken);
+          fixClassAndText(childElement, "${CLIENT_ID}", this.value.clientId);
+          fixClassAndText(childElement, '"CLIENT_ID"', q(this.value.clientId));
+          fixClassAndText(childElement, "${CLIENT_SECRET}", this.value.clientSecret);
+          fixClassAndText(childElement, '"CLIENT_SECRET"', q(this.value.clientSecret));
+          fixClassAndText(childElement, "${ACCESS_TOKEN}", this.value.accessToken);
+          fixClassAndText(childElement, '"ACCESS_TOKEN"', q(this.value.accessToken));
+          fixClassAndText(childElement, "${USER_TOKEN}", this.value.userToken);
+          fixClassAndText(childElement, '"USER_TOKEN"', q(this.value.userToken));
+        });
       });
     },
-    fixClassAndText(block, equalsText, newText) {
-      block.querySelectorAll(".token").forEach(element => {
-        if (element.innerText === equalsText) {
-          element.classList.add("your-token-here");
-          element.innerText = newText;
-        }
-      });
-    }
   },
   mounted() {
     EventBus.$on('codefetched', () => {
@@ -77,7 +59,7 @@ export default {
   padding: 2px 4px;
   border-radius: 5px;
   margin: 0 2px;
-  background: #0D0208;
-  color: #00FF41;
+  background: #0d0208;
+  color: #00ff41;
 }
 </style>
