@@ -36,7 +36,13 @@ const getters = {
   },
   roleName({ role }) {
     return roleNames[role];
-  }
+  },
+  isOperatorTabSelected({ activeRoleTab }) {
+    return activeRoleTab === roleByIndex.indexOf("OPERATOR")
+  },
+  isThirdPartyDeveloperTabSelected({ activeRoleTab }) {
+    return activeRoleTab === roleByIndex.indexOf("THIRD_PARTY_DEVELOPER")
+  },
 }
 
 const actions = {

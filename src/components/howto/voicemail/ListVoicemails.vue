@@ -19,20 +19,43 @@
         <GithubCode
           fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/feature/roles/examples/kotlin/operator/voicemail/src/main/kotlin/ListVoicemail.kt"
           language="kotlin"
+          v-if="isOperatorTabSelected"
+          key="0"
+        />
+        <GithubCode
+          fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/feature/roles/examples/kotlin/thirdpartydev/voicemail/src/main/kotlin/ListVoicemail.kt"
+          language="kotlin"
+          v-if="isThirdPartyDeveloperTabSelected"
+          key="1"
         />
       </b-tab-item>
       <b-tab-item label="grpcurl" icon="bash">
         <GithubCode
           fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/feature/roles/examples/grpcurl/operator/voicemail/list-voicemail.sh"
           language="shell"
+          v-if="isOperatorTabSelected"
+          key="0"
+        />
+        <GithubCode
+          fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/feature/roles/examples/grpcurl/thirdpartydev/voicemail/list-voicemail.sh"
+          language="shell"
+          v-if="isThirdPartyDeveloperTabSelected"
+          key="1"
         />
       </b-tab-item>
     </b-tabs>
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
-  props: {},
+  computed: {
+    ...mapGetters([
+      'isOperatorTabSelected',
+      'isThirdPartyDeveloperTabSelected',
+    ]),
+  },
 };
 </script>
 <style scoped>
