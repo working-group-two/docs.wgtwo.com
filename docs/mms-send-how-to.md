@@ -7,6 +7,7 @@ roles:
   - THIRD_PARTY_DEVELOPER
   - OPERATOR
 ---
+import SendAudioMms from "@/components/howto/mms/SendAudioMms.vue";
 
 # How to send MMS
 
@@ -17,22 +18,8 @@ This example shows how you can send MMS. In order to send MMSes your credentials
 
 <slot name="auth" />
 
-## grpcurl
-
-Unfortunately, `grpcurl` only allows to send JSON formatted strings, so it can't be used to send MMS.
-Please have a look at the code example for Java / Kotlin below.
-
-## Java / Kotlin
-
-### Install dependencies
-<JitpackDependency />
-
-Then you can add `mms-grpc` and `utils-grpc`:
-
-<ClientDependencies :clients="['mms-grpc', 'utils-grpc']"/>
-
-### Send Audio MMS
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/mms/src/main/kotlin/SendAudioToSubscriber.kt" language="kotlin" />
+## Send Audio MMS
+<SendAudioMms />
 
 ## Resources
 * [MMS API reference](https://github.com/working-group-two/wgtwoapis/blob/master/wgtwo/mms/v0/mms.proto)

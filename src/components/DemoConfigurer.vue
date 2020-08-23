@@ -17,7 +17,7 @@
         >
           <p>
             Enter your
-            <g-link to="/introduction/how-to/authorization/">access_token</g-link>, and it will be injected into the code examples below.
+            <g-link to="/auth/overview/authorization/">access_token</g-link>, and it will be injected into the code examples below.
           </p>
           <b-field label="access_token" label-position="inside">
             <b-input
@@ -60,7 +60,7 @@
           >Subscriber based tokens is not officially supported yet, and may not work.</b-notification>
           <p>
             Enter your
-            <g-link to="/introduction/how-to/authorization/">user token</g-link>, and it will be injected into the code examples below.
+            <g-link to="/auth/overview/authorization/">user token</g-link>, and it will be injected into the code examples below.
           </p>
           <b-field label="User token" label-position="inside">
             <b-input

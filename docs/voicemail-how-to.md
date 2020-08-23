@@ -6,7 +6,10 @@ roles:
   - THIRD_PARTY_DEVELOPER
   - OPERATOR
 ---
-import ListVoicemails from "@/components/howto/voicemail/ListVoicemails.vue";
+import ListVoicemail from "@/components/howto/voicemail/ListVoicemail.vue";
+import PlayVoicemail from "@/components/howto/voicemail/PlayVoicemail.vue";
+import MarkVoicemailRead from "@/components/howto/voicemail/MarkVoicemailRead.vue";
+import DeleteVoicemail from "@/components/howto/voicemail/DeleteVoicemail.vue";
 
 # List and play voicemails
 
@@ -18,17 +21,17 @@ The Event API will allow you to subscribe on voicemail events, which can be used
 
 <slot name="auth" />
 
-### List voicemails
-<ListVoicemails />
+## List voicemails
+<ListVoicemail />
 
-### Play voicemail
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/PlayVoicemail.kt" language="kotlin" />
+## Play voicemail
+<PlayVoicemail />
 
-### Mark voicemail as read
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/MarkVoicemailAsRead.kt" language="kotlin" />
+## Mark voicemail as read
+<MarkVoicemailRead />
 
-### Delete voicemail
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/voicemail/src/main/kotlin/DeleteVoicemail.kt" language="kotlin" />
+## Delete voicemail
+<DeleteVoicemail />
 
 ## Resources
 * [VoicemailDemo.kt](https://github.com/working-group-two/wgtwo-kotlin-code-snippets/blob/master/src/main/kotlin/com/wgtwo/example/voicemail/VoicemailDemo.kt)
