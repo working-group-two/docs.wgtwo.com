@@ -16,46 +16,62 @@
           </div>
         </b-collapse>
         <h3>Snippet</h3>
-        <GithubCode
-          fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/feature/roles/examples/kotlin/operator/voicemail/src/main/kotlin/ListVoicemail.kt"
-          language="kotlin"
-          v-if="isOperatorTabSelected"
-          key="operator"
-        />
-        <GithubCode
-          fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/feature/roles/examples/kotlin/thirdpartydev/voicemail/src/main/kotlin/ListVoicemail.kt"
-          language="kotlin"
-          v-if="isThirdPartyDeveloperTabSelected"
-          key="thirdpartydev"
-        />
+          <GithubCode
+            fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/feature/roles/examples/kotlin/operator/voicemail/src/main/kotlin/ListVoicemail.kt"
+            language="kotlin"
+            v-if="isOperatorTabSelected"
+            key="operator"
+            @code-fetched="$forceUpdate()"
+          />
+          <GithubCode
+            fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/feature/roles/examples/kotlin/thirdpartydev/voicemail/src/main/kotlin/ListVoicemail.kt"
+            language="kotlin"
+            v-if="isThirdPartyDeveloperTabSelected"
+            key="thirdpartydev"
+            @code-fetched="$forceUpdate()"
+          />
+        </CustomiseAuthContent>
       </b-tab-item>
       <b-tab-item label="grpcurl" icon="bash">
-        <GithubCode
-          fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/feature/roles/examples/grpcurl/operator/voicemail/list-voicemail.sh"
-          language="shell"
-          v-if="isOperatorTabSelected"
-          key="operator"
-        />
-        <GithubCode
-          fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/feature/roles/examples/grpcurl/thirdpartydev/voicemail/list-voicemail.sh"
-          language="shell"
-          v-if="isThirdPartyDeveloperTabSelected"
-          key="thirdpartydev"
-        />
+        <CustomiseAuthContent>
+          <GithubCode
+            fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/feature/roles/examples/grpcurl/operator/voicemail/list-voicemail.sh"
+            language="shell"
+            v-if="isOperatorTabSelected"
+            key="operator"
+            @code-fetched="$forceUpdate()"
+          />
+          <GithubCode
+            fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/feature/roles/examples/grpcurl/thirdpartydev/voicemail/list-voicemail.sh"
+            language="shell"
+            v-if="isThirdPartyDeveloperTabSelected"
+            key="thirdpartydev"
+            @code-fetched="$forceUpdate()"
+          />
+        </CustomiseAuthContent>
       </b-tab-item>
     </b-tabs>
   </div>
 </template>
 <script>
 import { mapGetters } from 'vuex';
+import CustomiseAuthContent from "~/components/CustomiseAuthContent";
 
 export default {
+  components: {
+    CustomiseAuthContent,
+  },
   computed: {
     ...mapGetters([
       'isOperatorTabSelected',
       'isThirdPartyDeveloperTabSelected',
     ]),
   },
+  methods: {
+    bla() {
+      console.log("such Wow");
+    }
+  }
 };
 </script>
 <style scoped>

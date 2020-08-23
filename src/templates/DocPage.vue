@@ -15,13 +15,11 @@
       class="button is-snippet role-selection-button"
       @click="setRoleModalActive(true)"
     >{{ roleButtonText }}</button>
-    <CustomiseAuthContent>
       <VueRemarkContent>
         <template v-slot:auth>
           <DemoConfigurer />
         </template>
       </VueRemarkContent>
-    </CustomiseAuthContent>
   </DocsLayout>
 </template>
 
@@ -67,13 +65,11 @@ query {
 <script>
 import { mapGetters , mapState, mapMutations, mapActions } from 'vuex';
 import ordering from "@/data/ordering.yaml";
-import CustomiseAuthContent from "~/components/CustomiseAuthContent";
 import DemoConfigurer from "~/components/DemoConfigurer";
 import RoleSelection from "~/components/RoleSelection.vue";
 
 export default {
   components: {
-    CustomiseAuthContent,
     DemoConfigurer,
     RoleSelection,
   },

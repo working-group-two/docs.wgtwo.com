@@ -1,5 +1,4 @@
 <script>
-import { EventBus } from '~/event-bus.js';
 import { mapGetters, mapState } from 'vuex';
 
 export default {
@@ -53,11 +52,6 @@ export default {
         });
       });
     },
-  },
-  mounted() {
-    EventBus.$on('codefetched', () => {
-      this.$forceUpdate();
-    });
   },
   computed: {
     ...mapGetters([

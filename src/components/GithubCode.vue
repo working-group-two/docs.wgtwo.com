@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>{{ title }}</h1>
     <Prism :language="language" :code="content" :class="{ 'fill-screen': fillScreen }"></Prism>
     <figcaption>
       <a class="github-link" :href="fileUrl" target="_blank">{{ shortFileUrl }}</a>
@@ -15,21 +14,17 @@ import 'prismjs/components/prism-protobuf'
 import 'prismjs/components/prism-kotlin'
 import 'prismjs/components/prism-bash'
 import Prism from 'vue-prism-component'
-import CustomiseAuthContent from "~/components/CustomiseAuthContent";
-import { EventBus } from '~/event-bus.js';
 
 export default {
   components: {
     Github,
     Prism,
-    CustomiseAuthContent,
   },
   created() {
     this.fetchData();
   },
   props: {
     fileUrl: String,
-    title: String,
     language: {
       type: String,
       default: "protobuf"
@@ -46,12 +41,12 @@ export default {
       return get(this.rawLink, { responseType: 'text' })
         .then(res => {
           this.content = res.data;
-          EventBus.$emit('codefetched');
+          this.$emit("code-fetched");
         }).catch(e => {
           this.content = "Failed to load code, please use the link";
           this.failed = true;
         })
-    }
+    },
   },
   computed: {
     rawLink: function() {
@@ -60,7 +55,7 @@ export default {
         .replace("/blob/", "/");
     },
     shortFileUrl: function() {
-      return "https://github.com/working-group-two/.../" + this.fileUrl.substring(this.fileUrl.lastIndexOf('/') + 1);
+      return "github.com/working-group-two/.../" + this.fileUrl.substring(this.fileUrl.lastIndexOf('/') + 1);
     },
     fillScreen: function() {
       return !this.failed && this.content === "Loading...";
