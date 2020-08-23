@@ -4,10 +4,18 @@ import { mapGetters, mapState } from 'vuex';
 
 export default {
   render(createElement) {
-    return createElement('div', this.$slots.default);
+    return createElement('div', {
+      props: { // these are needed to make the component reactive (update) when these values change
+        operatorToken: this.operatorToken,
+        clientId: this.clientId,
+        clientSecret: this.clientSecret,
+        accessToken: this.accessToken,
+        userToken: this.userToken,
+        }
+      }, this.$slots.default);
   },
   updated() {
-    this.updateTokens(this.activeRole);
+    this.updateTokens(this.roleByActiveTab);
   },
   methods: {
     updateTokens(role) {
@@ -53,14 +61,14 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'operatorToken'
+      'operatorToken',
+      'roleByActiveTab',
     ]),
     ...mapState({
       clientId: state => state.auth.clientId,
       clientSecret: state => state.auth.clientSecret,
       accessToken: state => state.auth.accessToken,
       userToken: state => state.auth.userToken,
-      activeRole: state => state.auth.activeRole,
     }),
   }
 };

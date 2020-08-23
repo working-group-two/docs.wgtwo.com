@@ -22,7 +22,7 @@
           <b-field label="access_token" label-position="inside">
             <b-input
               :value="accessToken"
-              @input="setCredential({ type: 'ACCESS_TOKEN', value: $event })"
+              @input="setCredential({ type: 'accessToken', value: $event })"
               placeholder="ex: c2FkZmtsc2FkamZsa2phc2Rsa2ZqYXNkZ"
             ></b-input>
           </b-field>
@@ -38,13 +38,13 @@
             <b-field label="Client ID" label-position="inside">
               <b-input
                 :value="clientId"
-                @input="setCredential({ type: 'CLIENT_ID', value: $event })"
+                @input="setCredential({ type: 'clientId', value: $event })"
                 placeholder="ex: c2FkZmtsc2FkamZsa2phc2Rsa2ZqYXNkZ"></b-input>
             </b-field>
             <b-field label="Client Secret" label-position="inside">
               <b-input
                 :value="clientSecret"
-                @input="setCredential({ type: 'CLIENT_SECRET', value: $event })"
+                @input="setCredential({ type: 'clientSecret', value: $event })"
                 placeholder="ex: czEyNGRma2xzMTI0YWRqZmxrajEyNGFzZGxrMTI0MTI0Zmphc2Rm"
               ></b-input>
             </b-field>

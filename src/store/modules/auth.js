@@ -4,12 +4,15 @@ const roleNames = {
   OPERATOR: "Operator",
   SUBSCRIBER: "Subscriber",
 }
-
-const state = () => ({
+const credentials = {
   clientId: "CLIENT_ID",
   clientSecret: "CLIENT_SECRET",
   accessToken: "ACCESS_TOKEN",
   userToken: "USER_TOKEN",
+}
+
+const state = () => ({
+  ...credentials,
   activeRoleTab: 0,
   availableRoles: new Set(["OPERATOR"]),
   isRoleModalActive: false,
@@ -42,6 +45,9 @@ const getters = {
   },
   isThirdPartyDeveloperTabSelected({ activeRoleTab }) {
     return activeRoleTab === roleByIndex.indexOf("THIRD_PARTY_DEVELOPER")
+  },
+  roleByActiveTab({ activeRoleTab }) {
+    return roleByIndex[activeRoleTab];
   },
 }
 
@@ -83,7 +89,7 @@ const actions = {
 const mutations = {
   setCredential(state, { type, value }) {
     state[type] = value
-    sessionStorage.setItem(type, value)
+    sessionStorage.setItem(credentials[type], value)
   },
   setRoleModalActive(state, bool) {
     state.isRoleModalActive = bool;
