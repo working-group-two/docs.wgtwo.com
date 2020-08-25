@@ -1,25 +1,25 @@
 <template>
   <DocsLayout :subtitles="subtitles" :links="links">
     <b-modal
-      :active="isRoleModalActive"
+      :active.sync="isRoleModalActive"
       has-modal-card
       trap-focus
       :destroy-on-hide="false"
       aria-role="dialog"
       aria-modal
-      @input="updateRole($event); setRoleModalActive(false)"
+      @input="updateRole($event);"
     >
       <role-selection></role-selection>
     </b-modal>
     <button
       class="button is-snippet role-selection-button"
-      @click="setRoleModalActive(true)"
+      @click="isRoleModalActive = true"
     >{{ roleButtonText }}</button>
-      <VueRemarkContent>
-        <template v-slot:auth>
-          <DemoConfigurer />
-        </template>
-      </VueRemarkContent>
+    <VueRemarkContent>
+      <template v-slot:auth>
+        <DemoConfigurer />
+      </template>
+    </VueRemarkContent>
   </DocsLayout>
 </template>
 
@@ -63,7 +63,7 @@ query {
 </static-query>
 
 <script>
-import { mapGetters , mapState, mapMutations, mapActions } from 'vuex';
+import { mapGetters, mapState, mapActions } from "vuex";
 import ordering from "@/data/ordering.yaml";
 import DemoConfigurer from "~/components/DemoConfigurer";
 import RoleSelection from "~/components/RoleSelection.vue";
@@ -74,48 +74,56 @@ export default {
     RoleSelection,
   },
   watch: {
-    '$page.doc.roles'(newRoles) {
-      this.updateAvailableRoles(newRoles)
+    "$page.doc.roles"(newRoles) {
+      this.updateAvailableRoles(newRoles);
     },
   },
   methods: {
-    ...mapMutations([
-      'setRoleModalActive',
-    ]),
-    ...mapActions([
-      'updateRole',
-      'updateAvailableRoles',
-    ]),
+    ...mapActions(["updateRole", "updateAvailableRoles"]),
   },
   mounted() {
     setTimeout(() => {
-      if (!this.hasRoleChoiceBeenGiven && !this.isRoleModalActive && this.role === "") {
-        this.setRoleModalActive(true);
+      if (
+        !this.hasRoleChoiceBeenGiven &&
+        !this.isRoleModalActive &&
+        this.role === ""
+      ) {
+        this.isRoleModalActive = true;
       }
     }, 6000);
-    this.updateAvailableRoles(this.$page.doc.roles)
+    this.updateAvailableRoles(this.$page.doc.roles);
   },
   computed: {
-    ...mapGetters([
-      'roleButtonText',
-      'operatorToken',
-    ]),
+    ...mapGetters(["roleButtonText", "operatorToken"]),
     ...mapState({
-      isRoleModalActive: state => state.role.isRoleModalActive,
-      role: state => state.role.role,
-      hasRoleChoiceBeenGiven: state => state.role.hasRoleChoiceBeenGiven,
+      role: (state) => state.role.role,
+      hasRoleChoiceBeenGiven: (state) => state.role.hasRoleChoiceBeenGiven,
     }),
+    isRoleModalActive: {
+      get() {
+        return this.$store.state.role.isRoleModalActive;
+      },
+      set(value) {
+        this.$store.commit("setRoleModalActive", value);
+      },
+    },
     links() {
       function availableForRole(docRoles, role) {
-        return role === "" // show-all-docs-"role"
-          || (docRoles.length === 0 && role === "OPERATOR") // roles not defined and role is operator assume the doc is for that role
-          || docRoles.indexOf(role) !== -1;
+        return (
+          role === "" || // show-all-docs-"role"
+          (docRoles.length === 0 && role === "OPERATOR") || // roles not defined and role is operator assume the doc is for that role
+          docRoles.indexOf(role) !== -1
+        );
       }
 
-      const docPages = this.$static.allDocPage.edges.map(edge => edge.node)
-        .map(doc => ({...doc, availableForRole: availableForRole(doc.roles, this.role) }) );
-      const topics = new Set(docPages.map(d => d.topic));
-      const types = new Set(docPages.map(d => d.type));
+      const docPages = this.$static.allDocPage.edges
+        .map((edge) => edge.node)
+        .map((doc) => ({
+          ...doc,
+          availableForRole: availableForRole(doc.roles, this.role),
+        }));
+      const topics = new Set(docPages.map((d) => d.topic));
+      const types = new Set(docPages.map((d) => d.type));
       const topicsEnumerated = new Map(
         ordering.topic.map((el, index) => [el, index])
       );
@@ -145,14 +153,14 @@ export default {
         return aVal < bVal ? -1 : 1;
       };
 
-      return [...topics].sort(sortTopics).map(t => ({
+      return [...topics].sort(sortTopics).map((t) => ({
         title: t,
-        items: docPages.filter(doc => doc.topic === t).sort(sortTypes)
+        items: docPages.filter((doc) => doc.topic === t).sort(sortTypes),
       }));
     },
     subtitles() {
       // Only h2 and h3 titles
-      let subtitles = this.$page.doc.subtitles.filter(function(
+      let subtitles = this.$page.doc.subtitles.filter(function (
         value,
         index,
         arr
@@ -170,16 +178,16 @@ export default {
         }
       }
 
-      return subtitles.filter(v => v.depth === 2);
-    }
+      return subtitles.filter((v) => v.depth === 2);
+    },
   },
   metaInfo() {
     const { title, headings } = this.$page.doc;
 
     return {
-      title: title || (headings.length ? headings[0].value : undefined)
+      title: title || (headings.length ? headings[0].value : undefined),
     };
-  }
+  },
 };
 </script>
 <style>
