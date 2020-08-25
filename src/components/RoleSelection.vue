@@ -11,8 +11,8 @@
           <span>I'm making an app for other people to use</span>
           <button class="button is-role" @click="choose('OPERATOR')">Mobile operator</button>
           <span>I'm working for a mobile operator</span>
-          <button class="button is-role" @click="choose('SUBSCRIBER')">Subscriber</button>
-          <span>I want to hack with my own subscription</span>
+          <!-- <button class="button is-role" @click="choose('SUBSCRIBER')">Subscriber</button>
+          <span>I want to hack with my own subscription</span> // works, but we're not yet making it available -->
           <button class="button is-role" @click="choose('')">No customisation</button>
           <span>Don't make any customisations to the content</span>
         </div>
