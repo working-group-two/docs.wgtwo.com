@@ -1,17 +1,28 @@
 <script>
-import { mapGetters, mapState } from 'vuex';
+import { mapGetters, mapState } from "vuex";
 
 export default {
+  /**
+   * The <<VueRemarkContent /> component renders the current page markdown,
+   * but there is no way to pass props to it.
+   * By using a custom render function we are able to the pass the props necessary
+   * for keeping the code snippets up-to-date with the user's credentials.
+   */
   render(createElement) {
-    return createElement('div', {
-      props: { // these are needed to make the component reactive (update) when these values change
-        operatorToken: this.operatorToken,
-        clientId: this.clientId,
-        clientSecret: this.clientSecret,
-        accessToken: this.accessToken,
-        userToken: this.userToken,
-        }
-      }, this.$slots.default);
+    return createElement(
+      "div",
+      {
+        props: {
+          // these are needed to make the component reactive (update) when these values change
+          operatorToken: this.operatorToken,
+          clientId: this.clientId,
+          clientSecret: this.clientSecret,
+          accessToken: this.accessToken,
+          userToken: this.userToken,
+        },
+      },
+      this.$slots.default
+    );
   },
   updated() {
     this.updateTokens(this.roleByActiveTab);
@@ -29,7 +40,7 @@ export default {
         }
       }
 
-      this.$el.querySelectorAll("pre > code").forEach(el => {
+      this.$el.querySelectorAll("pre > code").forEach((el) => {
         if (el.textContent === "Loading...") {
           return;
         }
@@ -39,12 +50,20 @@ export default {
         el.textContent = el.getAttribute("data-original-code");
         Prism.highlightElement(el);
 
-        el.querySelectorAll(".token").forEach(childElement => {
-          fixClassAndText(childElement, "${OPERATOR_TOKEN}", this.operatorToken);
+        el.querySelectorAll(".token").forEach((childElement) => {
+          fixClassAndText(
+            childElement,
+            "${OPERATOR_TOKEN}",
+            this.operatorToken
+          );
           fixClassAndText(childElement, "${CLIENT_ID}", this.clientId);
           fixClassAndText(childElement, '"CLIENT_ID"', q(this.clientId));
           fixClassAndText(childElement, "${CLIENT_SECRET}", this.clientSecret);
-          fixClassAndText(childElement, '"CLIENT_SECRET"', q(this.clientSecret));
+          fixClassAndText(
+            childElement,
+            '"CLIENT_SECRET"',
+            q(this.clientSecret)
+          );
           fixClassAndText(childElement, "${ACCESS_TOKEN}", this.accessToken);
           fixClassAndText(childElement, '"ACCESS_TOKEN"', q(this.accessToken));
           fixClassAndText(childElement, "${USER_TOKEN}", this.userToken);
@@ -54,17 +73,14 @@ export default {
     },
   },
   computed: {
-    ...mapGetters([
-      'operatorToken',
-      'roleByActiveTab',
-    ]),
+    ...mapGetters(["operatorToken", "roleByActiveTab"]),
     ...mapState({
-      clientId: state => state.credentials.clientId,
-      clientSecret: state => state.credentials.clientSecret,
-      accessToken: state => state.credentials.accessToken,
-      userToken: state => state.credentials.userToken,
+      clientId: (state) => state.credentials.clientId,
+      clientSecret: (state) => state.credentials.clientSecret,
+      accessToken: (state) => state.credentials.accessToken,
+      userToken: (state) => state.credentials.userToken,
     }),
-  }
+  },
 };
 </script>
 <style>
