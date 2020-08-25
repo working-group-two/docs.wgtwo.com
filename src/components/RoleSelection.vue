@@ -13,7 +13,7 @@
           <span>I'm working for a mobile operator</span>
           <button class="button is-snippet" @click="choose('SUBSCRIBER')">Subscriber</button>
           <span>I want to hack with my own subscription</span>
-          <button class="button is-snippet" @click="choose('')">Change role</button>
+          <button class="button is-snippet" @click="choose('')">No customisation</button>
           <span>Don't make any customisations to the content</span>
         </div>
       </div>
