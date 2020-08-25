@@ -26,7 +26,7 @@ const mutations = {
         state[type] = value
         sessionStorage.setItem(credentials[type], value)
     },
-    initialiseCredentials({ commit, state }) {
+    initialiseCredentials(state) {
         if (typeof window === `undefined`) return;
         if (sessionStorage.getItem("CLIENT_ID")) {
             state.clientId = sessionStorage.getItem("CLIENT_ID");
