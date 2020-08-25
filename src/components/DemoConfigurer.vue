@@ -105,7 +105,7 @@ h3:before {
   content: "";
   width: 16px;
   height: 16px;
-  background: var(--snippet);
+  background: var(--role-color);
   display: inline-block;
   border-radius: 8px;
   margin-right: 8px;

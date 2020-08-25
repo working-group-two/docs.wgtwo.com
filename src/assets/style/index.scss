@@ -11,10 +11,10 @@
 // Set your colors
 $primary: #009DA5;
 $pink: hotpink;
-$snippet: $pink;
-$snippet-invert: findColorInvert($snippet);
+$role: $pink;
+$role-invert: findColorInvert($role);
 $custom-colors: (
-  "snippet": ($snippet, $snippet-invert)
+  "role": ($role, $role-invert)
 );
 
 // Links
@@ -71,5 +71,5 @@ pre[class*="language-"] {
 
 :root {
   --primary: #{$primary};
-  --snippet: #{$snippet};
+  --role-color: #{$role};
 }
