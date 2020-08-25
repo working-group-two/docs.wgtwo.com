@@ -14,10 +14,16 @@ import DeleteVoicemail from "@/components/howto/voicemail/DeleteVoicemail.vue";
 # List and play voicemails
 
 ## Overview
-This API allows managing voicemail, including getting the actual content. In order to access this API,
-your credentials need to have the `voicemail.get`, `voicemail.update`, and `voicemail.delete` rights.
+This API allows managing voicemail, including getting the actual content.
 
-The Event API will allow you to subscribe on voicemail events, which can be used to notify users about new voicemails.
+The [Event API](/events/how-to/listen-for-events/) will allow you to subscribe on voicemail events, which can be used to notify users about new voicemails.
+
+## Required rights/scope
+| |
+|---|
+|`vocemail.get`|
+|`vocemail.update`|
+|`vocemail.delete`|
 
 <DemoConfigurer />
 
