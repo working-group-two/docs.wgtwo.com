@@ -101,9 +101,9 @@ export default {
       'operatorToken',
     ]),
     ...mapState({
-      isRoleModalActive: state => state.auth.isRoleModalActive,
-      role: state => state.auth.role,
-      hasRoleChoiceBeenGiven: state => state.auth.hasRoleChoiceBeenGiven,
+      isRoleModalActive: state => state.role.isRoleModalActive,
+      role: state => state.role.role,
+      hasRoleChoiceBeenGiven: state => state.role.hasRoleChoiceBeenGiven,
     }),
     links() {
       function availableForRole(docRoles, role) {

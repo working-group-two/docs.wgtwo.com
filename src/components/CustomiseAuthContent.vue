@@ -59,10 +59,10 @@ export default {
       'roleByActiveTab',
     ]),
     ...mapState({
-      clientId: state => state.auth.clientId,
-      clientSecret: state => state.auth.clientSecret,
-      accessToken: state => state.auth.accessToken,
-      userToken: state => state.auth.userToken,
+      clientId: state => state.credentials.clientId,
+      clientSecret: state => state.credentials.clientSecret,
+      accessToken: state => state.credentials.accessToken,
+      userToken: state => state.credentials.userToken,
     }),
   }
 };

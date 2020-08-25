@@ -23,6 +23,7 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   appOptions.beforeCreate = () => {
     store.dispatch('initialiseStore')
     store.commit('initialiseCodeLang')
+    store.commit('initialiseCredentials')
   }
 
   Vue.component('DefaultLayout', DefaultLayout) // Set DefaultLayout as a global component

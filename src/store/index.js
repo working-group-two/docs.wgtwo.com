@@ -1,14 +1,16 @@
 
 import Vue from 'vue'
 import Vuex from 'vuex'
-import auth from './modules/auth'
+import role from './modules/role'
 import codeLang from './modules/codeLang'
+import credentials from './modules/credentials'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
     modules: {
-        auth,
+        role,
         codeLang,
+        credentials,
     }
 })

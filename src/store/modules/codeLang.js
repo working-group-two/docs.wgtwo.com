@@ -14,6 +14,7 @@ const mutations = {
     localStorage.setItem("CODE_LANG_INDEX", codeLangIndex);
   },
   initialiseCodeLang(state) {
+    if (typeof window === `undefined`) return "";
     if (localStorage.getItem("CODE_LANG_INDEX")) {
       state.codeLangIndex = parseInt(localStorage.getItem("CODE_LANG_INDEX"))
     }

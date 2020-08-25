@@ -4,15 +4,8 @@ const roleNames = {
   OPERATOR: "Operator",
   SUBSCRIBER: "Subscriber",
 }
-const credentials = {
-  clientId: "CLIENT_ID",
-  clientSecret: "CLIENT_SECRET",
-  accessToken: "ACCESS_TOKEN",
-  userToken: "USER_TOKEN",
-}
 
 const state = () => ({
-  ...credentials,
   activeRoleTab: 0,
   availableRoles: new Set(["OPERATOR"]),
   isRoleModalActive: false,
@@ -21,12 +14,6 @@ const state = () => ({
 })
 
 const getters = {
-  operatorToken(state) {
-    if (typeof window === `undefined`) return "";
-    return state.clientId && state.clientSecret
-      ? btoa(state.clientId + ":" + state.clientSecret)
-      : "";
-  },
   roleButtonText({ role }) {
     if (role === "THIRD_PARTY_DEVELOPER") {
       return "Developer";
@@ -69,28 +56,11 @@ const actions = {
     if (localStorage.getItem("HAS_ROLE_CHOICE_BEEN_GIVEN")) {
       state.hasRoleChoiceBeenGiven = localStorage.getItem("HAS_ROLE_CHOICE_BEEN_GIVEN");
     }
-    if (sessionStorage.getItem("CLIENT_ID")) {
-      state.clientId = sessionStorage.getItem("CLIENT_ID");
-    }
-    if (sessionStorage.getItem("CLIENT_SECRET")) {
-      state.clientSecret = sessionStorage.getItem("CLIENT_SECRET");
-    }
-    if (sessionStorage.getItem("ACCESS_TOKEN")) {
-      state.accessToken = sessionStorage.getItem("ACCESS_TOKEN");
-    }
-    if (sessionStorage.getItem("USER_TOKEN")) {
-      state.userToken = sessionStorage.getItem("USER_TOKEN");
-    }
-
     commit('setActiveTabBasedOnSelectedRole')
   },
 }
 
 const mutations = {
-  setCredential(state, { type, value }) {
-    state[type] = value
-    sessionStorage.setItem(credentials[type], value)
-  },
   setRoleModalActive(state, bool) {
     state.isRoleModalActive = bool;
     if (bool) {
