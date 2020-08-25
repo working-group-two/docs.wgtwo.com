@@ -2,14 +2,14 @@
   <language-tabs :kotlinDeps="['events-grpc', 'utils-grpc']">
     <template #grpcurl>
       <GithubCode
-        fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/feature/roles/examples/grpcurl/operator/voicemail/delete-voicemail.sh"
+        fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/operator/voicemail/delete-voicemail.sh"
         language="shell"
         v-if="isOperatorTabSelected"
         key="operator"
         @code-fetched="$forceUpdate()"
       />
       <GithubCode
-        fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/feature/roles/examples/grpcurl/thirdpartydev/voicemail/delete-voicemail.sh"
+        fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/voicemail/delete-voicemail.sh"
         language="shell"
         v-if="isThirdPartyDeveloperTabSelected"
         key="thirdpartydev"
@@ -18,14 +18,14 @@
     </template>
     <template #kotlin>
       <GithubCode
-        fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/feature/roles/examples/kotlin/operator/voicemail/src/main/kotlin/DeleteVoicemail.kt"
+        fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/voicemail/src/main/kotlin/DeleteVoicemail.kt"
         language="kotlin"
         v-if="isOperatorTabSelected"
         key="operator"
         @code-fetched="$forceUpdate()"
       />
       <GithubCode
-        fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/feature/roles/examples/kotlin/thirdpartydev/voicemail/src/main/kotlin/DeleteVoicemail.kt"
+        fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/voicemail/src/main/kotlin/DeleteVoicemail.kt"
         language="kotlin"
         v-if="isThirdPartyDeveloperTabSelected"
         key="thirdpartydev"

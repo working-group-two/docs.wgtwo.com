@@ -2,14 +2,14 @@
   <language-tabs :kotlinDeps="['mms-grpc', 'utils-grpc']">
     <template #kotlin>
       <GithubCode
-        fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/feature/roles/examples/kotlin/operator/mms/src/main/kotlin/SendAudioToSubscriber.kt"
+        fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/mms/src/main/kotlin/SendAudioToSubscriber.kt"
         language="kotlin"
         v-if="isOperatorTabSelected"
         key="operator"
         @code-fetched="$forceUpdate()"
       />
       <GithubCode
-        fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/feature/roles/examples/kotlin/thirdpartydev/mms/src/main/kotlin/SendAudioToSubscriber.kt"
+        fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/mms/src/main/kotlin/SendAudioToSubscriber.kt"
         language="kotlin"
         v-if="isThirdPartyDeveloperTabSelected"
         key="thirdpartydev"
