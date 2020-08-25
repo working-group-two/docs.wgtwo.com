@@ -47,7 +47,7 @@ const actions = {
     commit('setRole', role)
     commit('setActiveTabBasedOnSelectedRole')
   },
-  initialiseStore({ commit, state }) {
+  initialiseRoles({ commit, state }) {
     if (typeof window === `undefined`) return;
 
     if (localStorage.getItem("HAS_ROLE_CHOICE_BEEN_GIVEN") && localStorage.getItem("ROLE")) {

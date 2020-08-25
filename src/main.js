@@ -21,7 +21,7 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   
   appOptions.store = store
   appOptions.beforeCreate = () => {
-    store.dispatch('initialiseStore')
+    store.dispatch('initialiseRoles')
     store.commit('initialiseCodeLang')
     store.commit('initialiseCredentials')
   }
