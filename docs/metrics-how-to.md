@@ -22,7 +22,7 @@ In order to access this API, your credentials need to have the `metrics.read` ri
 
 **Base path: `https://api.wgtwo.com/metrics/v1`**
 
-<slot name="auth" />
+<DemoConfigurer />
 
 ### Curl
 ```shell script

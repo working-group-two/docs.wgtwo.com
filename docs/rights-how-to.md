@@ -11,7 +11,7 @@ type: how-to
 This API allows you to list which rights a user token can be assigned, which can be used when making a system for
 generation user tokens. In order to access this API, your credentials need to have the `id.user.token.create` right.
 
-<slot name="auth" />
+<DemoConfigurer />
 
 ## grpcurl
 

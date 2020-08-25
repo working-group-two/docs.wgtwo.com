@@ -11,7 +11,7 @@ type: how-to
 This API allows to enable and disable capabilities for a subscription and get subscription information.
 In order to access this API, your credentials need to have the `subscription.read` and `subscription.write` rights.
 
-<slot name="auth" />
+<DemoConfigurer />
 
 ## curl
 

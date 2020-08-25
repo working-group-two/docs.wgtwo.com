@@ -14,7 +14,7 @@ In order to access this API, your credentials need to have the `sms.receive.to_s
 
 All messages must be acknowledged after they are received, as they otherwise will be resent.
 
-<slot name="auth" />
+<DemoConfigurer />
 
 ## grpcurl
 

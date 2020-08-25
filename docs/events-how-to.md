@@ -23,7 +23,7 @@ new voicemail received.
 | ROAMING_EVENT         | `events.roaming.subscribe`     |
 | TOKEN_AUDIT_EVENT     | `events.audit.token.subscribe` |
 
-<slot name="auth" />
+<DemoConfigurer />
 
 ## grpcurl
 

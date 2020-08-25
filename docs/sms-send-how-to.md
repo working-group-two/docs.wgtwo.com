@@ -12,7 +12,7 @@ typeOrder: 1
 This example shows how you can send text and binary SMSes. In order to send SMSes your credentials need to have the
 `sms.send.to_subscriber` and `sms.send.from_subscriber` rights.
 
-<slot name="auth" />
+<DemoConfigurer />
 
 ## grpcurl
 

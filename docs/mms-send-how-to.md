@@ -16,7 +16,7 @@ import SendAudioMms from "@/components/howto/mms/SendAudioMms.vue";
 This example shows how you can send MMS. In order to send MMSes your credentials need to have the
 `mms.send.to_subscriber` and `mms.send.from_subscriber` rights.
 
-<slot name="auth" />
+<DemoConfigurer />
 
 ## Send Audio MMS
 <SendAudioMms />

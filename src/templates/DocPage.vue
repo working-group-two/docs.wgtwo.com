@@ -15,11 +15,7 @@
       class="button is-role role-selection-button"
       @click="isRoleModalActive = true"
     >{{ roleButtonText }}</button>
-    <VueRemarkContent>
-      <template v-slot:auth>
-        <DemoConfigurer />
-      </template>
-    </VueRemarkContent>
+    <VueRemarkContent />
   </DocsLayout>
 </template>
 

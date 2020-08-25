@@ -12,7 +12,7 @@ This API allows to create user tokens, which can enable accessing our APIs in th
 a token that is given directly to the end-user or used by the operator on behalf of their user.
 In order to access this API, your credentials need to have the `id.user.token.create` right.
 
-<slot name="auth" />
+<DemoConfigurer />
 
 ## grpcurl
 
