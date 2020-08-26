@@ -23,8 +23,6 @@ new voicemail received.
 | ROAMING_EVENT         | `events.roaming.subscribe`     |
 | TOKEN_AUDIT_EVENT     | `events.audit.token.subscribe` |
 
-Your rights can be configured in [Console](https://console.wgtwo.com/api-keys-redirect)
-
 <DemoConfigurer />
 
 ## grpcurl
@@ -54,7 +52,7 @@ Then you can add `event-grpc` and `utils-grpc`:
 <ClientDependencies :clients="['events-grpc', 'utils-grpc']"/>
 
 ### Listen for events
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/events/src/main/kotlin/GetEvents.kt" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/events/src/main/kotlin/GetEvents.kt" language="kotlin" />
 
 ### Manual acknowledge
 In the below example we enable manual acknowledgement, and setting a custom ack timeout.
@@ -62,7 +60,7 @@ In the below example we enable manual acknowledgement, and setting a custom ack 
 Include Google's Protocol Buffers utility library for support of Google's Well-Known Types:
 <ClientDependencies :clients="['protobuf-java-util']"/>
 
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/events/src/main/kotlin/GetEventsManualAck.kt" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/events/src/main/kotlin/GetEventsManualAck.kt" language="kotlin" />
 
 ## Concepts
 * [Three types of stubs: asynchronous, blocking, and future](https://grpc.io/docs/reference/java/generated-code/)

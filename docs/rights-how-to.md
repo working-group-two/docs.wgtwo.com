@@ -10,7 +10,6 @@ type: how-to
 
 This API allows you to list which rights a user token can be assigned, which can be used when making a system for
 generation user tokens. In order to access this API, your credentials need to have the `id.user.token.create` right.
-You can configure your credentials in [Console](https://console.wgtwo.com/api-keys-redirect).
 
 <DemoConfigurer />
 
@@ -55,12 +54,12 @@ Then you can add `auth-grpc` and `utils-grpc`:
 ### List all applicable rights
 Returns a list of all applicable rights
 
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/rights/src/main/kotlin/ListRights.kt" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/rights/src/main/kotlin/ListRights.kt" language="kotlin" />
 
 ### Check what a right will be expanded to
 Returns a list of all the rights the given rights will be expanded to.
 
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/rights/src/main/kotlin/CheckExpansion.kt" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/rights/src/main/kotlin/CheckExpansion.kt" language="kotlin" />
 
 ## Concepts
 * [Three types of stubs: asynchronous, blocking, and future](https://grpc.io/docs/reference/java/generated-code/)

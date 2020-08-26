@@ -10,7 +10,6 @@ type: how-to
 
 This API allows to enable and disable capabilities for a subscription and get subscription information.
 In order to access this API, your credentials need to have the `subscription.read` and `subscription.write` rights.
-You can configure your credentials in [Console](https://console.wgtwo.com/api-keys-redirect).
 
 <DemoConfigurer />
 
@@ -69,10 +68,10 @@ Then you can add the required dependency:
 <ClientDependencies :clients="['rest']"/>
 
 ### Get information about subscriber, e.g. enabled services
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/provision/src/main/kotlin/GetSubscriptionInfo.kt" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/provision/src/main/kotlin/GetSubscriptionInfo.kt" language="kotlin" />
 
 ### Update service, e.g. enable data roaming
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/provision/src/main/kotlin/EnableRoamingData.kt" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/provision/src/main/kotlin/EnableRoamingData.kt" language="kotlin" />
 
 ### Update service, e.g. disable data roaming
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/provision/src/main/kotlin/DisableRoamingData.kt" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/provision/src/main/kotlin/DisableRoamingData.kt" language="kotlin" />

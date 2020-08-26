@@ -19,7 +19,6 @@ The HTTP endpoint we provide will give you the current state of all of your metr
 Please reach out to clarify what metrics you would need access to.
 
 In order to access this API, your credentials need to have the `metrics.read` right.
-You can configure your credentials in [Console](https://console.wgtwo.com/api-keys-redirect).
 
 **Base path: `https://api.wgtwo.com/metrics/v1`**
 
@@ -27,7 +26,7 @@ You can configure your credentials in [Console](https://console.wgtwo.com/api-ke
 
 ### Curl
 ```shell script
-curl -s -u CLIENT_ID:CLIENT_SECRET https://api.wgtwo.com/metrics/v1
+curl -s -u ${CLIENT_ID}:${CLIENT_SECRET} https://api.wgtwo.com/metrics/v1
 ```
 
 ### Prometheus

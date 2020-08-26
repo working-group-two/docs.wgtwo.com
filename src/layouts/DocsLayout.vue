@@ -1,9 +1,9 @@
 <template>
   <DefaultLayout>
     <b-notification
-            type="is-danger"
-            aria-close-label="Close notification"
-            role="alert"
+      type="is-danger"
+      aria-close-label="Close notification"
+      role="alert"
     >These APIs and corresponding docs are under development and may change without notice</b-notification>
     <div>
       <div class="content" id="content">
@@ -36,7 +36,10 @@
         <h3 class="is-uppercase">{{topic.title}}</h3>
         <ul class="docs-nav__list">
           <li v-for="item in topic.items" :key="item.id">
-            <g-link :to="item.path">{{item.title}}</g-link>
+            <g-link
+              :to="item.path"
+              :class="{'has-text-grey': !item.availableForRole}"
+            >{{item.title}}</g-link>
           </li>
         </ul>
       </div>
@@ -91,15 +94,14 @@
 
 <script>
 import Github from "~/assets/images/github-logo.svg";
-import CodeExamplesCredentialsInjector from "~/code-examples-credentials-injector.js";
 
 export default {
   components: {
-    Github
+    Github,
   },
   props: {
     subtitles: { type: Array, default: () => [] },
-    links: { type: Array, default: () => [] }
+    links: { type: Array, default: () => [] },
   },
   computed: {
     editLink() {
@@ -130,23 +132,22 @@ export default {
   },
   mounted() {
     let loaderId = setInterval(() => {
-      if (document.querySelector("#swagger-ui") !== null && typeof SwaggerUIBundle !== "undefined" ) {
+      if (
+        document.querySelector("#swagger-ui") !== null &&
+        typeof SwaggerUIBundle !== "undefined"
+      ) {
         clearInterval(loaderId);
         SwaggerUIBundle({
-          "dom_id": "#swagger-ui",
-          url: document.querySelector("#swagger-ui").getAttribute("data-spec-url"),
+          dom_id: "#swagger-ui",
+          url: document
+            .querySelector("#swagger-ui")
+            .getAttribute("data-spec-url"),
           deepLinking: true,
-          presets: [
-            SwaggerUIBundle.presets.apis,
-            SwaggerUIStandalonePreset
-          ],
-          plugins: [
-            SwaggerUIBundle.plugins.DownloadUrl
-          ],
+          presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
+          plugins: [SwaggerUIBundle.plugins.DownloadUrl]
         });
       }
     }, 100);
-    CodeExamplesCredentialsInjector();
   }
 };
 </script>

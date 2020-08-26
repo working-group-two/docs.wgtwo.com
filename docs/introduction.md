@@ -2,6 +2,9 @@
 title: Introduction
 topic: introduction
 type: overview
+roles:
+  - THIRD_PARTY_DEVELOPER
+  - OPERATOR
 ---
 
 # Working Group Two APIs

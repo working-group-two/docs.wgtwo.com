@@ -11,7 +11,6 @@ type: how-to
 This API allows to create user tokens, which can enable accessing our APIs in the context of a user. This can either be
 a token that is given directly to the end-user or used by the operator on behalf of their user.
 In order to access this API, your credentials need to have the `id.user.token.create` right.
-You can configure your credentials in [Console](https://console.wgtwo.com/api-keys-redirect).
 
 <DemoConfigurer />
 
@@ -90,16 +89,16 @@ Rights does accept using `*` as wildcard, which will match any suffix.
 
 For a list of applicable rights, see [List applicable rights](../list-applicable-rights/).
 
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/usertokens/src/main/kotlin/CreateUserToken.kt" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/usertokens/src/main/kotlin/CreateUserToken.kt" language="kotlin" />
 
 ### List user tokens for phone number
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/usertokens/src/main/kotlin/ListUserToken.kt" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/usertokens/src/main/kotlin/ListUserToken.kt" language="kotlin" />
 
 ### Get user token
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/usertokens/src/main/kotlin/GetUserToken.kt" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/usertokens/src/main/kotlin/GetUserToken.kt" language="kotlin" />
 
 ### Revoke user token
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/usertokens/src/main/kotlin/RevokeUserToken.kt" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/usertokens/src/main/kotlin/RevokeUserToken.kt" language="kotlin" />
 
 ## Concepts
 * [Three types of stubs: asynchronous, blocking, and future](https://grpc.io/docs/reference/java/generated-code/)
