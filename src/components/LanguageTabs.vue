@@ -1,7 +1,7 @@
 <template>
   <div class="language-tabs">
     <CustomiseAuthContent>
-      <b-tabs :value="codeLangIndex" @input="setCodeLangIndex($event)">
+      <b-tabs :value="codeLangIndex" @input="setCodeLangIndex($event)" :animated="false">
         <b-tab-item label="grpcurl" icon="bash">
           <slot name="grpcurl">
             Not available.

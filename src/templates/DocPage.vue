@@ -8,6 +8,7 @@
       aria-role="dialog"
       aria-modal
       @input="updateRole($event);"
+      animation=""
     >
       <role-selection></role-selection>
     </b-modal>

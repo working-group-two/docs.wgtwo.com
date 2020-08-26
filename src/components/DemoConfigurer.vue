@@ -9,7 +9,7 @@
       v-if="role !== '' && !availableRoles.has(role)"
     >API is not available for {{ roleName }}.</b-notification>
     <div class="demo-config">
-      <b-tabs :value="activeRoleTab" @input="setActiveRoleTab">
+      <b-tabs :value="activeRoleTab" @input="setActiveRoleTab" :animated="false">
         <b-tab-item
           label="Third party developer"
           :visible="availableRoles.has('THIRD_PARTY_DEVELOPER')"
