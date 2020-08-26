@@ -54,12 +54,12 @@ Then you can add `auth-grpc` and `utils-grpc`:
 ### List all applicable rights
 Returns a list of all applicable rights
 
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/rights/src/main/kotlin/ListRights.kt" language="kotlin" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/rights/src/main/kotlin/ListRights.kt" language="kotlin" />
 
 ### Check what a right will be expanded to
 Returns a list of all the rights the given rights will be expanded to.
 
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/rights/src/main/kotlin/CheckExpansion.kt" language="kotlin" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/rights/src/main/kotlin/CheckExpansion.kt" language="kotlin" />
 
 ## Concepts
 * [Three types of stubs: asynchronous, blocking, and future](https://grpc.io/docs/reference/java/generated-code/)

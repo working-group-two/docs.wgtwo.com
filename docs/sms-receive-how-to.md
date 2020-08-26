@@ -42,7 +42,7 @@ Then you can add `sms-grpc` and `utils-grpc`:
 <ClientDependencies :clients="['sms-grpc', 'utils-grpc']"/>
 
 ## Receive text SMS example
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/sms/src/main/kotlin/ReceiveText.kt" language="kotlin" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/sms/src/main/kotlin/ReceiveText.kt" language="kotlin" />
 
 ## Resources
 * [SMS API reference](https://github.com/working-group-two/wgtwoapis/blob/master/wgtwo/sms/v0/sms.proto)
