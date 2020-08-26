@@ -4,14 +4,14 @@
       <GithubCode
         fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/operator/voicemail/mark-voicemail-as-read.sh"
         language="shell"
-        v-if="isOperatorTabSelected"
+        v-show="isOperatorTabSelected"
         key="operator"
         @code-fetched="$forceUpdate()"
       />
       <GithubCode
         fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/voicemail/mark-voicemail-as-read.sh"
         language="shell"
-        v-if="isThirdPartyDeveloperTabSelected"
+        v-show="isThirdPartyDeveloperTabSelected"
         key="thirdpartydev"
         @code-fetched="$forceUpdate()"
       />
@@ -20,14 +20,14 @@
       <GithubCode
         fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/voicemail/src/main/kotlin/MarkVoicemailAsRead.kt"
         language="kotlin"
-        v-if="isOperatorTabSelected"
+        v-show="isOperatorTabSelected"
         key="operator"
         @code-fetched="$forceUpdate()"
       />
       <GithubCode
         fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/voicemail/src/main/kotlin/MarkVoicemailAsRead.kt"
         language="kotlin"
-        v-if="isThirdPartyDeveloperTabSelected"
+        v-show="isThirdPartyDeveloperTabSelected"
         key="thirdpartydev"
         @code-fetched="$forceUpdate()"
       />

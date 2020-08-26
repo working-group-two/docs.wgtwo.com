@@ -4,14 +4,14 @@
       <GithubCode
         fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/mms/src/main/kotlin/SendAudioToSubscriber.kt"
         language="kotlin"
-        v-if="isOperatorTabSelected"
+        v-show="isOperatorTabSelected"
         key="operator"
         @code-fetched="$forceUpdate()"
       />
       <GithubCode
         fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/mms/src/main/kotlin/SendAudioToSubscriber.kt"
         language="kotlin"
-        v-if="isThirdPartyDeveloperTabSelected"
+        v-show="isThirdPartyDeveloperTabSelected"
         key="thirdpartydev"
         @code-fetched="$forceUpdate()"
       />
