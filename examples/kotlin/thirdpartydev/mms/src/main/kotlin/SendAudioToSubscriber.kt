@@ -13,14 +13,15 @@ private val channel = Clients.createChannel(Environment.PROD)
 private val stub = MmsServiceGrpc.newBlockingStub(channel).withCallCredentials(credentials)
 
 fun main() {
-    val message = with(MmsProto.SendAudioToSubscriberRequest.newBuilder()) {
-        this.audioContent = with(MmsProto.AudioContent.newBuilder()) {
+    val message = with(MmsProto.SendMessageToSubscriberRequest.newBuilder()) {
+        val audioContent = with(MmsProto.AudioContent.newBuilder()) {
             this.wav = ByteString.readFrom(
                     this::class.java.classLoader.getResource("test.wav")
                         .openStream()
                 )
             build()
         }
+        addMessageContent(MmsProto.MessageContent.newBuilder().setAudio(audioContent))
         this.fromTextAddress = with(PhoneNumberProto.TextAddress.newBuilder()) {
             this.textAddress = "Test"
             build()
@@ -32,7 +33,7 @@ fun main() {
         build()
     }
 
-    val result = stub.sendAudioToSubscriber(message)
+    val result = stub.sendMessageToSubscriber(message)
     if (result.status == MmsProto.SendResponse.SendStatus.SEND_OK) {
         println("Successfully sent message.")
     } else {
