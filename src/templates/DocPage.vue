@@ -83,15 +83,13 @@ export default {
     ...mapActions(["updateRole", "updateAvailableRoles"]),
   },
   mounted() {
-    setTimeout(() => {
-      if (
-        !this.hasRoleChoiceBeenGiven &&
-        !this.isRoleModalActive &&
-        this.role === ""
-      ) {
-        this.isRoleModalActive = true;
-      }
-    }, 6000);
+    if (
+      !this.hasRoleChoiceBeenGiven &&
+      !this.isRoleModalActive &&
+      this.role === ""
+    ) {
+      this.isRoleModalActive = true;
+    }
     this.updateAvailableRoles(this.$page.doc.roles);
   },
   computed: {
