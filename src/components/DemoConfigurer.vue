@@ -51,7 +51,7 @@
           </div>
         </b-tab-item>
 
-        <b-tab-item label="Subscriber" :disabled="!availableRoles.has('SUBSCRIBER')" :key="2">
+        <b-tab-item label="Subscriber" :disabled="!availableRoles.has('SUBSCRIBER')" :visible="false" :key="2">
           <b-notification
             type="is-danger"
             aria-close-label="Close notification"
