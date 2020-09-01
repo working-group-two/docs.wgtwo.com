@@ -12,7 +12,7 @@
       <b-tabs :value="activeRoleTab" @input="setActiveRoleTab" :animated="false">
         <b-tab-item
           label="Third party developer"
-          :visible="availableRoles.has('THIRD_PARTY_DEVELOPER')"
+          :disabled="!availableRoles.has('THIRD_PARTY_DEVELOPER')"
           :key="0"
         >
           <p>
@@ -28,7 +28,7 @@
           </b-field>
         </b-tab-item>
 
-        <b-tab-item label="Operator" :visible="availableRoles.has('OPERATOR')" :key="1">
+        <b-tab-item label="Operator" :disabled="!availableRoles.has('OPERATOR')" :key="1">
           <p>
             Enter your Client ID and Secret from
             <a href="https://console.wgtwo.com/api-keys-redirect">Console</a> here, and they will be injected into the code examples below.
@@ -51,7 +51,7 @@
           </div>
         </b-tab-item>
 
-        <b-tab-item label="Subscriber" :visible="availableRoles.has('SUBSCRIBER')" :key="2">
+        <b-tab-item label="Subscriber" :disabled="!availableRoles.has('SUBSCRIBER')" :key="2">
           <b-notification
             type="is-danger"
             aria-close-label="Close notification"
