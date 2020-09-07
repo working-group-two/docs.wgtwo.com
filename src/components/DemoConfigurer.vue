@@ -6,7 +6,7 @@
       aria-close-label="Close notification"
       role="alert"
       :closable="false"
-      v-if="role !== '' && !availableRoles.has(role)"
+      v-show="role !== '' && !availableRoles.has(role)"
     >API is not available for {{ roleName }}.</b-notification>
     <div class="demo-config">
       <b-tabs :value="activeRoleTab" @input="setActiveRoleTab" :animated="false">
