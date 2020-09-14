@@ -11,7 +11,7 @@ We support a flow where you can initiate the user to remove access to your appli
 This should be used when a user choose to remove the application within your app.  
 
 ## Flow
-![](~/assets/images/auth-revoke-session.svg)
+![Flowchart](~/assets/images/auth-revoke-session.svg)
 
 1. Application requests a uninstall link.
 2. Application redirects the user to the given uri which opens a page hosted by WGTwo ID.  
