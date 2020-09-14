@@ -4,7 +4,7 @@ topic: auth
 type: how-to
 ---
 
-# Delete user
+# Let the user uninstall your application
 
 We support a flow where you can initiate the user to remove access to your application.
 
