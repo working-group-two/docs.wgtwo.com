@@ -48,5 +48,5 @@ The user should then be redirected to the uri given by `redirectTo`.
 
 You are allowed to append the query parameters `state` and `redirect_uri`.
 
-If you set `redirect_uri`, the user will be redirected back you after the flow.
+If you set `redirect_uri`, the user will be redirected back you after the flow. This uri must be allowlisted at [developer.wgtwo.com](https://developer.wgtwo.com/) as a _logout redirect URI_ on your client.
 If set, the query parameter `state={state}` will be appended to the given uri.
