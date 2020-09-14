@@ -1,5 +1,5 @@
 ---
-title: Revoke consent
+title: Let the user uninstall your application
 topic: auth
 type: how-to
 ---
