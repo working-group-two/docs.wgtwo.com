@@ -16,7 +16,8 @@ This should be used when a user choose to remove the application within your app
 1. Application requests a uninstall link.
 2. Application redirects the user to the given uri which opens a page hosted by WGTwo ID.  
 3. User confirms deleting the application by clicking a button in the page.
-4. User is redirected to a success page.
+4. User is redirected back to the Application, and if valid, the Application must delete local user content (i.e. from a database) and wipe user sessions.
+5. The user is shown a success page for uninstalling the app (or just app front-page).
 
 In Step 2, the application may optionally include a `redirect_uri` and `state` query parameter.
 In that case, the user is redirected accordingly. 
