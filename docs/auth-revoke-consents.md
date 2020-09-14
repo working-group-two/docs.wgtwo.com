@@ -33,7 +33,7 @@ curl \
   --header "Accept: application/json" \
   --header "Authorization: Bearer ${CLIENT_ACCESS_TOKEN}" \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --url localhost:8080/ext-api/v0/auth/create-uninstall-magic-link \
+  --url https://id.wgtwo.com/ext-api/v0/auth/create-uninstall-magic-link \
   --data token="${USER_ACCESS_TOKEN}"
 ```
 
