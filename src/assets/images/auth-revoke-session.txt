@@ -1,0 +1,22 @@
+Source:
+
+https://mermaid-js.github.io/mermaid-live-editor/#/edit
+
+```
+sequenceDiagram
+	participant A as User
+    participant B as Browser
+	participant VB as App server
+	participant wgtwoid as id.wgtwo.com
+    A->>B: Delete account
+    B->>+VB: Delete account
+	VB->>+wgtwoid: Generate link
+    wgtwoid->>-VB: Redirect URI
+    VB-->>-B: redirect(uri)
+    B->>+wgtwoid: GET page
+    wgtwoid->>B: Really delete app?
+    A->>B: Confirm delete
+    B->>wgtwoid: POST confirmation
+    wgtwoid-->>-B: redirect(to app)
+    B-->>+VB: redirect
+```
