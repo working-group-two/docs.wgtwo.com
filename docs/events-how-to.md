@@ -68,6 +68,9 @@ Include Google's Protocol Buffers utility library for support of Google's Well-K
 
 <GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/events/src/main/kotlin/GetEventsManualAck.kt" language="kotlin" />
 
+## Resources
+* [Events API reference](https://github.com/working-group-two/wgtwoapis/blob/master/wgtwo/events/v0/events.proto)
+
 ## Concepts
 * [Three types of stubs: asynchronous, blocking, and future](https://grpc.io/docs/reference/java/generated-code/)
 * [gRPC Concepts](https://grpc.io/docs/guides/concepts/)
