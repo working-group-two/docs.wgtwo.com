@@ -73,3 +73,5 @@ pre[class*="language-"] {
   --primary: #{$primary};
   --role-color: #{$role};
 }
+
+@import "mobile-frame";
