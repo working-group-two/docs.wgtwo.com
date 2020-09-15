@@ -2,6 +2,8 @@
 title: Why support user app uninstallation
 topic: auth
 type: explanation
+roles:
+  - THIRD_PARTY_DEVELOPER
 ---
 
 # Why support user app uninstallation

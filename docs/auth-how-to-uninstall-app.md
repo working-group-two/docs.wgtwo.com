@@ -2,6 +2,8 @@
 title: Let the user uninstall your application
 topic: auth
 type: how-to
+roles:
+  - THIRD_PARTY_DEVELOPER
 ---
 
 # Let the user uninstall your application
