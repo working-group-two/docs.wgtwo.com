@@ -6,9 +6,12 @@ type: how-to
 
 # Let the user uninstall your application
 
-We support a flow where you can initiate the user to remove access to your application.
+We require app developers [support letting the user uninstall their app](/auth/explanation/why-support-user-app-uninstallation/).
 
-This should be used when a user choose to remove the application within your app.  
+This should be used when a user choose to remove the application within your app.
+
+
+
 
 ## Flow
 ![Flowchart](~/assets/images/auth-revoke-session.svg)
