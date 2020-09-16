@@ -12,11 +12,8 @@ We require app developers [support letting the user uninstall their app](/auth/e
 
 This should be used when a user choose to remove the application within your app.
 
-
-
-
 ## Flow
-![Flowchart](~/assets/images/auth-revoke-session.svg)
+> A sequence diagram is included [here](#flow-chart).
 
 1. Application requests a uninstall link.
 2. Application redirects the user to the given uri which opens a page hosted by WGTwo ID.  
@@ -65,3 +62,6 @@ curl \
   "errorHint": null
 }
 ```
+
+### Flow chart
+![Flowchart](~/assets/images/auth-revoke-session.svg)
