@@ -35,7 +35,7 @@ fetching all available time series. Note that the configuration will contain sec
 
 See: [prometheus.io › Configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/)
 
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/metrics/prometheus.yml" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/config/operator/metrics/prometheus.yml" />
 
 #### Example: Run with Docker
 > See: [prometheus.io › Using Docker](https://prometheus.io/docs/prometheus/latest/installation/#using-docker)
