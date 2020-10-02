@@ -3,6 +3,9 @@ title: Send SMS
 topic: sms
 type: how-to
 typeOrder: 1
+roles:
+  - THIRD_PARTY_DEVELOPER
+  - OPERATOR
 ---
 
 # How to send SMS
@@ -11,6 +14,13 @@ typeOrder: 1
 
 This example shows how you can send text and binary SMSes. In order to send SMSes your credentials need to have the
 `sms.send.to_subscriber` and `sms.send.from_subscriber` rights.
+
+### Limitations on `sms.send.to_subscriber`
+
+| Type                  | Description |
+| --------------------- | ----------|
+| Operator              | May send SMS to subscriber from any sender ID, limited to 11 alphanumeric characters |
+| Third Party Developer | May send SMS to subscriber from configured product name to subscriber, with any non-alphanumeric characters stripped and truncated to max length of 11 |
 
 <DemoConfigurer />
 

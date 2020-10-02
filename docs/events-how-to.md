@@ -2,6 +2,9 @@
 title: Listen for events
 topic: events
 type: how-to
+roles:
+  - THIRD_PARTY_DEVELOPER
+  - OPERATOR
 ---
 
 # How to listen for Events
