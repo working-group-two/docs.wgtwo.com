@@ -36,10 +36,9 @@
                 <div class="api-icon-wrap">
                     <SmsIcon></SmsIcon>
                 </div>
-                <h2 class="title">Send & receive SMS</h2>
+                <h2 class="title">Send SMS</h2>
                 <p>
                     Send SMS to or from anyone on your platform.
-                    Receive SMS coming in or going out of your platform.
                 </p>
             </g-link>
             <g-link to="/mms/how-to/send-mms/" class="api-box">
