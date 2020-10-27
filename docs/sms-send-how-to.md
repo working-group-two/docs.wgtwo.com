@@ -7,6 +7,7 @@ roles:
   - THIRD_PARTY_DEVELOPER
   - OPERATOR
 ---
+import SendSms from "@/components/howto/sms/SendTextSMS.vue";
 
 # How to send SMS
 
@@ -27,28 +28,8 @@ This example shows how you can send text and binary SMSes. In order to send SMSe
 ## grpcurl
 
 ### Send text SMS
-
-Send SMS from international number to international number.
-
-```shell script
-grpcurl \
-  -H "Authorization: Basic ${OPERATOR_TOKEN}"\
-  -import-path . \
-  -proto wgtwo/sms/v0/sms.proto \
-  -d '
-  {
-    "content": "My SMS content",
-    "fromTextAddress": {
-      "textAddress": "Test"
-    },
-    "toSubscriber": {
-      "e164": "47xxxxxxxx"
-    }
-  }
-  ' \
-  api.wgtwo.com:443 \
-  wgtwo.sms.v0.SmsService/SendTextToSubscriber
-```
+Send SMS from subscriber number to international number.
+<SendSms />
 
 ### Send binary SMS
 
