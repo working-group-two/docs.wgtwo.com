@@ -21,7 +21,7 @@
               <ClientDependencies :clients="kotlinDeps" />
             </div>
           </b-collapse>
-          <h3>Snippet</h3>
+          <div class="is-size-4 mt-4">Snippet</div>
           <slot name="kotlin">
             Not available
           </slot>
