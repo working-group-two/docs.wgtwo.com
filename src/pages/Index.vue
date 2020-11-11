@@ -80,6 +80,15 @@
                     a user, or fetch the audio file for one particular Voicemail.
                 </p>
             </g-link>
+            <g-link to="/auth/overview/authorization/" class="api-box">
+                <div class="api-icon-wrap">
+                    <AuthIcon></AuthIcon>
+                </div>
+                <h2 class="title">Authorization</h2>
+                <p>
+                    We support authorization for operators, third party developers, and even subscribers.
+                </p>
+            </g-link>
         </div>
     </div>
 </template>
@@ -92,6 +101,7 @@
     import VoicemailIcon from "~/assets/images/voicemail-icon.svg";
     import SubscriptionProfileIcon from "~/assets/images/subscription-profile-icon.svg";
     import MetricsIcon from "~/assets/images/metrics-icon.svg";
+    import AuthIcon from "~/assets/images/id-auth-icon.svg";
 
     export default {
         metaInfo: {
@@ -106,7 +116,8 @@
             UsertokensIcon,
             VoicemailIcon,
             SubscriptionProfileIcon,
-            MetricsIcon
+            MetricsIcon,
+            AuthIcon,
         }
     }
 </script>
