@@ -1,5 +1,5 @@
 <template>
-  <DocsLayout :subtitles="subtitles" :links="links">
+  <DocsLayout :subtitles="subtitles" :links="links" :hide-warning="hideWarning">
     <b-modal
       :active.sync="isRoleModalActive"
       has-modal-card
@@ -35,6 +35,7 @@ query ($id: ID!) {
       anchor
     }
     roles
+    hideWarning
   }
 }
 </page-query>
@@ -178,6 +179,9 @@ export default {
       }
 
       return subtitles.filter((v) => v.depth === 2);
+    },
+    hideWarning() {
+      return this.$page.doc.hideWarning;
     },
   },
   metaInfo() {

@@ -4,6 +4,7 @@
       type="is-danger"
       aria-close-label="Close notification"
       role="alert"
+      v-if="!hideWarning"
     >These APIs and corresponding docs are under development and may change without notice</b-notification>
     <div>
       <div class="content" id="content">
@@ -102,6 +103,7 @@ export default {
   props: {
     subtitles: { type: Array, default: () => [] },
     links: { type: Array, default: () => [] },
+    hideWarning: { type: Boolean, default: false, }
   },
   computed: {
     editLink() {
