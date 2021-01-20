@@ -82,7 +82,7 @@
                         a user, or fetch the audio file for one particular Voicemail.
                     </p>
                 </g-link>
-                <g-link to="/auth/overview/authorization/" class="api-box">
+                <g-link to="/auth/overview/overview/" class="api-box">
                     <div class="api-icon-wrap">
                         <AuthIcon></AuthIcon>
                     </div>
