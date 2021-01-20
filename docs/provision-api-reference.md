@@ -6,4 +6,4 @@ title: Subscription Profile API reference
 hideWarning: true
 ---
 
-<div id="swagger-ui" data-spec-url="https://raw.githubusercontent.com/working-group-two/wgtwoapis/master/openapi/api.yaml"></div>
+<div class="swagger-ui" data-spec-url="https://raw.githubusercontent.com/working-group-two/wgtwoapis/master/openapi/api.yaml"></div>

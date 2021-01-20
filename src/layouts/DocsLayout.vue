@@ -105,6 +105,19 @@ export default {
     links: { type: Array, default: () => [] },
     hideWarning: { type: Boolean, default: false, }
   },
+  data() {
+    return {
+      loaderId: null,
+    }
+  },
+  methods: {
+    clearLoadId() {
+      if (this.loaderId !== null) {
+        clearInterval(this.loaderId);
+        this.loaderId = null;
+      }
+    },
+  },
   computed: {
     editLink() {
       return `https://github.com/working-group-two/docs.wgtwo.com/blob/master/docs/${this.currentItem.fileInfo.path}`;
@@ -132,17 +145,18 @@ export default {
       return this.items[this.currentIndex - 1];
     }
   },
-  mounted() {
-    let loaderId = setInterval(() => {
+  updated() {
+    this.loaderId = setInterval(() => {
       if (
-        document.querySelector("#swagger-ui") !== null &&
-        typeof SwaggerUIBundle !== "undefined"
+        document.querySelector(".swagger-ui") !== null
+        && typeof SwaggerUIBundle !== "undefined"
+        && this.loaderId !== null
       ) {
-        clearInterval(loaderId);
+        this.clearLoadId();
         SwaggerUIBundle({
-          dom_id: "#swagger-ui",
+          dom_id: ".swagger-ui",
           url: document
-            .querySelector("#swagger-ui")
+            .querySelector(".swagger-ui")
             .getAttribute("data-spec-url"),
           deepLinking: true,
           presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
@@ -150,6 +164,9 @@ export default {
         });
       }
     }, 100);
-  }
+  },
+  beforeDestroy() {
+    this.clearLoadId();
+  },
 };
 </script>
