@@ -1,10 +1,10 @@
 ---
-title: Subscription configuration and types
+title: Configuration and types
 topic: events
 type: explanation
 ---
 
-# Subscription types and settings
+# Configuration and types
 
 Depending on your need, you may choose between some different types of subscriptions for events.
 

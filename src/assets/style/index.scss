@@ -9,9 +9,9 @@
 @import "~bulma/sass/utilities/initial-variables.sass";
 
 // Set your colors
-$primary: #009DA5;
-$pink: hotpink;
-$role: $pink;
+$primary: #283E96;
+$secondary: #009DA5;
+$role: $secondary;
 $role-invert: findColorInvert($role);
 $custom-colors: (
   "role": ($role, $role-invert)
