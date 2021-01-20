@@ -19,7 +19,7 @@
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.2",
     "@gridsome/vue-remark": "^0.2.4",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "buefy": "^0.9.3",
     "node-sass": "^4.14.1",
     "sass-loader": "^10.0.2",
