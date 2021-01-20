@@ -36,6 +36,7 @@ query ($id: ID!) {
     }
     roles
     hideWarning
+    hideFromMenu
   }
 }
 </page-query>
@@ -56,6 +57,7 @@ query {
           path
         }
         roles
+        hideFromMenu
       }
     }
   }

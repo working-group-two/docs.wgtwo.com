@@ -1,5 +1,5 @@
 ---
-title: Authorization
+title: Overview
 topic: auth
 type: overview
 roles:
@@ -15,7 +15,8 @@ We support different authorization schemes per role.
 | ---                     | ----------------------------------- | --------------------------------------------------------------------------  |
 | Operators               | [Operator Tokens](#operator-tokens) | Credentials used by operators.                                              |
 | Third party developers  | [OAuth 2.0](#oauth-20)              | Third Party applications invoking our API, possibly on behalf of a user.    |
-| Subscribers             | [User Tokens](#user-tokens)         | Static credentials for subscribers doing stuff with their own subscription. |
+
+<!-- | Subscribers             | [User Tokens](#user-tokens)         | Static credentials for subscribers doing stuff with their own subscription. | -->
 
 
 ## Operator tokens
@@ -81,10 +82,9 @@ The JWT is signed using one of these keys, but the endpoint may contain multiple
 
 It is recommended to use a library that fetches the keys dynamically as they may be re rotated without notice.
 
-
-## User tokens
-### Usage
-https://api.wgtwo.com expects the user token as a Bearer credential in the HTTP Authorization headers:
-```
-Authorization: Bearer {usertoken}
-```
+<!-- ## User tokens -->
+<!-- ### Usage -->
+<!-- https://api.wgtwo.com expects the user token as a Bearer credential in the HTTP Authorization headers: -->
+<!-- ``` -->
+<!-- Authorization: Bearer {usertoken} -->
+<!-- ``` -->

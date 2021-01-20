@@ -1,16 +1,17 @@
 ---
-title: Let the user revoke consent to your application
+title: OAuth2 Deauthorization
 topic: auth
 type: how-to
 roles:
   - THIRD_PARTY_DEVELOPER
 ---
 
-# Let the user revoke consent to your application
+# OAuth2 Deauthorization
 
-We require app developers implement user initiated [revoking of consent](/auth/explanation/why-support-user-revoking-of-consent/).
+For third party apps, we require app developers to implement subscriber initiated [revoking of consent](/auth/explanation/why-support-user-revoking-of-consent/),
+so that they can easily deauthorize an application.
 
-## Defenitions
+## Definitions
 
 > The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
 > NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and

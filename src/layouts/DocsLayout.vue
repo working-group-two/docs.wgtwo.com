@@ -45,7 +45,7 @@
         <h3 class="is-uppercase">{{topic.title}}</h3>
         <ul class="docs-nav__list">
           <li v-for="item in topic.items" :key="item.id">
-            <g-link
+            <g-link v-if="!item.hideFromMenu"
               :to="item.path"
               :class="{'has-text-grey': !item.availableForRole}"
             >{{item.title}}</g-link>
