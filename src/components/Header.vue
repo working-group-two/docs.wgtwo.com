@@ -21,6 +21,7 @@ export default {
   border-bottom: 1px solid hsl(0, 0%, 90%);
   position: sticky;
   top: 0;
+  background: linear-gradient(#f2f2f2, #f8f8f8);
 }
 
 @media screen and (max-width: 1023px) {

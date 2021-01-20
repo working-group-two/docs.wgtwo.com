@@ -1,94 +1,97 @@
 <template>
-    <div class="landing-page">
-        <h1 class="title">Working Group Two API docs</h1>
-        <div class="api-boxes">
-            <g-link to="/introduction/overview/introduction/" class="api-box">
-                <div class="api-icon-wrap">
-                    <IntroIcon></IntroIcon>
-                </div>
-                <h2 class="title">Getting started</h2>
-                <p>
-                    Learn about how our APIs are structured, how to get credentials, what
-                    useful optional dependencies you could include, etc.
-                </p>
-            </g-link>
-            <g-link to="/events/how-to/listen-for-events/" class="api-box">
-                <div class="api-icon-wrap">
-                    <EventsIcon></EventsIcon>
-                </div>
-                <h2 class="title">Events</h2>
-                <p>
-                    Our Events API lets you listen to all sort of events occurring in
-                    the network. Voice events, Voicemail events, Roaming events, etc.
-                </p>
-            </g-link>
-            <g-link to="/metrics/how-to/accessing-metrics/" class="api-box">
-                <div class="api-icon-wrap">
-                    <MetricsIcon></MetricsIcon>
-                </div>
-                <h2 class="title">Metrics</h2>
-                <p>
-                    Our Metrics API lets you access relevant OpenMetrics
-                    time series directly from our systems, so you can see what's up.
-                </p>
-            </g-link>
-            <g-link to="/sms/how-to/send-sms/" class="api-box">
-                <div class="api-icon-wrap">
-                    <SmsIcon></SmsIcon>
-                </div>
-                <h2 class="title">Send SMS</h2>
-                <p>
-                    Send SMS to or from anyone on your platform.
-                </p>
-            </g-link>
-            <g-link to="/mms/how-to/send-mms/" class="api-box">
-                <div class="api-icon-wrap">
-                    <MmsIcon></MmsIcon>
-                </div>
-                <h2 class="title">Send MMS</h2>
-                <p>
-                    Send MMS to or from anyone on your platform.
-                </p>
-            </g-link>
-            <g-link to="/subscription-profile/how-to/manage-subscriptions/" class="api-box">
-                <div class="api-icon-wrap">
-                    <SubscriptionProfileIcon></SubscriptionProfileIcon>
-                </div>
-                <h2 class="title">Subscription Profile</h2>
-                <p>
-                    Our subscription profile API lets you manage your subscribers's
-                    subscription profiles, such as allowing calls, sms, data roaming, etc.
-                </p>
-            </g-link>
-            <g-link to="/usertokens/how-to/manage-user-tokens/" class="api-box">
-                <div class="api-icon-wrap">
-                    <UsertokensIcon></UsertokensIcon>
-                </div>
-                <h2 class="title">User tokens</h2>
-                <p>
-                    Our Events User token API lets you create API tokens on behalf of
-                    your users, so they can get access to program their own subscription.
-                </p>
-            </g-link>
-            <g-link to="/voicemail/how-to/list-and-play-voicemails/" class="api-box">
-                <div class="api-icon-wrap">
-                    <VoicemailIcon></VoicemailIcon>
-                </div>
-                <h2 class="title">Voicemail</h2>
-                <p>
-                    Our Voicemail API enables you to fetch a list of all voicemails for
-                    a user, or fetch the audio file for one particular Voicemail.
-                </p>
-            </g-link>
-            <g-link to="/auth/overview/authorization/" class="api-box">
-                <div class="api-icon-wrap">
-                    <AuthIcon></AuthIcon>
-                </div>
-                <h2 class="title">Authorization</h2>
-                <p>
-                    We support authorization for operators, third party developers, and even subscribers.
-                </p>
-            </g-link>
+    <div>
+        <Header></Header>
+        <div class="landing-page">
+            <h1 class="title">Working Group Two API docs</h1>
+            <div class="api-boxes">
+                <g-link to="/introduction/overview/introduction/" class="api-box">
+                    <div class="api-icon-wrap">
+                        <IntroIcon></IntroIcon>
+                    </div>
+                    <h2 class="title">Getting started</h2>
+                    <p>
+                        Learn about how our APIs are structured, how to get credentials, what
+                        useful optional dependencies you could include, etc.
+                    </p>
+                </g-link>
+                <g-link to="/events/how-to/listen-for-events/" class="api-box">
+                    <div class="api-icon-wrap">
+                        <EventsIcon></EventsIcon>
+                    </div>
+                    <h2 class="title">Events</h2>
+                    <p>
+                        Our Events API lets you listen to all sort of events occurring in
+                        the network. Voice events, Voicemail events, Roaming events, etc.
+                    </p>
+                </g-link>
+                <g-link to="/metrics/how-to/accessing-metrics/" class="api-box">
+                    <div class="api-icon-wrap">
+                        <MetricsIcon></MetricsIcon>
+                    </div>
+                    <h2 class="title">Metrics</h2>
+                    <p>
+                        Our Metrics API lets you access relevant OpenMetrics
+                        time series directly from our systems, so you can see what's up.
+                    </p>
+                </g-link>
+                <g-link to="/sms/how-to/send-sms/" class="api-box">
+                    <div class="api-icon-wrap">
+                        <SmsIcon></SmsIcon>
+                    </div>
+                    <h2 class="title">Send SMS</h2>
+                    <p>
+                        Send SMS to or from anyone on your platform.
+                    </p>
+                </g-link>
+                <g-link to="/mms/how-to/send-mms/" class="api-box">
+                    <div class="api-icon-wrap">
+                        <MmsIcon></MmsIcon>
+                    </div>
+                    <h2 class="title">Send MMS</h2>
+                    <p>
+                        Send MMS to or from anyone on your platform.
+                    </p>
+                </g-link>
+                <g-link to="/subscription-profile/how-to/manage-subscriptions/" class="api-box">
+                    <div class="api-icon-wrap">
+                        <SubscriptionProfileIcon></SubscriptionProfileIcon>
+                    </div>
+                    <h2 class="title">Subscription Profile</h2>
+                    <p>
+                        Our subscription profile API lets you manage your subscribers's
+                        subscription profiles, such as allowing calls, sms, data roaming, etc.
+                    </p>
+                </g-link>
+                <g-link to="/usertokens/how-to/manage-user-tokens/" class="api-box">
+                    <div class="api-icon-wrap">
+                        <UsertokensIcon></UsertokensIcon>
+                    </div>
+                    <h2 class="title">User tokens</h2>
+                    <p>
+                        Our Events User token API lets you create API tokens on behalf of
+                        your users, so they can get access to program their own subscription.
+                    </p>
+                </g-link>
+                <g-link to="/voicemail/how-to/list-and-play-voicemails/" class="api-box">
+                    <div class="api-icon-wrap">
+                        <VoicemailIcon></VoicemailIcon>
+                    </div>
+                    <h2 class="title">Voicemail</h2>
+                    <p>
+                        Our Voicemail API enables you to fetch a list of all voicemails for
+                        a user, or fetch the audio file for one particular Voicemail.
+                    </p>
+                </g-link>
+                <g-link to="/auth/overview/authorization/" class="api-box">
+                    <div class="api-icon-wrap">
+                        <AuthIcon></AuthIcon>
+                    </div>
+                    <h2 class="title">Authorization</h2>
+                    <p>
+                        We support authorization for operators, third party developers, and even subscribers.
+                    </p>
+                </g-link>
+            </div>
         </div>
     </div>
 </template>
