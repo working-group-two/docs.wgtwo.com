@@ -62,16 +62,16 @@
                         subscription profiles, such as allowing calls, sms, data roaming, etc.
                     </p>
                 </g-link>
-                <g-link to="/usertokens/how-to/manage-user-tokens/" class="api-box">
-                    <div class="api-icon-wrap">
-                        <UsertokensIcon></UsertokensIcon>
-                    </div>
-                    <h2 class="title">User tokens</h2>
-                    <p>
-                        Our Events User token API lets you create API tokens on behalf of
-                        your users, so they can get access to program their own subscription.
-                    </p>
-                </g-link>
+<!--                <g-link to="/usertokens/how-to/manage-user-tokens/" class="api-box">-->
+<!--                    <div class="api-icon-wrap">-->
+<!--                        <UsertokensIcon></UsertokensIcon>-->
+<!--                    </div>-->
+<!--                    <h2 class="title">User tokens</h2>-->
+<!--                    <p>-->
+<!--                        Our Events User token API lets you create API tokens on behalf of-->
+<!--                        your users, so they can get access to program their own subscription.-->
+<!--                    </p>-->
+<!--                </g-link>-->
                 <g-link to="/voicemail/how-to/list-and-play-voicemails/" class="api-box">
                     <div class="api-icon-wrap">
                         <VoicemailIcon></VoicemailIcon>
