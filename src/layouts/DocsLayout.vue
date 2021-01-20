@@ -1,11 +1,19 @@
 <template>
   <DefaultLayout>
     <b-notification
-      type="is-danger"
+      type="is-info is-light"
       aria-close-label="Close notification"
       role="alert"
       v-if="!hideWarning"
-    >These APIs and corresponding docs are under development and may change without notice</b-notification>
+    >
+      <div class="is-flex">
+        <!-- has-icon on b-notification does not work with is-light, so we add an icon manually -->
+        <b-icon icon="information" size="is-large" style="margin-right: 1rem;" type="is-info" />
+        <div>
+          We’re in the early stages of defining our API platform, and positive to feedback. Please <a href="mailto:developer@wgtwo.com">contact us</a> if you have an improvement suggestion.
+        </div>
+      </div>
+    </b-notification>
     <div>
       <div class="content" id="content">
         <slot />
