@@ -99,24 +99,25 @@ https://github.com/jgthms/bulma/issues/1708#issuecomment-382560341 */
 
 .docsnav-container {
   width: 256px;
-  padding: 1.5rem;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid #ddd;
+  background: linear-gradient(90deg, #ffffff, #fbfbfb);
 }
 
 .docsnav {
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   position: sticky;
-  top: var(--nav-sticky-top-position);
+  top: calc(var(--nav-sticky-top-position) - 1.5rem); /* subtract padding */
   height: calc(100vh + var(--nav-sticky-top-position) * -1 - 40px);
   overflow-x: hidden;
 }
 
 .articlenav {
   max-width: 25%;
-  top: var(--nav-sticky-top-position);
+  top: calc(var(--nav-sticky-top-position) - 1.5rem); /* subtract padding */
   position: sticky;
-  padding: 1rem;
+  padding: 1.5rem;
   height: 100%; 
   border-left: 1px solid #ccc;
   margin-left: 3rem;
