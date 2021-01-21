@@ -8,7 +8,7 @@ roles:
 ---
 
 # Working Group Two APIs
-Our APIs are hosted at https://api.wgtwo.com
+Our APIs are hosted at `https://api.wgtwo.com`. 
 
 ## Resources
 
