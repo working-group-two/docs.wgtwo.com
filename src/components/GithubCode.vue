@@ -55,7 +55,7 @@ export default {
         .replace("/blob/", "/");
     },
     shortFileUrl: function() {
-      return "github.com/working-group-two/.../" + this.fileUrl.substring(this.fileUrl.lastIndexOf('/') + 1);
+      return this.fileUrl.substring(this.fileUrl.lastIndexOf('/') + 1);
     },
     fillScreen: function() {
       return !this.failed && this.content === "Loading...";
