@@ -21,6 +21,9 @@ $custom-colors: (
 $link: $primary;
 $link-focus-border: $primary;
 
+// Fonts
+$body-family: "Open Sans";
+
 // Import Bulma and Buefy styles
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
@@ -31,8 +34,7 @@ $link-focus-border: $primary;
 @import "scrollbar_fix";
 
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Oxanium&display=swap");
 
 // Headings
 h1, .content h1,
@@ -41,7 +43,7 @@ h3, .content h3,
 h4, .content h4,
 h5, .content h5 {
   color: rgba(0, 0, 0, 0.75);
-  font-family: "Quicksand", sans-serif;
+  font-family: "Oxanium", sans-serif;
 }
 
 h1, .content h1 {

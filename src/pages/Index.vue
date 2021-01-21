@@ -2,7 +2,10 @@
     <div>
         <Header></Header>
         <div class="landing-page">
-            <h1 class="title">Working Group Two API docs</h1>
+            <div class="splash-logo">
+                <SplashLogo></SplashLogo>
+            </div>
+            <h1 class="title">API documentation</h1>
             <div class="api-boxes">
                 <g-link to="/introduction/overview/introduction/" class="api-box">
                     <div class="api-icon-wrap">
@@ -105,6 +108,7 @@
     import SubscriptionProfileIcon from "~/assets/images/subscription-profile-icon.svg";
     import MetricsIcon from "~/assets/images/metrics-icon.svg";
     import AuthIcon from "~/assets/images/id-auth-icon.svg";
+    import SplashLogo from "~/assets/images/logo-splash.svg";
 
     export default {
         metaInfo: {
@@ -121,6 +125,7 @@
             SubscriptionProfileIcon,
             MetricsIcon,
             AuthIcon,
+            SplashLogo,
         }
     }
 </script>
@@ -133,13 +138,21 @@
         padding: 24px;
     }
 
+    .splash-logo svg {
+        max-width: 196px;
+        margin: 0 auto;
+        display: block;
+        margin-bottom: 48px;
+    }
+
     h1.title {
         text-align: center;
     }
 
-    .title {
-        font-family: 'Quicksand', sans-serif;
-        color: rgba(0, 0, 0, 0.5);
+    h1.title,
+    h2.title {
+        font-family: "Oxanium", sans-serif;
+        color: var(--primary);
         margin: 16px 0 !important;
     }
 

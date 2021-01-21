@@ -2,17 +2,17 @@
   <b-navbar class="topnav" v-bind:mobile-burger="false">
     <template slot="brand">
       <b-navbar-item tag="g-link" exact to="/">
-        <WGTwo class="topnav__logo" />
+        <Logo class="topnav__logo" />
       </b-navbar-item>
     </template>
   </b-navbar>
 </template>
 <script>
-import WGTwo from "~/assets/images/wgtwo-logo.svg";
+import Logo from "~/assets/images/logo.svg";
 
 export default {
   components: {
-    WGTwo
+    Logo
   }
 };
 </script>
