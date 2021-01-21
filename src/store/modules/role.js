@@ -2,7 +2,7 @@ const roleByIndex = ["THIRD_PARTY_DEVELOPER", "OPERATOR", "SUBSCRIBER"]
 const roleNames = {
   THIRD_PARTY_DEVELOPER: "Third party developer",
   OPERATOR: "Operator",
-  SUBSCRIBER: "Subscriber",
+  // SUBSCRIBER: "Subscriber",
 }
 
 const state = () => ({
@@ -16,13 +16,11 @@ const state = () => ({
 const getters = {
   roleButtonText({ role }) {
     if (role === "THIRD_PARTY_DEVELOPER") {
-      return "Developer";
+      return "Third party developer";
     } else if (role === "OPERATOR") {
-      return "Operator";
-    } else if (role === "SUBSCRIBER") {
-      return "Subscriber";
+      return "Mobile operator";
     }
-    return "Change role";
+    return "Any role";
   },
   roleName({ role }) {
     return roleNames[role];

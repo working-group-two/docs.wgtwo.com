@@ -12,10 +12,16 @@
     >
       <role-selection></role-selection>
     </b-modal>
-    <button
-      class="button is-role role-selection-button"
-      @click="isRoleModalActive = true"
-    >{{ roleButtonText }}</button>
+    <div class="role-selection-container">
+      Viewing docs as
+      <b-button
+              class="button is-role role-selection-button"
+              @click="isRoleModalActive = true"
+      >
+        <span>{{ roleButtonText }}</span>
+        <b-icon icon="chevron-down"></b-icon>
+      </b-button>
+    </div>
     <CustomiseAuthContent>
       <VueRemarkContent />
     </CustomiseAuthContent>
@@ -196,11 +202,30 @@ export default {
 };
 </script>
 <style>
-.role-selection-button {
+.role-selection-container {
   position: fixed;
-  bottom: 0;
-  right: 40px;
-  border-radius: 4px 4px 0 0;
-  z-index: 1;
+  right: 20px;
+  top: 0;
+  height: 52px; /* navbar height */
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  color: rgba(0,0,0,0.67);
+}
+
+.role-selection-button {
+  margin-left: 8px;
+  padding: 0 8px;
+  height: 32px;
+}
+
+.role-selection-button > span {
+  display: inline-flex;
+  align-items: center;
+}
+
+button.role-selection-button > span .icon:last-child:not(:first-child) {
+  margin-left: 0;
+  margin-right: -5px;
 }
 </style>
