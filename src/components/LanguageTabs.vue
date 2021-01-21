@@ -2,12 +2,17 @@
   <div class="language-tabs">
     <CustomiseAuthContent>
       <b-tabs :value="codeLangIndex" @input="setCodeLangIndex($event)" :animated="false">
-        <b-tab-item label="grpcurl" icon="bash">
+        <b-tab-item label="grpcurl" icon="bash" v-if="$slots.grpcurl">
           <slot name="grpcurl">
             Not available.
           </slot>
         </b-tab-item>
-        <b-tab-item label="Kotlin" class="content" icon="language-kotlin">
+        <b-tab-item label="curl" icon="bash" v-if="$slots.curl">
+          <slot name="curl">
+            Not available.
+          </slot>
+        </b-tab-item>
+        <b-tab-item label="Kotlin" class="content" icon="language-kotlin" v-if="$slots.kotlin">
           <b-collapse class="card" :open="false" v-if="kotlinDeps">
             <div slot="trigger" slot-scope="props" class="card-header" role="button">
               <p class="card-header-title">Install dependencies</p>
