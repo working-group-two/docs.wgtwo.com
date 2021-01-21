@@ -13,8 +13,7 @@
                     </div>
                     <h2 class="title">Getting started</h2>
                     <p>
-                        Learn about how our APIs are structured, how to get credentials, what
-                        useful optional dependencies you could include, etc.
+                        Learn about how our APIs are structured, how to get credentials, etc.
                     </p>
                 </g-link>
                 <g-link to="/events/how-to/listen-for-events/" class="api-box">
@@ -23,8 +22,7 @@
                     </div>
                     <h2 class="title">Events</h2>
                     <p>
-                        Our Events API lets you listen to all sort of events occurring in
-                        the network. Voice events, Voicemail events, Roaming events, etc.
+                        Get events for anything happening in the network.
                     </p>
                 </g-link>
                 <g-link to="/metrics/how-to/accessing-metrics/" class="api-box">
@@ -33,8 +31,7 @@
                     </div>
                     <h2 class="title">Metrics</h2>
                     <p>
-                        Our Metrics API lets you access relevant OpenMetrics
-                        time series directly from our systems, so you can see what's up.
+                        Access relevant OpenMetrics time series directly from our systems.
                     </p>
                 </g-link>
                 <g-link to="/sms/how-to/send-sms/" class="api-box">
@@ -61,8 +58,8 @@
                     </div>
                     <h2 class="title">Subscription Profile</h2>
                     <p>
-                        Our subscription profile API lets you manage your subscribers's
-                        subscription profiles, such as allowing calls, sms, data roaming, etc.
+                        Manage your subscribers's profiles.
+                        Enable/disable calls, SMS, etc.
                     </p>
                 </g-link>
 <!--                <g-link to="/usertokens/how-to/manage-user-tokens/" class="api-box">-->
@@ -81,8 +78,8 @@
                     </div>
                     <h2 class="title">Voicemail</h2>
                     <p>
-                        Our Voicemail API enables you to fetch a list of all voicemails for
-                        a user, or fetch the audio file for one particular Voicemail.
+                        Access a subscribers Voicemail inbox,
+                        including the audio files.
                     </p>
                 </g-link>
                 <g-link to="/auth/overview/overview/" class="api-box">
@@ -91,7 +88,7 @@
                     </div>
                     <h2 class="title">Authorization</h2>
                     <p>
-                        We support authorization for operators, third party developers, and even subscribers.
+                        We support authorization for operators and third party developers.
                     </p>
                 </g-link>
             </div>
@@ -140,9 +137,8 @@
 
     .splash-logo svg {
         max-width: 196px;
-        margin: 0 auto;
         display: block;
-        margin-bottom: 48px;
+        margin: 0 auto 48px;
     }
 
     h1.title {
@@ -158,13 +154,14 @@
 
     .api-boxes {
         text-align: center;
-        margin-top: 96px;
+        margin-top: 56px;
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
     }
 
     .api-box {
+        width: 100%;
         margin: 32px 0;
     }
 
