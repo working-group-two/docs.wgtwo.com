@@ -67,6 +67,7 @@ https://github.com/jgthms/bulma/issues/1708#issuecomment-382560341 */
 <style scoped>
 .doc-main-container {
   flex-grow: 1;
+  min-height: 100vh;
 }
 
 .article-container {
