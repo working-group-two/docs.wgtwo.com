@@ -5,91 +5,16 @@
             <div class="splash-logo">
                 <SplashLogo></SplashLogo>
             </div>
-            <h1 class="title">API documentation</h1>
             <div class="api-boxes">
-                <g-link to="/introduction/overview/introduction/" class="api-box">
+                <g-link v-for="api in apis" :to="api.url" class="api-box">
                     <div class="api-icon-wrap">
-                        <IntroIcon></IntroIcon>
+                        <component :is="api.icon"></component>
                     </div>
-                    <h2 class="title">Getting started</h2>
-                    <p>
-                        Learn about how our APIs are structured, how to get credentials, etc.
-                    </p>
-                </g-link>
-                <g-link to="/events/how-to/listen-for-events/" class="api-box">
-                    <div class="api-icon-wrap">
-                        <EventsIcon></EventsIcon>
+                    <div class="title-and-text">
+                        <h2 class="title">{{api.title}}</h2>
+                        <p>{{api.text}}</p>
                     </div>
-                    <h2 class="title">Events</h2>
-                    <p>
-                        Get events for anything happening in the network.
-                    </p>
-                </g-link>
-                <g-link to="/metrics/how-to/accessing-metrics/" class="api-box">
-                    <div class="api-icon-wrap">
-                        <MetricsIcon></MetricsIcon>
-                    </div>
-                    <h2 class="title">Metrics</h2>
-                    <p>
-                        Access relevant OpenMetrics time series directly from our systems.
-                    </p>
-                </g-link>
-                <g-link to="/sms/how-to/send-sms/" class="api-box">
-                    <div class="api-icon-wrap">
-                        <SmsIcon></SmsIcon>
-                    </div>
-                    <h2 class="title">Send SMS</h2>
-                    <p>
-                        Send SMS to or from anyone on your platform.
-                    </p>
-                </g-link>
-                <g-link to="/mms/how-to/send-mms/" class="api-box">
-                    <div class="api-icon-wrap">
-                        <MmsIcon></MmsIcon>
-                    </div>
-                    <h2 class="title">Send MMS</h2>
-                    <p>
-                        Send MMS to or from anyone on your platform.
-                    </p>
-                </g-link>
-                <g-link to="/subscription-profile/overview/overview/" class="api-box">
-                    <div class="api-icon-wrap">
-                        <SubscriptionProfileIcon></SubscriptionProfileIcon>
-                    </div>
-                    <h2 class="title">Subscription Profile</h2>
-                    <p>
-                        Manage your subscribers's profiles.
-                        Enable/disable calls, SMS, etc.
-                    </p>
-                </g-link>
-<!--                <g-link to="/usertokens/how-to/manage-user-tokens/" class="api-box">-->
-<!--                    <div class="api-icon-wrap">-->
-<!--                        <UsertokensIcon></UsertokensIcon>-->
-<!--                    </div>-->
-<!--                    <h2 class="title">User tokens</h2>-->
-<!--                    <p>-->
-<!--                        Our Events User token API lets you create API tokens on behalf of-->
-<!--                        your users, so they can get access to program their own subscription.-->
-<!--                    </p>-->
-<!--                </g-link>-->
-                <g-link to="/voicemail/how-to/list-and-play-voicemails/" class="api-box">
-                    <div class="api-icon-wrap">
-                        <VoicemailIcon></VoicemailIcon>
-                    </div>
-                    <h2 class="title">Voicemail</h2>
-                    <p>
-                        Access a subscribers Voicemail inbox,
-                        including the audio files.
-                    </p>
-                </g-link>
-                <g-link to="/auth/overview/overview/" class="api-box">
-                    <div class="api-icon-wrap">
-                        <AuthIcon></AuthIcon>
-                    </div>
-                    <h2 class="title">Authorization</h2>
-                    <p>
-                        We support authorization for operators and third party developers.
-                    </p>
+                    <b-icon icon="arrow-right" size="is-large" type="is-primary"></b-icon>
                 </g-link>
             </div>
         </div>
@@ -109,7 +34,7 @@
 
     export default {
         metaInfo: {
-            title: 'WGTWO API docs',
+            title: 'WGTWO API documentation',
             titleTemplate: null
         },
         components: {
@@ -123,73 +48,109 @@
             MetricsIcon,
             AuthIcon,
             SplashLogo,
-        }
+        },
+        data: () => ({
+            apis: [
+                {
+                    icon: "IntroIcon",
+                    title: "Getting started",
+                    text: "Learn about how our APIs are structured, how to get credentials, etc.",
+                    url: "/introduction/overview/introduction/"
+                },
+                {
+                    icon: "EventsIcon",
+                    title: "Events",
+                    text: "Get events for anything happening in the network",
+                    url: "/events/how-to/listen-for-events/"
+                },
+                {
+                    icon: "SmsIcon",
+                    title: "SMS",
+                    text: "Send SMS to or from anyone on your platform.",
+                    url: "/sms/how-to/send-sms/"
+                },
+                {
+                    icon: "MmsIcon",
+                    title: "MMS",
+                    text: "Send SMS to or from anyone on your platform.",
+                    url: "/mms/how-to/send-mms/",
+                },
+                {
+                    icon: "VoicemailIcon",
+                    title: "Voicemail",
+                    text: "Access a subscribers Voicemail inbox, including the audio files.",
+                    url: "/voicemail/how-to/list-and-play-voicemails/"
+                },
+                {
+                    icon: "SubscriptionProfileIcon",
+                    title: "Subscription Profile",
+                    text: "Manage your subscribers's profiles. Enable/disable calls, SMS, etc.",
+                    url: "/subscription-profile/how-to/manage-subscriptions/"
+                },
+                {
+                    icon: "MetricsIcon",
+                    title: "Metrics",
+                    text: "Access relevant OpenMetrics time series directly from our systems.",
+                    url: "/metrics/how-to/accessing-metrics/"
+                },
+                {
+                    icon: "AuthIcon",
+                    title: "Authorization",
+                    text: "We support authorization for operators and third party developers.",
+                    url: "/auth/overview/overview/"
+                },
+                //{icon: "UsertokensIcon", title: "User Tokens", text: "Create API tokens on behalf of subscribers", url: "/usertokens/how-to/manage-user-tokens/"},
+            ]
+        }),
     }
 </script>
 
 <style scoped>
-
     .landing-page {
         max-width: 1200px;
-        margin: 64px auto 24px auto;
+        margin: 0 auto;
         padding: 24px;
+    }
+
+    .splash-logo {
+        padding: 56px;
     }
 
     .splash-logo svg {
         max-width: 196px;
         display: block;
-        margin: 0 auto 48px;
-    }
-
-    h1.title {
-        text-align: center;
+        margin: 0 auto;
     }
 
     h1.title,
     h2.title {
         font-family: "Oxanium", sans-serif;
         color: var(--primary);
-        margin: 16px 0 !important;
-    }
-
-    .api-boxes {
-        text-align: center;
-        margin-top: 56px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
+        margin: 8px 0 !important;
     }
 
     .api-box {
         width: 100%;
-        margin: 32px 0;
-    }
-
-    .api-box p {
+        margin: 24px 0;
+        display: flex;
+        align-items: center;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        padding: 16px;
         color: rgba(0, 0, 0, 0.67);
     }
 
     .api-box .api-icon-wrap {
-        height: 65px;
-        width: 100%;
+        width: 90px;
+        height: 90px;
+        margin-right: 16px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
-    .api-icon-wrap svg {
-        max-height: 100%;
-    }
-
-    @media screen and (min-width: 769px) {
-        .api-box {
-            width: 29%;
-            margin: 32px 2%;
-            text-align: left;
-        }
-
-        .api-box .api-icon-wrap {
-            width: 100px;
-        }
+    .api-box .title-and-text {
+        width: 100%;
     }
 </style>
