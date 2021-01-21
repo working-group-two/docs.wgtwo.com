@@ -1,16 +1,24 @@
 <template>
   <div>
     <Header></Header>
-    <main class="section main">
-      <article class="article">
-        <slot></slot>
-      </article>
-      <nav class="articlenav is-hidden-touch">
-        <slot name="articlenav"></slot>
+    <main class="main">
+      <nav class="docsnav-container is-hidden-touch">
+        <div class="docsnav">
+          <slot name="docsnav"></slot>
+        </div>
       </nav>
-      <nav class="docsnav is-hidden-touch">
-        <slot name="docsnav"></slot>
-      </nav>
+      <div class="doc-main-container">
+        <div class="article-container">
+          <div class="is-flex">
+            <div class="article">
+              <slot></slot>
+            </div>
+            <nav class="articlenav is-hidden-touch" v-if="$slots.articlenav">
+              <slot name="articlenav"></slot>
+            </nav>
+          </div>
+        </div>
+      </div>
     </main>
     <footer class="footer is-hidden-desktop" v-if="this.$slots.docsnav">
       <slot name="docsnav"></slot>
@@ -57,31 +65,60 @@ https://github.com/jgthms/bulma/issues/1708#issuecomment-382560341 */
 }
 </style>
 <style scoped>
-.article {
-  width: 700px;
+.doc-main-container {
+  flex-grow: 1;
 }
 
-/* make it use all the width on tablet */
+.article-container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1140px;
+  padding: 32px 16px;
+}
+
+.article {
+    max-width: 75%;
+    padding: 1rem;
+ }
+
+ /* make it use all the width on tablet */
 @media screen and (max-width: 1023px) {
-  .article {
+  .doc-main-container {
     width: 100%;
+  }
+  .article-container {
+    max-width: 100%;
+  }
+
+  .article {
+    max-width: 100%;
+    padding: 0;
   }
 }
 
-.docsnav {
-  order: -1;
+.docsnav-container {
+  width: 256px;
+  padding: 1.5rem;
+  border-right: 1px solid #ccc;
 }
 
-.docsnav,
-.articlenav {
-  width: 256px;
-  padding: 0 16px 40px 16px;
-  margin: 0 16px;
-  top: var(--nav-sticky-top-position);
-  align-self: flex-start;
+.docsnav {
+  display: flex;
+  flex-direction: column;
   position: sticky;
-  height: calc(100vh + var(--nav-sticky-top-position) * -1 - 12px);
-  overflow: auto;
+  top: var(--nav-sticky-top-position);
+  height: calc(100vh + var(--nav-sticky-top-position) * -1 - 40px);
+  overflow-x: hidden;
+}
+
+.articlenav {
+  max-width: 25%;
+  top: var(--nav-sticky-top-position);
+  position: sticky;
+  padding: 1rem;
+  height: 100%; 
+  border-left: 1px solid #ccc;
+  margin-left: 3rem;
 }
 
 .docsnav a.active {
@@ -94,8 +131,5 @@ https://github.com/jgthms/bulma/issues/1708#issuecomment-382560341 */
 
 .main {
   display: flex;
-  max-width: 1400px;
-  margin: 0 auto;
-  justify-content: space-evenly;
 }
 </style>
