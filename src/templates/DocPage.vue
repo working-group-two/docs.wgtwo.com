@@ -208,9 +208,15 @@ export default {
   top: 0;
   height: 52px; /* navbar height */
   z-index: 40;
-  display: flex;
   align-items: center;
   color: rgba(0,0,0,0.67);
+  display: none;
+}
+
+@media screen and (min-width: 769px) {
+  .role-selection-container {
+    display: flex;
+  }
 }
 
 .role-selection-button {

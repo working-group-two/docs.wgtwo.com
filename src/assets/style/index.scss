@@ -77,3 +77,11 @@ pre[class*="language-"] {
 }
 
 @import "mobile-frame";
+
+@media screen and (max-width: 769px) {
+  table {
+    display: block;
+    overflow-y: scroll;
+  }
+}
+

@@ -160,9 +160,9 @@
     }
 
     .intro-boxes {
-        margin: 32px 0;
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
     }
 
     .intro-box,
@@ -175,7 +175,12 @@
     }
 
     .intro-box {
-        width: calc(50% - 12px);
+        width: 100%;
+        margin: 32px 0;
+    }
+
+    .intro-box + .intro-box {
+        margin-top: 0;
     }
 
     .intro-box p {
@@ -215,5 +220,14 @@
 
     .api-box .title-and-text {
         width: 100%;
+    }
+
+    @media screen and (min-width: 769px) {
+        .intro-box {
+            width: calc(50% - 12px);
+        }
+        .intro-box + .intro-box {
+            margin-top: 32px;
+        }
     }
 </style>
