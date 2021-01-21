@@ -5,16 +5,45 @@
             <div class="splash-logo">
                 <SplashLogo></SplashLogo>
             </div>
+            <h2 class="title is-2">Core Network APIs</h2>
+            <p>
+                Working Group Two's API platform allows both <strong>Mobile Operators</strong> and <strong>Third Party Developers</strong>
+                to build products that interact with the core network.
+                Operators can authenticate directly using API keys, while Third Party Developers
+                need to obtain consent from subscribers via our Oauth2 service.
+            </p>
+            <div class="intro-boxes">
+                <div class="intro-box">
+                    <h3 class="title is-3">Third Party Developers</h3>
+                    <p>
+                        If you're a third party developer (someone who has no relation to us),
+                        you can can create an account in our Developer Portal at
+                        <a href="https://developer.wgtwo.com">https://developer.wgtwo.com</a>.
+                        From here you can create OAuth clients, which will allow our subscribers to
+                        grant you an access token to act on their behalf.
+                    </p>
+                </div>
+                <div class="intro-box">
+                    <h3 class="title is-3">Mobile Operators</h3>
+                    <p>
+                        If you work for one of our partner operators, you can log in to
+                        our Partner Portal at <a href="https://console.wgtwo.com">https://console.wgtwo.com</a>.
+                        From here you can create API keys which will grant you full access to all APIs
+                        for all of your subscribers. If you follow the examples you will be up and running within minutes!
+                    </p>
+                </div>
+            </div>
+            <h3 class="title is-3">Available APIs</h3>
             <div class="api-boxes">
                 <g-link v-for="api in apis" :to="api.url" class="api-box">
                     <div class="api-icon-wrap">
                         <component :is="api.icon"></component>
                     </div>
                     <div class="title-and-text">
-                        <h2 class="title">{{api.title}}</h2>
+                        <h4 class="title is-4">{{api.title}}</h4>
                         <p>{{api.text}}</p>
                     </div>
-                    <b-icon icon="arrow-right" size="is-large" type="is-primary"></b-icon>
+                    <b-icon icon="arrow-right" size="is-medium" type="is-primary"></b-icon>
                 </g-link>
             </div>
         </div>
@@ -31,6 +60,8 @@
     import MetricsIcon from "~/assets/images/metrics-icon.svg";
     import AuthIcon from "~/assets/images/id-auth-icon.svg";
     import SplashLogo from "~/assets/images/logo-splash.svg";
+    import IllustrationDeveloper from "~/assets/images/illustration-developer.svg";
+    import IllustrationPlant from "~/assets/images/illustration-plant.svg";
 
     export default {
         metaInfo: {
@@ -48,6 +79,8 @@
             MetricsIcon,
             AuthIcon,
             SplashLogo,
+            IllustrationDeveloper,
+            IllustrationPlant
         },
         data: () => ({
             apis: [
@@ -107,38 +140,68 @@
 
 <style scoped>
     .landing-page {
-        max-width: 1200px;
+        max-width: 1000px;
         margin: 0 auto;
         padding: 24px;
     }
 
+    .landing-page p {
+        font-size: 18px;
+    }
+
     .splash-logo {
-        padding: 56px;
+        padding: 36px;
     }
 
     .splash-logo svg {
-        max-width: 196px;
+        max-width: 128px;
         display: block;
         margin: 0 auto;
     }
 
-    h1.title,
-    h2.title {
-        font-family: "Oxanium", sans-serif;
-        color: var(--primary);
-        margin: 8px 0 !important;
+    .intro-boxes {
+        margin: 32px 0;
+        display: flex;
+        justify-content: space-between;
     }
 
+    .intro-box,
     .api-box {
-        width: 100%;
-        margin: 24px 0;
-        display: flex;
-        align-items: center;
         background: #fff;
         border-radius: 5px;
         box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
         padding: 16px;
         color: rgba(0, 0, 0, 0.67);
+    }
+
+    .intro-box {
+        width: calc(50% - 12px);
+    }
+
+    .intro-box p {
+        font-size: 15px;
+    }
+
+    .landing-page .title {
+        margin: 8px 0;
+    }
+
+    .landing-page p + .title {
+        margin-top: 48px;
+    }
+
+    .api-box {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+    .api-box + .api-box {
+        margin-top: 24px;
+    }
+
+    .api-box .title {
+        color: var(--primary);
     }
 
     .api-box .api-icon-wrap {
