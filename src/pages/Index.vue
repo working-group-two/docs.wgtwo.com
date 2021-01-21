@@ -52,7 +52,7 @@
                         Send MMS to or from anyone on your platform.
                     </p>
                 </g-link>
-                <g-link to="/subscription-profile/how-to/manage-subscriptions/" class="api-box">
+                <g-link to="/subscription-profile/overview/overview/" class="api-box">
                     <div class="api-icon-wrap">
                         <SubscriptionProfileIcon></SubscriptionProfileIcon>
                     </div>
