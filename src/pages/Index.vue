@@ -35,7 +35,7 @@
             </div>
             <h3 class="title is-3">Available APIs</h3>
             <div class="api-boxes">
-                <g-link v-for="api in apis" :to="api.url" class="api-box">
+                <g-link v-for="api in apis" :to="api.url" class="api-box" :key="api">
                     <div class="api-icon-wrap">
                         <component :is="api.icon"></component>
                     </div>
