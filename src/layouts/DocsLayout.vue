@@ -20,9 +20,13 @@
       </div>
       <footer>
         <aside class="editthispage">
-          <b-button tag="a" :href="editLink" target="_blank">
-            <Github class="editthispage__githublogo" />Edit this page on GitHub
-          </b-button>
+          <a :href="editLink" target="_blank" icon-left="pencil">
+            <b-icon
+                icon="pencil"
+                size="is-small"
+                />
+            Edit page
+          </a>
         </aside>
         <nav class="previous-next-buttons">
           <g-link
@@ -75,18 +79,14 @@
 }
 
 .editthispage {
-  margin-top: 24px;
-  margin-bottom: 24px;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 
 .previous-next-buttons {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-}
-
-.editthispage__githublogo {
-  margin-right: 8px;
 }
 
 .docs-nav__container:not(:first-child) {
