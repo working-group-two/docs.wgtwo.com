@@ -35,7 +35,7 @@
             </div>
             <h3 class="title is-3">Available APIs</h3>
             <div class="api-boxes">
-                <g-link v-for="api in apis" :to="api.url" class="api-box" :key="api">
+                <g-link v-for="api in apis" :to="api.url" class="api-box" :key="api.title">
                     <div class="api-icon-wrap">
                         <component :is="api.icon"></component>
                     </div>
@@ -91,6 +91,12 @@
                     url: "/introduction/overview/introduction/"
                 },
                 {
+                    icon: "AuthIcon",
+                    title: "Authorization",
+                    text: "We support authorization for operators and third party developers.",
+                    url: "/auth/overview/overview/"
+                },
+                {
                     icon: "EventsIcon",
                     title: "Events",
                     text: "Get events for anything happening in the network",
@@ -125,12 +131,6 @@
                     title: "Metrics",
                     text: "Access relevant OpenMetrics time series directly from our systems.",
                     url: "/metrics/how-to/accessing-metrics/"
-                },
-                {
-                    icon: "AuthIcon",
-                    title: "Authorization",
-                    text: "We support authorization for operators and third party developers.",
-                    url: "/auth/overview/overview/"
                 },
                 //{icon: "UsertokensIcon", title: "User Tokens", text: "Create API tokens on behalf of subscribers", url: "/usertokens/how-to/manage-user-tokens/"},
             ]
