@@ -89,54 +89,48 @@
         data: () => ({
             apis: [
                 {
-                    icon: "IntroIcon",
-                    title: "Getting started",
-                    text: "Learn about how our APIs are structured, how to get credentials, etc.",
-                    url: "/introduction/overview/introduction/"
-                },
-                {
                     icon: "AuthIcon",
                     title: "Authorization",
                     text: "We support authorization for operators and third party developers.",
-                    url: "/auth/overview/overview/"
+                    url: "/auth/overview/"
                 },
                 {
                     icon: "EventsIcon",
                     title: "Events",
                     text: "Get events for anything happening in the network",
-                    url: "/events/how-to/listen-for-events/"
+                    url: "/events/listen-for-events/"
                 },
                 {
                     icon: "SmsIcon",
                     title: "SMS",
                     text: "Send SMS to or from anyone on your platform.",
-                    url: "/sms/how-to/send-sms/"
+                    url: "/sms/send-sms/"
                 },
                 {
                     icon: "MmsIcon",
                     title: "MMS",
                     text: "Send SMS to or from anyone on your platform.",
-                    url: "/mms/how-to/send-mms/",
+                    url: "/mms/send-mms/",
                 },
                 {
                     icon: "VoicemailIcon",
                     title: "Voicemail",
                     text: "Access a subscribers Voicemail inbox, including the audio files.",
-                    url: "/voicemail/how-to/list-and-play-voicemails/"
+                    url: "/voicemail/list-and-play-voicemails/"
                 },
                 {
                     icon: "SubscriptionProfileIcon",
                     title: "Subscription Profile",
                     text: "Manage your subscribers's profiles. Enable/disable calls, SMS, etc.",
-                    url: "/subscription-profile/how-to/manage-subscriptions/"
+                    url: "/subscription-profile/overview/"
                 },
                 {
                     icon: "MetricsIcon",
                     title: "Metrics",
                     text: "Access relevant OpenMetrics time series directly from our systems.",
-                    url: "/metrics/how-to/accessing-metrics/"
+                    url: "/metrics/accessing-metrics/"
                 },
-                //{icon: "UsertokensIcon", title: "User Tokens", text: "Create API tokens on behalf of subscribers", url: "/usertokens/how-to/manage-user-tokens/"},
+                //{icon: "UsertokensIcon", title: "User Tokens", text: "Create API tokens on behalf of subscribers", url: "/usertokens/manage-user-tokens/"},
             ]
         }),
     }
