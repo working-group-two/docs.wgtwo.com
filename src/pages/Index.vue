@@ -2,17 +2,19 @@
     <div>
         <Header></Header>
         <div class="landing-page">
-            <div class="splash-logo">
+            <section class="splash-logo">
                 <SplashLogo></SplashLogo>
-            </div>
-            <h2 class="title is-2">Core Network APIs</h2>
-            <p>
-                Working Group Two's API platform allows both <strong>Mobile Operators</strong> and <strong>Third Party Developers</strong>
-                to build products that interact with the core network.
-                Operators can authenticate directly using API keys, while Third Party Developers
-                need to obtain consent from subscribers via our Oauth2 service.
-            </p>
-            <div class="intro-boxes">
+            </section>
+            <section>
+                <h2 class="title is-2">Core Network APIs</h2>
+                <p>
+                    Working Group Two's API platform allows both <strong>Mobile Operators</strong> and <strong>Third Party Developers</strong>
+                    to build products that interact with the core network.
+                    Operators can authenticate directly using API keys, while Third Party Developers
+                    need to obtain consent from subscribers via our Oauth2 service.
+                </p>
+            </section>
+            <section class="intro-boxes">
                 <div class="intro-box">
                     <h3 class="title is-3">Third Party Developers</h3>
                     <p>
@@ -32,20 +34,22 @@
                         for all of your subscribers. If you follow the examples you will be up and running within minutes!
                     </p>
                 </div>
-            </div>
-            <h3 class="title is-3">Available APIs</h3>
-            <div class="api-boxes">
-                <g-link v-for="api in apis" :to="api.url" class="api-box" :key="api.title">
-                    <div class="api-icon-wrap">
-                        <component :is="api.icon"></component>
-                    </div>
-                    <div class="title-and-text">
-                        <h4 class="title is-4">{{api.title}}</h4>
-                        <p>{{api.text}}</p>
-                    </div>
-                    <b-icon icon="arrow-right" size="is-medium" type="is-primary"></b-icon>
-                </g-link>
-            </div>
+            </section>
+            <section>
+                <h3 class="title is-3">Available APIs</h3>
+                <div class="api-boxes">
+                    <g-link v-for="api in apis" :to="api.url" class="api-box" :key="api.title">
+                        <div class="api-icon-wrap">
+                            <component :is="api.icon"></component>
+                        </div>
+                        <div class="title-and-text">
+                            <h4 class="title is-4">{{api.title}}</h4>
+                            <p>{{api.text}}</p>
+                        </div>
+                        <b-icon icon="arrow-right" size="is-medium" type="is-primary"></b-icon>
+                    </g-link>
+                </div>
+            </section>
         </div>
     </div>
 </template>
@@ -142,11 +146,16 @@
     .landing-page {
         max-width: 1000px;
         margin: 0 auto;
-        padding: 24px;
+        padding: 80px 24px;
     }
 
     .landing-page p {
         font-size: 18px;
+    }
+
+    .landing-page section {
+        margin-top: 40px;
+        margin-bottom: 40px;
     }
 
     .splash-logo {
