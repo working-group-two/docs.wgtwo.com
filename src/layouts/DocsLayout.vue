@@ -48,12 +48,12 @@
       <div v-for="topic in links" :key="topic.title" class="docs-nav__container">
         <h3 class="is-uppercase">{{topic.title}}</h3>
         <ul class="docs-nav__list">
-          <li v-for="item in topic.items" :key="item.id">
-            <g-link v-if="!item.hideFromMenu"
+            <g-link
+              v-for="item in topic.items.filter(it => !it.hideFromMenu)" :key="item.id"
               :to="item.path"
+              tag="li"
               :class="{'has-text-grey': !item.availableForRole}"
-            >{{item.title}}</g-link>
-          </li>
+            ><a class="dosc_nav__anchor">{{item.title}}</a></g-link>
         </ul>
       </div>
     </template>
@@ -61,10 +61,10 @@
       <h3>ON THIS PAGE</h3>
       <ul class="anchormenu">
         <li v-for="h2 in subtitles" :key="h2.value">
-          <a :href="h2.anchor">{{ h2.value }}</a>
+          <g-link :href="h2.anchor">{{ h2.value }}</g-link>
           <ul v-if="h2.children" class="anchormenu__sub-menu">
             <li v-for="h3 in h2.children" :key="h3.value">
-              <a :href="h3.anchor">{{ h3.value }}</a>
+              <g-link :href="h3.anchor">{{ h3.value }}</g-link>
             </li>
           </ul>
         </li>
@@ -151,7 +151,7 @@ export default {
     },
     previousPage() {
       return this.items[this.currentIndex - 1];
-    }
+    },
   },
   updated() {
     this.loaderId = setInterval(() => {

@@ -20,7 +20,7 @@
         </div>
       </div>
     </main>
-    <footer class="footer is-hidden-desktop" v-if="this.$slots.docsnav">
+    <footer class="footer docsnav is-hidden-desktop" v-if="this.$slots.docsnav">
       <slot name="docsnav"></slot>
     </footer>
   </div>
@@ -63,6 +63,12 @@ https://github.com/jgthms/bulma/issues/1708#issuecomment-382560341 */
     margin-top: -49px;
   }
 }
+
+.dosc_nav__anchor {
+  display: block;
+  width: 100%;
+}
+
 </style>
 <style scoped>
 .doc-main-container {
@@ -103,14 +109,22 @@ https://github.com/jgthms/bulma/issues/1708#issuecomment-382560341 */
   background: linear-gradient(90deg, #ffffff, #fbfbfb);
 }
 
-.docsnav {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
+.docsnav-container .docsnav {
   position: sticky;
   top: calc(var(--nav-sticky-top-position) - 1.5rem); /* subtract padding */
   height: calc(100vh + var(--nav-sticky-top-position) * -1 - 40px);
   overflow-x: hidden;
+}
+
+.docsnav {
+  padding: .5rem .75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.docsnav li {
+  border-radius: 8px;
+  padding: 4px 8px;
 }
 
 .articlenav {
@@ -123,12 +137,8 @@ https://github.com/jgthms/bulma/issues/1708#issuecomment-382560341 */
   margin-left: 3rem;
 }
 
-.docsnav a.active {
-  font-weight: bolder;
-}
-
-.footer a.active {
-  font-weight: bolder;
+.docsnav .active {
+  background: hsl(0deg 0% 0% / 10%);
 }
 
 .main {
