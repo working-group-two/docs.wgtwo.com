@@ -1,57 +1,59 @@
 ---
-title: OAuth 2.0 Authorization
+title: OAuth 2.0 authorization
 topic: auth
 type: how-to
 roles:
   - THIRD_PARTY_DEVELOPER
 ---
 
-# OAuth 2.0 Walkthrough of the full flow
+# OAuth 2.0 flow walkthrough
 
-## Setup a OAuth Client
+## Set up an OAuth Client
 
-In order to use our OAuth flow, you will need to create a OAuth client.
-This client is tied to a product defined in our Developer Portal.
+In order to use our OAuth flow, you will need to create an OAuth client.
+This client is tied to a product in the _Developer Portal_.
 
 ### Create client
-1. Log in at https://developer.wgtwo.com using a Google account
-2. Create a new organization
+1. Sign in at https://developer.wgtwo.com
+2. Create an organization
 3. Create a product
-4. Go to the tab clients, and click `CREATE NEW CLIENT`
+4. Go to the clients tab, and click `CREATE NEW CLIENT`
 
 <g-image src="@/assets/images/auth-create-client.png" alt="Set scopes" />
 
 | Field                             | Value                        |
 | --------------------------------- | ---------------------------- |
-| Client description                | test                         |
+| Client description                | this is a test               |
 | Login redirect URIs               | https://example.com/callback |
 | Post revoke consent redirect URIs | https://example.com/revoke   |
 
-The returned credentials will be displayed only once.
+The returned credentials will be displayed only once, so make sure to save them.
 
-<DemoConfigurer />
-
-### Set applicable scopes
+### Set scopes
 1. Go to the `SCOPES` tab
 2. Enable the three standard OAuth 2.0 scopes
 
 <g-image src="@/assets/images/auth-set-scopes.png" alt="Set scopes" />
 
-### Enable product for your operator
+### Enable product for operator
 1. Go to the `LISTING` tab
-2. Enable the product for the operator of your phone number
+2. Enable the product for the operator of your targetted phone number
 
 ## Manually run the OAuth flow
-<b-notification type="is-warning is-light" aria-close-label="Close notification" role="alert">
-  <div class="is-flex">
+
+<!-- <DemoConfigurer /> -->
+
+<b-notification type="is-warning is-light" aria-close-label="Close notification" role="alert" :closable="false">
     <div>
       <p><b>We do not recommend implementing this flow manually</b></p>
-      <p>There are good OAuth libraries for all common language, so these examples are only useful for showing the flow.</p>
-      </div>
+      <p>There are good OAuth libraries for all common language, so these examples are only useful for testing the flow.</p>
     </div>
 </b-notification>
 
-Open the link in your browser to start the flow:
+### Open link in browser
+
+To start the flow open the following link in your browser
+
 ```shell script
 https://id.wgtwo.com/oauth2/auth?response_type=code&scope=phone offline_access&client_id=${CLIENT_ID}&redirect_uri=https://example.com/callback&state=this-is-a-key-set-by-the-caller
 ```
@@ -67,6 +69,8 @@ In our case, this will be similar to this:
 ```
 https://example.com/callback?code=some-random-code-generated-by-the-oauth-flow&scope=phone%20offline_access&state=this-is-a-key-set-by-the-caller
 ```
+
+### Exchange authorization code for access and refresh token
 
 As we are using the authorization code grant, there will be a server side call to exchange this code with the access
 and refresh tokens. 
@@ -90,7 +94,7 @@ curl \
 }
 ```
 
-### Use your access token to get user info
+### Use access token to get user info
 ```shell script
 export ACCESS_TOKEN="<<redacted>>"
 curl -H "Authorization: Bearer $ACCESS_TOKEN" https://id.wgtwo.com/userinfo
