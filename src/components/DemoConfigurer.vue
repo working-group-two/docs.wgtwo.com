@@ -17,7 +17,7 @@
         >
           <p>
             Enter your
-            <g-link to="/auth/overview/authorization/">access_token</g-link>, and it will be injected into the code examples below.
+            <g-link to="/auth/how-to/o-auth-2-0-authorization/">access_token</g-link>, and it will be injected into the code examples below.
           </p>
           <b-field label="access_token" label-position="inside">
             <b-input
