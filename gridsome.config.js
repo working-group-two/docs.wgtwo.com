@@ -42,7 +42,7 @@ module.exports = {
         baseDir: './docs',
         typeName: 'DocPage',
         template: './src/templates/DocPage.vue',
-        route: '/:topic/:type/:title', // e.g. /voicemail/how-to/List-and-play-voicemails
+        route: '/:topic/:title', // e.g. /voicemail/list-and-play-voicemails/
         plugins: [
           '@gridsome/remark-prismjs'
         ],
