@@ -15,6 +15,9 @@ export default {
   },
   updated() {
     this.updateTokens(this.roleByActiveTab);
+    setTimeout(() => { // hack to be more sure the content will get updated
+      this.updateTokens(this.roleByActiveTab);
+    }, 300);
   },
   methods: {
     updateTokens(role) {
