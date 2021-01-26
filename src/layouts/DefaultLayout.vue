@@ -138,7 +138,7 @@ https://github.com/jgthms/bulma/issues/1708#issuecomment-382560341 */
 }
 
 .docsnav .active {
-  background: hsl(0deg 0% 0% / 10%);
+  background: hsl(0deg 0% 0% / 7%);
 }
 
 .main {
