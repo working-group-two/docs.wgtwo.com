@@ -52,8 +52,7 @@
               v-for="item in topic.items.filter(it => !it.hideFromMenu)" :key="item.id"
               :to="item.path"
               tag="li"
-              :class="{'has-text-grey': !item.availableForRole}"
-            ><a class="dosc_nav__anchor">{{item.title}}</a></g-link>
+            ><a class="dosc_nav__anchor" :class="{'has-text-grey': !item.availableForRole}">{{item.title}}</a></g-link>
         </ul>
       </div>
     </template>

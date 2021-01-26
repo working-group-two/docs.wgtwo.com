@@ -2,6 +2,9 @@
 title: Configuration and types
 topic: events
 type: explanation
+roles:
+  - THIRD_PARTY_DEVELOPER
+  - OPERATOR
 ---
 
 # Configuration and types
