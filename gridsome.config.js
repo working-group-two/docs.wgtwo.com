@@ -9,6 +9,7 @@ const nodeExternals = require('webpack-node-externals')
 module.exports = {
   siteName: 'WGTWO API docs',
   siteUrl: 'https://docs.wgtwo.com',
+  icon: './src/favicon.svg',
 
   chainWebpack(config, { isServer }) {
     config.module.rules.delete('svg')
