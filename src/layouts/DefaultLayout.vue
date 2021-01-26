@@ -131,7 +131,7 @@ https://github.com/jgthms/bulma/issues/1708#issuecomment-382560341 */
   max-width: 25%;
   top: calc(var(--nav-sticky-top-position) - 1.5rem); /* subtract padding */
   position: sticky;
-  padding: 1.5rem;
+  padding: 1.5rem 0 1.5rem 1rem;
   height: 100%; 
   border-left: 1px solid #ccc;
   margin-left: 3rem;
