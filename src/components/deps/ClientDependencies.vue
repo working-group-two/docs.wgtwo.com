@@ -26,6 +26,12 @@
                             <artifactId>event-grpc</artifactId>
                             <version>${apiVersion}</version>
                         </dependency>`.trim().replace(/^                /gm, ""),
+                    "sms-grpc": `
+                        <dependency>
+                            <groupId>com.github.working-group-two.wgtwoapis</groupId>
+                            <artifactId>sms-grpc</artifactId>
+                            <version>${apiVersion}</version>
+                        </dependency>`.trim().replace(/^                /gm, ""),
                     "rest": `
                         <dependency>
                             <groupId>com.github.working-group-two.wgtwoapis</groupId>

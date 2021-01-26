@@ -6,7 +6,7 @@ roles:
   - THIRD_PARTY_DEVELOPER
   - OPERATOR
 ---
-import CodeSnippet from "@/components/howto/CodeSnippet.vue";
+import CodeSnippet from "@/components/CodeSnippet.vue";
 
 # List and play voicemails
 
