@@ -7,7 +7,7 @@ roles:
   - THIRD_PARTY_DEVELOPER
   - OPERATOR
 ---
-import CodeSnippet from "@/components/CodeSnippet.vue";
+import SendAudioMms from "@/components/howto/mms/SendAudioMms.vue";
 
 # How to send MMS
 
@@ -26,12 +26,11 @@ This example shows how you can send MMS. In order to send MMSes your credentials
 
 <DemoConfigurer />
 
-## Send audio MMS
-<CodeSnippet
-  :kotlinDeps="['mms-grpc', 'utils-grpc']"
-  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/mms/src/main/kotlin/SendAudioToSubscriber.kt"
-  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/mms/src/main/kotlin/SendAudioToSubscriber.kt"
-  />
+## Send Audio MMS
+<SendAudioMms />
+
+## Resources
+* [MMS API reference](https://github.com/working-group-two/wgtwoapis/blob/master/wgtwo/mms/v0/mms.proto)
 
 ## Concepts
 * [wikipedia.org/wiki/MMS](https://en.wikipedia.org/wiki/Multimedia_Messaging_Service)
