@@ -20,7 +20,7 @@
                             <artifactId>messaging-grpc</artifactId>
                             <version>${apiVersion}</version>
                         </dependency>`.trim().replace(/^                /gm, ""),
-                    "events-grpc": `
+                    "event-grpc": `
                         <dependency>
                             <groupId>com.github.working-group-two.wgtwoapis</groupId>
                             <artifactId>event-grpc</artifactId>

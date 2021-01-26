@@ -6,6 +6,7 @@ roles:
   - THIRD_PARTY_DEVELOPER
   - OPERATOR
 ---
+import CodeSnippet from "@/components/CodeSnippet.vue";
 
 # How to listen for Events
 
@@ -16,7 +17,7 @@ The event API allows you to subscribe to a variety of different events generated
 The examples will start a subscription to voice and voicemail events, which includes call initiated, call ended and
 new voicemail received.
 
-##### Event types
+## Event types
 
 | Event type            | Operator | Third Party | Required right                 |
 |-----------------------|:--------:|:-----------:|--------------------------------|
@@ -35,45 +36,22 @@ new voicemail received.
 
 <DemoConfigurer />
 
-## grpcurl
+## Listen for events
+<CodeSnippet
+  grpcurlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/operator/events/get-events.sh"
+  grpcurlThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/events/get-events.sh"
+  :kotlinDeps="['event-grpc', 'utils-grpc']"
+  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/events/src/main/kotlin/GetEvents.kt"
+  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/events/src/main/kotlin/GetEvents.kt"
+  />
 
-Setup streaming of events, without manual acknowledgment:
-```shell script
-grpcurl \
-  -H "Authorization: Basic ${OPERATOR_TOKEN}"\
-  -import-path . \
-  -proto wgtwo/events/v0/events.proto \
-  -d '
-  {
-    "type": ["VOICE_EVENT"]
-  }
-  ' \
-  api.wgtwo.com:443 \
-  wgtwo.events.v0.EventsService.Subscribe
-```
+## Manual acknowledge
+In the below example we enable manual acknowledgement, and set a custom ack timeout.
 
-## Java / Kotlin
-
-### Install dependencies
-<JitpackDependency />
-
-Then you can add `event-grpc` and `utils-grpc`:
-
-<ClientDependencies :clients="['events-grpc', 'utils-grpc']"/>
-
-### Listen for events
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/events/src/main/kotlin/GetEvents.kt" language="kotlin" />
-
-### Manual acknowledge
-In the below example we enable manual acknowledgement, and setting a custom ack timeout.
-
-Include Google's Protocol Buffers utility library for support of Google's Well-Known Types:
-<ClientDependencies :clients="['protobuf-java-util']"/>
-
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/events/src/main/kotlin/GetEventsManualAck.kt" language="kotlin" />
-
-## Resources
-* [Events API reference](https://github.com/working-group-two/wgtwoapis/blob/master/wgtwo/events/v0/events.proto)
+<CodeSnippet
+  :kotlinDeps="['event-grpc', 'utils-grpc', 'protobuf-java-util']"
+  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/events/src/main/kotlin/GetEventsManualAck.kt"
+  />
 
 ## Concepts
 * [Three types of stubs: asynchronous, blocking, and future](https://grpc.io/docs/reference/java/generated-code/)
