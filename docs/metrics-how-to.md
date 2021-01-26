@@ -24,12 +24,12 @@ In order to access this API, your credentials need to have the `metrics.read` ri
 
 <DemoConfigurer />
 
-### Curl
+## Get metrics, curl
 ```shell script
 curl -s -u ${CLIENT_ID}:${CLIENT_SECRET} https://api.wgtwo.com/metrics/v1
 ```
 
-### Prometheus
+## Get metrics, Prometheus
 The below Prometheus config will scrape the metric endpoint from Working Group Two every 30 seconds,
 fetching all available time series. Note that the configuration will contain secrets.
 
@@ -37,7 +37,7 @@ See: [prometheus.io › Configuration](https://prometheus.io/docs/prometheus/lat
 
 <GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/config/operator/metrics/prometheus.yml" />
 
-#### Example: Run with Docker
+### Example: Run with Docker
 > See: [prometheus.io › Using Docker](https://prometheus.io/docs/prometheus/latest/installation/#using-docker)
 
 If you run the below commands, you should have Prometheus running successfully.
@@ -48,7 +48,7 @@ If you run the below commands, you should have Prometheus running successfully.
 docker run -p 9090:9090 -v prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
 ```
 
-#### Grafana
+### Grafana
 > See: [grafana.com › Using Prometheus in Grafana](https://grafana.com/docs/grafana/latest/features/datasources/prometheus/)
 
 As our metric API does not expose a query API, it cannot be used by Grafana directly.
