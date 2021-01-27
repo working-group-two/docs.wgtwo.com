@@ -9,21 +9,14 @@ hideWarning: true
 
 <DemoConfigurer />
 
-## HTTP
+## Get subscription info
+<CodeSnippet
+  curlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/curl/operator/provision/get-subscription-info.sh"
+  :kotlinDeps="['rest']"
+  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/provision/src/main/kotlin/GetSubscriptionInfo.kt"
+  />
 
-_All requests in these examples return a 201 status with a JSON body containing a `requestid` property, unless otherwise stated_.
-
-### Get subscription info
-
-```shell script
-curl -s\
-  -u ${CLIENT_ID}:${CLIENT_SECRET} \
-  https://api.wgtwo.com/subscription/v1/msisdn/46737678218
-```
-
-Returns 200 and user data
-
-### Sign up new user
+## Activate new user
 
 ```shell script
 curl \
@@ -40,10 +33,18 @@ curl \
     https://api.wgtwo.com/provision/v1/activate
 ```
 
-#### Provision replacement SIM
+## Provision replacement SIM
 
 _Depending on the logistics of getting a new SIM just using `/provision/changesim` can also work,
 since the old SIM already becomes unfunctional after changesim._
+
+**Steps**
+
+1. [Block the subscription](#block-subscription)
+2. [Change the SIM](#change-sim)
+3. [Unblock subscription](#unblock-subscription)
+
+## Block subscription
 
 ```shell script
 curl \
@@ -55,9 +56,11 @@ curl \
         "msisdn": "46737678218",
         "userid": "abcdefghijklm"
     }
-    ' /
+    ' \
     https://api.wgtwo.com/provision/v1/block
 ```
+
+## Change SIM
 
 ```shell script
 curl \
@@ -75,37 +78,7 @@ curl \
     https://api.wgtwo.com/provision/v1/changesim
 ```
 
-```shell script
-curl \
-    -u ${CLIENT_ID}:${CLIENT_SECRET} \
-    -H 'Content-Type: application/json'
-    -d '
-    {
-        "bssid": "operator_name",
-        "msisdn": "46737678218",
-        "userid": "abcdefghijklm"
-    }
-    ' \
-    https://api.wgtwo.com/provision/v1/unblock
-```
-
-### Freeze subscription
-
-```shell script
-curl \
-    -u ${CLIENT_ID}:${CLIENT_SECRET} \
-    -H 'Content-Type: application/json'
-    -d '
-    {
-        "bssid": "operator_name",
-        "msisdn": "46737678218",
-        "userid": "abcdefghijklm"
-    }
-    ' \
-    https://api.wgtwo.com/provision/v1/block
-```
-
-### Unfreeze subscription
+## Unblock subscription
 
 ```shell script
 curl \
@@ -121,7 +94,15 @@ curl \
     https://api.wgtwo.com/provision/v1/unblock
 ```
 
-### Restrict highspeed data
+## Freeze subscription
+
+See [block subscription](#block-subscription)
+
+## Unfreeze subscription
+
+See [unblock subscription](#unblock-subscription)
+
+## Restrict highspeed data
 
 ```shell script
 curl \
@@ -141,7 +122,15 @@ curl \
     https://api.wgtwo.com/provision/v1/update
 ```
 
-### Disable all roaming
+## Disable roaming
+
+**Steps**
+
+1. [Remove roaming](#remove-roaming)
+2. [Remove roaming data](#remove-roaming-data)
+
+## Remove roaming
+
 ```shell script
 curl \
     -u ${CLIENT_ID}:${CLIENT_SECRET} \
@@ -160,26 +149,21 @@ curl \
     https://api.wgtwo.com/provision/v1/update
 ```
 
-```shell script
-curl \
-    -u ${CLIENT_ID}:${CLIENT_SECRET} \
-    -H 'Content-Type: application/json'
-    -d '
-    {
-        "bssid": "operator_name",
-        "service": {
-            "action": "REMOVE",
-            "name": "ROAMING_DATA"
-        },
-        "msisdn": "46737678218",
-        "userid": "abcdefghijklm"
-    }
-    ' \
-    https://api.wgtwo.com/provision/v1/update
-```
+## Remove roaming data
+<CodeSnippet
+  curlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/curl/operator/provision/disable-roaming-data.sh"
+  :kotlinDeps="['rest']"
+  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/provision/src/main/kotlin/DisableRoamingData.kt"
+  />
 
-### Add roaming
+## Enable roaming
 
+**Steps**
+
+1. [Add roaming](#add-roaming)
+2. [Add roaming data](#add-roaming-data)
+
+## Add roaming
 ```shell script
 curl \
     -u ${CLIENT_ID}:${CLIENT_SECRET} \
@@ -198,7 +182,11 @@ curl \
     https://api.wgtwo.com/provision/v1/update
 ```
 
-### Terminate subscription
+## Add roaming data
+
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/provision/src/main/kotlin/EnableRoamingData.kt" language="kotlin" />
+
+## Terminate subscription
 
 ```shell script
 curl \
@@ -214,7 +202,7 @@ curl \
     https://api.wgtwo.com/provision/v1/terminate
 ```
 
-### Change MSISDN for a SIM
+## Change MSISDN for a SIM
 
 ```shell script
 curl \
@@ -230,7 +218,7 @@ curl \
     https://api.wgtwo.com/provision/v1/changemsisdn
 ```
 
-### Remove a SIM from subscription
+## Remove a SIM from subscription
 
 ```shell script
 curl \
@@ -246,22 +234,3 @@ curl \
     ' \
     https://api.wgtwo.com/provision/v1/dissociateSim
 ```
-
-
-## Java / Kotlin
-
-### Install dependencies
-<JitpackDependency />
-
-Then you can add the required dependency:
-
-<ClientDependencies :clients="['rest']"/>
-
-### Get subscriber enabled services
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/provision/src/main/kotlin/GetSubscriptionInfo.kt" language="kotlin" />
-
-### Enable data roaming
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/provision/src/main/kotlin/EnableRoamingData.kt" language="kotlin" />
-
-### Disable data roaming
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/provision/src/main/kotlin/DisableRoamingData.kt" language="kotlin" />
