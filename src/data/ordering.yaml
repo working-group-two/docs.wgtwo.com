@@ -1,13 +1,11 @@
 topic:
-    - introduction
     - auth
+    - events
+    - sms
     - mms
     - voicemail
-    - sms
-    - events
-    - metrics
     - subscription profile
-    - usertokens
+    - metrics
 type:
     - overview
     - how-to
