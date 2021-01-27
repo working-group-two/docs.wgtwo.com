@@ -120,7 +120,7 @@
                 },
                 {
                     icon: "SubscriptionProfileIcon",
-                    title: "Subscription Profile",
+                    title: "Subscription profile",
                     text: "Manage your subscribers's profiles. Enable/disable calls, SMS, etc.",
                     url: "/subscription-profile/overview/"
                 },
