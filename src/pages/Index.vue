@@ -2,9 +2,6 @@
     <div>
         <Header></Header>
         <div class="landing-page">
-            <section class="splash-logo">
-                <SplashLogo></SplashLogo>
-            </section>
             <section>
                 <h2 class="title is-2">Core Network APIs</h2>
                 <p>
@@ -140,7 +137,7 @@
     .landing-page {
         max-width: 1000px;
         margin: 0 auto;
-        padding: 80px 24px;
+        padding: 40px 24px;
     }
 
     .landing-page p {
