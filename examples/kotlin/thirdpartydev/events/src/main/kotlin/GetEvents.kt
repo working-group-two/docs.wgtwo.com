@@ -16,9 +16,7 @@ fun main() {
         .build()
     stub.subscribe(request, object : StreamObserver<EventsProto.SubscribeEventsResponse> {
         override fun onNext(response: EventsProto.SubscribeEventsResponse) {
-            response.eventList.forEach {
-                    event -> println("Received event of type: ${event.eventCase}")
-            }
+            println("Received event of type: ${response.event.eventCase}")
         }
 
         override fun onError(throwable: Throwable) {
