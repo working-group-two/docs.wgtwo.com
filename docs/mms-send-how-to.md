@@ -28,8 +28,8 @@ This example shows how you can send MMS. In order to send MMSes your credentials
 ## Send audio MMS
 <CodeSnippet
   :kotlinDeps="['mms-grpc', 'utils-grpc']"
-  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/mms/src/main/kotlin/SendAudioToSubscriber.kt"
-  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/mms/src/main/kotlin/SendAudioToSubscriber.kt"
+  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/mms/src/main/kotlin/com/wgtwo/examples/operator/mms/SendAudioToSubscriber.kt"
+  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/mms/src/main/kotlin/com/wgtwo/examples/thirdpartydev/mms/SendAudioToSubscriber.kt"
   />
 
 ## Concepts

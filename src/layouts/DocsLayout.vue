@@ -38,7 +38,7 @@
           <g-link
             v-if="nextPage"
             exact
-            class="button is-link is-inverted docs-nav__link"
+            class="button is-link is-inverted docs-nav__nextlink"
             :to="nextPage.path"
           >{{ nextPage.title }} &rarr;</g-link>
         </nav>
@@ -86,6 +86,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.docs-nav__nextlink {
+  margin-left: auto;
 }
 
 .docs-nav__container:not(:first-child) {

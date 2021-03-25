@@ -22,8 +22,8 @@ The Event API will allow you to subscribe on voicemail events, which can be used
   grpcurlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/operator/voicemail/list-voicemail.sh"
   grpcurlThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/voicemail/list-voicemail.sh"
   :kotlinDeps="['event-grpc', 'utils-grpc']"
-  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/voicemail/src/main/kotlin/ListVoicemail.kt"
-  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/voicemail/src/main/kotlin/ListVoicemail.kt"
+  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/voicemail/src/main/kotlin/com/wgtwo/examples/operator/voicemail/ListVoicemail.kt"
+  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/voicemail/src/main/kotlin/com/wgtwo/examples/thirdpartydev/voicemail/ListVoicemail.kt"
   />
 
 ## Play voicemail
@@ -31,8 +31,8 @@ The Event API will allow you to subscribe on voicemail events, which can be used
   grpcurlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/operator/voicemail/play-voicemail.sh"
   grpcurlThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/voicemail/play-voicemail.sh"
   :kotlinDeps="['event-grpc', 'utils-grpc']"
-  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/voicemail/src/main/kotlin/PlayVoicemail.kt"
-  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/voicemail/src/main/kotlin/PlayVoicemail.kt"
+  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/voicemail/src/main/kotlin/com/wgtwo/examples/operator/voicemail/PlayVoicemail.kt"
+  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/voicemail/src/main/kotlin/com/wgtwo/examples/thirdpartydev/voicemail/PlayVoicemail.kt"
   />
 
 
@@ -41,8 +41,8 @@ The Event API will allow you to subscribe on voicemail events, which can be used
   grpcurlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/operator/voicemail/mark-voicemail-as-read.sh"
   grpcurlThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/voicemail/mark-voicemail-as-read.sh"
   :kotlinDeps="['event-grpc', 'utils-grpc']"
-  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/voicemail/src/main/kotlin/MarkVoicemailAsRead.kt"
-  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/voicemail/src/main/kotlin/MarkVoicemailAsRead.kt"
+  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/voicemail/src/main/kotlin/com/wgtwo/examples/operator/voicemail/MarkVoicemailAsRead.kt"
+  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/voicemail/src/main/kotlin/com/wgtwo/examples/thirdpartydev/voicemail/MarkVoicemailAsRead.kt"
   />
 
 ## Delete voicemail
@@ -50,8 +50,8 @@ The Event API will allow you to subscribe on voicemail events, which can be used
   grpcurlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/operator/voicemail/delete-voicemail.sh"
   grpcurlThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/voicemail/delete-voicemail.sh"
   :kotlinDeps="['event-grpc', 'utils-grpc']"
-  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/voicemail/src/main/kotlin/DeleteVoicemail.kt"
-  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/voicemail/src/main/kotlin/DeleteVoicemail.kt"
+  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/voicemail/src/main/kotlin/com/wgtwo/examples/operator/voicemail/DeleteVoicemail.kt"
+  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/voicemail/src/main/kotlin/com/wgtwo/examples/thirdpartydev/voicemail/DeleteVoicemail.kt"
   />
 
 ## Concepts

@@ -13,7 +13,7 @@ hideWarning: true
 <CodeSnippet
   curlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/curl/operator/provision/get-subscription-info.sh"
   :kotlinDeps="['rest']"
-  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/provision/src/main/kotlin/GetSubscriptionInfo.kt"
+  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/provision/src/main/kotlin/com/wgtwo/examples/operator/provision/GetSubscriptionInfo.kt"
   />
 
 ## Activate new user
@@ -153,7 +153,7 @@ curl \
 <CodeSnippet
   curlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/curl/operator/provision/disable-roaming-data.sh"
   :kotlinDeps="['rest']"
-  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/provision/src/main/kotlin/DisableRoamingData.kt"
+  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/provision/src/main/kotlin/com/wgtwo/examples/operator/provision/DisableRoamingData.kt"
   />
 
 ## Enable roaming
@@ -184,7 +184,7 @@ curl \
 
 ## Add roaming data
 
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/provision/src/main/kotlin/EnableRoamingData.kt" language="kotlin" />
+<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/provision/src/main/kotlin/com/wgtwo/examples/operator/provision/EnableRoamingData.kt" language="kotlin" />
 
 ## Terminate subscription
 
