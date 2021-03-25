@@ -11,7 +11,7 @@
 
     <name>Events</name>
     <artifactId>events</artifactId>
-    <groupId>com.wgtwo.examples.operator</groupId>
+    <groupId>com.wgtwo.examples.thirdpartydev</groupId>
     <packaging>jar</packaging>
 
     <repositories>

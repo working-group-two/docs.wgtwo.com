@@ -1,3 +1,5 @@
+package com.wgtwo.examples.operator.sms
+
 import com.wgtwo.api.common.Environment
 import com.wgtwo.api.common.v0.PhoneNumberProto
 import com.wgtwo.api.sms.v0.SmsProto

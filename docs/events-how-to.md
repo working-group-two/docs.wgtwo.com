@@ -18,14 +18,15 @@ new voicemail received.
 
 ## Event types
 
-| Event type            | Operator | Third Party | Required right                 |
-|-----------------------|:--------:|:-----------:|--------------------------------|
-| VOICE_EVENT           |     ❔    |     ❔       | `events.voice.subscribe`       |
-| VOICEMAIL_EVENT       |     ✔    |     ✔       | `events.voicemail.subscribe`   |
-| SMS_EVENT             |     ✔    |     ✔       | `events.sms.subscribe`   |
-| LOCATION_UPDATE_EVENT |     ✔    |     ✔       | `events.location.subscribe`    |
-| ROAMING_EVENT         |     ✔    |     ✔       | `events.roaming.subscribe`     |
-| TOKEN_AUDIT_EVENT     |     ✔    |     ❌       | `events.audit.token.subscribe` |
+| Event type            | Operator | Third Party | Required right                    |
+|-----------------------|:--------:|:-----------:|-----------------------------------|
+| VOICE_EVENT           |     ✔    |     ✔       | `events.voice.subscribe`          |
+| VOICEMAIL_EVENT       |     ✔    |     ✔       | `events.voicemail.subscribe`      |
+| SMS_EVENT             |     ✔    |     ✔       | `events.sms.subscribe`            |
+| LOCATION_UPDATE_EVENT |     ✔    |     ✔       | `events.location.subscribe`       |
+| ROAMING_EVENT         |     ✔    |     ✔       | `events.roaming.subscribe`        |
+| TOKEN_AUDIT_EVENT     |     ✔    |     ❌       | `events.audit.token.subscribe`    |
+| HANDSET_UPDATE_EVENT  |     ❔    |     ❌       | `events.handset.update.subscribe` |
 
 |   |                   |
 |---|-------------------|
