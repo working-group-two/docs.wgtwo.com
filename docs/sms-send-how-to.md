@@ -30,14 +30,14 @@ This example shows how you can send text and binary SMSes. In order to send SMSe
   grpcurlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/operator/sms/send-text-sms.sh"
   grpcurlThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/sms/send-text-sms.sh"
   :kotlinDeps="['sms-grpc', 'utils-grpc']"
-  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/sms/src/main/kotlin/SendTextSmsToSubscriber.kt"
+  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/sms/src/main/kotlin/com/wgtwo/examples/operator/sms/SendTextSmsToSubscriber.kt"
   />
 
 ## Send binary SMS
 
 <CodeSnippet
   :kotlinDeps="['sms-grpc', 'utils-grpc']"
-  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/sms/src/main/kotlin/SendBinarySmsToSubscriber.kt"
+  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/sms/src/main/kotlin/com/wgtwo/examples/operator/sms/SendBinarySmsToSubscriber.kt"
   />
 
 ## Concepts
