@@ -113,7 +113,7 @@
                     icon: "VoicemailIcon",
                     title: "Voicemail",
                     text: "Access a subscribers Voicemail inbox, including the audio files.",
-                    url: "/voicemail/list-and-play-voicemails/"
+                    url: "/voicemail/list-play-delete-and-configure-voicemails/"
                 },
                 {
                     icon: "SubscriptionProfileIcon",
