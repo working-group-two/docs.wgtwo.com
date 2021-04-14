@@ -1,5 +1,5 @@
 ---
-title: List and play voicemails
+title: List, play, delete and configure voicemails
 topic: voicemail
 type: how-to
 roles:
@@ -7,7 +7,7 @@ roles:
   - OPERATOR
 ---
 
-# List and play voicemails
+# List, play, delete and configure voicemails
 
 ## Overview
 This API allows managing voicemail, including getting the actual content. In order to access this API,
@@ -52,6 +52,15 @@ The Event API will allow you to subscribe on voicemail events, which can be used
   :kotlinDeps="['event-grpc', 'utils-grpc']"
   kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/voicemail/src/main/kotlin/com/wgtwo/examples/operator/voicemail/DeleteVoicemail.kt"
   kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/voicemail/src/main/kotlin/com/wgtwo/examples/thirdpartydev/voicemail/DeleteVoicemail.kt"
+  />
+
+## Reset voicemail greeting
+<CodeSnippet
+  grpcurlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/operator/voicemail/reset-voicemail-greeting.sh"
+  grpcurlThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/voicemail/reset-voicemail-greeting.sh"
+  :kotlinDeps="['event-grpc', 'utils-grpc']"
+  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/voicemail/src/main/kotlin/com/wgtwo/examples/operator/voicemail/ResetVoicemailGreeting.kt"
+  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/voicemail/src/main/kotlin/com/wgtwo/examples/thirdpartydev/voicemail/ResetVoicemailGreeting.kt"
   />
 
 ## Concepts
