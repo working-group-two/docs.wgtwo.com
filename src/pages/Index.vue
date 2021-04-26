@@ -106,7 +106,7 @@
                 {
                     icon: "MmsIcon",
                     title: "MMS",
-                    text: "Send SMS to or from anyone on your platform.",
+                    text: "Send MMS to or from anyone on your platform.",
                     url: "/mms/send-mms/",
                 },
                 {
