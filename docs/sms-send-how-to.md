@@ -31,6 +31,7 @@ This example shows how you can send text and binary SMSes. In order to send SMSe
   grpcurlThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/sms/send-text-sms.sh"
   :kotlinDeps="['sms-grpc', 'utils-grpc']"
   kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/sms/src/main/kotlin/com/wgtwo/examples/operator/sms/SendTextSmsToSubscriber.kt"
+  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/sms/src/main/kotlin/com/wgtwo/examples/thirdpartydev/sms/SendTextSmsToSubscriber.kt"
   />
 
 ## Send binary SMS
@@ -38,6 +39,7 @@ This example shows how you can send text and binary SMSes. In order to send SMSe
 <CodeSnippet
   :kotlinDeps="['sms-grpc', 'utils-grpc']"
   kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/sms/src/main/kotlin/com/wgtwo/examples/operator/sms/SendBinarySmsToSubscriber.kt"
+  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/sms/src/main/kotlin/com/wgtwo/examples/thirdpartydev/sms/SendBinarySmsToSubscriber.kt"
   />
 
 ## Concepts
