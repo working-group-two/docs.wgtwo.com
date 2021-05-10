@@ -52,6 +52,8 @@
 </template>
 <script>
     import IntroIcon from "~/assets/images/introduction-icon.svg";
+    import CallForwardingIcon from "~/assets/images/call-forwarding-icon.svg";
+    import DataIcon from "~/assets/images/data-icon.svg";
     import EventsIcon from "~/assets/images/events-icon.svg";
     import SmsIcon from "~/assets/images/sms-icon.svg";
     import MmsIcon from "~/assets/images/mms-icon.svg";
@@ -71,6 +73,8 @@
         },
         components: {
             IntroIcon,
+            CallForwardingIcon,
+            DataIcon,
             EventsIcon,
             SmsIcon,
             MmsIcon,
@@ -92,18 +96,6 @@
                     url: "/auth/overview/"
                 },
                 {
-                    icon: "EventsIcon",
-                    title: "Data",
-                    text: "Manage your data connection",
-                    url: "/data/set-custom-dns/"
-                },
-                {
-                    icon: "EventsIcon",
-                    title: "Events",
-                    text: "Get events for anything happening in the network",
-                    url: "/events/listen-for-events/"
-                },
-                {
                     icon: "SmsIcon",
                     title: "SMS",
                     text: "Send SMS to or from anyone on your platform.",
@@ -116,10 +108,28 @@
                     url: "/mms/send-mms/",
                 },
                 {
+                    icon: "EventsIcon",
+                    title: "Events",
+                    text: "Get events for anything happening in the network",
+                    url: "/events/listen-for-events/"
+                },
+                {
+                    icon: "DataIcon",
+                    title: "Data",
+                    text: "Manage your data connection",
+                    url: "/data/set-custom-dns/"
+                },
+                {
                     icon: "VoicemailIcon",
                     title: "Voicemail",
                     text: "Access a subscribers Voicemail inbox, including the audio files.",
                     url: "/voicemail/list-play-delete-and-configure-voicemails/"
+                },
+                {
+                  icon: "CallForwardingIcon",
+                  title: "Call forwarding",
+                  text: "Set a subscribers call forwarding",
+                  url: "/call-forwarding/set-call-forwarding/"
                 },
                 {
                     icon: "SubscriptionProfileIcon",

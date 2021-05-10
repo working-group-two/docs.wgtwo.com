@@ -2,11 +2,12 @@ topic:
     - auth
     - oauth 2
     - operator token
-    - events
     - sms
     - mms
+    - events
     - data
     - voicemail
+    - call forwarding
     - subscription profile
     - metrics
 

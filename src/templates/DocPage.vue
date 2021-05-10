@@ -137,11 +137,22 @@ export default {
         ordering.type.map((el, index) => [el, index])
       );
 
+      const hash = function(str) {
+          let hash = 0, i, chr;
+          if (str.length === 0) return hash;
+          for (i = 0; i < str.length; i++) {
+              chr   = str.charCodeAt(i);
+              hash  = ((hash << 5) - hash) + chr;
+              hash |= 0; // Convert to 32bit integer
+          }
+          return hash;
+      };
+
       const sortTopics = (a, b) => {
         const map = topicsEnumerated;
-        const afterOthersValue = map.size.toString();
-        let aVal = map.has(a) ? map.get(a).toString() : afterOthersValue + a; // `+ a` and `+ b` are needed to order things the same each time
-        let bVal = map.has(b) ? map.get(b).toString() : afterOthersValue + b;
+        const afterOthersValue = map.size;
+        let aVal = map.has(a) ? map.get(a) : afterOthersValue + hash(a); // `+ hash(a)` and `+ hash(b)` are needed to order things the same each time
+        let bVal = map.has(b) ? map.get(b) : afterOthersValue + hash(b);
         return aVal < bVal ? -1 : 1;
       };
 
