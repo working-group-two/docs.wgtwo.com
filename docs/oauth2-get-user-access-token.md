@@ -1,54 +1,33 @@
 ---
-title: OAuth 2.0 authorization
-topic: auth
+title: Get user access token
+topic: oauth 2
 type: how-to
+typeOrder: 2
 roles:
   - THIRD_PARTY_DEVELOPER
 ---
 
-# OAuth 2.0 flow walkthrough
+# Get user access token
 
-## Set up an OAuth Client
+## Prerequisites
 
-In order to use our OAuth flow, you will need to create an OAuth client.
-This client is tied to a product in the _Developer Portal_.
+* An [oauth 2 client](/oauth-2/create-o-auth-2-client/).
 
-### Create client
-1. Sign in at https://developer.wgtwo.com
-2. Create an organization
-3. Create a product
-4. Go to the clients tab, and click `CREATE NEW CLIENT`
-
-<g-image src="@/assets/images/auth-create-client.png" alt="Set scopes" />
-
-| Field                             | Value                        |
-| --------------------------------- | ---------------------------- |
-| Client description                | this is a test               |
-| Login redirect URIs               | https://example.com/callback |
-| Post revoke consent redirect URIs | https://example.com/revoke   |
-
-The returned credentials will be displayed only once, so make sure to save them.
-
-### Set scopes
-1. Go to the `SCOPES` tab
-2. Enable the three standard OAuth 2.0 scopes
-
-<g-image src="@/assets/images/auth-set-scopes.png" alt="Set scopes" />
-
-### Enable product for operator
-1. Go to the `LISTING` tab
-2. Enable the product for the operator of your targetted phone number
-
-## Manually run the OAuth flow
-
-<!-- <DemoConfigurer /> -->
+## Use a library
 
 <b-notification type="is-warning is-light" aria-close-label="Close notification" role="alert" :closable="false">
     <div>
-      <p><b>We do not recommend implementing this flow manually</b></p>
-      <p>There are good OAuth libraries for all common language, so these examples are only useful for testing the flow.</p>
+      <p><strong>We do not recommend implementing this flow manually</strong></p>
+      <p>There are good OAuth libraries for all common languages, so these examples are only useful for testing the flow.</p>
     </div>
 </b-notification>
+
+## Resources
+
+* ScribeJava, a popular Java open source OAuth 2 client library: [github.com/scribejava/scribejava](https://github.com/scribejava/scribejava)
+* Auth0 description of how the _authorization code flow_ works [auth0.com/docs/flows/authorization-code-flow](https://auth0.com/docs/flows/authorization-code-flow)
+
+## Manually run the OAuth flow
 
 ### Open link in browser
 

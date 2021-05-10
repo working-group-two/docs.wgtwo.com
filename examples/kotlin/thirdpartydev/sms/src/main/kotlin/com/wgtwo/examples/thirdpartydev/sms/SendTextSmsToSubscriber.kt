@@ -5,10 +5,10 @@ import com.wgtwo.api.common.v0.PhoneNumberProto
 import com.wgtwo.api.sms.v0.SmsProto
 import com.wgtwo.api.sms.v0.SmsServiceGrpc
 import com.wgtwo.api.util.auth.Clients
-import com.wgtwo.api.util.auth.UserToken
+import com.wgtwo.api.util.auth.AccessToken
 
 private val channel = Clients.createChannel(Environment.PROD)
-private val credentials = UserToken("ACCESS_TOKEN") // Add your credentials
+private val credentials = AccessToken("ACCESS_TOKEN") // Add your credentials
 private val stub = SmsServiceGrpc.newBlockingStub(channel).withCallCredentials(credentials)
 
 fun main() {

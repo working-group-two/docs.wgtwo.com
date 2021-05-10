@@ -93,6 +93,12 @@
                 },
                 {
                     icon: "EventsIcon",
+                    title: "Data",
+                    text: "Manage your data connection",
+                    url: "/data/set-custom-dns/"
+                },
+                {
+                    icon: "EventsIcon",
                     title: "Events",
                     text: "Get events for anything happening in the network",
                     url: "/events/listen-for-events/"

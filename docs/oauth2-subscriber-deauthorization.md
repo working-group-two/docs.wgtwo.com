@@ -1,14 +1,14 @@
 ---
-title: OAuth 2.0 deauthorization
-topic: auth
-type: explanation
+title: Support revoking consent
+topic: oauth 2
+type: how-to
 roles:
   - THIRD_PARTY_DEVELOPER
 ---
 
-# OAuth 2.0 deauthorization
+# Support revoking consent
 
-For third party apps, we require app developers to implement subscriber initiated [revoking of consent](/auth/why-support-user-revoking-of-consent/),
+For third party apps, we require app developers to implement subscriber initiated [revoking of consent](/oauth-2/why-support-user-revoking-of-consent/),
 so that they can easily deauthorize an application.
 
 ## Definitions

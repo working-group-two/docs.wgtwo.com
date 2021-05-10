@@ -4,9 +4,9 @@ import com.wgtwo.api.common.Environment
 import com.wgtwo.api.voicemail.v0.VoicemailMediaServiceGrpc
 import com.wgtwo.api.voicemail.v0.VoicemailProto
 import com.wgtwo.api.util.auth.Clients
-import com.wgtwo.api.util.auth.UserToken
+import com.wgtwo.api.util.auth.AccessToken
 
-private val credentials = UserToken("ACCESS_TOKEN") // Add your credentials
+private val credentials = AccessToken("ACCESS_TOKEN") // Add your credentials
 private val voicemailUuid = "voicemail-uuid" // Target voicemail to delete
 
 private val channel = Clients.createChannel(Environment.PROD)

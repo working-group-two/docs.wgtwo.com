@@ -6,9 +6,9 @@ import com.wgtwo.api.common.v0.PhoneNumberProto
 import com.wgtwo.api.mms.v0.MmsProto
 import com.wgtwo.api.mms.v0.MmsServiceGrpc
 import com.wgtwo.api.util.auth.Clients
-import com.wgtwo.api.util.auth.UserToken
+import com.wgtwo.api.util.auth.AccessToken
 
-private val credentials = UserToken("ACCESS_TOKEN") // Add your credentials
+private val credentials = AccessToken("ACCESS_TOKEN") // Add your credentials
 private val phoneNumber = "+47xxxxxxxx" // Target your desired user
 
 private val channel = Clients.createChannel(Environment.PROD)

@@ -18,21 +18,67 @@ new voicemail received.
 
 ## Event types
 
-| Event type            | Operator | Third Party | Required right                    |
-|-----------------------|:--------:|:-----------:|-----------------------------------|
-| VOICE_EVENT           |     ✔    |     ✔       | `events.voice.subscribe`          |
-| VOICEMAIL_EVENT       |     ✔    |     ✔       | `events.voicemail.subscribe`      |
-| SMS_EVENT             |     ✔    |     ✔       | `events.sms.subscribe`            |
-| LOCATION_UPDATE_EVENT |     ✔    |     ✔       | `events.location.subscribe`       |
-| ROAMING_EVENT         |     ✔    |     ✔       | `events.roaming.subscribe`        |
-| TOKEN_AUDIT_EVENT     |     ✔    |     ❌       | `events.audit.token.subscribe`    |
-| HANDSET_UPDATE_EVENT  |     ❔    |     ❌       | `events.handset.update.subscribe` |
+| Event type            | Operator | Third Party | Required right                         |
+|-----------------------|:--------:|:-----------:|----------------------------------------|
+| CONSENT_REVOKE_EVENT  |     ❌    |     ✔       |                                        |
+| HANDSET_UPDATE_EVENT  |     ✔    |     ✔       | `events.handset_update.subscribe`      |
+| LOCATION_UPDATE_EVENT |     ✔    |     ✔       | `events.location.subscribe`            |
+| ROAMING_EVENT         |     ✔    |     ✔       | `events.roaming.subscribe`             |
+| SMS_EVENT             |     ✔    |     ✔       | `events.sms.subscribe`                 |
+| SMS_DELIVERY_EVENT    |     ✔    |     ✔       | `events.sms_delivery_report.subscribe` |
+| TOKEN_AUDIT_EVENT     |     ✔    |     ❌       | `events.audit.token.subscribe`         |
+| VOICE_EVENT           |     ✔    |     ✔       | `events.voice.subscribe`               |
+| VOICEMAIL_EVENT       |     ✔    |     ✔       | `events.voicemail.subscribe`           |
+
 
 |   |                   |
 |---|-------------------|
 | ✔ | Available         |
 | ❌ | Not available     |
-| ❔ | Under development |
+
+#### Consent revoke
+This event will fire when the OAuth2.0 consent is revoked for a subscription.
+
+It allows the application to cleanup user state. This may either be via our
+revoke flow or from customer support.
+
+#### Handset update
+This event will fire when a SIM card is used in a new device.
+
+It will contain the previous and current IMEI.
+
+#### Location update
+This event will fire when the handset is registering at a new location.
+
+#### Roaming
+This event will fire on the first location update in a new country.
+
+It will contain the country code and name for the previous and current country.
+
+#### Sms
+This event will fire every time an SMS is sent or received by the handset.
+
+This contains the from and to address in addition to the actual content of the SMS.
+
+#### Sms delivery report
+This event will fire when a SMS delivery report is generated.
+
+This contains the from and to address, and the status for the SMS sent.
+
+#### Token Audit
+This will fire for credentials created by the operator.
+
+This is for audit purposes for operators, and is not directly tied to a single subscription.
+
+#### Voice
+This will fire for when a call is initiated, ringing, answered, sent to voicemail or hung up.
+It will contain from and to number, call ID and which type of call event it is.
+
+#### Voicemail
+This will fire when a voicemail is left for a subscription.
+
+It contains from and to number and the ID of the voicemail. The actual content of the voicemail may be retrieved by
+a separate API using this ID.
 
 <DemoConfigurer />
 

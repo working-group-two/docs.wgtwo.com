@@ -1,8 +1,11 @@
 topic:
     - auth
+    - oauth 2
+    - operator token
     - events
     - sms
     - mms
+    - data
     - voicemail
     - subscription profile
     - metrics

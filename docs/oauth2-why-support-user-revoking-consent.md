@@ -1,7 +1,6 @@
 ---
 title: Why support user revoking of consent
-hideFromMenu: true
-topic: auth
+topic: oauth 2
 type: explanation
 roles:
   - THIRD_PARTY_DEVELOPER

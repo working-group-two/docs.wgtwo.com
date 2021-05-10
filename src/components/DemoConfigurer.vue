@@ -16,8 +16,7 @@
           :key="0"
         >
           <p>
-            Enter your
-            <g-link to="/auth/o-auth-2-0-authorization/">access_token</g-link>, and it will be injected into the code examples below.
+            Enter your OAuth 2 user or client <code>access token</code> and it will be injected into the code examples below.
           </p>
           <b-field label="access_token" label-position="inside">
             <b-input
@@ -113,7 +112,7 @@ h3:before {
 
 .demo-config {
   border: 1px solid rgba(0, 0, 0, 0.15);
-  padding: 16px 16px 8px 16px;
+  padding: 16px;
   border-radius: 5px;
   background: rgba(0, 0, 0, 0.01);
   margin-bottom: 16px;

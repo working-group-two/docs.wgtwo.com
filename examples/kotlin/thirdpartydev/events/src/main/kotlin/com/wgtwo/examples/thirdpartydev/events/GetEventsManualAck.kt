@@ -4,12 +4,12 @@ import com.wgtwo.api.common.Environment
 import com.wgtwo.api.events.v0.EventsProto
 import com.wgtwo.api.events.v0.EventsServiceGrpc
 import com.wgtwo.api.util.auth.Clients
-import com.wgtwo.api.util.auth.UserToken
+import com.wgtwo.api.util.auth.AccessToken
 import io.grpc.stub.StreamObserver
 import com.google.protobuf.util.Durations
 
 private val channel = Clients.createChannel(Environment.PROD)
-private val credentials = UserToken("ACCESS_TOKEN") // Add your credentials
+private val credentials = AccessToken("ACCESS_TOKEN") // Add your _client credentials_ access token (not user access token)
 private val stub = EventsServiceGrpc.newStub(channel).withCallCredentials(credentials)
 
 fun main() {

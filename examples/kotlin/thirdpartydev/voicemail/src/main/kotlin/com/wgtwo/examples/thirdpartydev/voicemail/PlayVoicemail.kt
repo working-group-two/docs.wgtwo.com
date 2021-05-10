@@ -4,13 +4,13 @@ import com.wgtwo.api.common.Environment
 import com.wgtwo.api.voicemail.v0.VoicemailMediaServiceGrpc
 import com.wgtwo.api.voicemail.v0.VoicemailProto
 import com.wgtwo.api.util.auth.Clients
-import com.wgtwo.api.util.auth.UserToken
+import com.wgtwo.api.util.auth.AccessToken
 import javax.sound.sampled.AudioInputStream
 import javax.sound.sampled.AudioSystem
 import javax.sound.sampled.Clip
 import javax.sound.sampled.DataLine
 
-private val credentials = UserToken("ACCESS_TOKEN") // Add your credentials
+private val credentials = AccessToken("ACCESS_TOKEN") // Add your credentials
 private val voicemailUuid = "voicemail-uuid" // Target voicemail to play
 
 private val channel = Clients.createChannel(Environment.PROD)
