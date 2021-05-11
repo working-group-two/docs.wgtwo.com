@@ -1,4 +1,4 @@
-package com.wgtwo.examples.operator.data
+package com.wgtwo.examples.thirdpartydev.data
 
 import com.wgtwo.api.common.Environment
 import com.wgtwo.api.common.v0.PhoneNumberProto

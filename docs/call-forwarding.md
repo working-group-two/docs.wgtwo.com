@@ -39,7 +39,7 @@ grpcurlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master
 grpcurlThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/forwarding/unconditional_to_number.sh"
 :kotlinDeps="['data-grpc', 'utils-grpc']"
 kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/forwarding/src/main/kotlin/com/wgtwo/examples/operator/forwarding/UnconditionalCallForwardingToNumber.kt"
-kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/operator/forwarding/UnconditionalCallForwardingToNumber.kt"
+kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/thirdpartydev/forwarding/UnconditionalCallForwardingToNumber.kt"
 />
 
 
@@ -50,7 +50,7 @@ grpcurlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master
 grpcurlThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/forwarding/conditional_to_number.sh"
 :kotlinDeps="['data-grpc', 'utils-grpc']"
 kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/forwarding/src/main/kotlin/com/wgtwo/examples/operator/forwarding/ConditionalCallForwardingToNumber.kt"
-kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/operator/forwarding/ConditionalCallForwardingToNumber.kt"
+kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/thirdpartydev/forwarding/ConditionalCallForwardingToNumber.kt"
 />
 
 
@@ -61,7 +61,7 @@ grpcurlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master
 grpcurlThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/forwarding/unconditional_to_trunk.sh"
 :kotlinDeps="['data-grpc', 'utils-grpc']"
 kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/forwarding/src/main/kotlin/com/wgtwo/examples/operator/forwarding/UnconditionalCallForwardingToTrunk.kt"
-kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/operator/forwarding/UnconditionalCallForwardingToTrunk.kt"
+kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/thirdpartydev/forwarding/UnconditionalCallForwardingToTrunk.kt"
 />
 
 
@@ -72,7 +72,7 @@ grpcurlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master
 grpcurlThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/forwarding/conditional_to_voicemail.sh"
 :kotlinDeps="['data-grpc', 'utils-grpc']"
 kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/forwarding/src/main/kotlin/com/wgtwo/examples/operator/forwarding/ConditionalCallForwardingToVoicemail.kt"
-kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/operator/forwarding/ConditionalCallForwardingToVoicemail.kt"
+kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/thirdpartydev/forwarding/ConditionalCallForwardingToVoicemail.kt"
 />
 
 
@@ -83,7 +83,7 @@ grpcurlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master
 grpcurlThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/forwarding/disable.sh"
 :kotlinDeps="['data-grpc', 'utils-grpc']"
 kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/forwarding/src/main/kotlin/com/wgtwo/examples/operator/forwarding/DisableCallForwarding.kt"
-kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/operator/forwarding/DisableCallForwarding.kt"
+kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/thirdpartydev/forwarding/DisableCallForwarding.kt"
 />
 
 ## Concepts
