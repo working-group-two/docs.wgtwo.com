@@ -27,7 +27,7 @@ you must include at least one primary DNS server.
   grpcurlThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/data/set-dns.sh"
   :kotlinDeps="['data-grpc', 'utils-grpc']"
   kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/data/src/main/kotlin/com/wgtwo/examples/operator/data/SetCustomDns.kt"
-  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/data/src/main/kotlin/com/wgtwo/examples/operator/data/SetCustomDns.kt"
+  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/data/src/main/kotlin/com/wgtwo/examples/thirdpartydev/data/SetCustomDns.kt"
   />
 
 ## Get current custom DNS config
@@ -37,7 +37,7 @@ you must include at least one primary DNS server.
   grpcurlThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/data/get-dns.sh"
   :kotlinDeps="['data-grpc', 'utils-grpc']"
   kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/data/src/main/kotlin/com/wgtwo/examples/operator/data/GetCustomDns.kt"
-  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/data/src/main/kotlin/com/wgtwo/examples/operator/data/GetCustomDns.kt"
+  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/data/src/main/kotlin/com/wgtwo/examples/thirdpartydev/data/GetCustomDns.kt"
 />
 
 ## Clear custom DNS config
@@ -47,7 +47,7 @@ you must include at least one primary DNS server.
   grpcurlThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/data/clear-dns.sh"
   :kotlinDeps="['data-grpc', 'utils-grpc']"
   kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/data/src/main/kotlin/com/wgtwo/examples/operator/data/ClearCustomDns.kt"
-  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/data/src/main/kotlin/com/wgtwo/examples/operator/data/ClearCustomDns.kt"
+  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/data/src/main/kotlin/com/wgtwo/examples/thirdpartydev/data/ClearCustomDns.kt"
 />
 
 ## Concepts

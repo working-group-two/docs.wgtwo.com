@@ -8,7 +8,7 @@ roles:
 - OPERATOR
 ---
 
-# How to set a custom DNS for a data connection
+# How to set up call forwarding
 
 ## Overview
 This example shows you how to forward calls to other numbers or services. In order to forward calls
