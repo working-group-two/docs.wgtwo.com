@@ -112,7 +112,7 @@ https://github.com/jgthms/bulma/issues/1708#issuecomment-382560341 */
 .docsnav-container .docsnav {
   position: sticky;
   top: calc(var(--nav-sticky-top-position) - 1.5rem); /* subtract padding */
-  height: calc(100vh + var(--nav-sticky-top-position) * -1 - 40px);
+  height: calc(100vh - var(--nav-sticky-top-position));
   overflow-x: hidden;
 }
 
