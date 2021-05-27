@@ -13,7 +13,7 @@
       <role-selection></role-selection>
     </b-modal>
     <div class="role-selection-container">
-      Viewing docs as
+      View docs for
       <b-button
               class="button is-role role-selection-button"
               @click="isRoleModalActive = true"

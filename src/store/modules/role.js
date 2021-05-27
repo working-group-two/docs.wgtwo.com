@@ -16,11 +16,11 @@ const state = () => ({
 const getters = {
   roleButtonText({ role }) {
     if (role === "THIRD_PARTY_DEVELOPER") {
-      return "Third party developer";
+      return "Subscriber products";
     } else if (role === "OPERATOR") {
-      return "Mobile operator";
+      return "Telecom operator products";
     }
-    return "Any role";
+    return "Any type of product";
   },
   roleName({ role }) {
     return roleNames[role];
