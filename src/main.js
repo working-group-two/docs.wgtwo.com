@@ -3,6 +3,8 @@
 
 
 import Buefy from 'buefy'
+import Hotjar from 'vue-hotjar'
+
 import 'prismjs/themes/prism-okaidia.css'
 import '~/assets/style/index.scss'
 
@@ -19,7 +21,12 @@ import CodeSnippet from "@/components/CodeSnippet.vue";
 
 export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.use(Buefy)
-  
+  if (isClient) {
+    Vue.use(Hotjar, {
+      id: '2432927' // Hotjar Site ID
+    });
+  }
+
   appOptions.store = store
   appOptions.beforeCreate = () => {
     store.dispatch('initialiseRoles')
