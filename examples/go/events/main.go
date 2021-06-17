@@ -24,7 +24,7 @@ func main() {
 		ClientID:     os.Getenv("CLIENT_ID"),
 		ClientSecret: os.Getenv("CLIENT_SECRET"),
 		Scopes: []string{
-			"events.handset_update.subscribe",
+			"events.sms.subscribe",
 		},
 		TokenURL: "https://id.wgtwo.com/oauth2/token",
 	}
@@ -45,7 +45,7 @@ func main() {
 
 	client := wgtwoEvents.NewEventsServiceClient(conn)
 	request := &wgtwoEvents.SubscribeEventsRequest{
-		Type:          []wgtwoEvents.EventType{wgtwoEvents.EventType_HANDSET_UPDATE_EVENT},
+		Type:          []wgtwoEvents.EventType{wgtwoEvents.EventType_SMS_EVENT},
 		StartPosition: &wgtwoEvents.SubscribeEventsRequest_StartAtOldestPossible{},
 		ClientId:      uuid.New().String(),
 		QueueName:     "test",

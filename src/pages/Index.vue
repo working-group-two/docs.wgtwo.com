@@ -13,6 +13,14 @@
             </section>
             <section class="intro-boxes">
                 <div class="intro-box">
+                    <h3 class="title is-3">Getting started</h3>
+                    <p>
+                      <a href="/intro/getting-started/">Quick guide for connecting to our API</a>
+                    </p>
+                </div>
+            </section>
+            <section class="intro-boxes">
+                <div class="intro-box">
                     <h3 class="title is-3">Third Party Developers</h3>
                     <p>
                         If you're a third party developer (someone who has no relation to us),

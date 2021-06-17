@@ -1,13 +1,13 @@
 ---
-title: Create OAuth 2 client
-topic: oauth 2
+title: Create OAuth 2.0 client
+topic: oauth 2.0
 type: how-to
 typeOrder: 1
 roles:
   - THIRD_PARTY_DEVELOPER
 ---
 
-# Create OAuth 2 client
+# Create OAuth 2.0 client
 
 In order to use our OAuth flow, you will need to create an OAuth client.
 This client is tied to a product in the _Developer Portal_.
@@ -17,6 +17,11 @@ This client is tied to a product in the _Developer Portal_.
 2. Create an organization
 3. Create a product
 4. Go to the clients tab, and click `CREATE NEW CLIENT`
+
+If you are creating a product for subscribers, you will need to fill in your redirect URIs as you will be using OAuth
+2.0's Authorization Code Flow.
+
+For operator products this info is not required as you will be using the Client Credentials Flow.
 
 <g-image src="@/assets/images/auth-create-client.png" alt="Set scopes" />
 
@@ -36,4 +41,10 @@ The returned credentials will be displayed only once, so make sure to save them.
 
 ## Enable product for operator
 1. Go to the `LISTING` tab
-2. Enable the product for the operator of your targetted phone number
+2. Enable the product for the operators that should be allowed to add your product 
+
+## That's it
+You can now start playing with our APIs!
+
+In order to get your product displayed in our market placed, you will need to fill in some extra information.
+But before you do that, please go ahead with your integration.

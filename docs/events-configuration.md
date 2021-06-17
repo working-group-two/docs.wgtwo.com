@@ -14,14 +14,49 @@ Depending on your need, you may choose between some different types of subscript
 For simple testing, you may start with a regular subscription without setting any other parameters than the list of
 event types you would like to receive.
 
-For most production usages, we would recommenced enabling manual acknowledgement and a subscription using queue name
-and durable name. This would allow you to ensure you don't drop any events while sharing load between the clients.
+**Example:**
+```json
+{
+  "type": ["HANDSET_UPDATE_EVENT"]
+}
+```
 
-Enabling manual acknowledgement would allow clients to rate limit traffic and ensure all events are properly processed,
-by e.g. only acking after it is stored in database.
+## Recommended production configuration
+For production, we do recommend the following settings:
 
-It is also recommended to design the event processing such that events may be processed out of order as that would allow
-enabling multiple in-flight messages.
+1. `queue_name` _Events are shared between all listeners with this name._
+2. `durable_name` _Even if all clients are disconnected, you will still be able to resume from current position._
+3. `manual _ack` _You can ack after you have successfully read the message to ensure nothing is lost in transit. If a message is not acked, it will be resent._
+4. `max_in_flight` _You will not have more than this amount of unacknowledged messages_
+
+**Example**
+```json
+{
+  "queue_name": "my-queue-name",
+  "durable_name": "my-durable-name",
+  "max_in_flight": 50,
+  "manual_ack": {
+    "enable": true,
+    "timeout": "30s"
+  }
+}
+```
+
+Setting queue and durable name will allow you can share load between your instances, and that you can resume streaming
+of the events from your current position if your client goes down.
+
+Enabling `manual_ack` and setting `max_in_flight` will allow clients to rate limit traffic, and ensure events are
+not dropped before they are properly handled.
+
+It is recommended to ensure event processing is done such that events may be processed out of order. If processing
+_must_ be done in order, `max_in_flight` must be set to `1`. 
+
+
+> **Note**
+> 
+> Streams are expected to timeout or disconnect.
+> When this happens, the client is expected to simply reconnect.
+> As the client has `durable_name` set, the client will resume where it left.
 
 ## Start position
 Our event server keeps 30 minutes of history.

@@ -1,6 +1,6 @@
 ---
 title: Why support user revoking of consent
-topic: oauth 2
+topic: oauth 2.0
 type: explanation
 roles:
   - THIRD_PARTY_DEVELOPER

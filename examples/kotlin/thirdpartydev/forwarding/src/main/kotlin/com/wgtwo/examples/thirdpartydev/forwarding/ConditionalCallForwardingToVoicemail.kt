@@ -1,6 +1,5 @@
 package com.wgtwo.examples.thirdpartydev.forwarding
 
-import com.google.protobuf.Empty
 import com.wgtwo.api.callforward.v0.CallForwardingProto
 import com.wgtwo.api.callforward.v0.CallForwardingServiceGrpc
 import com.wgtwo.api.common.Environment
@@ -18,7 +17,6 @@ fun main() {
             this.e164 = "+4672xxxxxxx"
             build()
         }
-        this.default = Empty() 
         build()
     }
 

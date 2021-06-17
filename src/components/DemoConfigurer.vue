@@ -16,7 +16,7 @@
           :key="0"
         >
           <p>
-            Enter your OAuth 2 user or client <code>access token</code> and it will be injected into the code examples below.
+            Enter your OAuth 2.0 <code>access token</code> and it will be injected into the code examples below.
           </p>
           <b-field label="access_token" label-position="inside">
             <b-input

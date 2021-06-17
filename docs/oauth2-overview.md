@@ -1,6 +1,6 @@
 ---
 title: Overview
-topic: oauth 2
+topic: oauth 2.0
 type: overview
 roles:
   - THIRD_PARTY_DEVELOPER

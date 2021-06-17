@@ -18,6 +18,7 @@ import JitpackDependency from '~/components/deps/JitpackDependency.vue'
 import ClientDependencies from "./components/deps/ClientDependencies"
 import DemoConfigurer from '~/components/DemoConfigurer.vue'
 import CodeSnippet from "@/components/CodeSnippet.vue";
+import ClientCredentials from "@/components/ClientCredentials.vue";
 
 export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.use(Buefy)
@@ -42,6 +43,7 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component('ClientDependencies', ClientDependencies)
   Vue.component('DemoConfigurer', DemoConfigurer)
   Vue.component('CodeSnippet', CodeSnippet)
+  Vue.component('ClientCredentials', ClientCredentials)
   head.link.push({
     rel: 'stylesheet',
     href: 'https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css'

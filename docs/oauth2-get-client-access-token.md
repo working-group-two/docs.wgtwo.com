@@ -1,6 +1,6 @@
 ---
 title: Get client access token
-topic: oauth 2
+topic: oauth 2.0
 type: how-to
 typeOrder: 3
 roles:
@@ -11,7 +11,7 @@ roles:
 
 ## Prerequisites
 
-* An [oauth 2 client](/oauth-2/create-o-auth-2-client/).
+* An [OAuth 2.0 client](/oauth-2-0/create-o-auth-2-0-client/).
 
 ## Use a library
 
@@ -24,5 +24,5 @@ roles:
 
 ## Resources
 
-* ScribeJava, a popular Java open source OAuth 2 client library: [github.com/scribejava/scribejava](https://github.com/scribejava/scribejava)
+* ScribeJava, a popular Java open source OAuth 2.0 client library: [github.com/scribejava/scribejava](https://github.com/scribejava/scribejava)
 * Auth0 description of how the _client credential flow_ works: [auth0.com/docs/flows/client-credentials-flow](https://auth0.com/docs/flows/client-credentials-flow)
