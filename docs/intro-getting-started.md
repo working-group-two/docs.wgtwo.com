@@ -72,7 +72,7 @@ docker run -v $(pwd)/wgtwo.bin:/wgtwo.bin -p 8080:8080 \
 
 ## Production environment
 
-Our production environment is hosted at `apisandbox.dub.prod.wgtwo.com`.
+Our production environment is hosted at `api.wgtwo.com`.
 
 This part of the guide will show you how to create a OAuth 2.0 token and use that to connected to our event stream.
 
