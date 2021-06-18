@@ -230,18 +230,18 @@ func ack(client wgtwoEvents.EventsServiceClient, event *wgtwoEvents.Event) {
 ## What's next?
 
 ### I am building a subscriber product
-All APIs, except the event API, will require a access token obtained via the Authorization Code Grant.
+All APIs, except the event API, will require an access token obtained via the Authorization Code Grant.
 
-By implementing this flow, your users will authenticate at our platform and grant the consents your application
+By implementing this flow, your users will authenticate on our platform and grant the consents your application
 requires. Once this flow is up, you can start using the API.
 
 There is a special event named `CONSENT_REVOKE_EVENT` that we do recommend you to listen for, as this will fire if the
-product is removed by the user through e.g. customer support.
+consent is removed by the user through e.g. customer support.
 
-When you are done with your testing, you may submit your product so that it can be listed at our marketplace.
+When you are done with your testing, you may submit your product so that it can be reviewed and listed in our marketplace.
 
 ## I am building an operator product
-You cannot add any test subscriptions yourself. By contacting us, we may add real subscriptions to be included for your
-product so that you can do real life testing.
+You can contact us directly at products@wgtwo.com in order to add a test subscription to your product.
+Unfortunately, at this time it is not possible to do this yourself.
 
-When you are done with your testing, you may submit your product so that it can be listed at our marketplace.
+When you are done with your testing, you may submit your product so that it can be reviewd and listed in our marketplace.

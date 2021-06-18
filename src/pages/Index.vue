@@ -13,14 +13,6 @@
             </section>
             <section class="intro-boxes">
                 <div class="intro-box">
-                    <h3 class="title is-3">Getting started</h3>
-                    <p>
-                      <a href="/intro/getting-started/">Quick guide for connecting to our API</a>
-                    </p>
-                </div>
-            </section>
-            <section class="intro-boxes">
-                <div class="intro-box">
                     <h3 class="title is-3">Third Party Developers</h3>
                     <p>
                         If you're a third party developer (someone who has no relation to us),
@@ -40,6 +32,21 @@
                     </p>
                 </div>
             </section>
+          <section>
+            <h3 class="title is-3">Getting started</h3>
+            <div class="api-boxes">
+              <g-link v-for="entry in intro" :to="entry.url" class="api-box" :key="entry.title">
+                <div class="api-icon-wrap">
+                  <component :is="entry.icon"></component>
+                </div>
+                <div class="title-and-text">
+                  <h4 class="title is-4">{{entry.title}}</h4>
+                  <p>{{entry.text}}</p>
+                </div>
+                <b-icon icon="arrow-right" size="is-medium" type="is-primary"></b-icon>
+              </g-link>
+            </div>
+          </section>
             <section>
                 <h3 class="title is-3">Available APIs</h3>
                 <div class="api-boxes">
@@ -96,13 +103,21 @@
             IllustrationPlant
         },
         data: () => ({
+            intro: [
+              {
+                icon: "IntroIcon",
+                title: "Quickstart guide",
+                text: "Start playing with our APIs.",
+                url: "intro/getting-started/"
+              },
+              {
+                icon: "AuthIcon",
+                title: "Authorization",
+                text: "Connect to our OAuth 2.0 server.",
+                url: "/oauth-2-0/overview/"
+              },
+            ],
             apis: [
-                {
-                    icon: "AuthIcon",
-                    title: "Authorization",
-                    text: "We support authorization for operators and third party developers.",
-                    url: "/auth/overview/"
-                },
                 {
                     icon: "SmsIcon",
                     title: "SMS",

@@ -41,10 +41,12 @@ The returned credentials will be displayed only once, so make sure to save them.
 
 ## Enable product for operator
 1. Go to the `LISTING` tab
-2. Enable the product for the operators that should be allowed to add your product 
+2. Select the operators you want to make your product available for. Operators will then be able to enable this product for their subscribers. 
 
 ## That's it
 You can now start playing with our APIs!
 
 In order to get your product displayed in our market placed, you will need to fill in some extra information.
 But before you do that, please go ahead with your integration.
+
+All fields can be changed until you submit your product, so feel free to keep updating it. 
