@@ -106,9 +106,15 @@
             intro: [
               {
                 icon: "IntroIcon",
-                title: "Quickstart guide",
+                title: "Quickstart Guide",
                 text: "Start playing with our APIs.",
-                url: "intro/getting-started/"
+                url: "/intro/getting-started/"
+              },
+              {
+                icon: "IntroIcon",
+                title: "API Structure and Libraries",
+                text: "Supported languages and SDKs.",
+                url: "/intro/api-structure-and-libraries/"
               },
               {
                 icon: "AuthIcon",

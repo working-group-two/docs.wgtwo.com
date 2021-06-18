@@ -2,6 +2,7 @@
 title: Getting started
 topic: intro
 type: how-to
+typeOrder: 1
 roles:
 - THIRD_PARTY_DEVELOPER
 ---
@@ -244,4 +245,4 @@ When you are done with your testing, you may submit your product so that it can 
 You can contact us directly at products@wgtwo.com in order to add a test subscription to your product.
 Unfortunately, at this time it is not possible to do this yourself.
 
-When you are done with your testing, you may submit your product so that it can be reviewd and listed in our marketplace.
+When you are done with your testing, you may submit your product so that it can be reviewed and listed in our marketplace.
