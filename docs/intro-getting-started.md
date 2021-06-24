@@ -4,7 +4,8 @@ topic: intro
 type: how-to
 typeOrder: 1
 roles:
-- THIRD_PARTY_DEVELOPER
+  - THIRD_PARTY_DEVELOPER
+  - OPERATOR
 ---
 
 # Getting started

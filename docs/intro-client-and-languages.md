@@ -4,7 +4,8 @@ topic: intro
 type: how-to
 typeOrder: 2
 roles:
-- THIRD_PARTY_DEVELOPER
+  - THIRD_PARTY_DEVELOPER
+  - OPERATOR
 ---
 
 # API Structure and Libraries
