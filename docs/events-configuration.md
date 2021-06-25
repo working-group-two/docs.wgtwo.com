@@ -22,7 +22,7 @@ event types you would like to receive.
 ```
 
 ## Recommended production configuration
-For production, we do recommend the following settings:
+For production, we recommend the following settings:
 
 1. `queue_name` _Events are shared between all listeners with this name._
 2. `durable_name` _Even if all clients are disconnected, you will still be able to resume from current position._

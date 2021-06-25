@@ -7,30 +7,48 @@
       role="alert"
       :closable="false"
       v-show="role !== '' && !availableRoles.has(role)"
-    >API is not available for {{ roleName }}.</b-notification>
+      >API is not available for {{ roleName }}.</b-notification
+    >
     <div class="demo-config">
-      <b-tabs :value="activeRoleTab" @input="setActiveRoleTab" :animated="false">
+      <b-tabs
+        :value="activeRoleTab"
+        @input="setActiveRoleTab"
+        :animated="false"
+      >
         <b-tab-item
           label="Third party developer"
           :disabled="!availableRoles.has('THIRD_PARTY_DEVELOPER')"
           :key="0"
         >
           <p>
-            Enter your OAuth 2.0 <code>access token</code> and it will be injected into the code examples below.
+            Enter your OAuth 2.0 access token and
+            it will be injected into the code examples below.
           </p>
-          <b-field label="access_token" label-position="inside">
+          <p>
+            <code>ACCESS_TOKEN</code> token is ambigious for user/client access
+            token.
+          </p>
+          <b-field label="Access token" label-position="inside">
             <b-input
               :value="accessToken"
               @input="setCredential({ type: 'accessToken', value: $event })"
               placeholder="ex: c2FkZmtsc2FkamZsa2phc2Rsa2ZqYXNkZ"
             ></b-input>
           </b-field>
+          <p>
+            Credentials will be cleared when you close the page.
+          </p>
         </b-tab-item>
 
-        <b-tab-item label="Operator" :disabled="!availableRoles.has('OPERATOR')" :key="1">
+        <b-tab-item
+          label="Operator"
+          :disabled="!availableRoles.has('OPERATOR')"
+          :key="1"
+        >
           <p>
             Enter your Client ID and Secret from
-            <a href="https://console.wgtwo.com/api-keys-redirect">Console</a> here, and they will be injected into the code examples below.
+            <a href="https://console.wgtwo.com/api-keys-redirect">Console</a>
+            here, and they will be injected into the code examples below.
             Remember to set the appropriate rights for the client.
           </p>
           <div class="half-flex">
@@ -38,7 +56,8 @@
               <b-input
                 :value="clientId"
                 @input="setCredential({ type: 'clientId', value: $event })"
-                placeholder="ex: c2FkZmtsc2FkamZsa2phc2Rsa2ZqYXNkZ"></b-input>
+                placeholder="ex: c2FkZmtsc2FkamZsa2phc2Rsa2ZqYXNkZ"
+              ></b-input>
             </b-field>
             <b-field label="Client Secret" label-position="inside">
               <b-input
@@ -48,18 +67,27 @@
               ></b-input>
             </b-field>
           </div>
+          Credentials will be cleared when you close the page.
         </b-tab-item>
 
-        <b-tab-item label="Subscriber" :disabled="!availableRoles.has('SUBSCRIBER')" :visible="false" :key="2">
+        <b-tab-item
+          label="Subscriber"
+          :disabled="!availableRoles.has('SUBSCRIBER')"
+          :visible="false"
+          :key="2"
+        >
           <b-notification
             type="is-danger"
             aria-close-label="Close notification"
             role="alert"
             :closable="false"
-          >Subscriber based tokens is not officially supported yet, and may not work.</b-notification>
+            >Subscriber based tokens is not officially supported yet, and may
+            not work.</b-notification
+          >
           <p>
             Enter your
-            <g-link to="/auth/overview/">user token</g-link>, and it will be injected into the code examples below.
+            <g-link to="/auth/overview/">user token</g-link>, and it will be
+            injected into the code examples below.
           </p>
           <b-field label="User token" label-position="inside">
             <b-input
@@ -68,35 +96,31 @@
               placeholder="ex: wg2:c2FkZmtsc2FkamZsa2phc2Rsa2ZqYXNkZ"
             ></b-input>
           </b-field>
+          Credentials will be cleared when you close the page.
         </b-tab-item>
-      </b-tabs>Credentials will be cleared when you close the page.
+      </b-tabs>
     </div>
   </div>
 </template>
 <script>
-import { mapGetters , mapState, mapMutations, mapActions } from 'vuex';
+import { mapGetters, mapState, mapMutations, mapActions } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters([
-      'roleName',
-    ]),
+    ...mapGetters(["roleName"]),
     ...mapState({
-      role: state => state.role.role,
-      availableRoles: state => state.role.availableRoles,
-      activeRoleTab: state => state.role.activeRoleTab,
-      accessToken: state => state.credentials.accessToken,
-      clientId: state => state.credentials.clientId,
-      clientSecret: state => state.credentials.clientSecret,
-      userToken: state => state.credentials.userToken,
+      role: (state) => state.role.role,
+      availableRoles: (state) => state.role.availableRoles,
+      activeRoleTab: (state) => state.role.activeRoleTab,
+      accessToken: (state) => state.credentials.accessToken,
+      clientId: (state) => state.credentials.clientId,
+      clientSecret: (state) => state.credentials.clientSecret,
+      userToken: (state) => state.credentials.userToken,
     }),
   },
   methods: {
-    ...mapMutations([
-      'setActiveRoleTab',
-      'setCredential',
-    ]),
-  }
+    ...mapMutations(["setActiveRoleTab", "setCredential"]),
+  },
 };
 </script>
 <style scoped>

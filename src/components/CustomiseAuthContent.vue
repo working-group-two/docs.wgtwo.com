@@ -72,11 +72,31 @@ export default {
 </script>
 <style>
 .token.your-token-here {
+  position: relative;
   border: 1px dashed#ffffff99;
   padding: 2px 4px;
   border-radius: 5px;
   margin: 0 2px;
   background: #0d0208;
   color: #00ff41;
+}
+
+.token.your-token-here::after {
+  display: none;
+  content: "REPLACE ME";
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(80%, -60%);
+  background: white;
+  padding: 2px;
+  font-size: 10px;
+  color: black;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.token.your-token-here:hover:after  {
+  display: block;
 }
 </style>

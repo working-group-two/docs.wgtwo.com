@@ -1,7 +1,7 @@
 ---
 title: API structure and libraries
 topic: intro
-type: how-to
+type: reference
 typeOrder: 2
 roles:
   - THIRD_PARTY_DEVELOPER
@@ -27,7 +27,7 @@ under the `openapi` folder.
 
 Using our `.proto` files and OpenAPI specification, you may generate code for most languages.
 
-In addition, we do offer generated code for Go and Java.
+In addition, we offer generated code for Go and Java.
 
 ### Go
 
@@ -41,25 +41,10 @@ import (
 ### Java / Kotlin using Maven
 To add the dependencies, first you need to add the https://jitpack.io repository:
 
-```xml
-<repositories>
-    <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
-    </repository>
-</repositories>
-```
+<JitpackDependency />
 
 Then you can add the dependencies:
-```xml
-<dependencies>
-    <dependency>
-        <groupId>com.github.working-group-two.wgtwoapis</groupId>
-        <artifactId>event-grpc</artifactId>
-        <version>c73d30940aa4fe159dbacd132a4bbd595a7a949e</version>
-    </dependency>
-</depenencies>
-```
+<ClientDependencies :clients="['event-grpc']"/>
 
 The specific package to include is included in the documentation of each API.
 

@@ -108,7 +108,7 @@
                 icon: "IntroIcon",
                 title: "Quickstart Guide",
                 text: "Start playing with our APIs.",
-                url: "/intro/getting-started/"
+                url: "/intro/get-started/"
               },
               {
                 icon: "IntroIcon",

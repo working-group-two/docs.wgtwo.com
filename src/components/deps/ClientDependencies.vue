@@ -4,7 +4,6 @@
     </div>
 </template>
 <script>
-    import 'prismjs/components/prism-protobuf'
     import 'prismjs/components/prism-kotlin'
     import Prism from 'vue-prism-component'
 
