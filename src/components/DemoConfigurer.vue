@@ -86,7 +86,7 @@
           >
           <p>
             Enter your
-            <g-link to="/auth/overview/">user token</g-link>, and it will be
+            <g-link to="/oauth-2-0/overview/">user token</g-link>, and it will be
             injected into the code examples below.
           </p>
           <b-field label="User token" label-position="inside">
