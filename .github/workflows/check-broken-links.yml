@@ -1,0 +1,17 @@
+name: Check links
+
+on:
+  schedule:
+    - cron: 0 2 * * *
+  workflow_dispatch:
+
+jobs:
+  my-broken-link-checker:
+    name: Check broken links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check
+        uses: ruzickap/action-my-broken-link-checker@v1
+        with:
+          url: https://docs.wgtwo.com
+          cmd_params: "--color=always"
