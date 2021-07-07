@@ -14,4 +14,8 @@ jobs:
         uses: ruzickap/action-my-broken-link-checker@v2.2.3
         with:
           url: https://docs.wgtwo.com
-          cmd_params: "--color=always"
+          cmd_params: >-
+            --color=always
+            -e https://id.wgtwo.com/userinfo
+            -e https://id.wgtwo.com/oauth2
+            -e https://example.com
