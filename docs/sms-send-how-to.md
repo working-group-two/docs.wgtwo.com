@@ -6,7 +6,13 @@ typeOrder: 1
 roles:
   - THIRD_PARTY_DEVELOPER
   - OPERATOR
+sourceExamples:
+  - examples/grpcurl/thirdpartydev/sms/send-text-sms.sh
+  - examples/kotlin/thirdpartydev/sms/src/main/kotlin/com/wgtwo/examples/thirdpartydev/sms/SendTextSmsToSubscriber.kt
+  - examples/kotlin/thirdpartydev/sms/src/main/kotlin/com/wgtwo/examples/thirdpartydev/sms/SendBinarySmsToSubscriber.kt
 ---
+import SourceExample from "~/components/SourceExample";
+import LanguageTabs from "~/components/LanguageTabs";
 
 # How to send SMS
 
@@ -22,24 +28,19 @@ This example shows how you can send text and binary SMSes. In order to send SMSe
 | Operator              | May send SMS to subscriber from any sender ID, limited to 11 alphanumeric characters |
 | Third Party Developer | May send SMS to subscriber from configured product name to subscriber, with any non-alphanumeric characters stripped and truncated to max length of 11 |
 
-<DemoConfigurer />
-
 ## Send text SMS
 
 <CodeSnippet
-  grpcurlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/operator/sms/send-text-sms.sh"
-  grpcurlThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/sms/send-text-sms.sh"
+  :grpcurl="$page.doc.sourceExamples[0]"
   :kotlinDeps="['sms-grpc', 'utils-grpc']"
-  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/sms/src/main/kotlin/com/wgtwo/examples/operator/sms/SendTextSmsToSubscriber.kt"
-  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/sms/src/main/kotlin/com/wgtwo/examples/thirdpartydev/sms/SendTextSmsToSubscriber.kt"
+  :kotlin="$sourceExamplesMap['examples/kotlin/thirdpartydev/sms/src/main/kotlin/com/wgtwo/examples/thirdpartydev/sms/SendTextSmsToSubscriber.kt']"
   />
 
 ## Send binary SMS
 
 <CodeSnippet
   :kotlinDeps="['sms-grpc', 'utils-grpc']"
-  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/sms/src/main/kotlin/com/wgtwo/examples/operator/sms/SendBinarySmsToSubscriber.kt"
-  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/sms/src/main/kotlin/com/wgtwo/examples/thirdpartydev/sms/SendBinarySmsToSubscriber.kt"
+  :kotlin="$page.doc.sourceExamples[2]"
   />
 
 ## Concepts

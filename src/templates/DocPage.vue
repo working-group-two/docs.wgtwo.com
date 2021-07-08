@@ -42,6 +42,10 @@ query ($id: ID!) {
     }
     roles
     hideWarning
+    sourceExamples {
+      file
+      content
+    }
   }
 }
 </page-query>
@@ -90,6 +94,7 @@ export default {
     ...mapActions(["updateRole", "updateAvailableRoles"]),
   },
   mounted() {
+    // this.$page.doc.sourceExamples.reduce((obj, item) => (obj[item.file] = item, obj), {});
     if (
       !this.hasRoleChoiceBeenGiven &&
       !this.isRoleModalActive &&
@@ -200,6 +205,9 @@ export default {
     hideWarning() {
       return this.$page.doc.hideWarning;
     },
+    sourceExamplesMap() {
+      return this.$page.doc.sourceExamples.reduce((obj, item) => (obj[item.file] = item, obj), {});
+    }
   },
   metaInfo() {
     const { title, headings } = this.$page.doc;

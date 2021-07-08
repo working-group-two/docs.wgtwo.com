@@ -27,6 +27,14 @@ export default function (Vue, { router, head, isClient, appOptions }) {
     });
   }
 
+  Vue.mixin({
+    computed: {
+      $sourceExamplesMap() {
+        return this.$page.doc.sourceExamples.reduce((obj, item) => (obj[item.file] = item, obj), {});
+      }
+    },
+  });
+
   appOptions.store = store
   appOptions.beforeCreate = () => {
     store.dispatch('initialiseRoles')

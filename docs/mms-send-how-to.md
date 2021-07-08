@@ -6,6 +6,8 @@ typeOrder: 1
 roles:
   - THIRD_PARTY_DEVELOPER
   - OPERATOR
+sourceExamples:
+  - examples/kotlin/thirdpartydev/mms/src/main/kotlin/com/wgtwo/examples/thirdpartydev/mms/SendAudioToSubscriber.kt
 ---
 
 # How to send MMS
@@ -22,14 +24,10 @@ This example shows how you can send MMS. In order to send MMSes your credentials
 | Operator              | May send MMS to subscriber from any sender ID, limited to 11 alphanumeric characters |
 | Third Party Developer | May send MMS to subscriber from configured product name to subscriber, with any non-alphanumeric characters stripped and truncated to max length of 11 |
 
-
-<DemoConfigurer />
-
 ## Send audio MMS
 <CodeSnippet
   :kotlinDeps="['mms-grpc', 'utils-grpc']"
-  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/mms/src/main/kotlin/com/wgtwo/examples/operator/mms/SendAudioToSubscriber.kt"
-  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/mms/src/main/kotlin/com/wgtwo/examples/thirdpartydev/mms/SendAudioToSubscriber.kt"
+  :kotlin="$sourceExamplesMap['examples/kotlin/thirdpartydev/mms/src/main/kotlin/com/wgtwo/examples/thirdpartydev/mms/SendAudioToSubscriber.kt']"
   />
 
 ## Concepts

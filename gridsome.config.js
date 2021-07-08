@@ -45,7 +45,13 @@ module.exports = {
         template: './src/templates/DocPage.vue',
         route: '/:topic/:title', // e.g. /voicemail/list-and-play-voicemails/
         plugins: [
-          '@gridsome/remark-prismjs'
+          [
+            'gridsome-remark-embed-snippet',
+            {
+              directory: `${__dirname}/`
+            }
+          ],
+          '@gridsome/remark-prismjs',
         ],
         remark: {
           autolinkHeadings: {

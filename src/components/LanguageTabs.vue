@@ -1,6 +1,6 @@
 <template>
   <div class="language-tabs">
-    <CustomiseAuthContent>
+    <!-- <CustomiseAuthContent> -->
       <b-tabs :value="codeLangIndex" @input="setCodeLangIndex($event)" :animated="false">
         <b-tab-item label="grpcurl" icon="bash" v-if="$slots.grpcurl || !$slots.curl">
           <slot name="grpcurl">
@@ -32,7 +32,7 @@
           </slot>
         </b-tab-item>
       </b-tabs>
-    </CustomiseAuthContent>
+    <!-- </CustomiseAuthContent> -->
   </div>
 </template>
 <script>
