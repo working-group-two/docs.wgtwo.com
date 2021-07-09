@@ -3,17 +3,23 @@ title: Manage subscriptions
 topic: subscription profile
 type: how-to
 hideWarning: true
+sourceExamples:
+  - examples/curl/operator/provision/get-subscription-info.sh
+  - examples/curl/operator/provision/disable-roaming-data.sh
+  - examples/kotlin/operator/provision/src/main/kotlin/com/wgtwo/examples/operator/provision/GetSubscriptionInfo.kt
+  - examples/kotlin/operator/provision/src/main/kotlin/com/wgtwo/examples/operator/provision/DisableRoamingData.kt
+  - examples/kotlin/operator/provision/src/main/kotlin/com/wgtwo/examples/operator/provision/EnableRoamingData.kt
+
 ---
 
 # How to manage subscriptions
 
-<DemoConfigurer />
 
 ## Get subscription info
 <CodeSnippet
-  curlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/curl/operator/provision/get-subscription-info.sh"
+  :curl="$sourceExamplesMap['examples/curl/operator/provision/get-subscription-info.sh']"
   :kotlinDeps="['rest']"
-  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/provision/src/main/kotlin/com/wgtwo/examples/operator/provision/GetSubscriptionInfo.kt"
+  :kotlin="$sourceExamplesMap['examples/kotlin/operator/provision/src/main/kotlin/com/wgtwo/examples/operator/provision/GetSubscriptionInfo.kt']"
   />
 
 ## Activate new user
@@ -151,9 +157,9 @@ curl \
 
 ## Remove roaming data
 <CodeSnippet
-  curlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/curl/operator/provision/disable-roaming-data.sh"
+  :curl="$sourceExamplesMap['examples/curl/operator/provision/disable-roaming-data.sh']"
   :kotlinDeps="['rest']"
-  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/provision/src/main/kotlin/com/wgtwo/examples/operator/provision/DisableRoamingData.kt"
+  :kotlin="$sourceExamplesMap['examples/kotlin/operator/provision/src/main/kotlin/com/wgtwo/examples/operator/provision/DisableRoamingData.kt']"
   />
 
 ## Enable roaming
@@ -184,7 +190,9 @@ curl \
 
 ## Add roaming data
 
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/provision/src/main/kotlin/com/wgtwo/examples/operator/provision/EnableRoamingData.kt" language="kotlin" />
+<source-example
+  :src="$sourceExamplesMap['examples/kotlin/operator/provision/src/main/kotlin/com/wgtwo/examples/operator/provision/EnableRoamingData.kt']"
+  />
 
 ## Terminate subscription
 

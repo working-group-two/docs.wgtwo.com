@@ -2,6 +2,9 @@
 title: Accessing Metrics
 topic: metrics
 type: how-to
+sourceExamples:
+  - examples/config/operator/metrics/prometheus.yml
+
 ---
 
 # Accessing Metrics
@@ -22,7 +25,6 @@ In order to access this API, your credentials need to have the `metrics.read` ri
 
 **Base path: `https://api.wgtwo.com/metrics/v1`**
 
-<DemoConfigurer />
 
 ## Get metrics, curl
 ```shell script
@@ -35,7 +37,9 @@ fetching all available time series. Note that the configuration will contain sec
 
 See: [prometheus.io › Configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/)
 
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/config/operator/metrics/prometheus.yml" />
+<source-example
+  :src="$sourceExamplesMap['examples/config/operator/metrics/prometheus.yml']"
+  />
 
 ### Example: Run with Docker
 > See: [prometheus.io › Using Docker](https://prometheus.io/docs/prometheus/latest/installation/#using-docker)

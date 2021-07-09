@@ -4,8 +4,19 @@ topic: call forwarding
 type: how-to
 typeOrder: 1
 roles:
-- THIRD_PARTY_DEVELOPER
-- OPERATOR
+  - THIRD_PARTY_DEVELOPER
+  - OPERATOR
+sourceExamples:
+  - examples/grpcurl/thirdpartydev/forwarding/unconditional_to_number.sh
+  - examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/thirdpartydev/forwarding/UnconditionalCallForwardingToNumber.kt
+  - examples/grpcurl/thirdpartydev/forwarding/conditional_to_number.sh
+  - examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/thirdpartydev/forwarding/ConditionalCallForwardingToNumber.kt
+  - examples/grpcurl/thirdpartydev/forwarding/unconditional_to_trunk.sh
+  - examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/thirdpartydev/forwarding/UnconditionalCallForwardingToTrunk.kt
+  - examples/grpcurl/thirdpartydev/forwarding/conditional_to_voicemail.sh
+  - examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/thirdpartydev/forwarding/ConditionalCallForwardingToVoicemail.kt
+  - examples/grpcurl/thirdpartydev/forwarding/disable.sh
+  - examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/thirdpartydev/forwarding/DisableCallForwarding.kt
 ---
 
 # How to set up call forwarding
@@ -30,61 +41,50 @@ Forwarding to voicemail can be done to the default voicemail service, or a custo
   if you want to discuss this option.
 
 
-<DemoConfigurer />
 
 ## Forward all calls (unconditional) to another number
 
 <CodeSnippet
-grpcurlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/operator/forwarding/unconditional_to_number.sh"
-grpcurlThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/forwarding/unconditional_to_number.sh"
-:kotlinDeps="['data-grpc', 'utils-grpc']"
-kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/forwarding/src/main/kotlin/com/wgtwo/examples/operator/forwarding/UnconditionalCallForwardingToNumber.kt"
-kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/thirdpartydev/forwarding/UnconditionalCallForwardingToNumber.kt"
-/>
+  :grpcurl="$sourceExamplesMap['examples/grpcurl/thirdpartydev/forwarding/unconditional_to_number.sh']"
+  :kotlinDeps="['data-grpc', 'utils-grpc']"
+  :kotlin="$sourceExamplesMap['examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/thirdpartydev/forwarding/UnconditionalCallForwardingToNumber.kt']"
+  />
 
 
 ## Forward calls if busy or unavailable (conditional) to another number
 
 <CodeSnippet
-grpcurlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/operator/forwarding/conditional_to_number.sh"
-grpcurlThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/forwarding/conditional_to_number.sh"
-:kotlinDeps="['data-grpc', 'utils-grpc']"
-kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/forwarding/src/main/kotlin/com/wgtwo/examples/operator/forwarding/ConditionalCallForwardingToNumber.kt"
-kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/thirdpartydev/forwarding/ConditionalCallForwardingToNumber.kt"
-/>
+  :grpcurl="$sourceExamplesMap['examples/grpcurl/thirdpartydev/forwarding/conditional_to_number.sh']"
+  :kotlinDeps="['data-grpc', 'utils-grpc']"
+  :kotlin="$sourceExamplesMap['examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/thirdpartydev/forwarding/ConditionalCallForwardingToNumber.kt']"
+  />
 
 
 ## Forward all calls (unconditional) to a trunk
 
 <CodeSnippet
-grpcurlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/operator/forwarding/unconditional_to_trunk.sh"
-grpcurlThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/forwarding/unconditional_to_trunk.sh"
-:kotlinDeps="['data-grpc', 'utils-grpc']"
-kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/forwarding/src/main/kotlin/com/wgtwo/examples/operator/forwarding/UnconditionalCallForwardingToTrunk.kt"
-kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/thirdpartydev/forwarding/UnconditionalCallForwardingToTrunk.kt"
-/>
+  :grpcurl="$sourceExamplesMap['examples/grpcurl/thirdpartydev/forwarding/unconditional_to_trunk.sh']"
+  :kotlinDeps="['data-grpc', 'utils-grpc']"
+  :kotlin="$sourceExamplesMap['examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/thirdpartydev/forwarding/UnconditionalCallForwardingToTrunk.kt']"
+  />
 
 
 ## Forward calls if busy or unavailable or no answer (conditional) to default voicemail
 
 <CodeSnippet
-grpcurlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/operator/forwarding/conditional_to_voicemail.sh"
-grpcurlThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/forwarding/conditional_to_voicemail.sh"
-:kotlinDeps="['data-grpc', 'utils-grpc']"
-kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/forwarding/src/main/kotlin/com/wgtwo/examples/operator/forwarding/ConditionalCallForwardingToVoicemail.kt"
-kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/thirdpartydev/forwarding/ConditionalCallForwardingToVoicemail.kt"
-/>
+  :grpcurl="$sourceExamplesMap['examples/grpcurl/thirdpartydev/forwarding/conditional_to_voicemail.sh']"
+  :kotlinDeps="['data-grpc', 'utils-grpc']"
+  :kotlin="$sourceExamplesMap['examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/thirdpartydev/forwarding/ConditionalCallForwardingToVoicemail.kt']"
+  />
 
 
 ## Disable call forwarding
 
 <CodeSnippet
-grpcurlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/operator/forwarding/disable.sh"
-grpcurlThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/forwarding/disable.sh"
-:kotlinDeps="['data-grpc', 'utils-grpc']"
-kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/forwarding/src/main/kotlin/com/wgtwo/examples/operator/forwarding/DisableCallForwarding.kt"
-kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/thirdpartydev/forwarding/DisableCallForwarding.kt"
-/>
+  :grpcurl="$sourceExamplesMap['examples/grpcurl/thirdpartydev/forwarding/disable.sh']"
+  :kotlinDeps="['data-grpc', 'utils-grpc']"
+  :kotlin="$sourceExamplesMap['examples/kotlin/thirdpartydev/forwarding/src/main/kotlin/com/wgtwo/examples/thirdpartydev/forwarding/DisableCallForwarding.kt']"
+  />
 
 ## Concepts
 * [Three types of stubs: asynchronous, blocking, and future](https://grpc.io/docs/reference/java/generated-code/)

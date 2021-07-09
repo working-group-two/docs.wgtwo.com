@@ -10,12 +10,6 @@
 </template>
 
 <script>
-import prism from "prismjs";
-import "prismjs/components/prism-protobuf";
-import "prismjs/components/prism-kotlin";
-import "prismjs/components/prism-bash";
-import "prismjs/components/prism-json";
-import "prismjs/components/prism-go";
 import Prism from "vue-prism-component";
 
 export default {

@@ -11,8 +11,6 @@ sourceExamples:
   - examples/kotlin/thirdpartydev/sms/src/main/kotlin/com/wgtwo/examples/thirdpartydev/sms/SendTextSmsToSubscriber.kt
   - examples/kotlin/thirdpartydev/sms/src/main/kotlin/com/wgtwo/examples/thirdpartydev/sms/SendBinarySmsToSubscriber.kt
 ---
-import SourceExample from "~/components/SourceExample";
-import LanguageTabs from "~/components/LanguageTabs";
 
 # How to send SMS
 

@@ -5,6 +5,11 @@ type: how-to
 roles:
   - THIRD_PARTY_DEVELOPER
   - OPERATOR
+sourceExamples:
+  - examples/grpcurl/thirdpartydev/events/get-events.sh
+  - examples/kotlin/thirdpartydev/events/src/main/kotlin/com/wgtwo/examples/thirdpartydev/events/GetEvents.kt
+  - examples/kotlin/thirdpartydev/events/src/main/kotlin/com/wgtwo/examples/thirdpartydev/events/GetEventsManualAck.kt
+
 ---
 
 # How to listen for Events
@@ -80,15 +85,12 @@ This will fire when a voicemail is left for a subscription.
 It contains from and to number and the ID of the voicemail. The actual content of the voicemail may be retrieved by
 a separate API using this ID.
 
-<DemoConfigurer />
 
 ## Listen for events
 <CodeSnippet
-  grpcurlOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/operator/events/get-events.sh"
-  grpcurlThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/grpcurl/thirdpartydev/events/get-events.sh"
+  :grpcurl="$sourceExamplesMap['examples/grpcurl/thirdpartydev/events/get-events.sh']"
   :kotlinDeps="['event-grpc', 'utils-grpc']"
-  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/events/src/main/kotlin/com/wgtwo/examples/operator/events/GetEvents.kt"
-  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/events/src/main/kotlin/com/wgtwo/examples/thirdpartydev/events/GetEvents.kt"
+  :kotlin="$sourceExamplesMap['examples/kotlin/thirdpartydev/events/src/main/kotlin/com/wgtwo/examples/thirdpartydev/events/GetEvents.kt']"
   />
 
 ## Manual acknowledge
@@ -96,8 +98,7 @@ In the below example we enable manual acknowledgement, and set a custom ack time
 
 <CodeSnippet
   :kotlinDeps="['event-grpc', 'utils-grpc', 'protobuf-java-util']"
-  kotlinOperator="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/operator/events/src/main/kotlin/com/wgtwo/examples/operator/events/GetEventsManualAck.kt"
-  kotlinThirdpartydev="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/kotlin/thirdpartydev/events/src/main/kotlin/com/wgtwo/examples/thirdpartydev/events/GetEventsManualAck.kt"
+  :kotlin="$sourceExamplesMap['examples/kotlin/thirdpartydev/events/src/main/kotlin/com/wgtwo/examples/thirdpartydev/events/GetEventsManualAck.kt']"
   />
 
 ## Concepts
