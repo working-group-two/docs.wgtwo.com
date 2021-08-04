@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="mms (2) (com.wgtwo.examples.thirdpartydev)" />
+        <module name="voicemail (1) (com.wgtwo.examples.operator)" />
+        <module name="mms (1) (com.wgtwo.examples.operator)" />
+        <module name="provision" />
+        <module name="rights" />
+        <module name="sms" />
+        <module name="voicemail (2) (com.wgtwo.examples.thirdpartydev)" />
+        <module name="usertokens" />
+        <module name="events" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="events" target="1.5" />
+      <module name="kotlin" target="1.5" />
+      <module name="mms (1) (com.wgtwo.examples.operator)" target="1.5" />
+      <module name="mms (2) (com.wgtwo.examples.thirdpartydev)" target="1.5" />
+      <module name="operator" target="1.5" />
+      <module name="provision" target="1.5" />
+      <module name="rights" target="1.5" />
+      <module name="sms" target="1.5" />
+      <module name="thirdpartydev" target="1.5" />
+      <module name="usertokens" target="1.5" />
+      <module name="voicemail (1) (com.wgtwo.examples.operator)" target="1.5" />
+      <module name="voicemail (2) (com.wgtwo.examples.thirdpartydev)" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

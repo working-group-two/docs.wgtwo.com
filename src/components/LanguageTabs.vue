@@ -1,48 +1,42 @@
 <template>
   <div class="language-tabs">
-    <CustomiseAuthContent>
-      <b-tabs :value="codeLangIndex" @input="setCodeLangIndex($event)" :animated="false">
-        <b-tab-item label="grpcurl" icon="bash" v-if="$slots.grpcurl || !$slots.curl">
-          <slot name="grpcurl">
-            Not available.
-          </slot>
-        </b-tab-item>
-        <b-tab-item label="curl" icon="bash" v-if="$slots.curl">
-          <slot name="curl">
-            Not available.
-          </slot>
-        </b-tab-item>
-        <b-tab-item label="Kotlin" class="content" icon="language-kotlin">
-          <b-collapse class="card" :open="false" v-if="kotlinDeps">
-            <div slot="trigger" slot-scope="props" class="card-header" role="button">
-              <p class="card-header-title">Install dependencies</p>
-              <a class="card-header-icon">
-                <b-icon :icon="props.open ? 'menu-down' : 'menu-up'"></b-icon>
-              </a>
-            </div>
-            <div class="card-content">
-              <JitpackDependency />
-              <p>Then you can add the dependencies:</p>
-              <ClientDependencies :clients="kotlinDeps" />
-            </div>
-          </b-collapse>
-          <div class="is-size-4 mt-4" v-if="$slots.kotlin">Snippet</div>
-          <slot name="kotlin">
-            Not available.
-          </slot>
-        </b-tab-item>
-      </b-tabs>
-    </CustomiseAuthContent>
+    <b-tabs :value="codeLangIndex" @input="setCodeLangIndex($event)" :animated="false">
+      <b-tab-item label="grpcurl" icon="bash" v-if="$slots.grpcurl || !$slots.curl">
+        <slot name="grpcurl">
+          Not available.
+        </slot>
+      </b-tab-item>
+      <b-tab-item label="curl" icon="bash" v-if="$slots.curl">
+        <slot name="curl">
+          Not available.
+        </slot>
+      </b-tab-item>
+      <b-tab-item label="Kotlin" class="content" icon="language-kotlin">
+        <b-collapse class="card" :open="false" v-if="kotlinDeps">
+          <div slot="trigger" slot-scope="props" class="card-header" role="button">
+            <p class="card-header-title">Install dependencies</p>
+            <a class="card-header-icon">
+              <b-icon :icon="props.open ? 'menu-down' : 'menu-up'"></b-icon>
+            </a>
+          </div>
+          <div class="card-content">
+            <JitpackDependency />
+            <p>Then you can add the dependencies:</p>
+            <ClientDependencies :clients="kotlinDeps" />
+          </div>
+        </b-collapse>
+        <div class="is-size-4 mt-4" v-if="$slots.kotlin">Snippet</div>
+        <slot name="kotlin">
+          Not available.
+        </slot>
+      </b-tab-item>
+    </b-tabs>
   </div>
 </template>
 <script>
-import { mapGetters, mapState, mapMutations } from "vuex";
-import CustomiseAuthContent from "~/components/CustomiseAuthContent";
+import { mapState, mapMutations } from "vuex";
 
 export default {
-  components: {
-    CustomiseAuthContent,
-  },
   props: {
     kotlinDeps: Array,
   },
@@ -55,10 +49,6 @@ export default {
     ...mapState({
       codeLangIndex: state => state.codeLang.codeLangIndex,
     }),
-    ...mapGetters([
-      "isOperatorTabSelected",
-      "isThirdPartyDeveloperTabSelected",
-    ]),
   },
 };
 </script>

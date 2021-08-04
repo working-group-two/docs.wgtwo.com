@@ -6,6 +6,8 @@ typeOrder: 1
 roles:
   - THIRD_PARTY_DEVELOPER
   - OPERATOR
+sourceExamples:
+  - examples/go/events/main.go
 ---
 
 # Get started
@@ -190,7 +192,9 @@ CLIENT_ID=${CLIENT_ID} CLIENT_SECRET=${CLIENT_SECRET} go run main.go
 ```
 
 **Example source code: `main.go`**
-<GithubCode fileUrl="https://github.com/working-group-two/docs.wgtwo.com/blob/master/examples/go/events/main.go" />
+<source-example
+  :src="$sourceExamplesMap['examples/go/events/main.go']"
+  />
 
 ## What's next?
 

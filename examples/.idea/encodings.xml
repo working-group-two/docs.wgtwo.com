@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/kotlin/operator/events/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kotlin/operator/mms/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kotlin/operator/mms/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kotlin/operator/provision/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kotlin/operator/rights/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kotlin/operator/sms/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kotlin/operator/usertokens/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kotlin/operator/voicemail/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kotlin/thirdpartydev/mms/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kotlin/thirdpartydev/mms/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kotlin/thirdpartydev/voicemail/src/main/kotlin" charset="UTF-8" />
+  </component>
+</project>

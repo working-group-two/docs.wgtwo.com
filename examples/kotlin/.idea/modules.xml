@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/operator/events/events.iml" filepath="$PROJECT_DIR$/operator/events/events.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/kotlin.iml" filepath="$PROJECT_DIR$/.idea/kotlin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/operator/mms/mms (1) (com.wgtwo.examples.operator).iml" filepath="$PROJECT_DIR$/operator/mms/mms (1) (com.wgtwo.examples.operator).iml" />
+      <module fileurl="file://$PROJECT_DIR$/thirdpartydev/mms/mms (2) (com.wgtwo.examples.thirdpartydev).iml" filepath="$PROJECT_DIR$/thirdpartydev/mms/mms (2) (com.wgtwo.examples.thirdpartydev).iml" />
+      <module fileurl="file://$PROJECT_DIR$/operator/operator.iml" filepath="$PROJECT_DIR$/operator/operator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/operator/provision/provision.iml" filepath="$PROJECT_DIR$/operator/provision/provision.iml" />
+      <module fileurl="file://$PROJECT_DIR$/operator/rights/rights.iml" filepath="$PROJECT_DIR$/operator/rights/rights.iml" />
+      <module fileurl="file://$PROJECT_DIR$/operator/sms/sms.iml" filepath="$PROJECT_DIR$/operator/sms/sms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thirdpartydev/thirdpartydev.iml" filepath="$PROJECT_DIR$/thirdpartydev/thirdpartydev.iml" />
+      <module fileurl="file://$PROJECT_DIR$/operator/usertokens/usertokens.iml" filepath="$PROJECT_DIR$/operator/usertokens/usertokens.iml" />
+      <module fileurl="file://$PROJECT_DIR$/operator/voicemail/voicemail (1) (com.wgtwo.examples.operator).iml" filepath="$PROJECT_DIR$/operator/voicemail/voicemail (1) (com.wgtwo.examples.operator).iml" />
+      <module fileurl="file://$PROJECT_DIR$/thirdpartydev/voicemail/voicemail (2) (com.wgtwo.examples.thirdpartydev).iml" filepath="$PROJECT_DIR$/thirdpartydev/voicemail/voicemail (2) (com.wgtwo.examples.thirdpartydev).iml" />
+    </modules>
+  </component>
+</project>

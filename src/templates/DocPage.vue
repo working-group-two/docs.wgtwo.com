@@ -22,9 +22,7 @@
         <b-icon icon="chevron-down"></b-icon>
       </b-button>
     </div>
-    <CustomiseAuthContent>
-      <VueRemarkContent />
-    </CustomiseAuthContent>
+    <VueRemarkContent />
   </DocsLayout>
 </template>
 
@@ -42,6 +40,10 @@ query ($id: ID!) {
     }
     roles
     hideWarning
+    sourceExamples {
+      file
+      content
+    }
   }
 }
 </page-query>
@@ -71,15 +73,11 @@ query {
 <script>
 import { mapGetters, mapState, mapActions } from "vuex";
 import ordering from "@/data/ordering.yaml";
-import DemoConfigurer from "~/components/DemoConfigurer";
 import RoleSelection from "~/components/RoleSelection.vue";
-import CustomiseAuthContent from "~/components/CustomiseAuthContent";
 
 export default {
   components: {
-    DemoConfigurer,
     RoleSelection,
-    CustomiseAuthContent,
   },
   watch: {
     "$page.doc.roles"(newRoles) {

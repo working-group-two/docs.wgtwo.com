@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="mms" />
+        <module name="voicemail" />
+        <module name="provision" />
+        <module name="rights" />
+        <module name="sms" />
+        <module name="usertokens" />
+        <module name="events" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="events" target="1.5" />
+      <module name="mms" target="1.5" />
+      <module name="parent" target="1.5" />
+      <module name="provision" target="1.5" />
+      <module name="rights" target="1.5" />
+      <module name="sms" target="1.5" />
+      <module name="thirdpartydev" target="1.5" />
+      <module name="usertokens" target="1.5" />
+      <module name="voicemail" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
