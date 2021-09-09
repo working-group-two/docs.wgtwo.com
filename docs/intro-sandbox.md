@@ -9,7 +9,7 @@ roles:
 ---
 
 # Sandbox Environment
-Our sandboxed environment is hosted at `apisandbox.dub.prod.wgtwo.com:443`.
+Our sandboxed environment is hosted at `sandbox.api.wgtwo.com:443`.
 
 If you followed the [Get started](/intro/get-started/) guide, you have in fact already used it.
 
@@ -22,7 +22,7 @@ You may invoke the sandbox environment without using any authorization.
 Note that if you do include a `Authorization` header, it needs to be a valid access token obtained from https://id.wgtwo.com/.
 
 ## Customization 
-`https://apisandbox.dub.prod.wgtwo.com/` exposes a webpage where you can apply some customization for your OAuth 2.0
+`https://sandbox.api.wgtwo.com/` exposes a webpage where you can apply some customization for your OAuth 2.0
 client.
 
 <g-image src="@/assets/images/sandbox-landing-page.png" alt="Landing page" />

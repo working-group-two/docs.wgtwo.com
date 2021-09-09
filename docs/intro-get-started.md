@@ -35,7 +35,7 @@ grpcurl() {
 ```
 
 ## Sandbox environment
-Our sandboxed environment is hosted at `apisandbox.dub.prod.wgtwo.com`.
+Our sandboxed environment is hosted at `sandbox.api.wgtwo.com`.
 
 This is a mock implementation of our gRPC APIs, and does not require any authentication.
 
@@ -46,7 +46,7 @@ This will send you all the available events of type `SMS_EVENT`:
 ```shell
 grpcurl -protoset wgtwo.bin \
   -d '{ "type": ["SMS_EVENT"] }' \
-  apisandbox.dub.prod.wgtwo.com:443 \
+  sandbox.api.wgtwo.com:443 \
   wgtwo.events.v0.EventsService.Subscribe
 ```
 
@@ -88,7 +88,7 @@ grpcurl -protoset wgtwo.bin \
         "from_subscriber": { "e164": "+4799990000" },
         "to_e164": { "e164": "+46724450000" }
       }' \
-  apisandbox.dub.prod.wgtwo.com:443 \
+  sandbox.api.wgtwo.com:443 \
   wgtwo.sms.v0.SmsService/SendTextFromSubscriber
 ```
 
@@ -137,9 +137,9 @@ For exploring the API we recommend [gRPC UI](https://github.com/fullstorydev/grp
 If you don't have **gRPC UI** installed, you may run it through Docker:
 ```shell
 $ docker run -v $(pwd)/wgtwo.bin:/wgtwo.bin -p 8080:8080 \
-  fullstorydev/grpcui -protoset wgtwo.bin apisandbox.dub.prod.wgtwo.com:443
+  fullstorydev/grpcui -protoset wgtwo.bin sandbox.api.wgtwo.com:443
 $ # - or -
-$ grpcui -protoset wgtwo.bin apisandbox.dub.prod.wgtwo.com:443
+$ grpcui -protoset wgtwo.bin sandbox.api.wgtwo.com:443
 ```
 
 ## Production environment
