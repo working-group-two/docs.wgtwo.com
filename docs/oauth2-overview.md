@@ -59,10 +59,3 @@ All issued JWTs are signed using the RS256 signing algorithm.
 The JWT is signed using one of these keys, but the endpoint may contain multiple keys to allow key rotation.
 
 It is recommended to use a library that fetches the keys dynamically as they may be re rotated without notice.
-
-<!-- ## User tokens -->
-<!-- ## Usage -->
-<!-- https://api.wgtwo.com expects the user token as a Bearer credential in the HTTP Authorization headers: -->
-<!-- ``` -->
-<!-- Authorization: Bearer {usertoken} -->
-<!-- ``` -->

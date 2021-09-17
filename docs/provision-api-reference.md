@@ -120,13 +120,9 @@ _Items marked 'Default' will be enabled upon activation._
  
 | Service name                   | Description                                                      | Configuration                                         | Default
 | ------------------------------ | ---------------------------------------------------------------- | ----------------------------------------------------- | -------
-| API_ACCESS_TO_OWN_SUBSCRIPTION | Access to own subscription through API                           | N/A                                                   |
 | DATA                           | Capped data speed                                                | N/A                                                   |
-| DATA_CUSTOM_DNS                | Override DNS server                                              | `{ "IPv4": { "primary": "1.1.1.3", "secondary": "1.0.0.3"} }`      | Configured per operator
 | DATA_HIGHSPEED                 | Uncapped data speed                                              | N/A                                                   | Y
 | DATA_TETHERING                 | Share data through tethering                                     | N/A                                                   |
-| EVENT_STREAMING                | Include events from this subscriber in events API (as operator)  | `{"types": ["*"]}` or e.g. `{"types": ["VOICEMAIL"]}` |
-| EXTERNAL_POLICY_CONTROL        | Call external policy control                                     | N/A                                                   |
 | MMS_IN                         | Incoming MMS                                                     | N/A                                                   | Y
 | MMS_OUT                        | Outgoing MMS                                                     | N/A                                                   | Y
 | ROAMING                        | Calls                                                            | N/A                                                   |

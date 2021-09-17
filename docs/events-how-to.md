@@ -23,23 +23,16 @@ new voicemail received.
 
 ## Event types
 
-| Event type            | Operator | Third Party | Required right                         |
-|-----------------------|:--------:|:-----------:|----------------------------------------|
-| CONSENT_REVOKE_EVENT  |     ❌    |     ✔       |                                        |
-| HANDSET_UPDATE_EVENT  |     ✔    |     ✔       | `events.handset_update.subscribe`      |
-| LOCATION_UPDATE_EVENT |     ✔    |     ✔       | `events.location.subscribe`            |
-| ROAMING_EVENT         |     ✔    |     ✔       | `events.roaming.subscribe`             |
-| SMS_EVENT             |     ✔    |     ✔       | `events.sms.subscribe`                 |
-| SMS_DELIVERY_EVENT    |     ✔    |     ✔       | `events.sms_delivery_report.subscribe` |
-| TOKEN_AUDIT_EVENT     |     ✔    |     ❌       | `events.audit.token.subscribe`         |
-| VOICE_EVENT           |     ✔    |     ✔       | `events.voice.subscribe`               |
-| VOICEMAIL_EVENT       |     ✔    |     ✔       | `events.voicemail.subscribe`           |
-
-
-|   |                   |
-|---|-------------------|
-| ✔ | Available         |
-| ❌ | Not available     |
+| Event type            | Required right                         |
+|-----------------------|----------------------------------------|
+| CONSENT_REVOKE_EVENT  |                                        |
+| HANDSET_UPDATE_EVENT  | `events.handset_update.subscribe`      |
+| LOCATION_UPDATE_EVENT | `events.location.subscribe`            |
+| ROAMING_EVENT         | `events.roaming.subscribe`             |
+| SMS_EVENT             | `events.sms.subscribe`                 |
+| SMS_DELIVERY_EVENT    | `events.sms_delivery_report.subscribe` |
+| VOICE_EVENT           | `events.voice.subscribe`               |
+| VOICEMAIL_EVENT       | `events.voicemail.subscribe`           |
 
 #### Consent revoke
 This event will fire when the OAuth2.0 consent is revoked for a subscription.
@@ -70,11 +63,6 @@ This event will fire when a SMS delivery report is generated.
 
 This contains the from and to address, and the status for the SMS sent.
 
-#### Token Audit
-This will fire for credentials created by the operator.
-
-This is for audit purposes for operators, and is not directly tied to a single subscription.
-
 #### Voice
 This will fire for when a call is initiated, ringing, answered, sent to voicemail or hung up.
 It will contain from and to number, call ID and which type of call event it is.
@@ -87,6 +75,8 @@ a separate API using this ID.
 
 
 ## Listen for events
+See full example implementation for Java: [Maven starter - Listen for events](https://github.com/working-group-two/sample-apps/tree/main/java/maven-starter-listen-for-events).
+
 <CodeSnippet
   :grpcurl="$sourceExamplesMap['examples/grpcurl/thirdpartydev/events/get-events.sh']"
   :kotlinDeps="['event-grpc', 'utils-grpc']"

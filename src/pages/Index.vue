@@ -72,7 +72,7 @@
     import EventsIcon from "~/assets/images/events-icon.svg";
     import SmsIcon from "~/assets/images/sms-icon.svg";
     import MmsIcon from "~/assets/images/mms-icon.svg";
-    import UsertokensIcon from "~/assets/images/usertokens-icon.svg";
+    import UsertokensIcon from "~/assets/images/key-icon.svg";
     import VoicemailIcon from "~/assets/images/voicemail-icon.svg";
     import SubscriptionProfileIcon from "~/assets/images/subscription-profile-icon.svg";
     import MetricsIcon from "~/assets/images/metrics-icon.svg";
@@ -172,7 +172,6 @@
                     text: "Access relevant OpenMetrics time series directly from our systems.",
                     url: "/metrics/accessing-metrics/"
                 },
-                //{icon: "UsertokensIcon", title: "User Tokens", text: "Create API tokens on behalf of subscribers", url: "/usertokens/manage-user-tokens/"},
             ]
         }),
     }

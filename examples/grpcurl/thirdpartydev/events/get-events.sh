@@ -1,5 +1,6 @@
+# Access token must be obtained via the client credentials flow
 grpcurl \
-  -H "Authorization: Basic ${ACCESS_TOKEN}"\ # use a client credential access token, not user access token
+  -H "Authorization: Bearer ${ACCESS_TOKEN}"\
   -import-path . \
   -proto wgtwo/events/v0/events.proto \
   -d '

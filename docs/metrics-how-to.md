@@ -21,7 +21,10 @@ The HTTP endpoint we provide will give you the current state of all of your metr
 
 Please reach out to clarify what metrics you would need access to.
 
-In order to access this API, your credentials need to have the `metrics.read` right.
+## Credentials
+This API is only supported by operator tokens. Operator tokens are now deprecated, and should only be used for this API.
+
+This API requires the `metrics.read` scope.
 
 **Base path: `https://api.wgtwo.com/metrics/v1`**
 

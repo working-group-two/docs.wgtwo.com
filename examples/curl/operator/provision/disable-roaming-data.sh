@@ -1,5 +1,6 @@
-curl \
-    -u ${CLIENT_ID}:${CLIENT_SECRET} \
+# Access token must be obtained via the client credentials flow
+curl -s \
+    -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json'
     -d '
     {
