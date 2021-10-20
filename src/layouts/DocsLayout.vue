@@ -1,16 +1,18 @@
 <template>
   <DefaultLayout>
     <b-notification
-      type="is-info is-light"
+      type="is-danger is-light"
       aria-close-label="Close notification"
       role="alert"
       v-if="!hideWarning"
     >
       <div class="is-flex">
         <!-- has-icon on b-notification does not work with is-light, so we add an icon manually -->
-        <b-icon icon="information" size="is-large" style="margin-right: 1rem;" type="is-info" />
+        <b-icon icon="information" size="is-large" style="margin-right: 1rem" />
         <div>
-          We’re in the early stages of defining our API platform, and positive to feedback. Please <a href="mailto:developer@wgtwo.com">contact us</a> if you have an improvement suggestion.
+          This documentation is for the unstable v0 of our APIs. Visit
+          <a href="https://v1.docs.wgtwo.com">https://v1.docs.wgtwo.com</a> to
+          see the documentation for our stable APIs.
         </div>
       </div>
     </b-notification>
@@ -21,10 +23,7 @@
       <footer>
         <aside class="editthispage">
           <a :href="editLink" target="_blank" icon-left="pencil">
-            <b-icon
-                icon="pencil"
-                size="is-small"
-                />
+            <b-icon icon="pencil" size="is-small" />
             Edit page
           </a>
         </aside>
@@ -34,25 +33,37 @@
             exact
             class="button is-link is-inverted docs-nav__link"
             :to="previousPage.path"
-          >&larr; {{ previousPage.title }}</g-link>
+            >&larr; {{ previousPage.title }}</g-link
+          >
           <g-link
             v-if="nextPage"
             exact
             class="button is-link is-inverted docs-nav__nextlink"
             :to="nextPage.path"
-          >{{ nextPage.title }} &rarr;</g-link>
+            >{{ nextPage.title }} &rarr;</g-link
+          >
         </nav>
       </footer>
     </div>
     <template v-slot:docsnav>
-      <div v-for="topic in links" :key="topic.title" class="docs-nav__container">
-        <h3 class="is-uppercase">{{topic.title}}</h3>
+      <div
+        v-for="topic in links"
+        :key="topic.title"
+        class="docs-nav__container"
+      >
+        <h3 class="is-uppercase">{{ topic.title }}</h3>
         <ul class="docs-nav__list">
-            <g-link
-              v-for="item in topic.items.filter(it => !it.hideFromMenu)" :key="item.id"
-              :to="item.path"
-              tag="li"
-            ><a class="dosc_nav__anchor" :class="{'has-text-grey': !item.availableForRole}">{{item.title}}</a></g-link>
+          <g-link
+            v-for="item in topic.items.filter((it) => !it.hideFromMenu)"
+            :key="item.id"
+            :to="item.path"
+            tag="li"
+            ><a
+              class="dosc_nav__anchor"
+              :class="{ 'has-text-grey': !item.availableForRole }"
+              >{{ item.title }}</a
+            ></g-link
+          >
         </ul>
       </div>
     </template>
@@ -114,12 +125,12 @@ export default {
   props: {
     subtitles: { type: Array, default: () => [] },
     links: { type: Array, default: () => [] },
-    hideWarning: { type: Boolean, default: false, }
+    hideWarning: { type: Boolean, default: false },
   },
   data() {
     return {
       loaderId: null,
-    }
+    };
   },
   methods: {
     clearLoadId() {
@@ -140,7 +151,7 @@ export default {
       );
     },
     currentIndex() {
-      return this.items.findIndex(item => {
+      return this.items.findIndex((item) => {
         return (
           item.path.replace(/\/$/, "") === this.$route.path.replace(/\/$/, "")
         );
@@ -159,9 +170,9 @@ export default {
   updated() {
     this.loaderId = setInterval(() => {
       if (
-        document.querySelector(".swagger-ui") !== null
-        && typeof SwaggerUIBundle !== "undefined"
-        && this.loaderId !== null
+        document.querySelector(".swagger-ui") !== null &&
+        typeof SwaggerUIBundle !== "undefined" &&
+        this.loaderId !== null
       ) {
         this.clearLoadId();
         SwaggerUIBundle({
@@ -171,7 +182,7 @@ export default {
             .getAttribute("data-spec-url"),
           deepLinking: true,
           presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
-          plugins: [SwaggerUIBundle.plugins.DownloadUrl]
+          plugins: [SwaggerUIBundle.plugins.DownloadUrl],
         });
       }
     }, 100);

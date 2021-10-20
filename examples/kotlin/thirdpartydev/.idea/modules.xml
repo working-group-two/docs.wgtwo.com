@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/events/events.iml" filepath="$PROJECT_DIR$/events/events.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mms/mms.iml" filepath="$PROJECT_DIR$/mms/mms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/parent.iml" filepath="$PROJECT_DIR$/parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provision/provision.iml" filepath="$PROJECT_DIR$/provision/provision.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rights/rights.iml" filepath="$PROJECT_DIR$/rights/rights.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sms/sms.iml" filepath="$PROJECT_DIR$/sms/sms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thirdpartydev.iml" filepath="$PROJECT_DIR$/thirdpartydev.iml" />
+      <module fileurl="file://$PROJECT_DIR$/usertokens/usertokens.iml" filepath="$PROJECT_DIR$/usertokens/usertokens.iml" />
+      <module fileurl="file://$PROJECT_DIR$/voicemail/voicemail.iml" filepath="$PROJECT_DIR$/voicemail/voicemail.iml" />
+    </modules>
+  </component>
+</project>

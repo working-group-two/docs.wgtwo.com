@@ -38,8 +38,9 @@ Example:
 ```
 
 * **400:** Invalid action arguments.
+* **404:** Subscription or sim not found.
 * **429:** Rate limit exceeded.
-* **502:** Provision error.
+* **500, 502:** Internal error.
 
 As a general reporting strategy
 the API responds with **201** to a duplicate request if the original was successful (idempotency).

@@ -15,7 +15,6 @@
     <modules>
         <module>events</module>
         <module>provision</module>
-        <module>rights</module>
         <module>voicemail</module>
         <module>mms</module>
         <module>sms</module>
