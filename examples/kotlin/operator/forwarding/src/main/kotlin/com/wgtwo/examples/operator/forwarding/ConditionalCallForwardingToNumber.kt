@@ -4,10 +4,10 @@ import com.wgtwo.api.callforward.v0.CallForwardingProto
 import com.wgtwo.api.callforward.v0.CallForwardingServiceGrpc
 import com.wgtwo.api.common.Environment
 import com.wgtwo.api.common.v0.PhoneNumberProto
-import com.wgtwo.api.util.auth.Clients
+import com.wgtwo.api.util.auth.Channels
 import com.wgtwo.api.util.auth.OperatorToken
 
-private val channel = Clients.createChannel(Environment.PROD)
+private val channel = Channels.createChannel(Environment.PRODUCTION)
 private val credentials = OperatorToken("CLIENT_ID", "CLIENT_SECRET")
 private val stub = CallForwardingServiceGrpc.newBlockingStub(channel).withCallCredentials(credentials)
 

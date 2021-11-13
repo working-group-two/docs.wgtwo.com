@@ -3,11 +3,11 @@ package com.wgtwo.examples.operator.events
 import com.wgtwo.api.common.Environment
 import com.wgtwo.api.events.v0.EventsProto
 import com.wgtwo.api.events.v0.EventsServiceGrpc
-import com.wgtwo.api.util.auth.Clients
+import com.wgtwo.api.util.auth.Channels
 import com.wgtwo.api.util.auth.OperatorToken
 import io.grpc.stub.StreamObserver
 
-private val channel = Clients.createChannel(Environment.PROD)
+private val channel = Channels.createChannel(Environment.PRODUCTION)
 private val credentials = OperatorToken("CLIENT_ID", "CLIENT_SECRET")
 private val stub = EventsServiceGrpc.newStub(channel).withCallCredentials(credentials)
 

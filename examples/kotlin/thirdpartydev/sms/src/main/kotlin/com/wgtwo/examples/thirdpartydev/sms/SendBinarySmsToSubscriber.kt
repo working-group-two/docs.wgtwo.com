@@ -5,11 +5,11 @@ import com.wgtwo.api.common.Environment
 import com.wgtwo.api.common.v0.PhoneNumberProto
 import com.wgtwo.api.sms.v0.SmsProto
 import com.wgtwo.api.sms.v0.SmsServiceGrpc
-import com.wgtwo.api.util.auth.Clients
-import com.wgtwo.api.util.auth.AccessToken
+import com.wgtwo.api.util.auth.Channels
+import com.wgtwo.api.util.auth.BearerToken
 
-private val channel = Clients.createChannel(Environment.PROD)
-private val credentials = AccessToken("ACCESS_TOKEN") // Add your credentials
+private val channel = Channels.createChannel(Environment.PRODUCTION)
+private val credentials = BearerToken { "MY_ACCESS_TOKEN" } // Add your credentials
 private val stub = SmsServiceGrpc.newBlockingStub(channel).withCallCredentials(credentials)
 
 private fun hexStringToByteArray(s: String): ByteArray {
