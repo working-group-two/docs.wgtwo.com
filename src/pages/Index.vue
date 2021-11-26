@@ -5,27 +5,19 @@
       <section>
         <h2 class="title is-2">Core Network APIs</h2>
         <p>
-          Working Group Two's API platform allows
-          <strong>Third Party Developers</strong>
-          to build products that interact with the core network. Third parties
-          need to obtain consent from operators or subscribers via our Oauth2
-          service.
+          Working Group Two's API platform allows you to build products that
+          <b>interact with the core telco network</b>. You obtain consent from
+          operators or subscribers via OAuth 2.0.
         </p>
         <br />
-        <p>
-          We have a v0 of several of our APIs ready that you can test, and a
-          stable v1 for just a few APIs that you can use to create products
-          today.
-        </p>
-        <br />
-        <b-button tag="a" type="is-info" href="https://v1.docs.wgtwo.com">
-          View documentation for v1 stable
-        </b-button>
-        <br />
-        <br />
-        <b-button tag="a" type="is-danger" href="/overview">
-          View documentation for v0
-        </b-button>
+        <div class="button-container">
+          <b-button tag="a" type="is-info" href="https://v1.docs.wgtwo.com">
+            View documentation for v1
+          </b-button>
+          <b-button tag="a" type="" href="/overview">
+            View documentation for v0
+          </b-button>
+        </div>
       </section>
     </div>
   </div>
@@ -53,5 +45,17 @@ export default {
 .landing-page section {
   margin-top: 40px;
   margin-bottom: 40px;
+  max-width: 530px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: -16px;
+}
+
+.button-container a {
+  margin-top: 16px;
 }
 </style>

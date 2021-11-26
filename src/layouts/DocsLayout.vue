@@ -1,18 +1,18 @@
 <template>
   <DefaultLayout>
     <b-notification
-      type="is-danger is-light"
+      type="is-warning is-light"
       aria-close-label="Close notification"
       role="alert"
       v-if="!hideWarning"
     >
       <div class="is-flex">
         <!-- has-icon on b-notification does not work with is-light, so we add an icon manually -->
-        <b-icon icon="information" size="is-large" style="margin-right: 1rem" />
+        <b-icon icon="information" size="is-large" style="margin-right: 16px" />
         <div>
-          This documentation is for the unstable v0 of our APIs. Visit
-          <a href="https://v1.docs.wgtwo.com">https://v1.docs.wgtwo.com</a> to
-          see the documentation for our stable APIs.
+          This documentation is for v0 of our APIs and might change. See
+          <a href="https://v1.docs.wgtwo.com">https://v1.docs.wgtwo.com</a> for
+          our guaranteed stable APIs.
         </div>
       </div>
     </b-notification>
