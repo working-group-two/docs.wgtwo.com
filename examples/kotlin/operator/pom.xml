@@ -13,11 +13,7 @@
     </parent>
 
     <modules>
-        <module>events</module>
         <module>provision</module>
-        <module>voicemail</module>
-        <module>mms</module>
-        <module>sms</module>
     </modules>
 
 </project>

@@ -20,7 +20,7 @@ under the `wgtwo` folder.
 ## REST-like
 The `Subscription API` and `Provision API` has a REST-like API.
 
-Our OpenAPI specification can be found at [github.com/working-group-two/wgtwoapis](https://github.com/working-group-two/wgtwoapis)
+Our OpenAPI specification can be found at [github.com/working-group-two/wgtwoapis-openapi](https://github.com/working-group-two/wgtwoapis-openapi)
 under the `openapi` folder.
 
 ## Libraries
