@@ -7,8 +7,10 @@ topic:
     - events
     - data
     - voicemail
-    - call forwarding
     - subscription profile
+    - call forwarding
+    - pbx
+    - web-terminal
     - metrics
 
 type:

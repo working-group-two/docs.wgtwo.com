@@ -10,20 +10,19 @@ sourceExamples:
   - examples/grpcurl/thirdpartydev/sipbreakout/register.sh
 ---
 
-# Plug your SIP-enabled PBX or TAS¹ into the call path
+# Plug your SIP-enabled PBX or TAS into the call path
 
 ## Prerequisites
 1. [An OAuth 2.0 client](/oauth-2-0/create-o-auth-2-0-client/)
 2. [An access token](/oauth-2-0/get-user-access-token)
 
 ## Overview
-This API enables PBX/TAS¹ providers to plug their (SIP-enabled) endpoint into the call path.
+This API enables PBX/TAS (Private Branch Exchange/Telephony Application Server) providers to plug their (SIP-enabled) endpoint into the call path.
 
-> ¹ Telephony Application Server
+In other words, it enables a SIP integration between Working Group Two's core and a PBX/TAS for a given MSISDN.
 
-In other words, it enables a SIP integration between WG2 core and a PBX/TAS for a given MSISDN.
-
-MSISDNs are registered by utilising virtual SIP registrations, namely during the `OAuth` round trip part of such a registration. 
+MSISDNs are registered by utilising virtual SIP registrations, namely during the OAuth 2.0 round trip part of such a registration.
+This API requires that you use the Authorization Code [OAuth 2.0](/oauth-2-0/overview/) flow as shown in our [docs](/oauth-2-0/get-user-access-token/).
 
 To access this API, your credentials must include `call.control.answer_and_initiate` scope.
 
@@ -35,8 +34,8 @@ There are two methods supported by this API:
 - `UpsertRegistration`
 - `DeleteRegistration`
 
-To register a (PBX/TAS-bound) MSISDN with our core, use `UpsertRegistration`. 
-The same method is used if you want to update an existing registration. 
+To register a (PBX/TAS-bound) MSISDN with our core, use `UpsertRegistration`.
+The same method is used if you want to update an existing registration.
 
 Use `DeleteRegistration` when an existing registration is no longer needed.
 
@@ -47,7 +46,7 @@ Both methods receive `RegistrationRequest` and return `RegistrationResponse` mes
 - `RegistrationRequest` is a structure containing the URI of the endpoint you host + some additional details related to the connected MSISDN.
 - `RegistrationResponse` is a simple structure conveying the status of method invocation (success/error)
 
-You may find the proto definition of the service + the defintion of the messages exchanged [here](/pbx/api-reference/).
+You may find the proto definition of the service + the definition of the messages exchanged [here](/pbx/api-reference/).
 
 ### Registration types
 
@@ -65,7 +64,7 @@ If a registration of one of these types is registered on an MSISDN, all the SIP 
 
 - **Fork**: legs 2 and 3 are created simultaneously.
 
-> Typically, you use `Fork/Loop` to implement your logic during a call.
+    > Typically, you use `Fork/Loop` to implement your logic during a call.
 
 #### Fallback
 
@@ -93,4 +92,3 @@ For Java example, click [here](https://github.com/working-group-two/docs.wgtwo.c
 * [gRPC concepts](https://grpc.io/docs/guides/concepts/)
 * [Kotlin gRPC tutorial](https://grpc.io/docs/languages/kotlin/basics/)
 * [Java gRPC stubs](https://grpc.io/docs/reference/java/generated-code/)
-

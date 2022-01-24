@@ -167,16 +167,28 @@ export default {
         url: "/voicemail/list-play-delete-and-configure-voicemails/",
       },
       {
+        icon: "SubscriptionProfileIcon",
+        title: "Subscription profile",
+        text: "Manage your subscribers's profiles. Enable/disable calls, SMS, etc.",
+        url: "/subscription-profile/overview/",
+      },
+      {
         icon: "CallForwardingIcon",
         title: "Call forwarding",
         text: "Set a subscribers call forwarding",
         url: "/call-forwarding/set-call-forwarding/",
       },
       {
-        icon: "SubscriptionProfileIcon",
-        title: "Subscription profile",
-        text: "Manage your subscribers's profiles. Enable/disable calls, SMS, etc.",
-        url: "/subscription-profile/overview/",
+        icon: "CallForwardingIcon",
+        title: "PBX/TAS integration",
+        text: "Plug your SIP-enabled PBX or TAS into the call path",
+        url: "/pbx/pbx-tas-integration/",
+      },
+      {
+        icon: "CallForwardingIcon",
+        title: "WebRTC calls",
+        text: "Make and receive WebRTC calls",
+        url: "web-terminal/create-a-web-terminal-to-make-and-receive-calls/",
       },
       {
         icon: "MetricsIcon",
