@@ -2,6 +2,7 @@ package com.wgtwo.examples.thirdpartydev.sipbreakout;
 
 import com.wgtwo.api.common.Environment
 import com.wgtwo.api.sipbreakout.v0.RegistrationRequest
+import com.wgtwo.api.sipbreakout.v0.RegistrationRequest.RouteType
 import com.wgtwo.api.sipbreakout.v0.SipBreakoutServiceGrpcKt
 import com.wgtwo.api.util.auth.BearerToken
 import com.wgtwo.api.util.auth.Channels
@@ -23,7 +24,7 @@ fun main() {
         suri = "sips:example.com:8888"
         moPrefix = "11"
         mtPrefix = "22"
-        routeType = RegistrationRequest.RouteType.LOOP
+        routeType = RouteType.ROUTE_TYPE_LOOP
     }.build()
 
     runBlocking {

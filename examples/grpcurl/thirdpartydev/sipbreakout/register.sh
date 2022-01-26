@@ -5,7 +5,7 @@ grpcurl -protoset wgtwo.bin \
       mo_prefix = "11",
       mt_prefix = "22",
       suri="sips:example.com:8888",
-      route_type="LOOP"
+      route_type="ROUTE_TYPE_LOOP"
   }
   ' \
   api.wgtwo.com:443 wgtwo.sipbreakout.v0.SipBreakoutService/UpsertRegistration

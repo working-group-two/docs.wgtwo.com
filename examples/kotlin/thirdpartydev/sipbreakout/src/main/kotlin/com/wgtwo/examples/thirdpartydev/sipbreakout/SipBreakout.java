@@ -27,7 +27,7 @@ public class SipBreakout {
         .setSuri("sips:example.com:8888")
         .setMoPrefix("11")
         .setMtPrefix("22")
-        .setRouteType(RouteType.LOOP) // or FORK
+        .setRouteType(RouteType.ROUTE_TYPE_LOOP) // or ROUTE_TYPE_FORK
         .build();
 
     CountDownLatch latch = new CountDownLatch(2);
