@@ -1,4 +1,6 @@
-# WGTWO API docs
+# WGTwo  API docs v0
+
+This is the project for WGTwo API docs v0, hosted at [docs.wgtwo.com/](https://docs.wgtwo.com/).
 
 ## Contributing
 Check out [CONTRIBUTING.md](CONTRIBUTING.md) and add your content to [docs/](docs/)

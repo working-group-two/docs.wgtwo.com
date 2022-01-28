@@ -17,14 +17,17 @@ sourceExamples:
 2. [An access token](/oauth-2-0/get-user-access-token)
 
 ## Overview
-This API enables PBX/TAS (Private Branch Exchange/Telephony Application Server) providers to plug their (SIP-enabled) endpoint into the call path.
+This API enables PBX/TAS (Private Branch Exchange/Telephony Application Server) providers to plug their (SIP-enabled)
+endpoint into the call path.
 
-In other words, it enables a SIP integration between Working Group Two's core and a PBX/TAS for a given MSISDN.
+It enables a SIP integration between Working Group Two's core and a PBX/TAS for a given MSISDN.
 
-MSISDNs are registered by utilising virtual SIP registrations, namely during the OAuth 2.0 round trip part of such a registration.
-This API requires that you use the Authorization Code [OAuth 2.0](/oauth-2-0/overview/) flow as shown in our [docs](/oauth-2-0/get-user-access-token/).
+Virtual SIP Registrations are used to alter default call behavior and involve PBX/TAS into the SIP signaling path.
+The registration created per single MSISDN linked to the OAuth 2.0 round trip.
 
-To access this API, your credentials must include `call.control.answer_and_initiate` scope.
+This API requires that you use the OAuth 2.0 Authorization Code Flow flow as shown in our [docs](/oauth-2-0/get-user-access-token/).
+
+To access this API, your credentials must include `call.control.answer_and_initiate scope`.
 
 ## The API
 
