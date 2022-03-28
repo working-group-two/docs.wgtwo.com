@@ -1,9 +1,9 @@
 package com.wgtwo.examples.thirdpartydev.data
 
 import com.wgtwo.api.common.Environment
-import com.wgtwo.api.common.v0.PhoneNumberProto
-import com.wgtwo.api.data.v0.DataProto
-import com.wgtwo.api.data.v0.DataServiceGrpc
+import com.wgtwo.api.v0.common.PhoneNumberProto
+import com.wgtwo.api.v0.data.DataProto
+import com.wgtwo.api.v0.data.DataServiceGrpc
 import com.wgtwo.api.util.auth.Channels
 import com.wgtwo.api.util.auth.BearerToken
 

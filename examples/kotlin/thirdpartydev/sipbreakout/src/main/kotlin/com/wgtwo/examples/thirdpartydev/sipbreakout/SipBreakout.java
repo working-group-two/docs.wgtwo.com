@@ -1,15 +1,13 @@
 package com.wgtwo.examples.thirdpartydev.sipbreakout;
 
 import com.wgtwo.api.common.Environment;
-import com.wgtwo.api.sipbreakout.v0.RegistrationRequest;
-import com.wgtwo.api.sipbreakout.v0.RegistrationRequest.RouteType;
-import com.wgtwo.api.sipbreakout.v0.RegistrationResponse;
+import com.wgtwo.api.v0.sipbreakout.*;
+import com.wgtwo.api.v0.sipbreakout.SipBreakoutServiceGrpc.SipBreakoutServiceStub;
 import com.wgtwo.api.util.auth.BearerToken;
 import com.wgtwo.api.util.auth.Channels;
-import com.wgtwo.api.sipbreakout.v0.SipBreakoutServiceGrpc;
-import com.wgtwo.api.sipbreakout.v0.SipBreakoutServiceGrpc.SipBreakoutServiceStub;
 import io.grpc.ManagedChannel;
 import io.grpc.stub.StreamObserver;
+
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
@@ -23,17 +21,25 @@ public class SipBreakout {
   public static void main(String args[]) throws InterruptedException {
 
     // building RegistrationRequest
-    RegistrationRequest registration = RegistrationRequest.newBuilder()
-        .setSuri("sips:example.com:8888")
-        .setMoPrefix("11")
-        .setMtPrefix("22")
-        .setRouteType(RouteType.ROUTE_TYPE_LOOP) // or ROUTE_TYPE_FORK
-        .build();
+    Registration registration = Registration.newBuilder()
+            .setSipUri("sips:example.com:8888")
+            .setMobileOriginatingPrefix("11")
+            .setMobileTerminatingPrefix("22")
+            .setRouteType(RouteType.ROUTE_TYPE_LOOP) // or ROUTE_TYPE_FORK
+            .build();
+
+    UpsertRegistrationRequest upsertRegistrationRequest = UpsertRegistrationRequest.newBuilder()
+            .setRegistration(registration)
+            .build();
+
+    DeleteRegistrationRequest deleteRegistrationRequest = DeleteRegistrationRequest.newBuilder()
+            .setRegistration(registration)
+            .build();
 
     CountDownLatch latch = new CountDownLatch(2);
-    stub.upsertRegistration(registration, new StreamObserver<RegistrationResponse>() {
+    stub.upsertRegistration(upsertRegistrationRequest, new StreamObserver<UpsertRegistrationResponse>() {
       @Override
-      public void onNext(RegistrationResponse response) {
+      public void onNext(UpsertRegistrationResponse response) {
         System.out.printf("upsert: got response %s%n", response);
       }
 
@@ -49,9 +55,9 @@ public class SipBreakout {
       }
     });
 
-    stub.deleteRegistration(registration, new StreamObserver<RegistrationResponse>() {
+    stub.deleteRegistration(deleteRegistrationRequest, new StreamObserver<DeleteRegistrationResponse>() {
       @Override
-      public void onNext(RegistrationResponse response) {
+      public void onNext(DeleteRegistrationResponse response) {
         System.out.printf("delete: got response %s%n", response);
       }
 

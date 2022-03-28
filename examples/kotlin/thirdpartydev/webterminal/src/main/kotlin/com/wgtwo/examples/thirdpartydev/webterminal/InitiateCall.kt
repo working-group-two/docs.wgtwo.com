@@ -1,11 +1,11 @@
 package com.wgtwo.examples.thirdpartydev.webterminal
 
 import com.wgtwo.api.common.Environment
-import com.wgtwo.api.common.v0.PhoneNumberProto
+import com.wgtwo.api.v0.common.PhoneNumberProto
 import com.wgtwo.api.util.auth.Channels
 import com.wgtwo.api.util.auth.BearerToken
-import com.wgtwo.api.webterminal.v0.WebTerminalMessage
-import com.wgtwo.api.webterminal.v0.WebTerminalServiceGrpcKt
+import com.wgtwo.api.v0.webterminal.WebTerminalMessage
+import com.wgtwo.api.v0.webterminal.WebTerminalServiceGrpcKt
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect

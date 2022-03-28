@@ -1,9 +1,11 @@
 package com.wgtwo.examples.thirdpartydev.sipbreakout;
 
 import com.wgtwo.api.common.Environment
-import com.wgtwo.api.sipbreakout.v0.RegistrationRequest
-import com.wgtwo.api.sipbreakout.v0.RegistrationRequest.RouteType
-import com.wgtwo.api.sipbreakout.v0.SipBreakoutServiceGrpcKt
+import com.wgtwo.api.v0.sipbreakout.DeleteRegistrationRequest
+import com.wgtwo.api.v0.sipbreakout.Registration
+import com.wgtwo.api.v0.sipbreakout.RouteType
+import com.wgtwo.api.v0.sipbreakout.SipBreakoutServiceGrpcKt
+import com.wgtwo.api.v0.sipbreakout.UpsertRegistrationRequest
 import com.wgtwo.api.util.auth.BearerToken
 import com.wgtwo.api.util.auth.Channels
 import io.grpc.StatusException
@@ -19,21 +21,28 @@ private val stub = SipBreakoutServiceGrpcKt.SipBreakoutServiceCoroutineStub(chan
 @ExperimentalCoroutinesApi
 fun main() {
 
-    // building RegistrationRequest
-    val request = RegistrationRequest.newBuilder().apply {
-        suri = "sips:example.com:8888"
-        moPrefix = "11"
-        mtPrefix = "22"
+    val registration = Registration.newBuilder().apply {
+        sipUri = "sips:example.com:8888"
+        mobileOriginatingPrefix = "11"
+        mobileTerminatingPrefix = "22"
         routeType = RouteType.ROUTE_TYPE_LOOP
     }.build()
 
+    // building RegistrationRequest
+    val upsertRequest = UpsertRegistrationRequest.newBuilder()
+        .setRegistration(registration)
+        .build()
+    val deleteRequest = DeleteRegistrationRequest.newBuilder()
+        .setRegistration(registration)
+        .build()
+
     runBlocking {
         try {
-            var response = stub.upsertRegistration(request)
-            println("upsert: got response $response")
+            val upsertRsesponse = stub.upsertRegistration(upsertRequest)
+            println("upsert: got response $upsertRsesponse")
 
-            response = stub.deleteRegistration(request)
-            println("delete: got response $response")
+            val deleteResponse = stub.deleteRegistration(deleteRequest)
+            println("delete: got response $deleteResponse")
         } catch (e : StatusException) {
             println("got error $e")
         }

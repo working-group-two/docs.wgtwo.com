@@ -1,9 +1,9 @@
 package com.wgtwo.examples.thirdpartydev.sms
 
 import com.wgtwo.api.common.Environment
-import com.wgtwo.api.common.v0.PhoneNumberProto
-import com.wgtwo.api.sms.v0.SmsProto
-import com.wgtwo.api.sms.v0.SmsServiceGrpc
+import com.wgtwo.api.v0.common.PhoneNumberProto
+import com.wgtwo.api.v0.sms.SmsProto
+import com.wgtwo.api.v0.sms.SmsServiceGrpc
 import com.wgtwo.api.util.auth.Channels
 import com.wgtwo.api.util.auth.BearerToken
 

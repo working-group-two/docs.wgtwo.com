@@ -2,9 +2,9 @@ package com.wgtwo.examples.thirdpartydev.mms
 
 import com.google.protobuf.ByteString
 import com.wgtwo.api.common.Environment
-import com.wgtwo.api.common.v0.PhoneNumberProto
-import com.wgtwo.api.mms.v0.MmsProto
-import com.wgtwo.api.mms.v0.MmsServiceGrpc
+import com.wgtwo.api.v0.common.PhoneNumberProto
+import com.wgtwo.api.v0.mms.MmsProto
+import com.wgtwo.api.v0.mms.MmsServiceGrpc
 import com.wgtwo.api.util.auth.Channels
 import com.wgtwo.api.util.auth.BearerToken
 
