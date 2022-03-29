@@ -256,7 +256,7 @@ curl \
             "action": "ADD",
             "name": "PRODUCT_BUNDLING",
             "config": {
-                "products": ["telavox"]
+                "products": ["some_product_id"]
             },
         },
         "msisdn": "46737678218",
