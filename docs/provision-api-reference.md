@@ -119,12 +119,13 @@ removed for this user.
 _Items marked 'Default' will be enabled upon activation._
  
 | Service name                   | Description                                                      | Configuration                                         | Default
-| ------------------------------ | ---------------------------------------------------------------- | ----------------------------------------------------- | -------
+|--------------------------------|------------------------------------------------------------------|-------------------------------------------------------| -------
 | DATA                           | Capped data speed                                                | N/A                                                   |
 | DATA_HIGHSPEED                 | Uncapped data speed                                              | N/A                                                   | Y
 | DATA_TETHERING                 | Share data through tethering                                     | N/A                                                   |
 | MMS_IN                         | Incoming MMS                                                     | N/A                                                   | Y
 | MMS_OUT                        | Outgoing MMS                                                     | N/A                                                   | Y
+| PRODUCT_BUNDLING               | Include products from ecosystem                                  | "products": ["productCode1", "productCode2"]          |
 | ROAMING                        | Calls                                                            | N/A                                                   |
 | ROAMING_DATA                   | Data access while roaming                                        | N/A                                                   |
 | SMS_IN                         | Incoming SMS                                                     | N/A                                                   | Y

@@ -1,9 +1,9 @@
 package com.wgtwo.examples.thirdpartydev.forwarding
 
-import com.wgtwo.api.callforward.v0.CallForwardingProto
-import com.wgtwo.api.callforward.v0.CallForwardingServiceGrpc
+import com.wgtwo.api.v0.callforward.CallForwardingProto
+import com.wgtwo.api.v0.callforward.CallForwardingServiceGrpc
 import com.wgtwo.api.common.Environment
-import com.wgtwo.api.common.v0.PhoneNumberProto
+import com.wgtwo.api.v0.common.PhoneNumberProto
 import com.wgtwo.api.util.auth.BearerToken
 import com.wgtwo.api.util.auth.Channels
 

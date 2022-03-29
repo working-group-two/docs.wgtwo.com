@@ -1,8 +1,8 @@
 package com.wgtwo.examples.thirdpartydev.events
 
 import com.wgtwo.api.common.Environment
-import com.wgtwo.api.events.v0.EventsProto
-import com.wgtwo.api.events.v0.EventsServiceGrpc
+import com.wgtwo.api.v0.events.EventsProto
+import com.wgtwo.api.v0.events.EventsServiceGrpc
 import com.wgtwo.api.util.auth.Channels
 import com.wgtwo.api.util.auth.BearerToken
 import io.grpc.stub.StreamObserver

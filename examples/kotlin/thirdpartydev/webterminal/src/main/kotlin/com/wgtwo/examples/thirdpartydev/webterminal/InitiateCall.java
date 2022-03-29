@@ -1,13 +1,13 @@
 package com.wgtwo.examples.thirdpartydev.webterminal;
 
 import com.wgtwo.api.common.Environment;
-import com.wgtwo.api.common.v0.PhoneNumberProto.PhoneNumber;
+import com.wgtwo.api.v0.common.PhoneNumberProto.PhoneNumber;
 import com.wgtwo.api.util.auth.BearerToken;
 import com.wgtwo.api.util.auth.Channels;
-import com.wgtwo.api.webterminal.v0.Offer;
-import com.wgtwo.api.webterminal.v0.WebTerminalMessage;
-import com.wgtwo.api.webterminal.v0.WebTerminalServiceGrpc;
-import com.wgtwo.api.webterminal.v0.WebTerminalServiceGrpc.WebTerminalServiceStub;
+import com.wgtwo.api.v0.webterminal.Offer;
+import com.wgtwo.api.v0.webterminal.WebTerminalMessage;
+import com.wgtwo.api.v0.webterminal.WebTerminalServiceGrpc;
+import com.wgtwo.api.v0.webterminal.WebTerminalServiceGrpc.WebTerminalServiceStub;
 import io.grpc.ManagedChannel;
 import io.grpc.stub.StreamObserver;
 import java.util.UUID;

@@ -242,3 +242,26 @@ curl \
     ' \
     https://api.wgtwo.com/provision/v1/dissociateSim
 ```
+
+## Add a bundled product 
+
+```shell script
+curl \
+    -u ${CLIENT_ID}:${CLIENT_SECRET} \
+    -H 'Content-Type: application/json'
+    -d '
+    {
+        "bssid": "operator_name",
+        "service": {
+            "action": "ADD",
+            "name": "PRODUCT_BUNDLING",
+            "config": {
+                "products": ["some_product_id"]
+            },
+        },
+        "msisdn": "46737678218",
+        "userid": "abcdefghijklm"
+    }
+    ' \
+    https://api.wgtwo.com/provision/v1/update
+```
