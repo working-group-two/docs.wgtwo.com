@@ -19,3 +19,4 @@ jobs:
             -e https://id.wgtwo.com/userinfo
             -e https://id.wgtwo.com/oauth2
             -e https://example.com
+            -e https://developer.wgtwo.com
