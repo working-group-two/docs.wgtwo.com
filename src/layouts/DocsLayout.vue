@@ -1,5 +1,8 @@
 <template>
   <DefaultLayout>
+    <template #header-end>
+      <slot name="header-end"></slot>
+    </template>
     <b-notification
       type="is-warning is-light"
       aria-close-label="Close notification"

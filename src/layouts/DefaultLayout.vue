@@ -1,6 +1,13 @@
 <template>
   <div>
-    <Header></Header>
+    <Header>
+      <template #header-end>
+        <b-navbar-dropdown label="v0">
+          <b-navbar-item href="https://v1.docs.wgtwo.com/">v1</b-navbar-item>
+        </b-navbar-dropdown>
+        <slot name="header-end"></slot>
+      </template>
+    </Header>
     <main class="main">
       <nav class="docsnav-container is-hidden-touch">
         <div class="docsnav">
@@ -132,7 +139,7 @@ https://github.com/jgthms/bulma/issues/1708#issuecomment-382560341 */
   top: calc(var(--nav-sticky-top-position) - 1.5rem); /* subtract padding */
   position: sticky;
   padding: 1.5rem 0 1.5rem 1rem;
-  height: 100%; 
+  height: 100%;
   border-left: 1px solid #ccc;
   margin-left: 3rem;
 }

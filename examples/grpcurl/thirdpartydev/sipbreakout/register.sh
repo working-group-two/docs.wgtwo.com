@@ -2,7 +2,7 @@
 grpcurl -protoset wgtwo.bin \
   -d '
   {
-      registration: {
+      "registration": {
           "mobile_originating_prefix": "11",
           "mobile_terminating_prefix": "22",
           "sip_uri": "sips:example.com:8888",

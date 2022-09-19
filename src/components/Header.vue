@@ -1,9 +1,12 @@
 <template>
   <b-navbar class="topnav" v-bind:mobile-burger="false">
-    <template slot="brand">
+    <template #brand>
       <b-navbar-item tag="g-link" exact to="/">
         <Logo class="topnav__logo" />
       </b-navbar-item>
+    </template>
+    <template #end>
+      <slot name="header-end"></slot>
     </template>
   </b-navbar>
 </template>

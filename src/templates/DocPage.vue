@@ -1,28 +1,31 @@
 <template>
   <DocsLayout :subtitles="subtitles" :links="links" :hide-warning="hideWarning">
-    <b-modal
-      :active.sync="isRoleModalActive"
-      has-modal-card
-      trap-focus
-      :destroy-on-hide="false"
-      aria-role="dialog"
-      aria-modal
-      @input="updateRole($event);"
-      animation=""
-    >
-      <role-selection></role-selection>
-    </b-modal>
-    <div class="role-selection-container">
-      View docs for
-      <b-button
-              class="button is-role role-selection-button"
-              @click="isRoleModalActive = true"
+    <template #header-end>
+      <b-modal
+        :active.sync="isRoleModalActive"
+        has-modal-card
+        trap-focus
+        :destroy-on-hide="false"
+        aria-role="dialog"
+        aria-modal
+        animation=""
+        @input="updateRole($event)"
       >
-        <span>{{ roleButtonText }}</span>
-        <b-icon icon="chevron-down"></b-icon>
-      </b-button>
-    </div>
+        <role-selection></role-selection>
+      </b-modal>
+      <div class="role-selection-container">
+        <b-button
+          class="button is-role role-selection-button"
+          @click="isRoleModalActive = !isRoleModalActive"
+        >
+          <span>Viewing {{ roleButtonText }}</span>
+          <b-icon icon="chevron-down"></b-icon>
+        </b-button>
+      </div>
+    </template>
+
     <VueRemarkContent />
+
   </DocsLayout>
 </template>
 
@@ -135,15 +138,17 @@ export default {
         ordering.type.map((el, index) => [el, index])
       );
 
-      const hash = function(str) {
-          let hash = 0, i, chr;
-          if (str.length === 0) return hash;
-          for (i = 0; i < str.length; i++) {
-              chr   = str.charCodeAt(i);
-              hash  = ((hash << 5) - hash) + chr;
-              hash |= 0; // Convert to 32bit integer
-          }
-          return hash;
+      const hash = function (str) {
+        let hash = 0,
+          i,
+          chr;
+        if (str.length === 0) return hash;
+        for (i = 0; i < str.length; i++) {
+          chr = str.charCodeAt(i);
+          hash = (hash << 5) - hash + chr;
+          hash |= 0; // Convert to 32bit integer
+        }
+        return hash;
       };
 
       const sortTopics = (a, b) => {
@@ -210,14 +215,12 @@ export default {
 </script>
 <style>
 .role-selection-container {
-  position: fixed;
-  right: 20px;
-  top: 0;
-  height: 52px; /* navbar height */
+  position: relative;
   z-index: 40;
   align-items: center;
-  color: rgba(0,0,0,0.67);
+  color: rgba(0, 0, 0, 0.67);
   display: none;
+  margin-right: 8px;
 }
 
 @media screen and (min-width: 769px) {
