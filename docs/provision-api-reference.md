@@ -125,6 +125,7 @@ _Items marked 'Default' will be enabled upon activation._
 | DATA_TETHERING                 | Share data through tethering                                     | N/A                                                   |
 | MMS_IN                         | Incoming MMS                                                     | N/A                                                   | Y
 | MMS_OUT                        | Outgoing MMS                                                     | N/A                                                   | Y
+| MMS_OUT_INTER                  | International MMS                                                | N/A                                                   | Y
 | PRODUCT_BUNDLING               | Include products from ecosystem                                  | "products": ["productCode1", "productCode2"]          |
 | ROAMING                        | Calls                                                            | N/A                                                   |
 | ROAMING_DATA                   | Data access while roaming                                        | N/A                                                   |
