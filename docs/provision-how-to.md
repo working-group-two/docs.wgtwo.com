@@ -27,7 +27,7 @@ sourceExamples:
 ```shell script
 curl \
     -u ${CLIENT_ID}:${CLIENT_SECRET} \
-    -H 'Content-Type: application/json'
+    -H 'Content-Type: application/json' \
     -d '
     {
         "bssid": "operator_name",
@@ -55,7 +55,7 @@ since the old SIM already becomes unfunctional after changesim._
 ```shell script
 curl \
     -u ${CLIENT_ID}:${CLIENT_SECRET} \
-    -H 'Content-Type: application/json'
+    -H 'Content-Type: application/json' \
     -d '
     {
         "bssid": "operator_name",
@@ -71,7 +71,7 @@ curl \
 ```shell script
 curl \
     -u ${CLIENT_ID}:${CLIENT_SECRET} \
-    -H 'Content-Type: application/json'
+    -H 'Content-Type: application/json' \
     -d '
     {
         "bssid": "operator_name",
@@ -89,7 +89,7 @@ curl \
 ```shell script
 curl \
     -u ${CLIENT_ID}:${CLIENT_SECRET} \
-    -H 'Content-Type: application/json'
+    -H 'Content-Type: application/json' \
     -d '
     {
         "bssid": "operator_name",
@@ -113,7 +113,7 @@ See [unblock subscription](#unblock-subscription)
 ```shell script
 curl \
     -u ${CLIENT_ID}:${CLIENT_SECRET} \
-    -H 'Content-Type: application/json'
+    -H 'Content-Type: application/json' \
     -d '
     {
         "bssid": "operator_name",
@@ -140,7 +140,7 @@ curl \
 ```shell script
 curl \
     -u ${CLIENT_ID}:${CLIENT_SECRET} \
-    -H 'Content-Type: application/json'
+    -H 'Content-Type: application/json' \
     -d '
     {
         "bssid": "operator_name",
@@ -173,7 +173,7 @@ curl \
 ```shell script
 curl \
     -u ${CLIENT_ID}:${CLIENT_SECRET} \
-    -H 'Content-Type: application/json'
+    -H 'Content-Type: application/json' \
     -d '
     {
         "bssid": "operator_name",
@@ -199,7 +199,7 @@ curl \
 ```shell script
 curl \
     -u ${CLIENT_ID}:${CLIENT_SECRET} \
-    -H 'Content-Type: application/json'
+    -H 'Content-Type: application/json' \
     -d '
     {
         "bssid": "operator_name",
@@ -215,7 +215,7 @@ curl \
 ```shell script
 curl \
     -u ${CLIENT_ID}:${CLIENT_SECRET} \
-    -H 'Content-Type: application/json'
+    -H 'Content-Type: application/json' \
     -d '
     {
         "bssid": "operator_name",
@@ -231,7 +231,7 @@ curl \
 ```shell script
 curl \
     -u ${CLIENT_ID}:${CLIENT_SECRET} \
-    -H 'Content-Type: application/json'
+    -H 'Content-Type: application/json' \
     -d '
     {
         "bssid": "operator_name",
@@ -243,12 +243,12 @@ curl \
     https://api.wgtwo.com/provision/v1/dissociateSim
 ```
 
-## Add a bundled product 
+## Add a bundled product
 
 ```shell script
 curl \
     -u ${CLIENT_ID}:${CLIENT_SECRET} \
-    -H 'Content-Type: application/json'
+    -H 'Content-Type: application/json' \
     -d '
     {
         "bssid": "operator_name",
