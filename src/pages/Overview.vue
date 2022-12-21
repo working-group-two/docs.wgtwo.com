@@ -2,20 +2,25 @@
   <div>
     <Header></Header>
     <div class="landing-page">
-      <h2 class="title is-2">V0 - Core Network APIs</h2>
+      <h2 class="title is-2">
+        V0 - Core Network APIs
+      </h2>
       <section class="intro-boxes">
         <div class="intro-box">
-          <h3 class="title is-3">Third Party Developers</h3>
+          <h3 class="title is-3">
+            Third Party Developers
+          </h3>
           <p>
             If you're a third party developer (someone who has no relation to
             us), you can can create an account in our Developer Portal at
-            <a href="https://developer.wgtwo.com">https://developer.wgtwo.com</a
-            >. From here you can create OAuth clients, which will allow our
+            <a href="https://developer.wgtwo.com">https://developer.wgtwo.com</a>. From here you can create OAuth clients, which will allow our
             subscribers to grant you an access token to act on their behalf.
           </p>
         </div>
         <div class="intro-box">
-          <h3 class="title is-3">Mobile Operators</h3>
+          <h3 class="title is-3">
+            Mobile Operators
+          </h3>
           <p>
             If you work for one of our partner operators, you can log in to our
             Partner Portal at
@@ -27,19 +32,23 @@
         </div>
       </section>
       <section>
-        <h3 class="title is-3">Getting started</h3>
+        <h3 class="title is-3">
+          Getting started
+        </h3>
         <div class="api-boxes">
           <g-link
             v-for="entry in intro"
+            :key="entry.title"
             :to="entry.url"
             class="api-box"
-            :key="entry.title"
           >
             <div class="api-icon-wrap">
               <component :is="entry.icon"></component>
             </div>
             <div class="title-and-text">
-              <h4 class="title is-4">{{ entry.title }}</h4>
+              <h4 class="title is-4">
+                {{ entry.title }}
+              </h4>
               <p>{{ entry.text }}</p>
             </div>
             <b-icon
@@ -51,19 +60,23 @@
         </div>
       </section>
       <section>
-        <h3 class="title is-3">Available APIs</h3>
+        <h3 class="title is-3">
+          Available APIs
+        </h3>
         <div class="api-boxes">
           <g-link
             v-for="api in apis"
+            :key="api.title"
             :to="api.url"
             class="api-box"
-            :key="api.title"
           >
             <div class="api-icon-wrap">
               <component :is="api.icon"></component>
             </div>
             <div class="title-and-text">
-              <h4 class="title is-4">{{ api.title }}</h4>
+              <h4 class="title is-4">
+                {{ api.title }}
+              </h4>
               <p>{{ api.text }}</p>
             </div>
             <b-icon
@@ -87,6 +100,7 @@ import MmsIcon from "~/assets/images/mms-icon.svg";
 import UsertokensIcon from "~/assets/images/key-icon.svg";
 import VoicemailIcon from "~/assets/images/voicemail-icon.svg";
 import SubscriptionProfileIcon from "~/assets/images/subscription-profile-icon.svg";
+import SubscriberLocationIcon from "~/assets/images/subscriber-location-icon.svg";
 import MetricsIcon from "~/assets/images/metrics-icon.svg";
 import AuthIcon from "~/assets/images/id-auth-icon.svg";
 import SplashLogo from "~/assets/images/logo-splash.svg";
@@ -108,6 +122,7 @@ export default {
     UsertokensIcon,
     VoicemailIcon,
     SubscriptionProfileIcon,
+    SubscriberLocationIcon,
     MetricsIcon,
     AuthIcon,
     SplashLogo,
@@ -171,6 +186,12 @@ export default {
         title: "Subscription profile",
         text: "Manage your subscribers's profiles. Enable/disable calls, SMS, etc.",
         url: "/subscription-profile/overview/",
+      },
+      {
+        icon: "SubscriberLocationIcon",
+        title: "Network information",
+        text: "See current and historical network attachments for a subscriber",
+        url: "/network-information/locate-subscriber/",
       },
       {
         icon: "CallForwardingIcon",

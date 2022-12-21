@@ -8,11 +8,11 @@ topic:
     - data
     - voicemail
     - subscription profile
+    - network information
     - call forwarding
     - pbx
     - web-terminal
     - metrics
-
 type:
     - overview
     - how-to
