@@ -5,14 +5,14 @@ roles:
 - OPERATOR
 ---
 
-# Locate subscriber
+# Get subscriber network information
 
 These APIs allow you to get network information regarding a subscription.
 In order to access this API your credentials need to have the `subscription.network:read` rights.
 
 ## `GetNetworkInfoForSubscriber`
 
-Retrieve the network the subscriber is connected, by providing the subscriber phone number.
+Retrieve information about the network the subscriber is connected to, by providing the subscriber phone number.
 A subscription may have multiple SIMs. In that case, the list will include one entry per ICCID.
 
 ### `GetNetworkInfoForSubscriber` gRPC sample
@@ -107,7 +107,7 @@ grpcurl \
       "iccid": { "value": "89234200562437720523" },
       "imsi": { "value": "082904401144897281" },
       "timestamp": "2022-12-19T13:43:02.851Z",
-      "network_identity": { "mcc": "302", "mnc": "490" },
+      "network_identity": { "mcc": "732", "mnc": "123" },
       "network_generation": "NETWORK_GENERATION_3G",
       "tadig": { "value": "CANGW" },
       "status": {
@@ -120,7 +120,7 @@ grpcurl \
       "imsi": { "value": "082904401144897281"
       },
       "timestamp": "2022-12-19T13:04:02.851Z",
-      "network_identity": { "mcc": "302", "mnc": "490" },
+      "network_identity": { "mcc": "466", "mnc": "097" },
       "network_generation": "NETWORK_GENERATION_4G",
       "tadig": { "value": "CANGW" },
       "status": {

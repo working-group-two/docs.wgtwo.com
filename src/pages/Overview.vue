@@ -191,7 +191,7 @@ export default {
         icon: "SubscriberLocationIcon",
         title: "Network information",
         text: "See current and historical network attachments for a subscriber",
-        url: "/network-information/locate-subscriber/",
+        url: "/network-information/get-subscriber-network-information/",
       },
       {
         icon: "CallForwardingIcon",
