@@ -114,37 +114,10 @@ removed for this user.
   * **name:** Service name from the service list.
 * **userid:** Unique user ID for this user.
 
-## Service list
-
-_Items marked 'Default' will be enabled upon activation._
- 
-| Service name                   | Description                                                      | Configuration                                         | Default
-|--------------------------------|------------------------------------------------------------------|-------------------------------------------------------| -------
-| DATA                           | Capped data speed                                                | N/A                                                   |
-| DATA_HIGHSPEED                 | Uncapped data speed                                              | N/A                                                   | Y
-| DATA_TETHERING                 | Share data through tethering                                     | N/A                                                   |
-| MMS_IN                         | Incoming MMS                                                     | N/A                                                   | Y
-| MMS_OUT                        | Outgoing MMS                                                     | N/A                                                   | Y
-| MMS_OUT_INTER                  | International MMS                                                | N/A                                                   | Y
-| PRODUCT_BUNDLING               | Include products from ecosystem                                  | "products": ["productCode1", "productCode2"]          |
-| ROAMING                        | Calls                                                            | N/A                                                   |
-| ROAMING_DATA                   | Data access while roaming                                        | N/A                                                   |
-| SMS_IN                         | Incoming SMS                                                     | N/A                                                   | Y
-| SMS_OUT                        | Outgoing domestic SMS                                            | N/A                                                   | Y
-| SMS_OUT_INTER                  | International SMS                                                | N/A                                                   | Y
-| SMS_PREMIUM                    | Premium content SMS                                              | N/A                                                   |
-| VOICE_CALLFORWARD              | Forward calls                                                    | 1 or more "condition" : "fwd_number" with condition in  unconditional \| busy \| no_reply \| unreachable
-| VOICE_CALLWAITING              | If busy, let new callers wait instead of dropping with busy tone | N/A                                                   |
-| VOICE_IN                       | Incoming calls                                                   | N/A                                                   | Y
-| VOICE_MISSED_CALL_ALERT        | Missed call alert                                                | N/A                                                   | Y
-| VOICE_OUT                      | Outgoing domestic calls                                          | N/A                                                   | Y
-| VOICE_OUT_INTER                | International calls                                              | N/A                                                   |
-| VOICE_PREMIUM                  | Premium content calls                                            | N/A                                                   |
-| VOICE_VOICEMAIL                | Voicemail service                                                | N/A                                                   | Y
-| VOICE_VOLTE                    | Voice calls over LTE                                             | N/A                                                   |
-| VOICE_VOWIFI                   | Voice calls over WiFi                                            | N/A                                                   |
-| VOICEMAIL_DISABLE_NOTIFICATION | Disable voicemail notifications                                  | N/A                                                   |
-
 **Error cases:**
 * msisdn unknown
 * service name unknown
+
+### Service list
+
+The list of services available to provision is found here: [list of services](https://docs.wgtwo.com/subscription-profile/service-list/)
