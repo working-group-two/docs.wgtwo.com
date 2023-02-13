@@ -120,4 +120,4 @@ removed for this user.
 
 ### Service list
 
-The list of services available to provision is found here: [list of services](https://docs.wgtwo.com/subscription-profile/service-list/)
+The list of services available to provision is found here: [list of services](https://docs.wgtwo.com/subscription-profile/subscription-services/)
