@@ -12,8 +12,46 @@ In order to access this API your credentials need to have the `subscription.netw
 
 ## `GetNetworkInfoForSubscriber`
 
-Retrieve information about the network the subscriber is connected to, by providing the subscriber phone number.
+Retrieve information about the network the subscriber is connected to, by providing the subscriber
+phone number.
 A subscription may have multiple SIMs. In that case, the list will include one entry per ICCID.
+
+## Messages
+
+`GetNetworkInfoForSubscriber` method receives `GetNetworkInfoForSubscriberRequest` and
+returns `GetNetworkInfoForSubscriberResponse` messages.
+`GetAttachmentAttemptsForSubscriberResponse` contains a list of `AttachmentAttempt` messages, and
+has a `status` field that indicates the status of the attachment attempts.
+
+The following `status` codes are defined:
+
+| Status                     | Code | Description                                                                                                                                                                                                |
+|----------------------------|------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `CODE_UNSPECIFIED`         | 0    | Is the default value and will not be used.                                                                                                                                                                 |
+| `CODE_OK`                  | 1    | Indicates that the attachment was successful.                                                                                                                                                              |
+| `CODE_ABSENT_PROFILE`      | 2    | Currently not used                                                                                                                                                                                         |
+| `CODE_ABSENT_SUBSCRIBER`   | 3    | Currently not used                                                                                                                                                                                         |
+| `CODE_UNKNOWN_PROFILE`     | 4    | Indicates that the subscriber was not allowed to attach because it is not provisioned on the WGTWO platform.                                                                                               |
+| `CODE_BLOCKED_PROFILE`     | 5    | Indicates that the subscriber was not allowed to attach because it is inactive/blocked                                                                                                                     |
+| `CODE_ROAMING_NOT_ALLOWED` | 6    | Indicates that the subscriber was not allowed to attach because it either was missing the roaming services or because the roaming profile of the subscriber did not allow the it to roam at that location. |
+
+## `GetNetworkInfoForSubscriber`
+
+Retrieve information about the network the subscriber is connected to, by providing the subscriber
+phone number.
+A subscription may have multiple SIMs. In that case, the list will include one entry per ICCID.
+
+## gRPC errors
+
+The following gRPC errors are used for this API:
+
+| Status               | Code | Notes                                                                       |
+|----------------------|-----|-----------------------------------------------------------------------------|
+| `OK`                 | 0   | Return on Success.                                                          |
+| `UNKNOWN`            | 2   |                                                                             |
+| `INVALID_ARGUMENT`   | 3   | The client specified an invalid argument.                                   |
+| `PERMISSION_DENIED`  | 7   | The client dosen't have the correct permissions                             |
+| `UNAUTHENTICATED`    | 16  | The client doesn't have valid authentication credentials for the operation. |
 
 ### `GetNetworkInfoForSubscriber` gRPC sample
 
