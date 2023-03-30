@@ -1,14 +1,14 @@
 const nodeExternals = require('webpack-node-externals')
 
-// This is where project configuration and plugin options are located. 
+// This is where project configuration and plugin options are located.
 // Learn more: https://gridsome.org/docs/config
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'WGTWO API docs',
-  siteUrl: 'https://docs.wgtwo.com',
+  siteName: 'WGTWO API v0 docs',
+  siteUrl: 'https://v0.docs.wgtwo.com',
   icon: './src/favicon.svg',
 
   chainWebpack(config, { isServer }) {

@@ -3,21 +3,21 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/golang/protobuf/jsonpb"
+	"io"
+	"os"
+	"time"
+
 	"github.com/google/uuid"
-	wgtwoEvents "github.com/working-group-two/wgtwoapis/wgtwo/events/v0"
 	"golang.org/x/oauth2/clientcredentials"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/credentials/oauth"
 	"google.golang.org/grpc/status"
+	"google.golang.org/protobuf/encoding/protojson"
 	"google.golang.org/protobuf/types/known/durationpb"
-	"io"
-	"os"
-	"time"
-)
 
-var marshaler = jsonpb.Marshaler{}
+	wgtwoEvents "github.com/working-group-two/wgtwoapis/wgtwo/events/v0"
+)
 
 func main() {
 	clientCredentialsConfig := &clientcredentials.Config{
@@ -81,11 +81,11 @@ func main() {
 }
 
 func displayEvent(response *wgtwoEvents.SubscribeEventsResponse) {
-	json, err := marshaler.MarshalToString(response)
+	json, err := protojson.Marshal(response)
 	if err != nil {
 		fmt.Println("Could not parse response")
 	} else {
-		fmt.Println(json)
+		fmt.Println(string(json))
 	}
 }
 
