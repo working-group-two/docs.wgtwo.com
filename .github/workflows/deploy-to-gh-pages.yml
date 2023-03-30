@@ -30,10 +30,14 @@ jobs:
       run: npm install
 
     - name: Build
-      run: npm run-script build
+      run: |
+        export NODE_OPTIONS=--openssl-legacy-provider
+        npm run-script build
 
     - name: Test
-      run: npm test
+      run: |
+        export NODE_OPTIONS=--openssl-legacy-provider
+        npm test
 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@releases/v3
