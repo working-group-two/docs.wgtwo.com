@@ -19,7 +19,7 @@ Some services are configurable, examples are provided under [Configurable servic
 | DATA_2G_3G_ROAM                                    | Data on 2G and 3G networks allowed while roaming                     | No                 | Y <sup>1</sup>     | DATA, DATA_2G_3G                           |
 | DATA_4G                                            | Data on 4G networks allowed                                          | No                 | Y                  | DATA                                       |
 | DATA_4G_ROAM                                       | Data on 4G networks allowed while roaming                            | No                 | Y <sup>1</sup>     | DATA, DATA_4G                              |
-| DATA_5G                                            | Data on 5G networks allowed                                          | No                 | Y                  | DATA                                       |
+| DATA_5G                                            | Data on 5G networks allowed (5G NSA also requires DATA_4G)           | No                 | Y                  | DATA                                       |
 | DATA_5G_ROAM                                       | Data on 5G networks allowed while roaming                            | No                 | Y <sup>1</sup>     | DATA, DATA_5G                              |
 | [DATA_CONTENT_FILTERING][data-cf]                  | Content filtering on mobile data                                     | No                 | Y                  | DATA                                       |
 | DATA_HIGHSPEED                                     | Data allowed at high speed                                           | Y                  | No <sup>2</sup>    | -                                          |
@@ -56,9 +56,9 @@ Some services are configurable, examples are provided under [Configurable servic
 | VOICE_OUT_ROAM                                     | Outgoing domestic calls while roaming                                | No                 | Y <sup>1</sup>     | VOICE_OUT                                  |
 | VOICE_OUT_INTER                                    | International calls                                                  | Y                  | Y                  | VOICE_OUT                                  |
 | VOICE_OUT_INTER_ROAM                               | International calls while roaming                                    | No                 | Y <sup>1</sup>     | VOICE_OUT, VOICE_OUT_ROAM, VOICE_OUT_INTER |
-| VOICE_PREMIUM                                      | Premium content calls (classified by operator)                       | Y                  | Y                  | <sup>3</sup>                               |
-| VOICE_PREMIUM_ENTERTAINMENT                        | Calls towards premium entertainment services (classified by network) | No                 | Y <sup>1</sup>     | <sup>3</sup>                               |
-| VOICE_PREMIUM_INFO                                 | Calls towards premium informational services (classified by network) | No                 | Y <sup>1</sup>     | <sup>3</sup>                               |
+| [VOICE_PREMIUM][voice-prem]                                      | Premium content calls (classified by operator)                       | Y                  | Y                  | <sup>3</sup>                               |
+| [VOICE_PREMIUM_ENTERTAINMENT][voice-prem-info-ent]                        | Calls towards premium entertainment services (classified by network) | No                 | Y <sup>1</sup>     | <sup>3</sup>                               |
+| [VOICE_PREMIUM_INFO][voice-prem-info-ent]                                 | Calls towards premium informational services (classified by network) | No                 | Y <sup>1</sup>     | <sup>3</sup>                               |
 | VOICE_VOICEMAIL                                    | Voicemail service                                                    | Y                  | Y                  |                                            |
 | VOICE_VOLTE                                        | Voice calls over LTE                                                 | Y                  | Y                  | <sup>3</sup>                               |
 | VOICE_VOWIFI                                       | Voice calls over WiFi                                                | Y                  | Y                  | <sup>3</sup>                               |
@@ -70,6 +70,8 @@ Some services are configurable, examples are provided under [Configurable servic
 [user-cs-block]:./#user_cs_block-services
 [clir]:./#voice_caller_id_restriction
 [voice-cf]:./#voice_callforward
+[voice-prem]:./#voice_premium
+[voice-prem-info-ent]:./#voice-premium-network-blocks
 
 <sup>1</sup> When migrating from APIv1 to APIv2, WG2 need to enable this service for your tenant's network core first, so your configuration takes effect.
 
@@ -213,5 +215,12 @@ The above sets numbers for the three conditional forwarding rules, but only enab
 The above sets numbers and activates all varieties of forwarding.
 Active unconditional number overrides all the active conditional numbers, and as such all calls would be forwarded to the number set for unconditional forwarding.
 If unconditional gets deactivated, the active conditional forwarding rules would be used instead.
+
+### VOICE_PREMIUM
+The VOICE_PREMIUM service allows our customers to manually define premium numbers using Partner-Console. You can then choose to allow or disallow subscribers from calling or receiving calls from these premium numbers by enabling or disabling the VOICE_PREMIUM service. 
+
+### Voice Premium Network Blocks
+For VOICE_PREMIUM_INFO and VOICE_PREMIUM_ENTERTAINMENT services, the lists of premium numbers are defined by the network. Each network usually has a list of local premium numbers, and the WG2 HLR sends subscriber information (e.g. VOICE_PREMIUM_INFO blocked) to the VLR. The VLR then blocks calls to any premium info numbers based on the network's lists.
+Please note: If these two services are not enabled for your tenant, no network blocks will be sent for your subscribers.
 
 [product-bundling-v1-docs]:https://v1.docs.wgtwo.com/tutorial/bundling/bundling.html
