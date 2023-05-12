@@ -25,8 +25,9 @@ sourceExamples:
 ## Activate new user
 
 ```shell script
+# Access token must be obtained via the client credentials flow
 curl \
-    -u ${CLIENT_ID}:${CLIENT_SECRET} \
+    -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json' \
     -d '
     {
@@ -53,8 +54,9 @@ since the old SIM already becomes unfunctional after changesim._
 ## Block subscription
 
 ```shell script
+# Access token must be obtained via the client credentials flow
 curl \
-    -u ${CLIENT_ID}:${CLIENT_SECRET} \
+    -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json' \
     -d '
     {
@@ -69,8 +71,9 @@ curl \
 ## Change SIM
 
 ```shell script
+# Access token must be obtained via the client credentials flow
 curl \
-    -u ${CLIENT_ID}:${CLIENT_SECRET} \
+    -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json' \
     -d '
     {
@@ -87,8 +90,9 @@ curl \
 ## Unblock subscription
 
 ```shell script
+# Access token must be obtained via the client credentials flow
 curl \
-    -u ${CLIENT_ID}:${CLIENT_SECRET} \
+    -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json' \
     -d '
     {
@@ -111,8 +115,9 @@ See [unblock subscription](#unblock-subscription)
 ## Restrict highspeed data
 
 ```shell script
+# Access token must be obtained via the client credentials flow
 curl \
-    -u ${CLIENT_ID}:${CLIENT_SECRET} \
+    -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json' \
     -d '
     {
@@ -138,8 +143,9 @@ curl \
 ## Remove roaming
 
 ```shell script
+# Access token must be obtained via the client credentials flow
 curl \
-    -u ${CLIENT_ID}:${CLIENT_SECRET} \
+    -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json' \
     -d '
     {
@@ -171,8 +177,9 @@ curl \
 
 ## Add roaming
 ```shell script
+# Access token must be obtained via the client credentials flow
 curl \
-    -u ${CLIENT_ID}:${CLIENT_SECRET} \
+    -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json' \
     -d '
     {
@@ -197,8 +204,9 @@ curl \
 ## Terminate subscription
 
 ```shell script
+# Access token must be obtained via the client credentials flow
 curl \
-    -u ${CLIENT_ID}:${CLIENT_SECRET} \
+    -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json' \
     -d '
     {
@@ -213,8 +221,9 @@ curl \
 ## Change MSISDN for a SIM
 
 ```shell script
+# Access token must be obtained via the client credentials flow
 curl \
-    -u ${CLIENT_ID}:${CLIENT_SECRET} \
+    -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json' \
     -d '
     {
@@ -229,8 +238,9 @@ curl \
 ## Remove a SIM from subscription
 
 ```shell script
+# Access token must be obtained via the client credentials flow
 curl \
-    -u ${CLIENT_ID}:${CLIENT_SECRET} \
+    -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json' \
     -d '
     {
@@ -246,8 +256,9 @@ curl \
 ## Add a bundled product
 
 ```shell script
+# Access token must be obtained via the client credentials flow
 curl \
-    -u ${CLIENT_ID}:${CLIENT_SECRET} \
+    -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json' \
     -d '
     {
