@@ -2,7 +2,6 @@ topic:
     - intro
     - oauth 2.0
     - operator token
-    - sms
     - mms
     - events
     - data

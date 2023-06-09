@@ -78,58 +78,6 @@ You should be able to see mock events such as:
 
 Leave the command running for the next step.
 
-### Send SMS
-
-Open a new terminal and run the following command:
-```shell
-grpcurl -protoset wgtwo.bin \
-  -d '{
-        "content": "This is a test message",
-        "from_subscriber": { "e164": "+4799990000" },
-        "to_e164": { "e164": "+46724450000" }
-      }' \
-  sandbox.api.wgtwo.com:443 \
-  wgtwo.sms.v0.SmsService/SendTextFromSubscriber
-```
-
- This will send a test SMS and trigger a `SMS_EVENT`.
- 
- 
- You should see something like this in the current terminal:
- 
- ```json
-{
-  "requestId": "478be859-614e-4d34-84dd-4ae9d1d0066b",
-  "status": "SEND_OK"
-}
- ```
-
- 
- And something like this in your first terminal (that's listening for events):
- ```json
- {
-  "event": {
-    "smsEvent": {
-      "id": "478be859-614e-4d34-84dd-4ae9d1d0066b",
-      "fromE164": {
-        "e164": "+4799990000"
-      },
-      "toE164": {
-        "e164": "+46724450000"
-      },
-      "direction": "FROM_SUBSCRIBER",
-      "text": "This is a test message",
-      "uuid": "478be859-614e-4d34-84dd-4ae9d1d0066b"
-    },
-    "owner": {
-      "phoneNumber": {
-        "e164": "+46724450024"
-      }
-    }
-  }
-}
-```
-
 ### Explore the API
 
 For exploring the API we recommend [gRPC UI](https://github.com/fullstorydev/grpcui).
