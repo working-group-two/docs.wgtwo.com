@@ -6,4 +6,5 @@ title: Subscription profile API reference
 hideWarning: true
 ---
 
-<div class="swagger-ui" data-spec-url="https://raw.githubusercontent.com/working-group-two/wgtwoapis-openapi/main/openapi/api.yaml"></div>
+Moved to the new docs
+site: [docs.wgtwo.com/reference/provision/v2/provision-api-reference2.html](https://docs.wgtwo.com/reference/provision/v2/provision-api-reference2.html)
