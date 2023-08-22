@@ -152,12 +152,6 @@ export default {
     ],
     apis: [
       {
-        icon: "SmsIcon",
-        title: "SMS",
-        text: "Send SMS to or from anyone on your platform.",
-        url: "/sms/send-sms/",
-      },
-      {
         icon: "MmsIcon",
         title: "MMS",
         text: "Send MMS to or from anyone on your platform.",

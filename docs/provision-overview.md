@@ -16,7 +16,7 @@ This API allows you to retrieve information about the subscriber, including whic
 
 ## Provision API
 The API is based on a concept of actions with each action having a specific use case.
-The `/provision/[ACTIONNAME]` endpoints manage provisioning requests. The requests instruct the
+The `/provision/v2/[ACTIONNAME]` endpoints manage provisioning requests. The requests instruct the
 network to update user profiles. It is designed as a standard REST API where multiple requests can
 be handled in parallel.
 

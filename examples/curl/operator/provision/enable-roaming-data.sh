@@ -6,7 +6,9 @@ curl -s \
     {
         "bssid": "operator_name",
         "services": {
-            "delete": ["ROAMING_DATA"]
+            "add": [
+              { "servicename": "ROAMING_DATA" }
+            ]
         },
         "msisdn": "46737678218"
     }

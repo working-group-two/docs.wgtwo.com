@@ -6,6 +6,7 @@ hideWarning: true
 sourceExamples:
   - examples/curl/operator/provision/get-subscription-info.sh
   - examples/curl/operator/provision/disable-roaming-data.sh
+  - examples/curl/operator/provision/enable-roaming-data.sh
   - examples/kotlin/operator/provision/src/main/kotlin/com/wgtwo/examples/operator/provision/GetSubscriptionInfo.kt
   - examples/kotlin/operator/provision/src/main/kotlin/com/wgtwo/examples/operator/provision/DisableRoamingData.kt
   - examples/kotlin/operator/provision/src/main/kotlin/com/wgtwo/examples/operator/provision/EnableRoamingData.kt
@@ -34,16 +35,16 @@ curl \
         "bssid": "operator_name",
         "iccid": "2420198416000015720",
         "msisdn": "46737678218",
-        "userid": "abcdefghijklm"
+        "userid": "random-userid-123"
     }
     ' \
-    https://api.wgtwo.com/provision/v1/activate
+    https://api.wgtwo.com/provision/v2/activate
 ```
 
 ## Provision replacement SIM
 
-_Depending on the logistics of getting a new SIM just using `/provision/changesim` can also work,
-since the old SIM already becomes unfunctional after changesim._
+_Depending on the logistics of getting a new SIM just using `/provision/v2/changesim` can also work,
+since the old SIM already becomes nonfunctional after changesim._
 
 **Steps**
 
@@ -61,11 +62,10 @@ curl \
     -d '
     {
         "bssid": "operator_name",
-        "msisdn": "46737678218",
-        "userid": "abcdefghijklm"
+        "msisdn": "46737678218"
     }
     ' \
-    https://api.wgtwo.com/provision/v1/block
+    https://api.wgtwo.com/provision/v2/block
 ```
 
 ## Change SIM
@@ -78,30 +78,28 @@ curl \
     -d '
     {
         "bssid": "operator_name",
-        "msisdn": "46737678218",
-        "newIccid": "2420198416000015720",
-        "oldIccid": "2420198412148748973",
-        "userid": "abcdefghijklm"
+        "iccid": "2420198416000015720",
+        "newIccid": "2420198412148748973"
     }
     ' \
-    https://api.wgtwo.com/provision/v1/changesim
+    https://api.wgtwo.com/provision/v2/changesim
 ```
 
 ## Unblock subscription
 
 ```shell script
 # Access token must be obtained via the client credentials flow
+# Can also use IMSI or ICCID as identifier
 curl \
     -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json' \
     -d '
     {
         "bssid": "operator_name",
-        "msisdn": "46737678218",
-        "userid": "abcdefghijklm"
+        "msisdn": "46737678218"
     }
     ' \
-    https://api.wgtwo.com/provision/v1/unblock
+    https://api.wgtwo.com/provision/v2/unblock
 ```
 
 ## Freeze subscription
@@ -122,15 +120,13 @@ curl \
     -d '
     {
         "bssid": "operator_name",
-        "service": {
-            "action": "REMOVE",
-            "name": "DATA_HIGHSPEED"
+        "services": {
+            "delete": ["DATA_HIGHSPEED"]
         },
-        "msisdn": "46737678218",
-        "userid": "abcdefghijklm"
+        "msisdn": "46737678218"
     }
     ' \
-    https://api.wgtwo.com/provision/v1/update
+    https://api.wgtwo.com/provision/v2/update
 ```
 
 ## Disable roaming
@@ -150,15 +146,13 @@ curl \
     -d '
     {
         "bssid": "operator_name",
-        "service": {
-            "action": "REMOVE",
-            "name": "ROAMING"
+        "services": {
+            "delete": ["ROAMING"]
         },
-        "msisdn": "46737678218",
-        "userid": "abcdefghijklm"
+        "msisdn": "46737678218"
     }
     ' \
-    https://api.wgtwo.com/provision/v1/update
+    https://api.wgtwo.com/provision/v2/update
 ```
 
 ## Remove roaming data
@@ -176,6 +170,7 @@ curl \
 2. [Add roaming data](#add-roaming-data)
 
 ## Add roaming
+
 ```shell script
 # Access token must be obtained via the client credentials flow
 curl \
@@ -184,44 +179,48 @@ curl \
     -d '
     {
         "bssid": "operator_name",
-        "service": {
-            "action": "ADD",
-            "name": "ROAMING"
+        "services": {
+            "add": [
+              { "servicename": "ROAMING" }
+            ]
         },
-        "msisdn": "46737678218",
-        "userid": "abcdefghijklm"
+        "msisdn": "46737678218"
     }
     ' \
-    https://api.wgtwo.com/provision/v1/update
+    https://api.wgtwo.com/provision/v2/update
 ```
 
 ## Add roaming data
 
-<source-example
-  :src="$sourceExamplesMap['examples/kotlin/operator/provision/src/main/kotlin/com/wgtwo/examples/operator/provision/EnableRoamingData.kt']"
-  />
+<CodeSnippet
+:curl="$sourceExamplesMap['examples/curl/operator/provision/enable-roaming-data.sh']"
+:kotlinDeps="['rest']"
+:kotlin="
+$sourceExamplesMap['examples/kotlin/operator/provision/src/main/kotlin/com/wgtwo/examples/operator/provision/EnableRoamingData.kt']"
+/>
 
 ## Terminate subscription
 
 ```shell script
 # Access token must be obtained via the client credentials flow
+# Can also be terminated using IMSI or ICCID as identifier
 curl \
     -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json' \
     -d '
     {
         "bssid": "operator_name",
-        "msisdn": "46737678218",
-        "userid": "abcdefghijklm"
+        "msisdn": "46737678218"
     }
     ' \
-    https://api.wgtwo.com/provision/v1/terminate
+    https://api.wgtwo.com/provision/v2/terminate
 ```
 
 ## Change MSISDN for a SIM
 
 ```shell script
 # Access token must be obtained via the client credentials flow
+# Can also use IMSI or ICCID as identifier instead of MSISDN
 curl \
     -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json' \
@@ -229,10 +228,9 @@ curl \
     {
         "bssid": "operator_name",
         "msisdn": "46737678218",
-        "newMsisdn": "46727678209",
-        "userid": "abcdefghijklm"
+        "newMsisdn": "46727678209"
     } ' \
-    https://api.wgtwo.com/provision/v1/changemsisdn
+    https://api.wgtwo.com/provision/v2/changemsisdn
 ```
 
 ## Remove a SIM from subscription
@@ -246,11 +244,10 @@ curl \
     {
         "bssid": "operator_name",
         "msisdn": "46737678218",
-        "iccid": "2420198416000015720",
-        "userid": "abcdefghijklm"
+        "iccid": "2420198416000015720"
     }
     ' \
-    https://api.wgtwo.com/provision/v1/dissociateSim
+    https://api.wgtwo.com/provision/v2/disengagesim
 ```
 
 ## Add a bundled product
@@ -263,16 +260,18 @@ curl \
     -d '
     {
         "bssid": "operator_name",
-        "service": {
-            "action": "ADD",
-            "name": "PRODUCT_BUNDLING",
-            "config": {
-                "products": ["some_product_id"]
-            },
+        "services": {
+            "add": [
+              {
+                "servicename": "PRODUCT_BUNDLING",
+                "config": {
+                    "products": ["some_product_id"]
+                }
+              }
+            ]
         },
-        "msisdn": "46737678218",
-        "userid": "abcdefghijklm"
+        "msisdn": "46737678218"
     }
     ' \
-    https://api.wgtwo.com/provision/v1/update
+    https://api.wgtwo.com/provision/v2/update
 ```
