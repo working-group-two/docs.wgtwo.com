@@ -16,7 +16,7 @@ This client is tied to a product in the _Developer Portal_.
 1. Sign in at https://developer.wgtwo.com
 2. Create an organization
 3. Create a product
-4. Go to the clients tab, and click `CREATE NEW CLIENT`
+4. Go to the `Technical integration` tab, and click `ADD OAUTH CLIENT`
 
 If you are creating a product for subscribers, you will need to fill in your redirect URIs as you will be using OAuth
 2.0's Authorization Code Flow.
@@ -34,14 +34,14 @@ For operator products this info is not required as you will be using the Client 
 The returned credentials will be displayed only once, so make sure to save them.
 
 ## Set scopes
-1. Go to the `SCOPES` tab
-2. Enable the three standard OAuth 2.0 scopes
+1. Go to the `Technical integration` tab and click in navigation bar `Enable API scopes`.
+2. Enable the three standard OAuth 2.0 scopes.
 
 <g-image src="@/assets/images/auth-set-scopes.png" alt="Set scopes" />
 
 ## Enable product for operator
-1. Go to the `LISTING` tab
-2. Select the operators you want to make your product available for. Operators will then be able to enable this product for their subscribers. 
+1. Go to the `Product information` tab and click in navigation bar `Distribution and availability`.
+2. Select the operators you want to make your product available for. Operators will then be able to enable this product for their subscribers.
 
 ## That's it
 You can now start playing with our APIs!
@@ -49,4 +49,4 @@ You can now start playing with our APIs!
 In order to get your product displayed in our market placed, you will need to fill in some extra information.
 But before you do that, please go ahead with your integration.
 
-All fields can be changed until you submit your product, so feel free to keep updating it. 
+All fields can be changed until you submit your product, so feel free to keep updating it.

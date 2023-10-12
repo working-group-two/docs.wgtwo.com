@@ -206,6 +206,12 @@ export default {
         url: "web-terminal/create-a-web-terminal-to-make-and-receive-calls/",
       },
       {
+        icon: "CallForwardingIcon",
+        title: "Number Lookup",
+        text: "Set display name for incoming calls.",
+        url: "/number-lookup/overview/",
+      },
+      {
         icon: "MetricsIcon",
         title: "Metrics",
         text: "Access relevant OpenMetrics time series directly from our systems.",

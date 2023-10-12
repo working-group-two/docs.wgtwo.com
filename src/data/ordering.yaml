@@ -11,6 +11,7 @@ topic:
     - call forwarding
     - pbx
     - web-terminal
+    - number lookup
     - metrics
 type:
     - overview

@@ -14,14 +14,12 @@ sourceExamples:
 
 ## Prerequisites
 1. [An OAuth 2.0 client](/oauth-2-0/create-o-auth-2-0-client/)
-2. [An access token](/oauth-2-0/get-user-access-token)
+2. [An access token](/oauth-2-0/get-client-access-token)
 
 ## Overview
 This API makes it possible to register a WebRTC terminal (or just Terminal) with our (voice) core, and then use it to make and receive calls just like a mobile phone does.
 
-> The **msisdn** associated with the Terminal is captured (and validated) during `OAuth` round trip. 
-
-In other words, the API enables development of a software phone fully integrated with our core. 
+In other words, the API enables development of a software phone fully integrated with our core.
 
 To access this API, your credentials must include `call.control.answer_and_initiate` scope.
 
@@ -47,7 +45,7 @@ For example, if you:
 2. initiate a call by pushing a `WebTerminalMessage` that contains an `Offer` to our core
 3. receive a `WebTerminalMessage` from our core containing `Ringing` followed by an `Answer`
 
-then 
+then
 
 4. your Terminal will know that the callee's phone¹ was first ringing, and then the callee answered the call.
 

@@ -20,7 +20,7 @@ You can find our `.proto` files at https://github.com/working-group-two/wgtwoapi
 
 Download the FileDescriptorSet for our APIs, which contains all our `.proto` files:
 ```shell
-curl -L 'https://github.com/working-group-two/wgtwoapis/blob/master/image.bin?raw=true' -o wgtwo.bin 
+curl -L 'https://github.com/working-group-two/wgtwoapis/blob/master/image.bin?raw=true' -o wgtwo.bin
 ```
 
 ## Set up gRPCurl
@@ -147,9 +147,9 @@ CLIENT_ID=${CLIENT_ID} CLIENT_SECRET=${CLIENT_SECRET} go run main.go
 ## What's next?
 
 ### I am building a subscriber product
-All APIs, except the event API, will require an access token obtained via the [Authorization Code Grant](/oauth-2-0/get-user-access-token/).
 
-By implementing this flow, your users can authenticate on our platform and grant consent to your application. Once this flow is up, and users have consented, you will start getting events.
+In the near future there will be a products API and consent API, where subscribers can programmatically consent to
+products to be enabled for their subscription.
 
 There is a special event named `CONSENT_REVOKE_EVENT` that you must listen for, as this will fire if the
 consent is removed by the user through e.g. customer support. See [support revoking consent](/oauth-2-0/support-revoking-consent/). This event does not require a explicit scope.

@@ -14,7 +14,7 @@ sourceExamples:
 
 ## Prerequisites
 1. [An OAuth 2.0 client](/oauth-2-0/create-o-auth-2-0-client/)
-2. [An access token](/oauth-2-0/get-user-access-token)
+2. [An access token](/oauth-2-0/get-client-access-token)
 
 ## Overview
 This API enables PBX/TAS (Private Branch Exchange/Telephony Application Server) providers to plug their (SIP-enabled)

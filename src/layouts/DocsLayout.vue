@@ -4,14 +4,14 @@
       <slot name="header-end"></slot>
     </template>
     <b-notification
+      v-if="!hideWarning"
       type="is-warning is-light"
       aria-close-label="Close notification"
       role="alert"
-      v-if="!hideWarning"
     >
       <div class="is-flex">
         <!-- has-icon on b-notification does not work with is-light, so we add an icon manually -->
-        <b-icon icon="information" size="is-large" style="margin-right: 16px" />
+        <b-icon icon="information" size="is-large" style="margin-right: 16px"></b-icon>
         <div>
           This documentation is for v0 of our APIs and might change. See
           <a href="https://v1.docs.wgtwo.com">https://v1.docs.wgtwo.com</a> for
@@ -20,13 +20,13 @@
       </div>
     </b-notification>
     <div>
-      <div class="content" id="content">
-        <slot />
+      <div id="content" class="content">
+        <slot></slot>
       </div>
       <footer>
         <aside class="editthispage">
           <a :href="editLink" target="_blank" icon-left="pencil">
-            <b-icon icon="pencil" size="is-small" />
+            <b-icon icon="pencil" size="is-small"></b-icon>
             Edit page
           </a>
         </aside>
@@ -36,48 +36,56 @@
             exact
             class="button is-link is-inverted docs-nav__link"
             :to="previousPage.path"
-            >&larr; {{ previousPage.title }}</g-link
           >
+            &larr; {{ previousPage.title }}
+          </g-link>
           <g-link
             v-if="nextPage"
             exact
             class="button is-link is-inverted docs-nav__nextlink"
             :to="nextPage.path"
-            >{{ nextPage.title }} &rarr;</g-link
           >
+            {{ nextPage.title }} &rarr;
+          </g-link>
         </nav>
       </footer>
     </div>
-    <template v-slot:docsnav>
+    <template #docsnav>
       <div
         v-for="topic in links"
         :key="topic.title"
         class="docs-nav__container"
       >
-        <h3 class="is-uppercase">{{ topic.title }}</h3>
+        <h3 class="is-uppercase">
+          {{ topic.title }}
+        </h3>
         <ul class="docs-nav__list">
           <g-link
             v-for="item in topic.items.filter((it) => !it.hideFromMenu)"
             :key="item.id"
             :to="item.path"
             tag="li"
-            ><a
+          >
+            <a
               class="dosc_nav__anchor"
               :class="{ 'has-text-grey': !item.availableForRole }"
-              >{{ item.title }}</a
-            ></g-link
-          >
+            >{{ item.title }}</a>
+          </g-link>
         </ul>
       </div>
     </template>
-    <template v-slot:articlenav v-if="subtitles.length">
+    <template v-if="subtitles.length" #articlenav>
       <h3>ON THIS PAGE</h3>
       <ul class="anchormenu">
         <li v-for="h2 in subtitles" :key="h2.value">
-          <g-link :href="h2.anchor">{{ h2.value }}</g-link>
+          <g-link :href="h2.anchor">
+            {{ h2.value }}
+          </g-link>
           <ul v-if="h2.children" class="anchormenu__sub-menu">
             <li v-for="h3 in h2.children" :key="h3.value">
-              <g-link :href="h3.anchor">{{ h3.value }}</g-link>
+              <g-link :href="h3.anchor">
+                {{ h3.value }}
+              </g-link>
             </li>
           </ul>
         </li>
@@ -130,19 +138,6 @@ export default {
     links: { type: Array, default: () => [] },
     hideWarning: { type: Boolean, default: false },
   },
-  data() {
-    return {
-      loaderId: null,
-    };
-  },
-  methods: {
-    clearLoadId() {
-      if (this.loaderId !== null) {
-        clearInterval(this.loaderId);
-        this.loaderId = null;
-      }
-    },
-  },
   computed: {
     editLink() {
       return `https://github.com/working-group-two/docs.wgtwo.com/blob/master/docs/${this.currentItem.fileInfo.path}`;
@@ -169,29 +164,6 @@ export default {
     previousPage() {
       return this.items[this.currentIndex - 1];
     },
-  },
-  updated() {
-    this.loaderId = setInterval(() => {
-      if (
-        document.querySelector(".swagger-ui") !== null &&
-        typeof SwaggerUIBundle !== "undefined" &&
-        this.loaderId !== null
-      ) {
-        this.clearLoadId();
-        SwaggerUIBundle({
-          dom_id: ".swagger-ui",
-          url: document
-            .querySelector(".swagger-ui")
-            .getAttribute("data-spec-url"),
-          deepLinking: true,
-          presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
-          plugins: [SwaggerUIBundle.plugins.DownloadUrl],
-        });
-      }
-    }, 100);
-  },
-  beforeDestroy() {
-    this.clearLoadId();
   },
 };
 </script>

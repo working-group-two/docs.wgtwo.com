@@ -1,31 +1,38 @@
 <template>
   <div class="language-tabs">
-    <b-tabs :value="codeLangIndex" @input="setCodeLangIndex($event)" :animated="false">
-      <b-tab-item label="grpcurl" icon="bash" v-if="$slots.grpcurl || !$slots.curl">
+    <b-tabs :value="codeLangIndex" :animated="false" @input="setCodeLangIndex($event)">
+      <b-tab-item v-if="$slots.grpcurl || !$slots.curl" label="grpcurl" icon="bash">
         <slot name="grpcurl">
           Not available.
         </slot>
       </b-tab-item>
-      <b-tab-item label="curl" icon="bash" v-if="$slots.curl">
+      <b-tab-item v-if="$slots.curl" label="curl" icon="bash">
         <slot name="curl">
           Not available.
         </slot>
       </b-tab-item>
       <b-tab-item label="Kotlin" class="content" icon="language-kotlin">
-        <b-collapse class="card" :open="false" v-if="kotlinDeps">
-          <div slot="trigger" slot-scope="props" class="card-header" role="button">
-            <p class="card-header-title">Install dependencies</p>
+        <b-collapse v-if="kotlinDeps" class="card" :open="false">
+          <div
+            slot="trigger"
+            slot-scope="props"
+            class="card-header"
+            role="button"
+          >
+            <p class="card-header-title">
+              Install dependencies
+            </p>
             <a class="card-header-icon">
               <b-icon :icon="props.open ? 'menu-down' : 'menu-up'"></b-icon>
             </a>
           </div>
           <div class="card-content">
-            <JitpackDependency />
-            <p>Then you can add the dependencies:</p>
-            <ClientDependencies :clients="kotlinDeps" />
+            <ClientDependencies :clients="kotlinDeps"></ClientDependencies>
           </div>
         </b-collapse>
-        <div class="is-size-4 mt-4" v-if="$slots.kotlin">Snippet</div>
+        <div v-if="$slots.kotlin" class="is-size-4 mt-4">
+          Snippet
+        </div>
         <slot name="kotlin">
           Not available.
         </slot>
@@ -42,7 +49,7 @@ export default {
   },
   methods: {
     ...mapMutations([
-      'setCodeLangIndex'
+      "setCodeLangIndex"
     ]),
   },
   computed: {
