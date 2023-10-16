@@ -1,4 +1,20 @@
-# Sequence Overview
+# Mermaid diagrams
+
+## Generate SVGs
+
+```shell
+cd loltel
+
+docker run \
+    --rm \
+    -v (pwd)/docs.wgtwo.com/src/assets/images:/data -w /data \
+    ghcr.io/mermaid-js/mermaid-cli/mermaid-cli \
+    -i /data/number-lookup.mermaid.md \
+    -o number-lookup.svg
+```
+
+
+## `number-lookup-1.svg`
 
 ```mermaid
 sequenceDiagram
@@ -13,7 +29,8 @@ sequenceDiagram
     wg2-->>Subscriber: Display name: "Potential Spam"
 ```
 
-# Sequence
+
+## `number-lookup-2.svg`
 
 ```mermaid
 sequenceDiagram
@@ -34,7 +51,8 @@ sequenceDiagram
     end
 ```
 
-# Flow
+
+## `number-lookup-3.svg`
 
 ```mermaid
 flowchart LR
@@ -47,4 +65,16 @@ flowchart LR
   end
     A -->|Enable gRPC stream| C
     B -->|Enable gRPC stream| C
+```
+
+
+## `number-lookup-4.svg`
+
+```mermaid
+flowchart LR
+a( ) -->|Incoming call| B( )
+B-->|Get enabled providers|B
+B -->D(Provider)
+B -->E(Provider)
+B -->F(Provider)
 ```

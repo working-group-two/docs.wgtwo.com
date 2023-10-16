@@ -33,11 +33,11 @@ incoming calls.
 When a subscriber receives a call over VoLTE, we will check if there is any configured Number Lookup Providers for the
 subscriber.
 
-![](~/assets/images/number-lookup-get-providers.svg)
+![](~/assets/images/number-lookup-4.svg)
 
 During call setup a number lookup request will be sent to each of the enabled Number Lookup Providers, if any.
 
-![](~/assets/images/number-lookup-overview-flow.svg)
+![](~/assets/images/number-lookup-1.svg)
 
 ### Show display name
 

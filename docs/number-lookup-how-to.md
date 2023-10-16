@@ -51,14 +51,14 @@ connection should be re-established.
 > **Note:** <br />
 > Although the connection is set up from the provider to wg2, all requests are initiated from wg2.
 
-![](~/assets/images/number-lookup-flow.svg)
+![](~/assets/images/number-lookup-3.svg)
 
 Using round-robin, wg2 will send number lookup requests
 over these connections for which the provider will respond with the display name.
 
 Responses will be cached for a period of time to avoid unnecessary requests and latency.
 
-![](~/assets/images/number-lookup-sequence.svg)
+![](~/assets/images/number-lookup-2.svg)
 
 ## Request / Response
 
