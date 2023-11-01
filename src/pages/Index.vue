@@ -195,12 +195,6 @@ export default {
       },
       {
         icon: "CallForwardingIcon",
-        title: "PBX/TAS integration",
-        text: "Plug your SIP-enabled PBX or TAS into the call path",
-        url: "/pbx/pbx-tas-integration/",
-      },
-      {
-        icon: "CallForwardingIcon",
         title: "WebRTC calls",
         text: "Make and receive WebRTC calls",
         url: "web-terminal/create-a-web-terminal-to-make-and-receive-calls/",
