@@ -1,7 +1,6 @@
 # WGTwo  API docs v0
 
 This is the project for WGTwo API docs v0, hosted at [v0.docs.wgtwo.com/](https://v0.docs.wgtwo.com/).
-
 Prior to 2023-03-29 these docs were hosted on docs.wgtwo.com.
 The actual docs.wgtwo.com code can be found in loltel/public-api-docs.
 
@@ -9,9 +8,10 @@ The actual docs.wgtwo.com code can be found in loltel/public-api-docs.
 Check out [CONTRIBUTING.md](CONTRIBUTING.md) and add your content to [docs/](docs/)
 
 ## Prerequisites / install
-- Node.js 16.x
+- rtx (https://github.com/jdx/rtx)
+- Node.js 16.x (fixed by using `rtx`)
+- python 3.10 (fixed by using `rtx`)
 - vips (for image processing) `brew install vips` (for any arm/Mac M1+ users)
-- python 3.10
 
 If you use pyenv and rtx/asdf then this might be enough:
 

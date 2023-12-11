@@ -14,7 +14,7 @@ sourceExamples:
 > **This guide will show you how to set up a Number Lookup Provider.**
 >
 > You should have an understanding of how this works before continuing,
-> see [Overview](number-lookup/setup-number-lookup-overview/).
+> see [Overview](/number-lookup/overview/).
 
 ## Prerequisites
 
@@ -24,13 +24,14 @@ See [Get client access token](https://docs.wgtwo.com/guide/oauth2/get-client-acc
 access token.
 
 > **Note:** <br />
-> For testing using our sandbox endpoint, authentication headers may be skipped.
+> For testing using our sandbox endpoint or the local test application, authentication headers may be skipped.
 
 ### Required scope
 
 `lookup.number:read`
 
 ## How to use the API
+
 When you connect to this API, you will get a stream of number lookup requests for which you should respond with
 information about the number.
 
@@ -42,6 +43,7 @@ $sourceExamplesMap['examples/kotlin/thirdpartydev/number-lookup/src/main/kotlin/
 />
 
 ## Flow
+
 The API is implemented as a bidirectional gRPC service, where the provider responds to requests from the server.
 
 The Number Provider sets up one or more connections to our API. This connection should use keep-alive, and has a max
@@ -68,6 +70,7 @@ The returned display name may be empty if the provider does not have a display n
 may be cached for the duration specified.
 
 ### Request
+
 ```prototext
 NumberLookupRequest {
   id: "opaque string"
@@ -78,6 +81,7 @@ NumberLookupRequest {
 ```
 
 ### Response
+
 ```prototext
 NumberLookupResponse {
   number_lookup_request { } # Fields omitted for brevity
@@ -89,6 +93,7 @@ NumberLookupResponse {
 ```
 
 ### Response, upstream error
+
 ```prototext
 NumberLookupResponse {
   number_lookup_request { } # Fields omitted for brevity
@@ -154,6 +159,33 @@ NumberLookupResponse {
 The load balancer hosting api.wgtwo.com will silently drop connections if they have been idle for 350 seconds (5m 50s).
 
 To avoid this, the provider should send a keep-alive message every minute.
+
+## Local testing
+
+For local testing, you can use our sandbox environment hosted at `api.sandbox.wgtwo.com`.
+
+In addition to that, we do provide a test application that can be used for testing which may be useful to see
+how your provider behaves under heavy load.
+
+The test application is hosted
+at [github.com/working-group-two/number-lookup-provider-tester](https://github.com/working-group-two/number-lookup-provider-tester).
+
+By setting up a stream to this application, it will send number lookup requests at the configured rate.
+It will not do any flow control, but show number of in-flight messages (requests sent - responses received).
+
+### Docker
+
+The test application is also available as a pre-built docker image. Usage:
+
+```shell
+docker run --network=host ghcr.io/working-group-two/number-lookup-provider-tester:latest \
+    --address :8118 \
+    --rps 5 \
+    --numbers 4799990001,4799990002,4799990003 \
+    --print-progress \
+    --print-requests \
+    --print-responses
+```
 
 ## Continue reading
 
