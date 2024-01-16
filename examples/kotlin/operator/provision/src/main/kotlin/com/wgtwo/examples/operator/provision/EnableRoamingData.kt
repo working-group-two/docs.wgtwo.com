@@ -13,7 +13,7 @@ private val subscriptionProfileApi = SubscriptionProfileApi(apiClient)
 
 fun main() {
     val request = UpdateSubscriptionRequest().apply {
-        bssid = "IDENTIFIER PROVIDED BY WORKING GROUP TWO"
+        bssid = "IDENTIFIER PROVIDED BY CISCO"
         msisdn = "47xxxxxxxx"
         services = UpdateSubscriptionRequestServices().apply {
             add = listOf(

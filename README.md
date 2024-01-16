@@ -1,8 +1,6 @@
-# WGTwo  API docs v0
+# API docs v0
 
-This is the project for WGTwo API docs v0, hosted at [v0.docs.wgtwo.com/](https://v0.docs.wgtwo.com/).
-Prior to 2023-03-29 these docs were hosted on docs.wgtwo.com.
-The actual docs.wgtwo.com code can be found in loltel/public-api-docs.
+[v0.docs.wgtwo.com/](https://v0.docs.wgtwo.com/).
 
 ## Contributing
 Check out [CONTRIBUTING.md](CONTRIBUTING.md) and add your content to [docs/](docs/)

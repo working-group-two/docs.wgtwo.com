@@ -8,10 +8,14 @@
 @import "~bulma/sass/utilities/functions";
 @import "~bulma/sass/utilities/initial-variables.sass";
 
+* {
+  box-sizing: border-box;
+}
+
 // Set your colors
-$primary: #283E96;
-$secondary: #009DA5;
-$role: $secondary;
+$primary: #1D69CC;
+$secondary: #596069;
+$role: $primary;
 $role-invert: findColorInvert($role);
 $custom-colors: (
   "role": ($role, $role-invert)
@@ -34,7 +38,7 @@ $body-family: "Open Sans";
 @import "scrollbar_fix";
 
 // Fonts
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Oxanium&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
 // Headings
 h1, .content h1,
@@ -43,7 +47,7 @@ h3, .content h3,
 h4, .content h4,
 h5, .content h5 {
   color: rgba(0, 0, 0, 0.75);
-  font-family: "Oxanium", sans-serif;
+  font-family: sans-serif;
 }
 
 h1, .content h1 {
@@ -84,4 +88,3 @@ pre[class*="language-"] {
     overflow-y: scroll;
   }
 }
-

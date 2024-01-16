@@ -10,7 +10,7 @@ sourceExamples:
 # Accessing Metrics
 
 ## Overview
-Working Group Two exposes metrics that can help operators getting some operational insight. This data is exposed using the [OpenMetrics text format](https://openmetrics.io/).
+The platform exposes metrics that can help operators getting some operational insight. This data is exposed using the [OpenMetrics text format](https://openmetrics.io/).
 
 This text format is the same as exposed by Prometheus. In addition to being supported by Prometheus, many other systems
 has OpenMetrics integrations such as
@@ -35,7 +35,7 @@ curl -s -u ${CLIENT_ID}:${CLIENT_SECRET} https://api.wgtwo.com/metrics/v1
 ```
 
 ## Get metrics, Prometheus
-The below Prometheus config will scrape the metric endpoint from Working Group Two every 30 seconds,
+The below Prometheus config will scrape the metric endpoint every 30 seconds,
 fetching all available time series. Note that the configuration will contain secrets.
 
 See: [prometheus.io › Configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/)

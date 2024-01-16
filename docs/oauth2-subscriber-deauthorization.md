@@ -22,17 +22,17 @@ so that they can easily deauthorize an application.
 > A sequence diagram is included [here](#flow-chart).
 
 1. The user MUST be able to prompt the third party application (app) to revoke all consents it has given to the app (i.e. clicking a button).
-2. The app SHALL request a _revoke consent magic link_ from _Working Group Two ID_ (WGTWO ID), supplying a [random, non-guessable `state`](https://auth0.com/docs/protocols/state-parameters#csrf-attacks).
-3. The app SHALL redirect the user to the given link, which opens a WGTWO ID webpage.
+2. The app SHALL request a _revoke consent magic link_ from Cisco, supplying a [random, non-guessable `state`](https://auth0.com/docs/protocols/state-parameters#csrf-attacks).
+3. The app SHALL redirect the user to the given link, which opens the ID webpage.
 4. The user MAY confirm/cancel revoking consent (the user MAY also just close/leave the webpage).
-5. The user is redirected back to the app, and the app MUST validate the state, and if valid MAY delete local user content (i.e. from a database) and wipe user sessions to reflect that the app no longer has access to the users' WGTWO data/APIs.
+5. The user is redirected back to the app, and the app MUST validate the state, and if valid MAY delete local user content (i.e. from a database) and wipe user sessions to reflect that the app no longer has access to the users' data/APIs.
 
 ## Redirect
 The user will be redirected back to the given redirect URI after logout with the query parameter `state` with the given
-state value. A query parameter for `error` will be included in case of errors or the user cancelling the flow. 
+state value. A query parameter for `error` will be included in case of errors or the user cancelling the flow.
 
 ## Generate a revoke consent magic link
-This endpoint requires authentication by an OAuth2 access token issued to your client using the `client_credentials` grant. 
+This endpoint requires authentication by an OAuth2 access token issued to your client using the `client_credentials` grant.
 
 You also need to include a valid user access token.
 

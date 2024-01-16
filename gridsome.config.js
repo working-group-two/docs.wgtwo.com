@@ -1,4 +1,4 @@
-const nodeExternals = require('webpack-node-externals')
+const nodeExternals = require("webpack-node-externals");
 
 // This is where project configuration and plugin options are located.
 // Learn more: https://gridsome.org/docs/config
@@ -7,19 +7,19 @@ const nodeExternals = require('webpack-node-externals')
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'WGTWO API v0 docs',
-  siteUrl: 'https://v0.docs.wgtwo.com',
-  icon: './src/favicon.svg',
+  siteName: "WGTWO API v0 docs",
+  siteUrl: "https://v0.docs.wgtwo.com",
+  icon: "./src/favicon.png",
 
   chainWebpack(config, { isServer }) {
-    config.module.rules.delete('svg')
-    config.module.rule('svg')
+    config.module.rules.delete("svg");
+    config.module.rule("svg")
       .test(/\.svg$/)
-      .use('vue')
-      .loader('vue-loader')
+      .use("vue")
+      .loader("vue-loader")
       .end()
-      .use('svg-to-vue-component')
-      .loader('svg-to-vue-component/loader')
+      .use("svg-to-vue-component")
+      .loader("svg-to-vue-component/loader");
 
     if (isServer) {
       config.externals(nodeExternals({
@@ -30,7 +30,7 @@ module.exports = {
           /instantsearch.js/,
           /typeface-league-spartan/
         ]
-      }))
+      }));
     }
   },
 
@@ -38,30 +38,30 @@ module.exports = {
   },
   plugins: [
     {
-      use: '@gridsome/vue-remark',
+      use: "@gridsome/vue-remark",
       options: {
-        baseDir: './docs',
-        typeName: 'DocPage',
-        template: './src/templates/DocPage.vue',
-        route: '/:topic/:title', // e.g. /voicemail/list-and-play-voicemails/
+        baseDir: "./docs",
+        typeName: "DocPage",
+        template: "./src/templates/DocPage.vue",
+        route: "/:topic/:title", // e.g. /voicemail/list-and-play-voicemails/
         plugins: [
           [
-            'gridsome-remark-embed-snippet',
+            "gridsome-remark-embed-snippet",
             {
               directory: `${__dirname}/`
             }
           ],
-          '@gridsome/remark-prismjs',
+          "@gridsome/remark-prismjs",
         ],
         remark: {
           autolinkHeadings: {
             content: {
-              type: 'text',
-              value: '#'
+              type: "text",
+              value: "#"
             }
           }
         }
       }
     },
   ],
-}
+};

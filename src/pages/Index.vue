@@ -103,13 +103,12 @@ import SubscriptionProfileIcon from "~/assets/images/subscription-profile-icon.s
 import SubscriberLocationIcon from "~/assets/images/subscriber-location-icon.svg";
 import MetricsIcon from "~/assets/images/metrics-icon.svg";
 import AuthIcon from "~/assets/images/id-auth-icon.svg";
-import SplashLogo from "~/assets/images/logo-splash.svg";
 import IllustrationDeveloper from "~/assets/images/illustration-developer.svg";
 import IllustrationPlant from "~/assets/images/illustration-plant.svg";
 
 export default {
   metaInfo: {
-    title: "WGTWO API documentation",
+    title: "API documentation",
     titleTemplate: null,
   },
   components: {
@@ -125,7 +124,6 @@ export default {
     SubscriberLocationIcon,
     MetricsIcon,
     AuthIcon,
-    SplashLogo,
     IllustrationDeveloper,
     IllustrationPlant,
   },

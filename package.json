@@ -23,7 +23,7 @@
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.4",
     "@gridsome/vue-remark": "^0.2.4",
-    "axios": "^0.21.2",
+    "axios": "^1.6.0",
     "buefy": "^0.9.13",
     "node-sass": "^6.0.1",
     "sass-loader": "^10.1.1",

@@ -1,8 +1,13 @@
 <template>
-  <b-navbar class="topnav" v-bind:mobile-burger="false">
+  <b-navbar class="topnav" :mobile-burger="false">
     <template #brand>
-      <b-navbar-item tag="g-link" exact to="/">
-        <Logo class="topnav__logo" />
+      <b-navbar-item
+        tag="g-link"
+        exact
+        to="/"
+        class="p-0"
+      >
+        <Logo class="topnav__logo"></Logo>
       </b-navbar-item>
     </template>
     <template #end>
@@ -25,6 +30,8 @@ export default {
   position: sticky;
   top: 0;
   background: linear-gradient(#ffffff, #fbfbfb);
+  height: calc(81 / 16 * 1rem);
+  padding: 4px 16px;
 }
 
 @media screen and (max-width: 1023px) {
@@ -35,6 +42,6 @@ export default {
 
 .topnav__logo {
   width: auto;
-  height: 30px;
+  height: 100%;
 }
 </style>

@@ -7,17 +7,12 @@
   </div>
 </template>
 <script>
-import Github from "~/assets/images/github-logo.svg";
-import { get } from "axios";
-import Prism from 'vue-prism-component'
+import axios from "axios";
+import Prism from "vue-prism-component";
 
 export default {
   components: {
-    Github,
     Prism,
-  },
-  created() {
-    this.fetchData();
   },
   props: {
     fileUrl: String,
@@ -32,18 +27,6 @@ export default {
       failed: false,
     };
   },
-  methods: {
-    fetchData: function() {
-      return get(this.rawLink, { responseType: 'text' })
-        .then(res => {
-          this.content = res.data;
-          this.$emit("code-fetched");
-        }).catch(e => {
-          this.content = "Failed to load code, please use the link";
-          this.failed = true;
-        })
-    },
-  },
   computed: {
     rawLink: function() {
       return this.fileUrl
@@ -51,11 +34,27 @@ export default {
         .replace("/blob/", "/");
     },
     shortFileUrl: function() {
-      return this.fileUrl.substring(this.fileUrl.lastIndexOf('/') + 1);
+      return this.fileUrl.substring(this.fileUrl.lastIndexOf("/") + 1);
     },
     fillScreen: function() {
       return !this.failed && this.content === "Loading...";
     }
+  },
+  created() {
+    this.fetchData();
+  },
+  methods: {
+    fetchData: function() {
+      return axios.get(this.rawLink, { responseType: "text" })
+        .then(res => {
+          this.content = res.data;
+          this.$emit("code-fetched");
+        }).catch(e => {
+          console.error(e);
+          this.content = "Failed to load code, please use the link";
+          this.failed = true;
+        });
+    },
   }
 };
 </script>

@@ -121,7 +121,7 @@
 .docsnav h3,
 .articlenav h3 {
   font-weight: 700;
-  font-family: "Oxanium", sans-serif;
+  font-family: sans-serif;
   font-size: 17px;
 }
 </style>

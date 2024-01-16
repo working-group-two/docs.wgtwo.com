@@ -31,7 +31,7 @@ The following `status` codes are defined:
 | `CODE_OK`                  | 1    | Indicates that the attachment was successful.                                                                                                                                                              |
 | `CODE_ABSENT_PROFILE`      | 2    | Currently not used                                                                                                                                                                                         |
 | `CODE_ABSENT_SUBSCRIBER`   | 3    | Currently not used                                                                                                                                                                                         |
-| `CODE_UNKNOWN_PROFILE`     | 4    | Indicates that the subscriber was not allowed to attach because it is not provisioned on the WGTWO platform.                                                                                               |
+| `CODE_UNKNOWN_PROFILE`     | 4    | Indicates that the subscriber was not allowed to attach because it is not provisioned on the platform.                                                                                               |
 | `CODE_BLOCKED_PROFILE`     | 5    | Indicates that the subscriber was not allowed to attach because it is inactive/blocked                                                                                                                     |
 | `CODE_ROAMING_NOT_ALLOWED` | 6    | Indicates that the subscriber was not allowed to attach because it either was missing the roaming services or because the roaming profile of the subscriber did not allow the it to roam at that location. |
 
