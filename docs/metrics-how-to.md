@@ -10,41 +10,42 @@ sourceExamples:
 # Accessing Metrics
 
 ## Overview
-The platform exposes metrics that can help operators getting some operational insight. This data is exposed using the [OpenMetrics text format](https://openmetrics.io/).
 
-This text format is the same as exposed by Prometheus. In addition to being supported by Prometheus, many other systems
-has OpenMetrics integrations such as
-[Datadog](https://docs.datadoghq.com/integrations/openmetrics/)
-and [New Relic](https://docs.newrelic.com/docs/integrations/prometheus-integrations).
+You may query our HTTP endpoint to get the current state of all the metrics that has been made available for you.
+The metrics are exposed in the [OpenMetrics text format](https://openmetrics.io/), and can be scraped by Prometheus or
+other systems that support this format.
 
-The HTTP endpoint we provide will give you the current state of all of your metrics. We do not provide a query API.
+These metrics are aimed for providing operational insight, and would not be suitable for billing purposes.
 
 Please reach out to clarify what metrics you would need access to.
 
 ## Credentials
-This API is only supported by operator tokens. Operator tokens are now deprecated, and should only be used for this API.
 
-This API requires the `metrics.read` scope.
+To use this API, you would need to have a OAuth 2.0 client and be granted the `metrics.read` scope.
 
-**Base path: `https://api.wgtwo.com/metrics/v1`**
-
+See: [Get client access token](https://docs.wgtwo.com/guide/oauth2/get-client-access-token.html)
 
 ## Get metrics, curl
+
 ```shell script
-curl -s -u ${CLIENT_ID}:${CLIENT_SECRET} https://api.wgtwo.com/metrics/v1
+curl -s --oauth2-bearer $ACCESS_TOKEN https://api.wgtwo.com/metrics/v1
 ```
 
 ## Get metrics, Prometheus
+
 The below Prometheus config will scrape the metric endpoint every 30 seconds,
 fetching all available time series. Note that the configuration will contain secrets.
+
+You may replace `client_secret` with `client_secret_file` which should contain the path to a file containing the secret.
 
 See: [prometheus.io › Configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/)
 
 <source-example
-  :src="$sourceExamplesMap['examples/config/operator/metrics/prometheus.yml']"
-  />
+:src="$sourceExamplesMap['examples/config/operator/metrics/prometheus.yml']"
+/>
 
 ### Example: Run with Docker
+
 > See: [prometheus.io › Using Docker](https://prometheus.io/docs/prometheus/latest/installation/#using-docker)
 
 If you run the below commands, you should have Prometheus running successfully.
@@ -55,13 +56,17 @@ If you run the below commands, you should have Prometheus running successfully.
 docker run -p 9090:9090 -v prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
 ```
 
-### Grafana
-> See: [grafana.com › Using Prometheus in Grafana](https://grafana.com/docs/grafana/latest/features/datasources/prometheus/)
+## Grafana
 
-As our metric API does not expose a query API, it cannot be used by Grafana directly.
-However, Grafana has built-in support for Prometheus.
+Many of our customers use Grafana to visualize their metrics.
 
+In order to use Grafana with our metrics, you would need to have a Prometheus server running and scraping the metrics.
+
+An alternative to running this yourself would be to use [Grafana Cloud](https://grafana.com/products/cloud/). In that
+case you would typically run Grafana Agent, which is a Prometheus-compatible agent that can scrape metrics and send them
+to Grafana Cloud.
 
 ## Links
+
 * [openmetrics.io](https://openmetrics.io/)
 * [prometheus.io](https://prometheus.io/) › [Exposition Formats](https://prometheus.io/docs/instrumenting/exposition_formats/#text-based-format)

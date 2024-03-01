@@ -98,7 +98,6 @@ import EventsIcon from "~/assets/images/events-icon.svg";
 import SmsIcon from "~/assets/images/sms-icon.svg";
 import MmsIcon from "~/assets/images/mms-icon.svg";
 import UsertokensIcon from "~/assets/images/key-icon.svg";
-import VoicemailIcon from "~/assets/images/voicemail-icon.svg";
 import SubscriptionProfileIcon from "~/assets/images/subscription-profile-icon.svg";
 import SubscriberLocationIcon from "~/assets/images/subscriber-location-icon.svg";
 import MetricsIcon from "~/assets/images/metrics-icon.svg";
@@ -119,7 +118,6 @@ export default {
     SmsIcon,
     MmsIcon,
     UsertokensIcon,
-    VoicemailIcon,
     SubscriptionProfileIcon,
     SubscriberLocationIcon,
     MetricsIcon,
@@ -166,12 +164,6 @@ export default {
         title: "Data",
         text: "Manage your data connection",
         url: "/data/set-custom-dns/",
-      },
-      {
-        icon: "VoicemailIcon",
-        title: "Voicemail",
-        text: "Access a subscribers Voicemail inbox, including the audio files.",
-        url: "/voicemail/list-play-delete-and-configure-voicemails/",
       },
       {
         icon: "SubscriptionProfileIcon",

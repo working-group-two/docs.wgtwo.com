@@ -13,7 +13,6 @@
     </parent>
 
     <modules>
-        <module>voicemail</module>
         <module>mms</module>
         <module>sms</module>
     </modules>

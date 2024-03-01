@@ -53,12 +53,6 @@ export default {
                   <artifactId>sms</artifactId>
                   <version>${v0Version}</version>
               </dependency>`.trim().replace(/^ {10}/gm, ""),
-        "voicemail-grpc": `
-              <dependency>
-                  <groupId>com.wgtwo.api.v0.grpc</groupId>
-                  <artifactId>voicemail</artifactId>
-                  <version>${v0Version}</version>
-              </dependency>`.trim().replace(/^ {16}/gm, ""),
         "utils-grpc": `
               <dependency>
                   <groupId>com.github.working-group-two.wgtwoapis</groupId>

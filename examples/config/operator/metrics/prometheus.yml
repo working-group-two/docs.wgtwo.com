@@ -3,15 +3,20 @@ global:
   evaluation_interval: 30s
 
 scrape_configs:
-  - job_name: wgtwo
+  - job_name: cisco
 
     metrics_path: /metrics/v1
 
     scheme: https
-    basic_auth:
-      username: "CLIENT_ID"
-      password: "CLIENT_SECRET"
+    oauth2:
+        client_id: "CLIENT_ID"
+        client_secret: "CLIENT_SECRET"
+        scopes:
+          - metrics.read
+        token_url: "https://id.wgtwo.com/oauth2/token"
 
     static_configs:
       - targets:
-          - "api.wgtwo.com:443"
+          - "api.wgtwo.com:443" # Dublin
+          - "api.sakura.wgtwo.com:443" # Tokyo
+          - "api.oak.wgtwo.com:443" # Oregon
